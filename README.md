@@ -3,7 +3,7 @@ Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.te
 
 This a [HackFS](https://hackfs.com/) project. The gRPC client is Phase 1 in the concept diagram below. It is intended to serve as a stand-alone component that can be used in other projects.
 
-See the project wiki for additional resources and project status.
+See the project [wiki](https://github.com/pygate/gRPC-client/wiki) for additional resources and project status.
 
 ![concept_diagram](pygate_concept.png)
 
