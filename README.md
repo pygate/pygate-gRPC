@@ -12,4 +12,4 @@ See the project [wiki](https://github.com/pygate/gRPC-client/wiki) for additiona
 1) Create a Python gRPC client for the Powergate API.
 2) Create a Flask application that reads and writes to IPFS & Filecoin using this client.
 3) Drop the Flask app in an Electron shell and create a cross-platform, drag-and-drop desktop app that moves local files to and from IPFS/Filecoin.
-4) Add smart contracts to the desktop app to provide escrow funding for storage deals.
+4) Add Ethereum smart contract(s) to the desktop app to provide escrow funding for storage deals.
