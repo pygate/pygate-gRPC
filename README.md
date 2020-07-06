@@ -1,7 +1,7 @@
-# pygate
+# pygate gRPC client
 Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API
 
-This a [HackFS](https://hackfs.com/) project.
+This a [HackFS](https://hackfs.com/) project. The gRPC client is Phase 1 in the concept diagram below. It is intended to serve as a stand-alone component that can be used in other projects.
 
 ![concept_diagram](pygate_concept.png)
 
