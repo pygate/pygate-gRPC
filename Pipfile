@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+bump2version = "*"
+black = "==19.10b0"
+pipenv-setup = "*"
+setuptools = "*"
+wheel = "*"
+twine = "*"
+keyring = "==19.2.0"
+
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+build = "python setup.py sdist bdist_wheel"
+publish = "twine upload dist/*"
+format = "bash -c \"python -m black $(git ls-files '*.py')\""
