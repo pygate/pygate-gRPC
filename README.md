@@ -93,7 +93,7 @@ git push origin main --tags
 
 * **Antreas Pogiatzis** - *Initial scaffolding* 
 
-See also the list of [contributors](https://github.com/apogiatzis/powsolver/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/pygate/pygate-gRPC/graphs/contributors) who participated in this project.
 
 ## License
 
