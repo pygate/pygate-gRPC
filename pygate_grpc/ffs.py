@@ -11,8 +11,3 @@ class FaultsClient(object):
     def get(self):
         req = faults_rpc_pb2.GetRequest()
         return self.client.Get(req)
-
-if __name__ == "__main__":
-    c = FaultsClient("127.0.0.1:5002")
-    print(c.get())
-    # print(c.pendingDealRecordsRequest())
