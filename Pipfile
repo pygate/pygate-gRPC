@@ -11,7 +11,7 @@ setuptools = "*"
 wheel = "*"
 twine = "*"
 keyring = "==19.2.0"
-
+pytest = "*"
 
 [requires]
 python_version = "3.7"
@@ -20,3 +20,9 @@ python_version = "3.7"
 build = "python setup.py sdist bdist_wheel"
 publish = "twine upload dist/*"
 format = "bash -c \"python -m black $(git ls-files '*.py')\""
+integration = "python -m pytest tests/integration/"
+
+
+[packages]
+grpcio = "*"
+protobuf = "*"
