@@ -1,4 +1,4 @@
-from grpcio import grpc
+import grpc
 from pygate_grpc.client import PowerGateClient
 
 
