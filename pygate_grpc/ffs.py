@@ -3,8 +3,8 @@ import grpc
 import proto.ffs_rpc_pb2 as ffs_rpc_pb2
 import proto.ffs_rpc_pb2_grpc as ffs_rpc_pb2_grpc
 
-TOKEN_KEY = "x-ffs-token"
-
+TOKEN_KEY = 'x-ffs-token'
+CHUNK_SIZE = 1024 * 1024  # 1MB
 
 class FfsClient(object):
     def __init__(self, host_name):
@@ -14,6 +14,10 @@ class FfsClient(object):
 
     def _getMetaData(self, token):
         return ((TOKEN_KEY, token),)
+
+    def _generateChunks(self, chunks):
+        for chunk in chunks:
+            yield ffs_rpc_pb2.AddToHotRequest(chunk=chunk)
 
     def create(self):
         req = ffs_rpc_pb2.CreateRequest()
@@ -33,15 +37,26 @@ class FfsClient(object):
         req = ffs_rpc_pb2.IDRequest()
         return self.client.ID(req, metadata=self._getMetaData(token))
 
-    def add_to_hot(self, chunks):
-        # TODO: need to figure out how to send file chunk to server
-        pass
+    # Note that the chunkIter should be an iterator that yield `ffs_rpc_pb2.AddToHotRequest`,
+    # it is the caller's responsibility to create the iterator.
+    # The provided getFileChunks comes in handy some times.
+    def addToHot(self, chunksIter, token):
+        return self.client.AddToHot(chunksIter, metadata=self._getMetaData(token))
 
     def logs(self, cid, token):
-        req = ffs_rpc_pb2.WatchLogsRequest()
-        req.setCid(cid)
+        req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
         return self.client.WatchLogs(req, metadata=self._getMetaData(token))
 
     def info(self, cid, token):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
         return self.client.Info(req, metadata=self._getMetaData(token))
+
+    def getFileChunks(self, filename):
+        with open(filename, 'rb') as f:
+            while True:
+                piece = f.read(CHUNK_SIZE)
+                if len(piece) == 0:
+                    return
+                yield ffs_rpc_pb2.AddToHotRequest(chunk=piece)
+
+
