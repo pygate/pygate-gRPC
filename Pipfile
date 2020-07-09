@@ -17,6 +17,7 @@ docker = "*"
 gitpython = "*"
 pytest-docker = "*"
 grpcio-tools = "*"
+keyring = "==19.2.0"
 
 [requires]
 python_version = "3.7"
