@@ -16,7 +16,7 @@ docker = "*"
 gitpython = "*"
 pytest-docker = "*"
 grpcio-tools = "*"
-secretstorage = {markers="sys_platform == 'linux'"}
+secretstorage = {markers = "sys_platform == 'linux'"}
 keyring = "==19.1.0"
 
 [requires]
@@ -26,8 +26,9 @@ python_version = "3.7"
 build = "python setup.py sdist bdist_wheel"
 publish = "twine upload dist/*"
 format = "bash -c \"python -m black $(git ls-files '*.py')\""
-integration-test = "py.test tests/integration/"
+integration-test = "python -m py.test tests/integration/"
 
 [packages]
 grpcio = "*"
 protobuf = "*"
+six = "*"
