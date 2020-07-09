@@ -6,1676 +6,1031 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
+
+
 DESCRIPTOR = _descriptor.FileDescriptor(
-    name="deals_rpc.proto",
-    package="deals.rpc",
-    syntax="proto3",
-    serialized_options=b"Z(github.com/textileio/powergate/deals/rpc",
-    create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n\x0f\x64\x65\x61ls_rpc.proto\x12\tdeals.rpc"\xee\x01\n\x08\x44\x65\x61lInfo\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\x10\n\x08state_id\x18\x02 \x01(\x04\x12\x12\n\nstate_name\x18\x03 \x01(\t\x12\r\n\x05miner\x18\x04 \x01(\t\x12\x11\n\tpiece_cid\x18\x05 \x01(\t\x12\x0c\n\x04size\x18\x06 \x01(\x04\x12\x17\n\x0fprice_per_epoch\x18\x07 \x01(\x04\x12\x13\n\x0bstart_epoch\x18\x08 \x01(\x04\x12\x10\n\x08\x64uration\x18\t \x01(\x04\x12\x0f\n\x07\x64\x65\x61l_id\x18\n \x01(\x04\x12\x18\n\x10\x61\x63tivation_epoch\x18\x0b \x01(\x03\x12\x0b\n\x03msg\x18\x0c \x01(\t"a\n\nDealRecord\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0f\n\x07pending\x18\x03 \x01(\x08\x12&\n\tdeal_info\x18\x04 \x01(\x0b\x32\x13.deals.rpc.DealInfo"\xa6\x01\n\rRetrievalInfo\x12\x11\n\tpiece_cid\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x11\n\tmin_price\x18\x03 \x01(\x04\x12\x18\n\x10payment_interval\x18\x04 \x01(\x04\x12!\n\x19payment_interval_increase\x18\x05 \x01(\x04\x12\r\n\x05miner\x18\x06 \x01(\t\x12\x15\n\rminer_peer_id\x18\x07 \x01(\t"_\n\x0fRetrievalRecord\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x30\n\x0eretrieval_info\x18\x03 \x01(\x0b\x32\x18.deals.rpc.RetrievalInfo"0\n\nDealConfig\x12\r\n\x05miner\x18\x01 \x01(\t\x12\x13\n\x0b\x65poch_price\x18\x02 \x01(\x04"a\n\x0bStoreParams\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12+\n\x0c\x64\x65\x61l_configs\x18\x02 \x03(\x0b\x32\x15.deals.rpc.DealConfig\x12\x14\n\x0cmin_duration\x18\x03 \x01(\x04"Z\n\x0cStoreRequest\x12.\n\x0cstore_params\x18\x01 \x01(\x0b\x32\x16.deals.rpc.StoreParamsH\x00\x12\x0f\n\x05\x63hunk\x18\x02 \x01(\x0cH\x00\x42\t\n\x07payload"e\n\rStoreResponse\x12\x10\n\x08\x64\x61ta_cid\x18\x01 \x01(\t\x12\x15\n\rproposal_cids\x18\x02 \x03(\t\x12+\n\x0c\x66\x61iled_deals\x18\x03 \x03(\x0b\x32\x15.deals.rpc.DealConfig"!\n\x0cWatchRequest\x12\x11\n\tproposals\x18\x01 \x03(\t"7\n\rWatchResponse\x12&\n\tdeal_info\x18\x01 \x01(\x0b\x32\x13.deals.rpc.DealInfo"/\n\x0fRetrieveRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0b\n\x03\x63id\x18\x02 \x01(\t"!\n\x10RetrieveResponse\x12\r\n\x05\x63hunk\x18\x01 \x01(\x0c"\x19\n\x17\x46inalDealRecordsRequest"B\n\x18\x46inalDealRecordsResponse\x12&\n\x07records\x18\x01 \x03(\x0b\x32\x15.deals.rpc.DealRecord"\x1b\n\x19PendingDealRecordsRequest"D\n\x1aPendingDealRecordsResponse\x12&\n\x07records\x18\x01 \x03(\x0b\x32\x15.deals.rpc.DealRecord"\x17\n\x15\x41llDealRecordsRequest"@\n\x16\x41llDealRecordsResponse\x12&\n\x07records\x18\x01 \x03(\x0b\x32\x15.deals.rpc.DealRecord"\x19\n\x17RetrievalRecordsRequest"G\n\x18RetrievalRecordsResponse\x12+\n\x07records\x18\x01 \x03(\x0b\x32\x1a.deals.rpc.RetrievalRecord2\xd1\x04\n\nRPCService\x12>\n\x05Store\x12\x17.deals.rpc.StoreRequest\x1a\x18.deals.rpc.StoreResponse"\x00(\x01\x12>\n\x05Watch\x12\x17.deals.rpc.WatchRequest\x1a\x18.deals.rpc.WatchResponse"\x00\x30\x01\x12G\n\x08Retrieve\x12\x1a.deals.rpc.RetrieveRequest\x1a\x1b.deals.rpc.RetrieveResponse"\x00\x30\x01\x12]\n\x10\x46inalDealRecords\x12".deals.rpc.FinalDealRecordsRequest\x1a#.deals.rpc.FinalDealRecordsResponse"\x00\x12\x63\n\x12PendingDealRecords\x12$.deals.rpc.PendingDealRecordsRequest\x1a%.deals.rpc.PendingDealRecordsResponse"\x00\x12W\n\x0e\x41llDealRecords\x12 .deals.rpc.AllDealRecordsRequest\x1a!.deals.rpc.AllDealRecordsResponse"\x00\x12]\n\x10RetrievalRecords\x12".deals.rpc.RetrievalRecordsRequest\x1a#.deals.rpc.RetrievalRecordsResponse"\x00\x42*Z(github.com/textileio/powergate/deals/rpcb\x06proto3',
+  name='deals_rpc.proto',
+  package='deals.rpc',
+  syntax='proto3',
+  serialized_options=b'Z(github.com/textileio/powergate/deals/rpc',
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x0f\x64\x65\x61ls_rpc.proto\x12\tdeals.rpc\"\x81\x01\n\x15ListDealRecordsConfig\x12\x12\n\nfrom_addrs\x18\x01 \x03(\t\x12\x11\n\tdata_cids\x18\x02 \x03(\t\x12\x17\n\x0finclude_pending\x18\x03 \x01(\x08\x12\x15\n\rinclude_final\x18\x04 \x01(\x08\x12\x11\n\tascending\x18\x05 \x01(\x08\"\xf5\x01\n\x0fStorageDealInfo\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\x10\n\x08state_id\x18\x02 \x01(\x04\x12\x12\n\nstate_name\x18\x03 \x01(\t\x12\r\n\x05miner\x18\x04 \x01(\t\x12\x11\n\tpiece_cid\x18\x05 \x01(\t\x12\x0c\n\x04size\x18\x06 \x01(\x04\x12\x17\n\x0fprice_per_epoch\x18\x07 \x01(\x04\x12\x13\n\x0bstart_epoch\x18\x08 \x01(\x04\x12\x10\n\x08\x64uration\x18\t \x01(\x04\x12\x0f\n\x07\x64\x65\x61l_id\x18\n \x01(\x04\x12\x18\n\x10\x61\x63tivation_epoch\x18\x0b \x01(\x03\x12\x0b\n\x03msg\x18\x0c \x01(\t\"\x81\x01\n\x11StorageDealRecord\x12\x10\n\x08root_cid\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x0f\n\x07pending\x18\x04 \x01(\x08\x12-\n\tdeal_info\x18\x05 \x01(\x0b\x32\x1a.deals.rpc.StorageDealInfo\"\xa9\x01\n\x11RetrievalDealInfo\x12\x10\n\x08root_cid\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x11\n\tmin_price\x18\x03 \x01(\x04\x12\x18\n\x10payment_interval\x18\x04 \x01(\x04\x12!\n\x19payment_interval_increase\x18\x05 \x01(\x04\x12\r\n\x05miner\x18\x06 \x01(\t\x12\x15\n\rminer_peer_id\x18\x07 \x01(\t\"b\n\x13RetrievalDealRecord\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12/\n\tdeal_info\x18\x03 \x01(\x0b\x32\x1c.deals.rpc.RetrievalDealInfo\"0\n\nDealConfig\x12\r\n\x05miner\x18\x01 \x01(\t\x12\x13\n\x0b\x65poch_price\x18\x02 \x01(\x04\"a\n\x0bStoreParams\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12+\n\x0c\x64\x65\x61l_configs\x18\x02 \x03(\x0b\x32\x15.deals.rpc.DealConfig\x12\x14\n\x0cmin_duration\x18\x03 \x01(\x04\"Z\n\x0cStoreRequest\x12.\n\x0cstore_params\x18\x01 \x01(\x0b\x32\x16.deals.rpc.StoreParamsH\x00\x12\x0f\n\x05\x63hunk\x18\x02 \x01(\x0cH\x00\x42\t\n\x07payload\"e\n\rStoreResponse\x12\x10\n\x08\x64\x61ta_cid\x18\x01 \x01(\t\x12\x15\n\rproposal_cids\x18\x02 \x03(\t\x12+\n\x0c\x66\x61iled_deals\x18\x03 \x03(\x0b\x32\x15.deals.rpc.DealConfig\"!\n\x0cWatchRequest\x12\x11\n\tproposals\x18\x01 \x03(\t\">\n\rWatchResponse\x12-\n\tdeal_info\x18\x01 \x01(\x0b\x32\x1a.deals.rpc.StorageDealInfo\"/\n\x0fRetrieveRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0b\n\x03\x63id\x18\x02 \x01(\t\"!\n\x10RetrieveResponse\x12\r\n\x05\x63hunk\x18\x01 \x01(\x0c\"Q\n\x1dListStorageDealRecordsRequest\x12\x30\n\x06\x63onfig\x18\x01 \x01(\x0b\x32 .deals.rpc.ListDealRecordsConfig\"O\n\x1eListStorageDealRecordsResponse\x12-\n\x07records\x18\x01 \x03(\x0b\x32\x1c.deals.rpc.StorageDealRecord\"S\n\x1fListRetrievalDealRecordsRequest\x12\x30\n\x06\x63onfig\x18\x01 \x01(\x0b\x32 .deals.rpc.ListDealRecordsConfig\"S\n ListRetrievalDealRecordsResponse\x12/\n\x07records\x18\x01 \x03(\x0b\x32\x1e.deals.rpc.RetrievalDealRecord2\xbd\x03\n\nRPCService\x12>\n\x05Store\x12\x17.deals.rpc.StoreRequest\x1a\x18.deals.rpc.StoreResponse\"\x00(\x01\x12>\n\x05Watch\x12\x17.deals.rpc.WatchRequest\x1a\x18.deals.rpc.WatchResponse\"\x00\x30\x01\x12G\n\x08Retrieve\x12\x1a.deals.rpc.RetrieveRequest\x1a\x1b.deals.rpc.RetrieveResponse\"\x00\x30\x01\x12o\n\x16ListStorageDealRecords\x12(.deals.rpc.ListStorageDealRecordsRequest\x1a).deals.rpc.ListStorageDealRecordsResponse\"\x00\x12u\n\x18ListRetrievalDealRecords\x12*.deals.rpc.ListRetrievalDealRecordsRequest\x1a+.deals.rpc.ListRetrievalDealRecordsResponse\"\x00\x42*Z(github.com/textileio/powergate/deals/rpcb\x06proto3'
 )
 
 
-_DEALINFO = _descriptor.Descriptor(
-    name="DealInfo",
-    full_name="deals.rpc.DealInfo",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="proposal_cid",
-            full_name="deals.rpc.DealInfo.proposal_cid",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="state_id",
-            full_name="deals.rpc.DealInfo.state_id",
-            index=1,
-            number=2,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="state_name",
-            full_name="deals.rpc.DealInfo.state_name",
-            index=2,
-            number=3,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="miner",
-            full_name="deals.rpc.DealInfo.miner",
-            index=3,
-            number=4,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="piece_cid",
-            full_name="deals.rpc.DealInfo.piece_cid",
-            index=4,
-            number=5,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="size",
-            full_name="deals.rpc.DealInfo.size",
-            index=5,
-            number=6,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="price_per_epoch",
-            full_name="deals.rpc.DealInfo.price_per_epoch",
-            index=6,
-            number=7,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="start_epoch",
-            full_name="deals.rpc.DealInfo.start_epoch",
-            index=7,
-            number=8,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="duration",
-            full_name="deals.rpc.DealInfo.duration",
-            index=8,
-            number=9,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="deal_id",
-            full_name="deals.rpc.DealInfo.deal_id",
-            index=9,
-            number=10,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="activation_epoch",
-            full_name="deals.rpc.DealInfo.activation_epoch",
-            index=10,
-            number=11,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="msg",
-            full_name="deals.rpc.DealInfo.msg",
-            index=11,
-            number=12,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=31,
-    serialized_end=269,
+
+
+_LISTDEALRECORDSCONFIG = _descriptor.Descriptor(
+  name='ListDealRecordsConfig',
+  full_name='deals.rpc.ListDealRecordsConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='from_addrs', full_name='deals.rpc.ListDealRecordsConfig.from_addrs', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_cids', full_name='deals.rpc.ListDealRecordsConfig.data_cids', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='include_pending', full_name='deals.rpc.ListDealRecordsConfig.include_pending', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='include_final', full_name='deals.rpc.ListDealRecordsConfig.include_final', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ascending', full_name='deals.rpc.ListDealRecordsConfig.ascending', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=31,
+  serialized_end=160,
 )
 
 
-_DEALRECORD = _descriptor.Descriptor(
-    name="DealRecord",
-    full_name="deals.rpc.DealRecord",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="addr",
-            full_name="deals.rpc.DealRecord.addr",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="time",
-            full_name="deals.rpc.DealRecord.time",
-            index=1,
-            number=2,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="pending",
-            full_name="deals.rpc.DealRecord.pending",
-            index=2,
-            number=3,
-            type=8,
-            cpp_type=7,
-            label=1,
-            has_default_value=False,
-            default_value=False,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="deal_info",
-            full_name="deals.rpc.DealRecord.deal_info",
-            index=3,
-            number=4,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=271,
-    serialized_end=368,
+_STORAGEDEALINFO = _descriptor.Descriptor(
+  name='StorageDealInfo',
+  full_name='deals.rpc.StorageDealInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='proposal_cid', full_name='deals.rpc.StorageDealInfo.proposal_cid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='state_id', full_name='deals.rpc.StorageDealInfo.state_id', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='state_name', full_name='deals.rpc.StorageDealInfo.state_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='miner', full_name='deals.rpc.StorageDealInfo.miner', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='piece_cid', full_name='deals.rpc.StorageDealInfo.piece_cid', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='size', full_name='deals.rpc.StorageDealInfo.size', index=5,
+      number=6, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='price_per_epoch', full_name='deals.rpc.StorageDealInfo.price_per_epoch', index=6,
+      number=7, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_epoch', full_name='deals.rpc.StorageDealInfo.start_epoch', index=7,
+      number=8, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='duration', full_name='deals.rpc.StorageDealInfo.duration', index=8,
+      number=9, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deal_id', full_name='deals.rpc.StorageDealInfo.deal_id', index=9,
+      number=10, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='activation_epoch', full_name='deals.rpc.StorageDealInfo.activation_epoch', index=10,
+      number=11, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='msg', full_name='deals.rpc.StorageDealInfo.msg', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=163,
+  serialized_end=408,
 )
 
 
-_RETRIEVALINFO = _descriptor.Descriptor(
-    name="RetrievalInfo",
-    full_name="deals.rpc.RetrievalInfo",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="piece_cid",
-            full_name="deals.rpc.RetrievalInfo.piece_cid",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="size",
-            full_name="deals.rpc.RetrievalInfo.size",
-            index=1,
-            number=2,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="min_price",
-            full_name="deals.rpc.RetrievalInfo.min_price",
-            index=2,
-            number=3,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="payment_interval",
-            full_name="deals.rpc.RetrievalInfo.payment_interval",
-            index=3,
-            number=4,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="payment_interval_increase",
-            full_name="deals.rpc.RetrievalInfo.payment_interval_increase",
-            index=4,
-            number=5,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="miner",
-            full_name="deals.rpc.RetrievalInfo.miner",
-            index=5,
-            number=6,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="miner_peer_id",
-            full_name="deals.rpc.RetrievalInfo.miner_peer_id",
-            index=6,
-            number=7,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=371,
-    serialized_end=537,
+_STORAGEDEALRECORD = _descriptor.Descriptor(
+  name='StorageDealRecord',
+  full_name='deals.rpc.StorageDealRecord',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='root_cid', full_name='deals.rpc.StorageDealRecord.root_cid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='addr', full_name='deals.rpc.StorageDealRecord.addr', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='deals.rpc.StorageDealRecord.time', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pending', full_name='deals.rpc.StorageDealRecord.pending', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deal_info', full_name='deals.rpc.StorageDealRecord.deal_info', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=411,
+  serialized_end=540,
 )
 
 
-_RETRIEVALRECORD = _descriptor.Descriptor(
-    name="RetrievalRecord",
-    full_name="deals.rpc.RetrievalRecord",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="addr",
-            full_name="deals.rpc.RetrievalRecord.addr",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="time",
-            full_name="deals.rpc.RetrievalRecord.time",
-            index=1,
-            number=2,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="retrieval_info",
-            full_name="deals.rpc.RetrievalRecord.retrieval_info",
-            index=2,
-            number=3,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=539,
-    serialized_end=634,
+_RETRIEVALDEALINFO = _descriptor.Descriptor(
+  name='RetrievalDealInfo',
+  full_name='deals.rpc.RetrievalDealInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='root_cid', full_name='deals.rpc.RetrievalDealInfo.root_cid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='size', full_name='deals.rpc.RetrievalDealInfo.size', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='min_price', full_name='deals.rpc.RetrievalDealInfo.min_price', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='payment_interval', full_name='deals.rpc.RetrievalDealInfo.payment_interval', index=3,
+      number=4, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='payment_interval_increase', full_name='deals.rpc.RetrievalDealInfo.payment_interval_increase', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='miner', full_name='deals.rpc.RetrievalDealInfo.miner', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='miner_peer_id', full_name='deals.rpc.RetrievalDealInfo.miner_peer_id', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=543,
+  serialized_end=712,
+)
+
+
+_RETRIEVALDEALRECORD = _descriptor.Descriptor(
+  name='RetrievalDealRecord',
+  full_name='deals.rpc.RetrievalDealRecord',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='addr', full_name='deals.rpc.RetrievalDealRecord.addr', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='deals.rpc.RetrievalDealRecord.time', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deal_info', full_name='deals.rpc.RetrievalDealRecord.deal_info', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=714,
+  serialized_end=812,
 )
 
 
 _DEALCONFIG = _descriptor.Descriptor(
-    name="DealConfig",
-    full_name="deals.rpc.DealConfig",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="miner",
-            full_name="deals.rpc.DealConfig.miner",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="epoch_price",
-            full_name="deals.rpc.DealConfig.epoch_price",
-            index=1,
-            number=2,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=636,
-    serialized_end=684,
+  name='DealConfig',
+  full_name='deals.rpc.DealConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='miner', full_name='deals.rpc.DealConfig.miner', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='epoch_price', full_name='deals.rpc.DealConfig.epoch_price', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=814,
+  serialized_end=862,
 )
 
 
 _STOREPARAMS = _descriptor.Descriptor(
-    name="StoreParams",
-    full_name="deals.rpc.StoreParams",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="address",
-            full_name="deals.rpc.StoreParams.address",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="deal_configs",
-            full_name="deals.rpc.StoreParams.deal_configs",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="min_duration",
-            full_name="deals.rpc.StoreParams.min_duration",
-            index=2,
-            number=3,
-            type=4,
-            cpp_type=4,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=686,
-    serialized_end=783,
+  name='StoreParams',
+  full_name='deals.rpc.StoreParams',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='deals.rpc.StoreParams.address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deal_configs', full_name='deals.rpc.StoreParams.deal_configs', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='min_duration', full_name='deals.rpc.StoreParams.min_duration', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=864,
+  serialized_end=961,
 )
 
 
 _STOREREQUEST = _descriptor.Descriptor(
-    name="StoreRequest",
-    full_name="deals.rpc.StoreRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="store_params",
-            full_name="deals.rpc.StoreRequest.store_params",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="chunk",
-            full_name="deals.rpc.StoreRequest.chunk",
-            index=1,
-            number=2,
-            type=12,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"",
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[
-        _descriptor.OneofDescriptor(
-            name="payload",
-            full_name="deals.rpc.StoreRequest.payload",
-            index=0,
-            containing_type=None,
-            create_key=_descriptor._internal_create_key,
-            fields=[],
-        ),
-    ],
-    serialized_start=785,
-    serialized_end=875,
+  name='StoreRequest',
+  full_name='deals.rpc.StoreRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='store_params', full_name='deals.rpc.StoreRequest.store_params', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='chunk', full_name='deals.rpc.StoreRequest.chunk', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='payload', full_name='deals.rpc.StoreRequest.payload',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=963,
+  serialized_end=1053,
 )
 
 
 _STORERESPONSE = _descriptor.Descriptor(
-    name="StoreResponse",
-    full_name="deals.rpc.StoreResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="data_cid",
-            full_name="deals.rpc.StoreResponse.data_cid",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="proposal_cids",
-            full_name="deals.rpc.StoreResponse.proposal_cids",
-            index=1,
-            number=2,
-            type=9,
-            cpp_type=9,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="failed_deals",
-            full_name="deals.rpc.StoreResponse.failed_deals",
-            index=2,
-            number=3,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=877,
-    serialized_end=978,
+  name='StoreResponse',
+  full_name='deals.rpc.StoreResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='data_cid', full_name='deals.rpc.StoreResponse.data_cid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proposal_cids', full_name='deals.rpc.StoreResponse.proposal_cids', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed_deals', full_name='deals.rpc.StoreResponse.failed_deals', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1055,
+  serialized_end=1156,
 )
 
 
 _WATCHREQUEST = _descriptor.Descriptor(
-    name="WatchRequest",
-    full_name="deals.rpc.WatchRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="proposals",
-            full_name="deals.rpc.WatchRequest.proposals",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=980,
-    serialized_end=1013,
+  name='WatchRequest',
+  full_name='deals.rpc.WatchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='proposals', full_name='deals.rpc.WatchRequest.proposals', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1158,
+  serialized_end=1191,
 )
 
 
 _WATCHRESPONSE = _descriptor.Descriptor(
-    name="WatchResponse",
-    full_name="deals.rpc.WatchResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="deal_info",
-            full_name="deals.rpc.WatchResponse.deal_info",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1015,
-    serialized_end=1070,
+  name='WatchResponse',
+  full_name='deals.rpc.WatchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='deal_info', full_name='deals.rpc.WatchResponse.deal_info', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1193,
+  serialized_end=1255,
 )
 
 
 _RETRIEVEREQUEST = _descriptor.Descriptor(
-    name="RetrieveRequest",
-    full_name="deals.rpc.RetrieveRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="address",
-            full_name="deals.rpc.RetrieveRequest.address",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="cid",
-            full_name="deals.rpc.RetrieveRequest.cid",
-            index=1,
-            number=2,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1072,
-    serialized_end=1119,
+  name='RetrieveRequest',
+  full_name='deals.rpc.RetrieveRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='deals.rpc.RetrieveRequest.address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cid', full_name='deals.rpc.RetrieveRequest.cid', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1257,
+  serialized_end=1304,
 )
 
 
 _RETRIEVERESPONSE = _descriptor.Descriptor(
-    name="RetrieveResponse",
-    full_name="deals.rpc.RetrieveResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="chunk",
-            full_name="deals.rpc.RetrieveResponse.chunk",
-            index=0,
-            number=1,
-            type=12,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"",
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1121,
-    serialized_end=1154,
+  name='RetrieveResponse',
+  full_name='deals.rpc.RetrieveResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='chunk', full_name='deals.rpc.RetrieveResponse.chunk', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1306,
+  serialized_end=1339,
 )
 
 
-_FINALDEALRECORDSREQUEST = _descriptor.Descriptor(
-    name="FinalDealRecordsRequest",
-    full_name="deals.rpc.FinalDealRecordsRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1156,
-    serialized_end=1181,
+_LISTSTORAGEDEALRECORDSREQUEST = _descriptor.Descriptor(
+  name='ListStorageDealRecordsRequest',
+  full_name='deals.rpc.ListStorageDealRecordsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='config', full_name='deals.rpc.ListStorageDealRecordsRequest.config', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1341,
+  serialized_end=1422,
 )
 
 
-_FINALDEALRECORDSRESPONSE = _descriptor.Descriptor(
-    name="FinalDealRecordsResponse",
-    full_name="deals.rpc.FinalDealRecordsResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="records",
-            full_name="deals.rpc.FinalDealRecordsResponse.records",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1183,
-    serialized_end=1249,
+_LISTSTORAGEDEALRECORDSRESPONSE = _descriptor.Descriptor(
+  name='ListStorageDealRecordsResponse',
+  full_name='deals.rpc.ListStorageDealRecordsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='records', full_name='deals.rpc.ListStorageDealRecordsResponse.records', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1424,
+  serialized_end=1503,
 )
 
 
-_PENDINGDEALRECORDSREQUEST = _descriptor.Descriptor(
-    name="PendingDealRecordsRequest",
-    full_name="deals.rpc.PendingDealRecordsRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1251,
-    serialized_end=1278,
+_LISTRETRIEVALDEALRECORDSREQUEST = _descriptor.Descriptor(
+  name='ListRetrievalDealRecordsRequest',
+  full_name='deals.rpc.ListRetrievalDealRecordsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='config', full_name='deals.rpc.ListRetrievalDealRecordsRequest.config', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1505,
+  serialized_end=1588,
 )
 
 
-_PENDINGDEALRECORDSRESPONSE = _descriptor.Descriptor(
-    name="PendingDealRecordsResponse",
-    full_name="deals.rpc.PendingDealRecordsResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="records",
-            full_name="deals.rpc.PendingDealRecordsResponse.records",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1280,
-    serialized_end=1348,
+_LISTRETRIEVALDEALRECORDSRESPONSE = _descriptor.Descriptor(
+  name='ListRetrievalDealRecordsResponse',
+  full_name='deals.rpc.ListRetrievalDealRecordsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='records', full_name='deals.rpc.ListRetrievalDealRecordsResponse.records', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1590,
+  serialized_end=1673,
 )
 
-
-_ALLDEALRECORDSREQUEST = _descriptor.Descriptor(
-    name="AllDealRecordsRequest",
-    full_name="deals.rpc.AllDealRecordsRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1350,
-    serialized_end=1373,
-)
-
-
-_ALLDEALRECORDSRESPONSE = _descriptor.Descriptor(
-    name="AllDealRecordsResponse",
-    full_name="deals.rpc.AllDealRecordsResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="records",
-            full_name="deals.rpc.AllDealRecordsResponse.records",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1375,
-    serialized_end=1439,
-)
-
-
-_RETRIEVALRECORDSREQUEST = _descriptor.Descriptor(
-    name="RetrievalRecordsRequest",
-    full_name="deals.rpc.RetrievalRecordsRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1441,
-    serialized_end=1466,
-)
-
-
-_RETRIEVALRECORDSRESPONSE = _descriptor.Descriptor(
-    name="RetrievalRecordsResponse",
-    full_name="deals.rpc.RetrievalRecordsResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="records",
-            full_name="deals.rpc.RetrievalRecordsResponse.records",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1468,
-    serialized_end=1539,
-)
-
-_DEALRECORD.fields_by_name["deal_info"].message_type = _DEALINFO
-_RETRIEVALRECORD.fields_by_name["retrieval_info"].message_type = _RETRIEVALINFO
-_STOREPARAMS.fields_by_name["deal_configs"].message_type = _DEALCONFIG
-_STOREREQUEST.fields_by_name["store_params"].message_type = _STOREPARAMS
-_STOREREQUEST.oneofs_by_name["payload"].fields.append(
-    _STOREREQUEST.fields_by_name["store_params"]
-)
-_STOREREQUEST.fields_by_name[
-    "store_params"
-].containing_oneof = _STOREREQUEST.oneofs_by_name["payload"]
-_STOREREQUEST.oneofs_by_name["payload"].fields.append(
-    _STOREREQUEST.fields_by_name["chunk"]
-)
-_STOREREQUEST.fields_by_name["chunk"].containing_oneof = _STOREREQUEST.oneofs_by_name[
-    "payload"
-]
-_STORERESPONSE.fields_by_name["failed_deals"].message_type = _DEALCONFIG
-_WATCHRESPONSE.fields_by_name["deal_info"].message_type = _DEALINFO
-_FINALDEALRECORDSRESPONSE.fields_by_name["records"].message_type = _DEALRECORD
-_PENDINGDEALRECORDSRESPONSE.fields_by_name["records"].message_type = _DEALRECORD
-_ALLDEALRECORDSRESPONSE.fields_by_name["records"].message_type = _DEALRECORD
-_RETRIEVALRECORDSRESPONSE.fields_by_name["records"].message_type = _RETRIEVALRECORD
-DESCRIPTOR.message_types_by_name["DealInfo"] = _DEALINFO
-DESCRIPTOR.message_types_by_name["DealRecord"] = _DEALRECORD
-DESCRIPTOR.message_types_by_name["RetrievalInfo"] = _RETRIEVALINFO
-DESCRIPTOR.message_types_by_name["RetrievalRecord"] = _RETRIEVALRECORD
-DESCRIPTOR.message_types_by_name["DealConfig"] = _DEALCONFIG
-DESCRIPTOR.message_types_by_name["StoreParams"] = _STOREPARAMS
-DESCRIPTOR.message_types_by_name["StoreRequest"] = _STOREREQUEST
-DESCRIPTOR.message_types_by_name["StoreResponse"] = _STORERESPONSE
-DESCRIPTOR.message_types_by_name["WatchRequest"] = _WATCHREQUEST
-DESCRIPTOR.message_types_by_name["WatchResponse"] = _WATCHRESPONSE
-DESCRIPTOR.message_types_by_name["RetrieveRequest"] = _RETRIEVEREQUEST
-DESCRIPTOR.message_types_by_name["RetrieveResponse"] = _RETRIEVERESPONSE
-DESCRIPTOR.message_types_by_name["FinalDealRecordsRequest"] = _FINALDEALRECORDSREQUEST
-DESCRIPTOR.message_types_by_name["FinalDealRecordsResponse"] = _FINALDEALRECORDSRESPONSE
-DESCRIPTOR.message_types_by_name[
-    "PendingDealRecordsRequest"
-] = _PENDINGDEALRECORDSREQUEST
-DESCRIPTOR.message_types_by_name[
-    "PendingDealRecordsResponse"
-] = _PENDINGDEALRECORDSRESPONSE
-DESCRIPTOR.message_types_by_name["AllDealRecordsRequest"] = _ALLDEALRECORDSREQUEST
-DESCRIPTOR.message_types_by_name["AllDealRecordsResponse"] = _ALLDEALRECORDSRESPONSE
-DESCRIPTOR.message_types_by_name["RetrievalRecordsRequest"] = _RETRIEVALRECORDSREQUEST
-DESCRIPTOR.message_types_by_name["RetrievalRecordsResponse"] = _RETRIEVALRECORDSRESPONSE
+_STORAGEDEALRECORD.fields_by_name['deal_info'].message_type = _STORAGEDEALINFO
+_RETRIEVALDEALRECORD.fields_by_name['deal_info'].message_type = _RETRIEVALDEALINFO
+_STOREPARAMS.fields_by_name['deal_configs'].message_type = _DEALCONFIG
+_STOREREQUEST.fields_by_name['store_params'].message_type = _STOREPARAMS
+_STOREREQUEST.oneofs_by_name['payload'].fields.append(
+  _STOREREQUEST.fields_by_name['store_params'])
+_STOREREQUEST.fields_by_name['store_params'].containing_oneof = _STOREREQUEST.oneofs_by_name['payload']
+_STOREREQUEST.oneofs_by_name['payload'].fields.append(
+  _STOREREQUEST.fields_by_name['chunk'])
+_STOREREQUEST.fields_by_name['chunk'].containing_oneof = _STOREREQUEST.oneofs_by_name['payload']
+_STORERESPONSE.fields_by_name['failed_deals'].message_type = _DEALCONFIG
+_WATCHRESPONSE.fields_by_name['deal_info'].message_type = _STORAGEDEALINFO
+_LISTSTORAGEDEALRECORDSREQUEST.fields_by_name['config'].message_type = _LISTDEALRECORDSCONFIG
+_LISTSTORAGEDEALRECORDSRESPONSE.fields_by_name['records'].message_type = _STORAGEDEALRECORD
+_LISTRETRIEVALDEALRECORDSREQUEST.fields_by_name['config'].message_type = _LISTDEALRECORDSCONFIG
+_LISTRETRIEVALDEALRECORDSRESPONSE.fields_by_name['records'].message_type = _RETRIEVALDEALRECORD
+DESCRIPTOR.message_types_by_name['ListDealRecordsConfig'] = _LISTDEALRECORDSCONFIG
+DESCRIPTOR.message_types_by_name['StorageDealInfo'] = _STORAGEDEALINFO
+DESCRIPTOR.message_types_by_name['StorageDealRecord'] = _STORAGEDEALRECORD
+DESCRIPTOR.message_types_by_name['RetrievalDealInfo'] = _RETRIEVALDEALINFO
+DESCRIPTOR.message_types_by_name['RetrievalDealRecord'] = _RETRIEVALDEALRECORD
+DESCRIPTOR.message_types_by_name['DealConfig'] = _DEALCONFIG
+DESCRIPTOR.message_types_by_name['StoreParams'] = _STOREPARAMS
+DESCRIPTOR.message_types_by_name['StoreRequest'] = _STOREREQUEST
+DESCRIPTOR.message_types_by_name['StoreResponse'] = _STORERESPONSE
+DESCRIPTOR.message_types_by_name['WatchRequest'] = _WATCHREQUEST
+DESCRIPTOR.message_types_by_name['WatchResponse'] = _WATCHRESPONSE
+DESCRIPTOR.message_types_by_name['RetrieveRequest'] = _RETRIEVEREQUEST
+DESCRIPTOR.message_types_by_name['RetrieveResponse'] = _RETRIEVERESPONSE
+DESCRIPTOR.message_types_by_name['ListStorageDealRecordsRequest'] = _LISTSTORAGEDEALRECORDSREQUEST
+DESCRIPTOR.message_types_by_name['ListStorageDealRecordsResponse'] = _LISTSTORAGEDEALRECORDSRESPONSE
+DESCRIPTOR.message_types_by_name['ListRetrievalDealRecordsRequest'] = _LISTRETRIEVALDEALRECORDSREQUEST
+DESCRIPTOR.message_types_by_name['ListRetrievalDealRecordsResponse'] = _LISTRETRIEVALDEALRECORDSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-DealInfo = _reflection.GeneratedProtocolMessageType(
-    "DealInfo",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _DEALINFO,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.DealInfo)
-    },
-)
-_sym_db.RegisterMessage(DealInfo)
+ListDealRecordsConfig = _reflection.GeneratedProtocolMessageType('ListDealRecordsConfig', (_message.Message,), {
+  'DESCRIPTOR' : _LISTDEALRECORDSCONFIG,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.ListDealRecordsConfig)
+  })
+_sym_db.RegisterMessage(ListDealRecordsConfig)
 
-DealRecord = _reflection.GeneratedProtocolMessageType(
-    "DealRecord",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _DEALRECORD,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.DealRecord)
-    },
-)
-_sym_db.RegisterMessage(DealRecord)
+StorageDealInfo = _reflection.GeneratedProtocolMessageType('StorageDealInfo', (_message.Message,), {
+  'DESCRIPTOR' : _STORAGEDEALINFO,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.StorageDealInfo)
+  })
+_sym_db.RegisterMessage(StorageDealInfo)
 
-RetrievalInfo = _reflection.GeneratedProtocolMessageType(
-    "RetrievalInfo",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _RETRIEVALINFO,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.RetrievalInfo)
-    },
-)
-_sym_db.RegisterMessage(RetrievalInfo)
+StorageDealRecord = _reflection.GeneratedProtocolMessageType('StorageDealRecord', (_message.Message,), {
+  'DESCRIPTOR' : _STORAGEDEALRECORD,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.StorageDealRecord)
+  })
+_sym_db.RegisterMessage(StorageDealRecord)
 
-RetrievalRecord = _reflection.GeneratedProtocolMessageType(
-    "RetrievalRecord",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _RETRIEVALRECORD,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.RetrievalRecord)
-    },
-)
-_sym_db.RegisterMessage(RetrievalRecord)
+RetrievalDealInfo = _reflection.GeneratedProtocolMessageType('RetrievalDealInfo', (_message.Message,), {
+  'DESCRIPTOR' : _RETRIEVALDEALINFO,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.RetrievalDealInfo)
+  })
+_sym_db.RegisterMessage(RetrievalDealInfo)
 
-DealConfig = _reflection.GeneratedProtocolMessageType(
-    "DealConfig",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _DEALCONFIG,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.DealConfig)
-    },
-)
+RetrievalDealRecord = _reflection.GeneratedProtocolMessageType('RetrievalDealRecord', (_message.Message,), {
+  'DESCRIPTOR' : _RETRIEVALDEALRECORD,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.RetrievalDealRecord)
+  })
+_sym_db.RegisterMessage(RetrievalDealRecord)
+
+DealConfig = _reflection.GeneratedProtocolMessageType('DealConfig', (_message.Message,), {
+  'DESCRIPTOR' : _DEALCONFIG,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.DealConfig)
+  })
 _sym_db.RegisterMessage(DealConfig)
 
-StoreParams = _reflection.GeneratedProtocolMessageType(
-    "StoreParams",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _STOREPARAMS,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.StoreParams)
-    },
-)
+StoreParams = _reflection.GeneratedProtocolMessageType('StoreParams', (_message.Message,), {
+  'DESCRIPTOR' : _STOREPARAMS,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.StoreParams)
+  })
 _sym_db.RegisterMessage(StoreParams)
 
-StoreRequest = _reflection.GeneratedProtocolMessageType(
-    "StoreRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _STOREREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.StoreRequest)
-    },
-)
+StoreRequest = _reflection.GeneratedProtocolMessageType('StoreRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STOREREQUEST,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.StoreRequest)
+  })
 _sym_db.RegisterMessage(StoreRequest)
 
-StoreResponse = _reflection.GeneratedProtocolMessageType(
-    "StoreResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _STORERESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.StoreResponse)
-    },
-)
+StoreResponse = _reflection.GeneratedProtocolMessageType('StoreResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STORERESPONSE,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.StoreResponse)
+  })
 _sym_db.RegisterMessage(StoreResponse)
 
-WatchRequest = _reflection.GeneratedProtocolMessageType(
-    "WatchRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _WATCHREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.WatchRequest)
-    },
-)
+WatchRequest = _reflection.GeneratedProtocolMessageType('WatchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _WATCHREQUEST,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.WatchRequest)
+  })
 _sym_db.RegisterMessage(WatchRequest)
 
-WatchResponse = _reflection.GeneratedProtocolMessageType(
-    "WatchResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _WATCHRESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.WatchResponse)
-    },
-)
+WatchResponse = _reflection.GeneratedProtocolMessageType('WatchResponse', (_message.Message,), {
+  'DESCRIPTOR' : _WATCHRESPONSE,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.WatchResponse)
+  })
 _sym_db.RegisterMessage(WatchResponse)
 
-RetrieveRequest = _reflection.GeneratedProtocolMessageType(
-    "RetrieveRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _RETRIEVEREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.RetrieveRequest)
-    },
-)
+RetrieveRequest = _reflection.GeneratedProtocolMessageType('RetrieveRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RETRIEVEREQUEST,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.RetrieveRequest)
+  })
 _sym_db.RegisterMessage(RetrieveRequest)
 
-RetrieveResponse = _reflection.GeneratedProtocolMessageType(
-    "RetrieveResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _RETRIEVERESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.RetrieveResponse)
-    },
-)
+RetrieveResponse = _reflection.GeneratedProtocolMessageType('RetrieveResponse', (_message.Message,), {
+  'DESCRIPTOR' : _RETRIEVERESPONSE,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.RetrieveResponse)
+  })
 _sym_db.RegisterMessage(RetrieveResponse)
 
-FinalDealRecordsRequest = _reflection.GeneratedProtocolMessageType(
-    "FinalDealRecordsRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _FINALDEALRECORDSREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.FinalDealRecordsRequest)
-    },
-)
-_sym_db.RegisterMessage(FinalDealRecordsRequest)
+ListStorageDealRecordsRequest = _reflection.GeneratedProtocolMessageType('ListStorageDealRecordsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTSTORAGEDEALRECORDSREQUEST,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.ListStorageDealRecordsRequest)
+  })
+_sym_db.RegisterMessage(ListStorageDealRecordsRequest)
 
-FinalDealRecordsResponse = _reflection.GeneratedProtocolMessageType(
-    "FinalDealRecordsResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _FINALDEALRECORDSRESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.FinalDealRecordsResponse)
-    },
-)
-_sym_db.RegisterMessage(FinalDealRecordsResponse)
+ListStorageDealRecordsResponse = _reflection.GeneratedProtocolMessageType('ListStorageDealRecordsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTSTORAGEDEALRECORDSRESPONSE,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.ListStorageDealRecordsResponse)
+  })
+_sym_db.RegisterMessage(ListStorageDealRecordsResponse)
 
-PendingDealRecordsRequest = _reflection.GeneratedProtocolMessageType(
-    "PendingDealRecordsRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _PENDINGDEALRECORDSREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.PendingDealRecordsRequest)
-    },
-)
-_sym_db.RegisterMessage(PendingDealRecordsRequest)
+ListRetrievalDealRecordsRequest = _reflection.GeneratedProtocolMessageType('ListRetrievalDealRecordsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRETRIEVALDEALRECORDSREQUEST,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.ListRetrievalDealRecordsRequest)
+  })
+_sym_db.RegisterMessage(ListRetrievalDealRecordsRequest)
 
-PendingDealRecordsResponse = _reflection.GeneratedProtocolMessageType(
-    "PendingDealRecordsResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _PENDINGDEALRECORDSRESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.PendingDealRecordsResponse)
-    },
-)
-_sym_db.RegisterMessage(PendingDealRecordsResponse)
-
-AllDealRecordsRequest = _reflection.GeneratedProtocolMessageType(
-    "AllDealRecordsRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _ALLDEALRECORDSREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.AllDealRecordsRequest)
-    },
-)
-_sym_db.RegisterMessage(AllDealRecordsRequest)
-
-AllDealRecordsResponse = _reflection.GeneratedProtocolMessageType(
-    "AllDealRecordsResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _ALLDEALRECORDSRESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.AllDealRecordsResponse)
-    },
-)
-_sym_db.RegisterMessage(AllDealRecordsResponse)
-
-RetrievalRecordsRequest = _reflection.GeneratedProtocolMessageType(
-    "RetrievalRecordsRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _RETRIEVALRECORDSREQUEST,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.RetrievalRecordsRequest)
-    },
-)
-_sym_db.RegisterMessage(RetrievalRecordsRequest)
-
-RetrievalRecordsResponse = _reflection.GeneratedProtocolMessageType(
-    "RetrievalRecordsResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _RETRIEVALRECORDSRESPONSE,
-        "__module__": "deals_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:deals.rpc.RetrievalRecordsResponse)
-    },
-)
-_sym_db.RegisterMessage(RetrievalRecordsResponse)
+ListRetrievalDealRecordsResponse = _reflection.GeneratedProtocolMessageType('ListRetrievalDealRecordsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRETRIEVALDEALRECORDSRESPONSE,
+  '__module__' : 'deals_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:deals.rpc.ListRetrievalDealRecordsResponse)
+  })
+_sym_db.RegisterMessage(ListRetrievalDealRecordsResponse)
 
 
 DESCRIPTOR._options = None
 
 _RPCSERVICE = _descriptor.ServiceDescriptor(
-    name="RPCService",
-    full_name="deals.rpc.RPCService",
-    file=DESCRIPTOR,
+  name='RPCService',
+  full_name='deals.rpc.RPCService',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=1676,
+  serialized_end=2121,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Store',
+    full_name='deals.rpc.RPCService.Store',
     index=0,
+    containing_service=None,
+    input_type=_STOREREQUEST,
+    output_type=_STORERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_start=1542,
-    serialized_end=2135,
-    methods=[
-        _descriptor.MethodDescriptor(
-            name="Store",
-            full_name="deals.rpc.RPCService.Store",
-            index=0,
-            containing_service=None,
-            input_type=_STOREREQUEST,
-            output_type=_STORERESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="Watch",
-            full_name="deals.rpc.RPCService.Watch",
-            index=1,
-            containing_service=None,
-            input_type=_WATCHREQUEST,
-            output_type=_WATCHRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="Retrieve",
-            full_name="deals.rpc.RPCService.Retrieve",
-            index=2,
-            containing_service=None,
-            input_type=_RETRIEVEREQUEST,
-            output_type=_RETRIEVERESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="FinalDealRecords",
-            full_name="deals.rpc.RPCService.FinalDealRecords",
-            index=3,
-            containing_service=None,
-            input_type=_FINALDEALRECORDSREQUEST,
-            output_type=_FINALDEALRECORDSRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="PendingDealRecords",
-            full_name="deals.rpc.RPCService.PendingDealRecords",
-            index=4,
-            containing_service=None,
-            input_type=_PENDINGDEALRECORDSREQUEST,
-            output_type=_PENDINGDEALRECORDSRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="AllDealRecords",
-            full_name="deals.rpc.RPCService.AllDealRecords",
-            index=5,
-            containing_service=None,
-            input_type=_ALLDEALRECORDSREQUEST,
-            output_type=_ALLDEALRECORDSRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="RetrievalRecords",
-            full_name="deals.rpc.RPCService.RetrievalRecords",
-            index=6,
-            containing_service=None,
-            input_type=_RETRIEVALRECORDSREQUEST,
-            output_type=_RETRIEVALRECORDSRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-)
+  ),
+  _descriptor.MethodDescriptor(
+    name='Watch',
+    full_name='deals.rpc.RPCService.Watch',
+    index=1,
+    containing_service=None,
+    input_type=_WATCHREQUEST,
+    output_type=_WATCHRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Retrieve',
+    full_name='deals.rpc.RPCService.Retrieve',
+    index=2,
+    containing_service=None,
+    input_type=_RETRIEVEREQUEST,
+    output_type=_RETRIEVERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListStorageDealRecords',
+    full_name='deals.rpc.RPCService.ListStorageDealRecords',
+    index=3,
+    containing_service=None,
+    input_type=_LISTSTORAGEDEALRECORDSREQUEST,
+    output_type=_LISTSTORAGEDEALRECORDSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListRetrievalDealRecords',
+    full_name='deals.rpc.RPCService.ListRetrievalDealRecords',
+    index=4,
+    containing_service=None,
+    input_type=_LISTRETRIEVALDEALRECORDSREQUEST,
+    output_type=_LISTRETRIEVALDEALRECORDSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
 _sym_db.RegisterServiceDescriptor(_RPCSERVICE)
 
-DESCRIPTOR.services_by_name["RPCService"] = _RPCSERVICE
+DESCRIPTOR.services_by_name['RPCService'] = _RPCSERVICE
 
 # @@protoc_insertion_point(module_scope)

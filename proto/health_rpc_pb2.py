@@ -7,65 +7,54 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
+
+
 DESCRIPTOR = _descriptor.FileDescriptor(
-    name="health_rpc.proto",
-    package="",
-    syntax="proto3",
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n\x10health_rpc.proto"\x0e\n\x0c\x43heckRequest":\n\rCheckResponse\x12\x17\n\x06status\x18\x01 \x01(\x0e\x32\x07.Status\x12\x10\n\x08messages\x18\x02 \x03(\t*V\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\r\n\tSTATUS_OK\x10\x01\x12\x13\n\x0fSTATUS_DEGRADED\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\x32\x36\n\nRPCService\x12(\n\x05\x43heck\x12\r.CheckRequest\x1a\x0e.CheckResponse"\x00\x62\x06proto3',
+  name='health_rpc.proto',
+  package='health.rpc',
+  syntax='proto3',
+  serialized_options=b'Z)github.com/textileio/powergate/health/rpc',
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x10health_rpc.proto\x12\nhealth.rpc\"\x0e\n\x0c\x43heckRequest\"E\n\rCheckResponse\x12\"\n\x06status\x18\x01 \x01(\x0e\x32\x12.health.rpc.Status\x12\x10\n\x08messages\x18\x02 \x03(\t*V\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\r\n\tSTATUS_OK\x10\x01\x12\x13\n\x0fSTATUS_DEGRADED\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\x32L\n\nRPCService\x12>\n\x05\x43heck\x12\x18.health.rpc.CheckRequest\x1a\x19.health.rpc.CheckResponse\"\x00\x42+Z)github.com/textileio/powergate/health/rpcb\x06proto3'
 )
 
 _STATUS = _descriptor.EnumDescriptor(
-    name="Status",
-    full_name="Status",
-    filename=None,
-    file=DESCRIPTOR,
-    create_key=_descriptor._internal_create_key,
-    values=[
-        _descriptor.EnumValueDescriptor(
-            name="STATUS_UNSPECIFIED",
-            index=0,
-            number=0,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="STATUS_OK",
-            index=1,
-            number=1,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="STATUS_DEGRADED",
-            index=2,
-            number=2,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="STATUS_ERROR",
-            index=3,
-            number=3,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    containing_type=None,
-    serialized_options=None,
-    serialized_start=96,
-    serialized_end=182,
+  name='Status',
+  full_name='health.rpc.Status',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STATUS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STATUS_OK', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STATUS_DEGRADED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STATUS_ERROR', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=119,
+  serialized_end=205,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -76,139 +65,116 @@ STATUS_DEGRADED = 2
 STATUS_ERROR = 3
 
 
+
 _CHECKREQUEST = _descriptor.Descriptor(
-    name="CheckRequest",
-    full_name="CheckRequest",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=20,
-    serialized_end=34,
+  name='CheckRequest',
+  full_name='health.rpc.CheckRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=32,
+  serialized_end=46,
 )
 
 
 _CHECKRESPONSE = _descriptor.Descriptor(
-    name="CheckResponse",
-    full_name="CheckResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="status",
-            full_name="CheckResponse.status",
-            index=0,
-            number=1,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="messages",
-            full_name="CheckResponse.messages",
-            index=1,
-            number=2,
-            type=9,
-            cpp_type=9,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=36,
-    serialized_end=94,
+  name='CheckResponse',
+  full_name='health.rpc.CheckResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='health.rpc.CheckResponse.status', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='messages', full_name='health.rpc.CheckResponse.messages', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=48,
+  serialized_end=117,
 )
 
-_CHECKRESPONSE.fields_by_name["status"].enum_type = _STATUS
-DESCRIPTOR.message_types_by_name["CheckRequest"] = _CHECKREQUEST
-DESCRIPTOR.message_types_by_name["CheckResponse"] = _CHECKRESPONSE
-DESCRIPTOR.enum_types_by_name["Status"] = _STATUS
+_CHECKRESPONSE.fields_by_name['status'].enum_type = _STATUS
+DESCRIPTOR.message_types_by_name['CheckRequest'] = _CHECKREQUEST
+DESCRIPTOR.message_types_by_name['CheckResponse'] = _CHECKRESPONSE
+DESCRIPTOR.enum_types_by_name['Status'] = _STATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CheckRequest = _reflection.GeneratedProtocolMessageType(
-    "CheckRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _CHECKREQUEST,
-        "__module__": "health_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:CheckRequest)
-    },
-)
+CheckRequest = _reflection.GeneratedProtocolMessageType('CheckRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CHECKREQUEST,
+  '__module__' : 'health_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:health.rpc.CheckRequest)
+  })
 _sym_db.RegisterMessage(CheckRequest)
 
-CheckResponse = _reflection.GeneratedProtocolMessageType(
-    "CheckResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _CHECKRESPONSE,
-        "__module__": "health_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:CheckResponse)
-    },
-)
+CheckResponse = _reflection.GeneratedProtocolMessageType('CheckResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CHECKRESPONSE,
+  '__module__' : 'health_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:health.rpc.CheckResponse)
+  })
 _sym_db.RegisterMessage(CheckResponse)
 
 
+DESCRIPTOR._options = None
+
 _RPCSERVICE = _descriptor.ServiceDescriptor(
-    name="RPCService",
-    full_name="RPCService",
-    file=DESCRIPTOR,
+  name='RPCService',
+  full_name='health.rpc.RPCService',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=207,
+  serialized_end=283,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Check',
+    full_name='health.rpc.RPCService.Check',
     index=0,
+    containing_service=None,
+    input_type=_CHECKREQUEST,
+    output_type=_CHECKRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_start=184,
-    serialized_end=238,
-    methods=[
-        _descriptor.MethodDescriptor(
-            name="Check",
-            full_name="RPCService.Check",
-            index=0,
-            containing_service=None,
-            input_type=_CHECKREQUEST,
-            output_type=_CHECKRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-)
+  ),
+])
 _sym_db.RegisterServiceDescriptor(_RPCSERVICE)
 
-DESCRIPTOR.services_by_name["RPCService"] = _RPCSERVICE
+DESCRIPTOR.services_by_name['RPCService'] = _RPCSERVICE
 
 # @@protoc_insertion_point(module_scope)
