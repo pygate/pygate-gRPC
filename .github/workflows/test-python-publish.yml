@@ -6,7 +6,7 @@ on:
       - v*
 
 jobs:
-  deploy:
+  publish:
 
     runs-on: ubuntu-latest
 
