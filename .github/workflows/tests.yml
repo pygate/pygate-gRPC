@@ -9,12 +9,14 @@ on:
       - main
 
 jobs:
-  test:
+  integration:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
