@@ -15,10 +15,4 @@ class PowerGateClient(object):
 
 
 if __name__ == "__main__":
-    c = PowerGateClient("127.0.0.1:5002")
-    token = "e795b35b-0c52-4b0d-9791-06334e0c52f0"
-    iter = c.ffs.get_file_bytes("README.md")
-    res = c.ffs.add_to_hot(c.ffs.bytes_to_chunks(iter), token)
-    c.ffs.push(res.cid, token)
-    bs = c.ffs.get(res.cid, token)
-    print("bs", next(bs))
+    pass
