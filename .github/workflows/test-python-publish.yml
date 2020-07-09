@@ -2,8 +2,6 @@ name: Publish to PyPi (Test)
 
 on:
   create:
-    branches:    
-      - main
     tags:
       - v*
 

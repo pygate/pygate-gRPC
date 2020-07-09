@@ -89,7 +89,6 @@ def pytest_unconfigure(config):
 @pytest.fixture(scope="session", autouse=True)
 def localnet(docker_services):
     """Starts a cli container to interact with localnet"""
-    logger.debug("Spawning localnet...")
     client = docker.from_env()
     container = client.containers.run(
         "pygate/powergate-cli:v0.0.1-beta.13",
