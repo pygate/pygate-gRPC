@@ -2,11 +2,11 @@ from pygate_grpc import health, faults, deals, ffs
 
 
 class PowerGateClient(object):
-    def __init__(self, hostName):
-        self.health = health.HealthClient(hostName)
-        self.faults = faults.FaultsClient(hostName)
-        self.deals = deals.DealsClient(hostName)
-        self.ffs = ffs.FfsClient(hostName)
+    def __init__(self, host_name):
+        self.health = health.HealthClient(host_name)
+        self.faults = faults.FaultsClient(host_name)
+        self.deals = deals.DealsClient(host_name)
+        self.ffs = ffs.FfsClient(host_name)
 
 
 # if __name__ == "__main__":
