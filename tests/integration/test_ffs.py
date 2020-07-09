@@ -1,11 +1,10 @@
 import logging
 import pytest
 
-from proto.ffs_rpc_pb2 import CreateResponse
+from proto.ffs_rpc_pb2 import CreateResponse, AddToHotRequest
 from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)
-
 
 @pytest.fixture(scope="module")
 def ffs_instance(pygate_client: PowerGateClient):
@@ -25,3 +24,14 @@ def test_grpc_ffs_list_api(pygate_client: PowerGateClient, ffs_instance):
 
     assert res is not None
     assert ffs_instance.id in res.instances
+
+
+def test_grpc_ffs_add_to_hot(pygate_client: PowerGateClient, ffs_instance):
+    res = pygate_client.ffs.addToHot(test_chunks, ffs_instance.token)
+
+    assert res is not None
+    assert ffs_instance.id in res.instances
+
+def test_chunks():
+    for _ in range(1):
+        yield AddToHotRequest(chunk=bytes("test_content", "ASCII"))

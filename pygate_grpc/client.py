@@ -1,5 +1,10 @@
-from pygate_grpc import health, faults, deals, ffs
+import sys
+import os
 
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../")
+
+import proto.ffs_rpc_pb2 as ffs_rpc_pb2
+from pygate_grpc import health, faults, deals, ffs
 
 class PowerGateClient(object):
     def __init__(self, host_name):
@@ -11,12 +16,9 @@ class PowerGateClient(object):
 
 if __name__ == "__main__":
     c = PowerGateClient("127.0.0.1:5002")
-    # print()
-    # print("creating!", c.ffs.create())
-    # print("listing!", c.ffs.listApi())
-    # print("addrs list!", c.ffs.addrsList("e795b35b-0c52-4b0d-9791-06334e0c52f0"))
-    print("info!", c.ffs.info("QmR74AUggas4mmed9zBAH3NyeeBWzgtDfxidZuxMrLBJw7", "e795b35b-0c52-4b0d-9791-06334e0c52f0"))
-    iter = c.ffs.getFileChunks("LICENSE")
-    print(iter.__next__())
-    # print
-    print("info!", c.ffs.addToHot(iter, "e795b35b-0c52-4b0d-9791-06334e0c52f0"))
+    iter = c.ffs.get_file_bytes("README.md")
+    res = c.ffs.add_to_hot(c.ffs.bytes_to_chunks(iter), "e795b35b-0c52-4b0d-9791-06334e0c52f0")
+    print("res", res.cid)
+    c.ffs.push(res.cid, "e795b35b-0c52-4b0d-9791-06334e0c52f0")
+    bs = c.ffs.get(res.cid, "e795b35b-0c52-4b0d-9791-06334e0c52f0")
+    print("bs", next(bs))
