@@ -1,5 +1,6 @@
 # pygate gRPC client
 
+![Tests](https://github.com/pygate/pygate-gRPC/workflows/Tests/badge.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API
@@ -29,13 +30,21 @@ pip install --index-url https://test.pypi.org/simple/ pygate_grpc
 
 ## Usage
 
+The main component of the package is the `PowerGateClient` class. 
+
 Here is a basic usage example of the pygate_grpc:
 
 ```python
-## Some python code to demonstrate how to use the package
+from pygate_grpc.client import PowerGateClient
+
+client = PowerGateClient("127.0.0.1:5002")
+
+healthcheck = client.health.check()
 ```
 
-Exampled of more elaborated usage can be found in the [examples](./examples/)  folder.
+Simple as that!
+
+Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
 ## Development
 
