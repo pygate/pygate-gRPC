@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  powergate-cli:
+    build:
+      context: ../../docker/
+      dockerfile: powcli.Dockerfile

@@ -1,6 +1,6 @@
-import health
-import faults
-import deals
+from pygate_grpc import health
+from pygate_grpc import faults
+from pygate_grpc import deals
 
 class PowerGateClient(object):
     def __init__(self, hostName):
