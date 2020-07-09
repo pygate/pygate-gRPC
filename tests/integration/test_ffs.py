@@ -13,7 +13,6 @@ def ffs_instance(pygate_client: PowerGateClient):
 
 
 def test_grpc_ffs_create(pygate_client: PowerGateClient):
-    ## Raises an error for some reason
     res = pygate_client.ffs.create()
 
     assert type(res) == CreateResponse
@@ -23,4 +22,6 @@ def test_grpc_ffs_create(pygate_client: PowerGateClient):
 
 def test_grpc_ffs_list_api(pygate_client: PowerGateClient, ffs_instance):
     res = pygate_client.ffs.list_api()
-    print(res)
+
+    assert res is not None
+    assert ffs_instance.id in res.instances
