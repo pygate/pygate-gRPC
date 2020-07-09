@@ -27,7 +27,7 @@ def test_grpc_ffs_list_api(pygate_client: PowerGateClient, ffs_instance):
 
 
 def test_grpc_ffs_add_to_hot(pygate_client: PowerGateClient, ffs_instance):
-    res = pygate_client.ffs.addToHot(test_chunks, ffs_instance.token)
+    res = pygate_client.ffs.add_to_hot(test_chunks, ffs_instance.token)
 
     assert res is not None
     assert ffs_instance.id in res.instances
