@@ -16,6 +16,7 @@ docker = "*"
 gitpython = "*"
 pytest-docker = "*"
 grpcio-tools = "*"
+secretstorage = {markers="sys_platform == 'linux'"}
 keyring = "==19.1.0"
 
 [requires]
