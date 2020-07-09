@@ -73,7 +73,21 @@ pipenv run format
 
 ## Running the tests
 
-Currently there are not any tests for this project. Tests are in the project's roadmap but they will be developed only if the timeframe of the Hackathon allows to do so.
+Currently the test suite is very minimal. Full Testing is in the project's roadmap but it will be developed only if the timeframe of the Hackathon allows to do so.
+
+### **Integration Tests**
+
+Integration tests spin up a localnet using the official script from powergate repository and the test cases are run using that network. By implication, to run the test make sure you have the following dependencies installed:
+
+- docker-compose
+- docker
+- git
+
+To run the integration tests run:
+
+```
+pipenv run integration-test
+```
 
 ## Versioning
 
