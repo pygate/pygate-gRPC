@@ -15,30 +15,30 @@ class RPCServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Store = channel.stream_unary(
-                '/deals.rpc.RPCService/Store',
-                request_serializer=deals__rpc__pb2.StoreRequest.SerializeToString,
-                response_deserializer=deals__rpc__pb2.StoreResponse.FromString,
-                )
+            "/deals.rpc.RPCService/Store",
+            request_serializer=deals__rpc__pb2.StoreRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.StoreResponse.FromString,
+        )
         self.Watch = channel.unary_stream(
-                '/deals.rpc.RPCService/Watch',
-                request_serializer=deals__rpc__pb2.WatchRequest.SerializeToString,
-                response_deserializer=deals__rpc__pb2.WatchResponse.FromString,
-                )
+            "/deals.rpc.RPCService/Watch",
+            request_serializer=deals__rpc__pb2.WatchRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.WatchResponse.FromString,
+        )
         self.Retrieve = channel.unary_stream(
-                '/deals.rpc.RPCService/Retrieve',
-                request_serializer=deals__rpc__pb2.RetrieveRequest.SerializeToString,
-                response_deserializer=deals__rpc__pb2.RetrieveResponse.FromString,
-                )
+            "/deals.rpc.RPCService/Retrieve",
+            request_serializer=deals__rpc__pb2.RetrieveRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.RetrieveResponse.FromString,
+        )
         self.ListStorageDealRecords = channel.unary_unary(
-                '/deals.rpc.RPCService/ListStorageDealRecords',
-                request_serializer=deals__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
-                response_deserializer=deals__rpc__pb2.ListStorageDealRecordsResponse.FromString,
-                )
+            "/deals.rpc.RPCService/ListStorageDealRecords",
+            request_serializer=deals__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.ListStorageDealRecordsResponse.FromString,
+        )
         self.ListRetrievalDealRecords = channel.unary_unary(
-                '/deals.rpc.RPCService/ListRetrievalDealRecords',
-                request_serializer=deals__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
-                response_deserializer=deals__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
-                )
+            "/deals.rpc.RPCService/ListRetrievalDealRecords",
+            request_serializer=deals__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
+        )
 
 
 class RPCServiceServicer(object):
@@ -47,147 +47,203 @@ class RPCServiceServicer(object):
     def Store(self, request_iterator, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def Watch(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def Retrieve(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def ListStorageDealRecords(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def ListRetrievalDealRecords(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
 
 def add_RPCServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Store': grpc.stream_unary_rpc_method_handler(
-                    servicer.Store,
-                    request_deserializer=deals__rpc__pb2.StoreRequest.FromString,
-                    response_serializer=deals__rpc__pb2.StoreResponse.SerializeToString,
-            ),
-            'Watch': grpc.unary_stream_rpc_method_handler(
-                    servicer.Watch,
-                    request_deserializer=deals__rpc__pb2.WatchRequest.FromString,
-                    response_serializer=deals__rpc__pb2.WatchResponse.SerializeToString,
-            ),
-            'Retrieve': grpc.unary_stream_rpc_method_handler(
-                    servicer.Retrieve,
-                    request_deserializer=deals__rpc__pb2.RetrieveRequest.FromString,
-                    response_serializer=deals__rpc__pb2.RetrieveResponse.SerializeToString,
-            ),
-            'ListStorageDealRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListStorageDealRecords,
-                    request_deserializer=deals__rpc__pb2.ListStorageDealRecordsRequest.FromString,
-                    response_serializer=deals__rpc__pb2.ListStorageDealRecordsResponse.SerializeToString,
-            ),
-            'ListRetrievalDealRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListRetrievalDealRecords,
-                    request_deserializer=deals__rpc__pb2.ListRetrievalDealRecordsRequest.FromString,
-                    response_serializer=deals__rpc__pb2.ListRetrievalDealRecordsResponse.SerializeToString,
-            ),
+        "Store": grpc.stream_unary_rpc_method_handler(
+            servicer.Store,
+            request_deserializer=deals__rpc__pb2.StoreRequest.FromString,
+            response_serializer=deals__rpc__pb2.StoreResponse.SerializeToString,
+        ),
+        "Watch": grpc.unary_stream_rpc_method_handler(
+            servicer.Watch,
+            request_deserializer=deals__rpc__pb2.WatchRequest.FromString,
+            response_serializer=deals__rpc__pb2.WatchResponse.SerializeToString,
+        ),
+        "Retrieve": grpc.unary_stream_rpc_method_handler(
+            servicer.Retrieve,
+            request_deserializer=deals__rpc__pb2.RetrieveRequest.FromString,
+            response_serializer=deals__rpc__pb2.RetrieveResponse.SerializeToString,
+        ),
+        "ListStorageDealRecords": grpc.unary_unary_rpc_method_handler(
+            servicer.ListStorageDealRecords,
+            request_deserializer=deals__rpc__pb2.ListStorageDealRecordsRequest.FromString,
+            response_serializer=deals__rpc__pb2.ListStorageDealRecordsResponse.SerializeToString,
+        ),
+        "ListRetrievalDealRecords": grpc.unary_unary_rpc_method_handler(
+            servicer.ListRetrievalDealRecords,
+            request_deserializer=deals__rpc__pb2.ListRetrievalDealRecordsRequest.FromString,
+            response_serializer=deals__rpc__pb2.ListRetrievalDealRecordsResponse.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'deals.rpc.RPCService', rpc_method_handlers)
+        "deals.rpc.RPCService", rpc_method_handlers
+    )
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class RPCService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Store(request_iterator,
+    def Store(
+        request_iterator,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.stream_unary(
+            request_iterator,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/deals.rpc.RPCService/Store',
+            "/deals.rpc.RPCService/Store",
             deals__rpc__pb2.StoreRequest.SerializeToString,
             deals__rpc__pb2.StoreResponse.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def Watch(request,
+    def Watch(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_stream(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/deals.rpc.RPCService/Watch',
+            "/deals.rpc.RPCService/Watch",
             deals__rpc__pb2.WatchRequest.SerializeToString,
             deals__rpc__pb2.WatchResponse.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def Retrieve(request,
+    def Retrieve(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_stream(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/deals.rpc.RPCService/Retrieve',
+            "/deals.rpc.RPCService/Retrieve",
             deals__rpc__pb2.RetrieveRequest.SerializeToString,
             deals__rpc__pb2.RetrieveResponse.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def ListStorageDealRecords(request,
+    def ListStorageDealRecords(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/deals.rpc.RPCService/ListStorageDealRecords',
+            "/deals.rpc.RPCService/ListStorageDealRecords",
             deals__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
             deals__rpc__pb2.ListStorageDealRecordsResponse.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def ListRetrievalDealRecords(request,
+    def ListRetrievalDealRecords(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/deals.rpc.RPCService/ListRetrievalDealRecords',
+            "/deals.rpc.RPCService/ListRetrievalDealRecords",
             deals__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
             deals__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )

@@ -12,4 +12,3 @@ class FaultsClient(object):
     def get(self):
         req = faults_rpc_pb2.GetRequest()
         return self.client.Get(req)
-

@@ -17,4 +17,3 @@ class DealsClient(object):
     def pending_deal_records(self):
         req = deals_rpc_pb2.PendingDealRecordsRequest()
         return self.client.PendingDealRecords(req)
-
