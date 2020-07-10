@@ -10,7 +10,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 setup(
     install_requires=["grpcio==1.30.0", "protobuf==3.12.2", "six==1.15.0"],
     name="pygate_grpc",
-    version="0.0.3",
+    version="0.0.4",
     description="A Python interface to Textile's Powergate Filecoin API",
     url="https://github.com/pygate/pygate-gRPC",
     author="Pygate Team",
