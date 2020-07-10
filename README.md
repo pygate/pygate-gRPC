@@ -1,5 +1,6 @@
 # pygate gRPC client
 
+[![PyPI version](https://badge.fury.io/py/pygate-grpc.svg)](https://badge.fury.io/py/pygate-grpc)
 ![Tests](https://github.com/pygate/pygate-gRPC/workflows/Tests/badge.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
