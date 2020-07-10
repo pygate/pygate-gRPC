@@ -1,8 +1,3 @@
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../")
-
 import proto.ffs_rpc_pb2 as ffs_rpc_pb2
 from pygate_grpc import health, faults, deals, ffs
 
