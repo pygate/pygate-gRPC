@@ -29,25 +29,15 @@ class RPCServiceStub(object):
             request_serializer=deals__rpc__pb2.RetrieveRequest.SerializeToString,
             response_deserializer=deals__rpc__pb2.RetrieveResponse.FromString,
         )
-        self.FinalDealRecords = channel.unary_unary(
-            "/deals.rpc.RPCService/FinalDealRecords",
-            request_serializer=deals__rpc__pb2.FinalDealRecordsRequest.SerializeToString,
-            response_deserializer=deals__rpc__pb2.FinalDealRecordsResponse.FromString,
+        self.ListStorageDealRecords = channel.unary_unary(
+            "/deals.rpc.RPCService/ListStorageDealRecords",
+            request_serializer=deals__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.ListStorageDealRecordsResponse.FromString,
         )
-        self.PendingDealRecords = channel.unary_unary(
-            "/deals.rpc.RPCService/PendingDealRecords",
-            request_serializer=deals__rpc__pb2.PendingDealRecordsRequest.SerializeToString,
-            response_deserializer=deals__rpc__pb2.PendingDealRecordsResponse.FromString,
-        )
-        self.AllDealRecords = channel.unary_unary(
-            "/deals.rpc.RPCService/AllDealRecords",
-            request_serializer=deals__rpc__pb2.AllDealRecordsRequest.SerializeToString,
-            response_deserializer=deals__rpc__pb2.AllDealRecordsResponse.FromString,
-        )
-        self.RetrievalRecords = channel.unary_unary(
-            "/deals.rpc.RPCService/RetrievalRecords",
-            request_serializer=deals__rpc__pb2.RetrievalRecordsRequest.SerializeToString,
-            response_deserializer=deals__rpc__pb2.RetrievalRecordsResponse.FromString,
+        self.ListRetrievalDealRecords = channel.unary_unary(
+            "/deals.rpc.RPCService/ListRetrievalDealRecords",
+            request_serializer=deals__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
+            response_deserializer=deals__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
         )
 
 
@@ -72,25 +62,13 @@ class RPCServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
-    def FinalDealRecords(self, request, context):
+    def ListStorageDealRecords(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
-    def PendingDealRecords(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
-
-    def AllDealRecords(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
-
-    def RetrievalRecords(self, request, context):
+    def ListRetrievalDealRecords(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -114,25 +92,15 @@ def add_RPCServiceServicer_to_server(servicer, server):
             request_deserializer=deals__rpc__pb2.RetrieveRequest.FromString,
             response_serializer=deals__rpc__pb2.RetrieveResponse.SerializeToString,
         ),
-        "FinalDealRecords": grpc.unary_unary_rpc_method_handler(
-            servicer.FinalDealRecords,
-            request_deserializer=deals__rpc__pb2.FinalDealRecordsRequest.FromString,
-            response_serializer=deals__rpc__pb2.FinalDealRecordsResponse.SerializeToString,
+        "ListStorageDealRecords": grpc.unary_unary_rpc_method_handler(
+            servicer.ListStorageDealRecords,
+            request_deserializer=deals__rpc__pb2.ListStorageDealRecordsRequest.FromString,
+            response_serializer=deals__rpc__pb2.ListStorageDealRecordsResponse.SerializeToString,
         ),
-        "PendingDealRecords": grpc.unary_unary_rpc_method_handler(
-            servicer.PendingDealRecords,
-            request_deserializer=deals__rpc__pb2.PendingDealRecordsRequest.FromString,
-            response_serializer=deals__rpc__pb2.PendingDealRecordsResponse.SerializeToString,
-        ),
-        "AllDealRecords": grpc.unary_unary_rpc_method_handler(
-            servicer.AllDealRecords,
-            request_deserializer=deals__rpc__pb2.AllDealRecordsRequest.FromString,
-            response_serializer=deals__rpc__pb2.AllDealRecordsResponse.SerializeToString,
-        ),
-        "RetrievalRecords": grpc.unary_unary_rpc_method_handler(
-            servicer.RetrievalRecords,
-            request_deserializer=deals__rpc__pb2.RetrievalRecordsRequest.FromString,
-            response_serializer=deals__rpc__pb2.RetrievalRecordsResponse.SerializeToString,
+        "ListRetrievalDealRecords": grpc.unary_unary_rpc_method_handler(
+            servicer.ListRetrievalDealRecords,
+            request_deserializer=deals__rpc__pb2.ListRetrievalDealRecordsRequest.FromString,
+            response_serializer=deals__rpc__pb2.ListRetrievalDealRecordsResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -227,7 +195,7 @@ class RPCService(object):
         )
 
     @staticmethod
-    def FinalDealRecords(
+    def ListStorageDealRecords(
         request,
         target,
         options=(),
@@ -241,9 +209,9 @@ class RPCService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            "/deals.rpc.RPCService/FinalDealRecords",
-            deals__rpc__pb2.FinalDealRecordsRequest.SerializeToString,
-            deals__rpc__pb2.FinalDealRecordsResponse.FromString,
+            "/deals.rpc.RPCService/ListStorageDealRecords",
+            deals__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
+            deals__rpc__pb2.ListStorageDealRecordsResponse.FromString,
             options,
             channel_credentials,
             call_credentials,
@@ -254,7 +222,7 @@ class RPCService(object):
         )
 
     @staticmethod
-    def PendingDealRecords(
+    def ListRetrievalDealRecords(
         request,
         target,
         options=(),
@@ -268,63 +236,9 @@ class RPCService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            "/deals.rpc.RPCService/PendingDealRecords",
-            deals__rpc__pb2.PendingDealRecordsRequest.SerializeToString,
-            deals__rpc__pb2.PendingDealRecordsResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
-
-    @staticmethod
-    def AllDealRecords(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            "/deals.rpc.RPCService/AllDealRecords",
-            deals__rpc__pb2.AllDealRecordsRequest.SerializeToString,
-            deals__rpc__pb2.AllDealRecordsResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
-
-    @staticmethod
-    def RetrievalRecords(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            "/deals.rpc.RPCService/RetrievalRecords",
-            deals__rpc__pb2.RetrievalRecordsRequest.SerializeToString,
-            deals__rpc__pb2.RetrievalRecordsResponse.FromString,
+            "/deals.rpc.RPCService/ListRetrievalDealRecords",
+            deals__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
+            deals__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
             options,
             channel_credentials,
             call_credentials,

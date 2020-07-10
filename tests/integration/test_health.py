@@ -9,6 +9,8 @@ logger = logging.getLogger(__name__)
 
 
 def test_grpc_health(pygate_health_client: HealthClient):
-    with pytest.raises(grpc._channel._InactiveRpcError):
-        ## Raises an error for some reason
-        res = pygate_health_client.check()
+    res = pygate_health_client.check()
+
+    assert type(res) == CheckResponse
+    assert res.status == STATUS_OK
+    assert res.messages == []

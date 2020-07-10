@@ -15,7 +15,7 @@ class RPCServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Check = channel.unary_unary(
-            "/RPCService/Check",
+            "/health.rpc.RPCService/Check",
             request_serializer=health__rpc__pb2.CheckRequest.SerializeToString,
             response_deserializer=health__rpc__pb2.CheckResponse.FromString,
         )
@@ -40,7 +40,7 @@ def add_RPCServiceServicer_to_server(servicer, server):
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "RPCService", rpc_method_handlers
+        "health.rpc.RPCService", rpc_method_handlers
     )
     server.add_generic_rpc_handlers((generic_handler,))
 
@@ -64,7 +64,7 @@ class RPCService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            "/RPCService/Check",
+            "/health.rpc.RPCService/Check",
             health__rpc__pb2.CheckRequest.SerializeToString,
             health__rpc__pb2.CheckResponse.FromString,
             options,

@@ -23,10 +23,8 @@ See the project [wiki](https://github.com/pygate/gRPC-client/wiki) for additiona
 You can get started using `pygate_grpc` by installing it through the test PyPi repository.
 
 ```
-pip install --index-url https://test.pypi.org/simple/ pygate_grpc
+pip install pygate_grpc
 ```
-
-> The package will be released to main PyPi repository after the first stable release.
 
 ## Usage
 

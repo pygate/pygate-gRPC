@@ -15,16 +15,16 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
     name="health_rpc.proto",
-    package="",
+    package="health.rpc",
     syntax="proto3",
-    serialized_options=None,
+    serialized_options=b"Z)github.com/textileio/powergate/health/rpc",
     create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n\x10health_rpc.proto"\x0e\n\x0c\x43heckRequest":\n\rCheckResponse\x12\x17\n\x06status\x18\x01 \x01(\x0e\x32\x07.Status\x12\x10\n\x08messages\x18\x02 \x03(\t*V\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\r\n\tSTATUS_OK\x10\x01\x12\x13\n\x0fSTATUS_DEGRADED\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\x32\x36\n\nRPCService\x12(\n\x05\x43heck\x12\r.CheckRequest\x1a\x0e.CheckResponse"\x00\x62\x06proto3',
+    serialized_pb=b'\n\x10health_rpc.proto\x12\nhealth.rpc"\x0e\n\x0c\x43heckRequest"E\n\rCheckResponse\x12"\n\x06status\x18\x01 \x01(\x0e\x32\x12.health.rpc.Status\x12\x10\n\x08messages\x18\x02 \x03(\t*V\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\r\n\tSTATUS_OK\x10\x01\x12\x13\n\x0fSTATUS_DEGRADED\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\x32L\n\nRPCService\x12>\n\x05\x43heck\x12\x18.health.rpc.CheckRequest\x1a\x19.health.rpc.CheckResponse"\x00\x42+Z)github.com/textileio/powergate/health/rpcb\x06proto3',
 )
 
 _STATUS = _descriptor.EnumDescriptor(
     name="Status",
-    full_name="Status",
+    full_name="health.rpc.Status",
     filename=None,
     file=DESCRIPTOR,
     create_key=_descriptor._internal_create_key,
@@ -64,8 +64,8 @@ _STATUS = _descriptor.EnumDescriptor(
     ],
     containing_type=None,
     serialized_options=None,
-    serialized_start=96,
-    serialized_end=182,
+    serialized_start=119,
+    serialized_end=205,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -78,7 +78,7 @@ STATUS_ERROR = 3
 
 _CHECKREQUEST = _descriptor.Descriptor(
     name="CheckRequest",
-    full_name="CheckRequest",
+    full_name="health.rpc.CheckRequest",
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
@@ -92,14 +92,14 @@ _CHECKREQUEST = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=20,
-    serialized_end=34,
+    serialized_start=32,
+    serialized_end=46,
 )
 
 
 _CHECKRESPONSE = _descriptor.Descriptor(
     name="CheckResponse",
-    full_name="CheckResponse",
+    full_name="health.rpc.CheckResponse",
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
@@ -107,7 +107,7 @@ _CHECKRESPONSE = _descriptor.Descriptor(
     fields=[
         _descriptor.FieldDescriptor(
             name="status",
-            full_name="CheckResponse.status",
+            full_name="health.rpc.CheckResponse.status",
             index=0,
             number=1,
             type=14,
@@ -126,7 +126,7 @@ _CHECKRESPONSE = _descriptor.Descriptor(
         ),
         _descriptor.FieldDescriptor(
             name="messages",
-            full_name="CheckResponse.messages",
+            full_name="health.rpc.CheckResponse.messages",
             index=1,
             number=2,
             type=9,
@@ -152,8 +152,8 @@ _CHECKRESPONSE = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=36,
-    serialized_end=94,
+    serialized_start=48,
+    serialized_end=117,
 )
 
 _CHECKRESPONSE.fields_by_name["status"].enum_type = _STATUS
@@ -168,7 +168,7 @@ CheckRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _CHECKREQUEST,
         "__module__": "health_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:CheckRequest)
+        # @@protoc_insertion_point(class_scope:health.rpc.CheckRequest)
     },
 )
 _sym_db.RegisterMessage(CheckRequest)
@@ -179,25 +179,27 @@ CheckResponse = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _CHECKRESPONSE,
         "__module__": "health_rpc_pb2"
-        # @@protoc_insertion_point(class_scope:CheckResponse)
+        # @@protoc_insertion_point(class_scope:health.rpc.CheckResponse)
     },
 )
 _sym_db.RegisterMessage(CheckResponse)
 
 
+DESCRIPTOR._options = None
+
 _RPCSERVICE = _descriptor.ServiceDescriptor(
     name="RPCService",
-    full_name="RPCService",
+    full_name="health.rpc.RPCService",
     file=DESCRIPTOR,
     index=0,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_start=184,
-    serialized_end=238,
+    serialized_start=207,
+    serialized_end=283,
     methods=[
         _descriptor.MethodDescriptor(
             name="Check",
-            full_name="RPCService.Check",
+            full_name="health.rpc.RPCService.Check",
             index=0,
             containing_service=None,
             input_type=_CHECKREQUEST,
