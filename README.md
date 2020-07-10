@@ -115,6 +115,9 @@ git push origin main --tags
 ## Authors
 
 * **Antreas Pogiatzis** - *Initial scaffolding* 
+* **Wang Ge**
+* **Peter Van Garderen**
+
 
 See also the list of [contributors](https://github.com/pygate/pygate-gRPC/graphs/contributors) who participated in this project.
 
