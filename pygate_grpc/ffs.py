@@ -1,12 +1,14 @@
 import grpc
 
-import proto.ffs_rpc_pb2 as ffs_rpc_pb2
-import proto.ffs_rpc_pb2_grpc as ffs_rpc_pb2_grpc
+from proto import ffs_rpc_pb2
+from proto import ffs_rpc_pb2_grpc
+from pygate_grpc.errors import ErrorHandlerMeta
 
-TOKEN_KEY = 'x-ffs-token'
+TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
 
-class FfsClient(object):
+
+class FfsClient(object, metaclass=ErrorHandlerMeta):
     def __init__(self, host_name):
         self.host_name = host_name
         channel = grpc.insecure_channel(host_name)
@@ -62,7 +64,7 @@ class FfsClient(object):
         return self.client.PushConfig(req, metadata=self._get_meta_data(token))
 
     def get_file_bytes(self, filename):
-        with open(filename, 'rb') as f:
+        with open(filename, "rb") as f:
             while True:
                 piece = f.read(CHUNK_SIZE)
                 if len(piece) == 0:
@@ -76,5 +78,3 @@ class FfsClient(object):
     def chunks_to_bytes(self, chunks):
         for c in chunks:
             yield c.chunk
-
-

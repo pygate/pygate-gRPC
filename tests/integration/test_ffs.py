@@ -6,6 +6,7 @@ from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)
 
+
 @pytest.fixture(scope="module")
 def ffs_instance(pygate_client: PowerGateClient):
     return pygate_client.ffs.create()
@@ -31,6 +32,7 @@ def test_grpc_ffs_add_to_hot(pygate_client: PowerGateClient, ffs_instance):
 
     assert res is not None
     assert res.cid is not None
+
 
 def test_chunks():
     for _ in range(1):

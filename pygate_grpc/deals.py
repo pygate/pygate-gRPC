@@ -1,10 +1,11 @@
 import grpc
 
-import proto.deals_rpc_pb2 as deals_rpc_pb2
-import proto.deals_rpc_pb2_grpc as deals_rpc_pb2_grpc
+from proto import deals_rpc_pb2
+from proto import deals_rpc_pb2_grpc
+from pygate_grpc.errors import ErrorHandlerMeta
 
 
-class DealsClient(object):
+class DealsClient(object, metaclass=ErrorHandlerMeta):
     ## THIS USED AN OUTDATED PROTO SPECIFICATION IT NEEDS RE DEVELOPMENT
     def __init__(self, host_name):
         channel = grpc.insecure_channel(host_name)
