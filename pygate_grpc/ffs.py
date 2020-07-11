@@ -19,12 +19,10 @@ class FfsClient(object):
         req = ffs_rpc_pb2.ListAPIRequest()
         return self.client.ListAPI(req)
     
-    def id_request(self, token):
+    def id(self, token):
         req = ffs_rpc_pb2.IDRequest()
         return self.client.ID(req, metadata=self._get_meta_data(token))
 
-    # The metadata is set in here https://github.com/textileio/js-powergate-client/blob/9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7
-    # Note that you can't have capital letter in meta data field, see here: https://stackoverflow.com/questions/45071567/how-to-send-custom-header-metadata-with-python-grpc
     def addrs_list(self, token=None):
         req = ffs_rpc_pb2.AddrsRequest()
         if (token != None):
@@ -126,6 +124,8 @@ class FfsClient(object):
         for c in chunks:
             yield c.chunk
 
+    # The metadata is set in here https://github.com/textileio/js-powergate-client/blob/9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7
+    # Note that you can't have capital letter in meta data field, see here: https://stackoverflow.com/questions/45071567/how-to-send-custom-header-metadata-with-python-grpc
     def _get_meta_data(self, token):
         return ((TOKEN_KEY, token),)
 
