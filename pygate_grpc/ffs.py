@@ -69,7 +69,7 @@ class FfsClient(object):
         self._raise_no_token_provided_exception()
 
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
-    def set_default_config(self, config, token):
+    def set_default_config(self, config, token=None):
         req = ffs_rpc_pb2.DefaultConfig(config=config)
         if token != None:
             return self.client.SetDefaultConfig(
@@ -81,7 +81,7 @@ class FfsClient(object):
             )
         self._raise_no_token_provided_exception()
 
-    def show(self, cid, token):
+    def show(self, cid, token=None):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
         if token != None:
             return self.client.Show(req, metadata=self._get_meta_data(token))
@@ -92,32 +92,38 @@ class FfsClient(object):
     # Note that the chunkIter should be an iterator that yield `ffs_rpc_pb2.AddToHotRequest`,
     # it is the caller's responsibility to create the iterator.
     # The provided getFileChunks comes in handy some times.
-    def add_to_hot(self, chunksIter, token):
+    def add_to_hot(self, chunksIter, token=None):
         return self.client.AddToHot(chunksIter, metadata=self._get_meta_data(token))
 
     # This will return an iterator which callers can look through
-    def get(self, cid, token):
+    def get(self, cid, token=None):
         req = ffs_rpc_pb2.GetRequest(cid=cid)
         chunks = self.client.Get(req, metadata=self._get_meta_data(token))
         return self.chunks_to_bytes(chunks)
 
-    def send_fil(self, sender, receiver, amount, token):
-        req = ffs_rpc_pb2.SendFilRequest(sender, receiver, amount)
+    def send_fil(self, sender, receiver, amount, token=None):
+        # To avoid name collision since `from` is reserved in Python.
+        kwargs = {
+            'from': sender,
+            'to': receiver,
+            'amount': amount
+        }
+        req = ffs_rpc_pb2.SendFilRequest(**kwargs)
         if token != None:
             return self.client.SendFil(req, metadata=self._get_meta_data(token))
         if self.token != None:
             return self.client.SendFil(req, metadata=self._get_meta_data(self.token))
         self._raise_no_token_provided_exception()
 
-    def logs(self, cid, token):
+    def logs(self, cid, token=None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
         return self.client.WatchLogs(req, metadata=self._get_meta_data(token))
 
-    def info(self, cid, token):
+    def info(self, cid, token=None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
         return self.client.Info(req, metadata=self._get_meta_data(token))
 
-    def push(self, cid, token):
+    def push(self, cid, token=None):
         req = ffs_rpc_pb2.PushConfigRequest(cid=cid)
         return self.client.PushConfig(req, metadata=self._get_meta_data(token))
 
