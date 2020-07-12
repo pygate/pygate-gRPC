@@ -19,7 +19,11 @@ if __name__ == "__main__":
     print("Pushing file to FFS...")
     # Push the given file
     c.ffs.push(res.cid, ffs.token)
+    # Check that CID is pinned to FFS
+    check = c.ffs.info(res.cid, ffs.token)
+    print("Checking FFS pins...")
+    print(check)
     # Get the file back
     file = c.ffs.get(res.cid, ffs.token)
-    print("Retrieved file from FFS:")
+    print("Retrieving file " + res.cid + " from FFS:")
     print(next(file))
