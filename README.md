@@ -32,7 +32,7 @@ healthcheck = client.health.check()
 
 Simple as that!
 
-Note: this examples assumes you have a Powergate server running with an API available at 127.0.0.1:5002. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/).
+Note: this examples assumes you have a Powergate server running with an API available at `127.0.0.1:5002`. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/).
 
 Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
