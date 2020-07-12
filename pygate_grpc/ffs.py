@@ -3,8 +3,9 @@ import grpc
 import proto.ffs_rpc_pb2 as ffs_rpc_pb2
 import proto.ffs_rpc_pb2_grpc as ffs_rpc_pb2_grpc
 
-TOKEN_KEY = 'x-ffs-token'
+TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
+
 
 class FfsClient(object):
     def __init__(self, host_name):
@@ -18,33 +19,37 @@ class FfsClient(object):
     def list_api(self):
         req = ffs_rpc_pb2.ListAPIRequest()
         return self.client.ListAPI(req)
-    
+
     def id(self, token):
         req = ffs_rpc_pb2.IDRequest()
         return self.client.ID(req, metadata=self._get_meta_data(token))
 
     def addrs_list(self, token=None):
         req = ffs_rpc_pb2.AddrsRequest()
-        if (token != None):
+        if token != None:
             return self.client.Addrs(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
+        if self.token != None:
             return self.client.Addrs(req, metadata=self._get_meta_data(self.token))
         self._raise_no_token_provided_exception()
 
     def addrs_new(self, name, type="", isDefault=False, token=None):
-        req = ffs_rpc_pb2.NewAddrRequest(name=name, address_type=type, make_default=isDefault)
-        if (token != None):
+        req = ffs_rpc_pb2.NewAddrRequest(
+            name=name, address_type=type, make_default=isDefault
+        )
+        if token != None:
             return self.client.NewAddr(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
+        if self.token != None:
             return self.client.NewAddr(req, metadata=self._get_meta_data(self.token))
         self._raise_no_token_provided_exception()
 
     def default_config(self, token=None):
         req = ffs_rpc_pb2.DefaultConfig()
-        if (token != None):
+        if token != None:
             return self.client.DefaultConfig(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
-            return self.client.DefaultConfig(req, metadata=self._get_meta_data(self.token))
+        if self.token != None:
+            return self.client.DefaultConfig(
+                req, metadata=self._get_meta_data(self.token)
+            )
         self._raise_no_token_provided_exception
 
     def create(self):
@@ -53,26 +58,34 @@ class FfsClient(object):
 
     def default_config_for_cid(self, cid, token=None):
         req = ffs_rpc_pb2.GetDefaultCidConfigRequest(cid=cid)
-        if (token != None):
-            return self.client.GetDefaultCidConfig(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
-            return self.client.GetDefaultCidConfig(req, metadata=self._get_meta_data(self.token))
+        if token != None:
+            return self.client.GetDefaultCidConfig(
+                req, metadata=self._get_meta_data(token)
+            )
+        if self.token != None:
+            return self.client.GetDefaultCidConfig(
+                req, metadata=self._get_meta_data(self.token)
+            )
         self._raise_no_token_provided_exception
-    
+
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
     def set_default_config(self, config, token):
         req = ffs_rpc_pb2.DefaultConfig(config=config)
-        if (token != None):
-            return self.client.SetDefaultConfig(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
-            return self.client.SetDefaultConfig(req, metadata=self._get_meta_data(self.token))
+        if token != None:
+            return self.client.SetDefaultConfig(
+                req, metadata=self._get_meta_data(token)
+            )
+        if self.token != None:
+            return self.client.SetDefaultConfig(
+                req, metadata=self._get_meta_data(self.token)
+            )
         self._raise_no_token_provided_exception
 
     def show(self, cid, token):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
-        if (token != None):
+        if token != None:
             return self.client.Show(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
+        if self.token != None:
             return self.client.Show(req, metadata=self._get_meta_data(self.token))
         self._raise_no_token_provided_exception
 
@@ -90,9 +103,9 @@ class FfsClient(object):
 
     def send_fil(self, sender, receiver, amount, token):
         req = ffs_rpc_pb2.SendFilRequest(sender, receiver, amount)
-        if (token != None):
+        if token != None:
             return self.client.SendFil(req, metadata=self._get_meta_data(token))
-        if (self.token != None):
+        if self.token != None:
             return self.client.SendFil(req, metadata=self._get_meta_data(self.token))
         self._raise_no_token_provided_exception
 
@@ -109,7 +122,7 @@ class FfsClient(object):
         return self.client.PushConfig(req, metadata=self._get_meta_data(token))
 
     def get_file_bytes(self, filename):
-        with open(filename, 'rb') as f:
+        with open(filename, "rb") as f:
             while True:
                 piece = f.read(CHUNK_SIZE)
                 if len(piece) == 0:
@@ -132,10 +145,9 @@ class FfsClient(object):
     def _generate_chunks(self, chunks):
         for chunk in chunks:
             yield ffs_rpc_pb2.AddToHotRequest(chunk=chunk)
-        
+
     def _raise_no_token_provided_exception(self):
         raise Exception(
-            "No token is provided, you should either call the set_token method to set" +
-            " the token, or supplied the token in the method.")
-
-
+            "No token is provided, you should either call the set_token method to set"
+            + " the token, or supplied the token in the method."
+        )
