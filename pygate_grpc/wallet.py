@@ -20,7 +20,7 @@ class WalletClient(object):
     def new(self, type_="bls"):
         req = wallet_rpc_pb2.NewAddressRequest(type=type_)
         return self.client.NewAddress(req)
-    
+
     def balance(self, address):
         req = wallet_rpc_pb2.WalletBalanceRequest(address=address)
         return self.client.WalletBalance(req)
