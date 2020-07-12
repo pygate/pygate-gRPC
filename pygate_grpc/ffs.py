@@ -1,13 +1,15 @@
 import grpc
 
-import proto.ffs_rpc_pb2 as ffs_rpc_pb2
-import proto.ffs_rpc_pb2_grpc as ffs_rpc_pb2_grpc
+from proto import ffs_rpc_pb2
+from proto import ffs_rpc_pb2_grpc
+from pygate_grpc.errors import ErrorHandlerMeta
 
 TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
 
 
-class FfsClient(object):
+
+class FfsClient(object, metaclass=ErrorHandlerMeta):
     def __init__(self, host_name):
         self.host_name = host_name
         channel = grpc.insecure_channel(host_name)
@@ -153,3 +155,4 @@ class FfsClient(object):
             "No token is provided, you should either call the set_token method to set"
             + " the token, or supplied the token in the method."
         )
+
