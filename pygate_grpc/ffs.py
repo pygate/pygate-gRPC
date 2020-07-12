@@ -50,7 +50,7 @@ class FfsClient(object):
             return self.client.DefaultConfig(
                 req, metadata=self._get_meta_data(self.token)
             )
-        self._raise_no_token_provided_exception
+        self._raise_no_token_provided_exception()
 
     def create(self):
         req = ffs_rpc_pb2.CreateRequest()
@@ -66,7 +66,7 @@ class FfsClient(object):
             return self.client.GetDefaultCidConfig(
                 req, metadata=self._get_meta_data(self.token)
             )
-        self._raise_no_token_provided_exception
+        self._raise_no_token_provided_exception()
 
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
     def set_default_config(self, config, token):
@@ -79,7 +79,7 @@ class FfsClient(object):
             return self.client.SetDefaultConfig(
                 req, metadata=self._get_meta_data(self.token)
             )
-        self._raise_no_token_provided_exception
+        self._raise_no_token_provided_exception()
 
     def show(self, cid, token):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
@@ -87,7 +87,7 @@ class FfsClient(object):
             return self.client.Show(req, metadata=self._get_meta_data(token))
         if self.token != None:
             return self.client.Show(req, metadata=self._get_meta_data(self.token))
-        self._raise_no_token_provided_exception
+        self._raise_no_token_provided_exception()
 
     # Note that the chunkIter should be an iterator that yield `ffs_rpc_pb2.AddToHotRequest`,
     # it is the caller's responsibility to create the iterator.
@@ -107,7 +107,7 @@ class FfsClient(object):
             return self.client.SendFil(req, metadata=self._get_meta_data(token))
         if self.token != None:
             return self.client.SendFil(req, metadata=self._get_meta_data(self.token))
-        self._raise_no_token_provided_exception
+        self._raise_no_token_provided_exception()
 
     def logs(self, cid, token):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
