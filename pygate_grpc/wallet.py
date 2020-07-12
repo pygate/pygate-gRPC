@@ -13,14 +13,21 @@ class WalletClient(object):
 
     # Type should be either `bls` or `secp256k1`.
     def list(self, type_="bls"):
+        self._check_address_type(type_)
         req = wallet_rpc_pb2.ListRequest(type=type_)
         return self.client.List(req)
 
     # Type should be either `bls` or `secp256k1`.
     def new(self, type_="bls"):
+        self._check_address_type(type_)
         req = wallet_rpc_pb2.NewAddressRequest(type=type_)
         return self.client.NewAddress(req)
 
     def balance(self, address):
         req = wallet_rpc_pb2.WalletBalanceRequest(address=address)
         return self.client.WalletBalance(req)
+
+    def _check_address_type(self, wallet_type):
+        acceptable_types = ["bls", "secp256k1"]
+        if wallet_type not in acceptable_types:
+            raise Exception("Type should be one of ", acceptable_types)
