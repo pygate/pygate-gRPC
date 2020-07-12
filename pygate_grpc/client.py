@@ -1,5 +1,5 @@
 from proto import ffs_rpc_pb2
-from pygate_grpc import health, faults, deals, ffs
+from pygate_grpc import health, faults, deals, ffs, wallet
 
 
 class PowerGateClient(object):
@@ -8,3 +8,4 @@ class PowerGateClient(object):
         self.faults = faults.FaultsClient(host_name)
         self.deals = deals.DealsClient(host_name)
         self.ffs = ffs.FfsClient(host_name)
+        self.wallet = wallet.WalletClient(host_name)

@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import wallet_rpc_pb2 as wallet__rpc__pb2
+import proto.wallet_rpc_pb2 as wallet__rpc__pb2
 
 
 class RPCServiceStub(object):
