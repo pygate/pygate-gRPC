@@ -103,11 +103,7 @@ class FfsClient(object):
 
     def send_fil(self, sender, receiver, amount, token=None):
         # To avoid name collision since `from` is reserved in Python.
-        kwargs = {
-            'from': sender,
-            'to': receiver,
-            'amount': amount
-        }
+        kwargs = {"from": sender, "to": receiver, "amount": amount}
         req = ffs_rpc_pb2.SendFilRequest(**kwargs)
         if token != None:
             return self.client.SendFil(req, metadata=self._get_meta_data(token))
