@@ -18,7 +18,7 @@ pip install pygate_grpc
 
 ## Usage
 
-The main component of the package is the `PowerGateClient` class. 
+The main component of the package is the `PowerGateClient` class.
 
 Here is a basic usage example of the pygate_grpc:
 
@@ -31,6 +31,8 @@ healthcheck = client.health.check()
 ```
 
 Simple as that!
+
+Note: this examples assumes you have a Powergate server running with an API available at 127.0.0.1:5002. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/).
 
 Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
@@ -61,7 +63,7 @@ pipenv shell
 
 ## Code Style
 
-This project uses [black](https://pypi.org/project/black/) code formatter for consistency. Since the are not any precommit hooks defined in the repository yet please format your code before opening a pull request. 
+This project uses [black](https://pypi.org/project/black/) code formatter for consistency. Since the are not any precommit hooks defined in the repository yet please format your code before opening a pull request.
 
 Automatic formatting can be performed by running:
 ```
@@ -88,7 +90,7 @@ pipenv run integration-test
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/apogiatzis/powsolver/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/apogiatzis/powsolver/tags).
 
 To automatically bump the version of the package run:
 ```
@@ -102,7 +104,7 @@ git push origin main --tags
 
 ## Authors
 
-* **Antreas Pogiatzis** - *Initial scaffolding* 
+* **Antreas Pogiatzis** - *Initial scaffolding*
 * **Wang Ge**
 * **Peter Van Garderen**
 
