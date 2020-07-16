@@ -15,20 +15,25 @@ class RPCServiceStub(object):
             channel: A grpc.Channel.
         """
         self.NewAddress = channel.unary_unary(
-            "/wallet.rpc.RPCService/NewAddress",
-            request_serializer=wallet__rpc__pb2.NewAddressRequest.SerializeToString,
-            response_deserializer=wallet__rpc__pb2.NewAddressResponse.FromString,
-        )
+                '/wallet.rpc.RPCService/NewAddress',
+                request_serializer=wallet__rpc__pb2.NewAddressRequest.SerializeToString,
+                response_deserializer=wallet__rpc__pb2.NewAddressResponse.FromString,
+                )
         self.List = channel.unary_unary(
-            "/wallet.rpc.RPCService/List",
-            request_serializer=wallet__rpc__pb2.ListRequest.SerializeToString,
-            response_deserializer=wallet__rpc__pb2.ListResponse.FromString,
-        )
-        self.WalletBalance = channel.unary_unary(
-            "/wallet.rpc.RPCService/WalletBalance",
-            request_serializer=wallet__rpc__pb2.WalletBalanceRequest.SerializeToString,
-            response_deserializer=wallet__rpc__pb2.WalletBalanceResponse.FromString,
-        )
+                '/wallet.rpc.RPCService/List',
+                request_serializer=wallet__rpc__pb2.ListRequest.SerializeToString,
+                response_deserializer=wallet__rpc__pb2.ListResponse.FromString,
+                )
+        self.Balance = channel.unary_unary(
+                '/wallet.rpc.RPCService/Balance',
+                request_serializer=wallet__rpc__pb2.BalanceRequest.SerializeToString,
+                response_deserializer=wallet__rpc__pb2.BalanceResponse.FromString,
+                )
+        self.SendFil = channel.unary_unary(
+                '/wallet.rpc.RPCService/SendFil',
+                request_serializer=wallet__rpc__pb2.SendFilRequest.SerializeToString,
+                response_deserializer=wallet__rpc__pb2.SendFilResponse.FromString,
+                )
 
 
 class RPCServiceServicer(object):
@@ -37,127 +42,120 @@ class RPCServiceServicer(object):
     def NewAddress(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def List(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-    def WalletBalance(self, request, context):
+    def Balance(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendFil(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_RPCServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "NewAddress": grpc.unary_unary_rpc_method_handler(
-            servicer.NewAddress,
-            request_deserializer=wallet__rpc__pb2.NewAddressRequest.FromString,
-            response_serializer=wallet__rpc__pb2.NewAddressResponse.SerializeToString,
-        ),
-        "List": grpc.unary_unary_rpc_method_handler(
-            servicer.List,
-            request_deserializer=wallet__rpc__pb2.ListRequest.FromString,
-            response_serializer=wallet__rpc__pb2.ListResponse.SerializeToString,
-        ),
-        "WalletBalance": grpc.unary_unary_rpc_method_handler(
-            servicer.WalletBalance,
-            request_deserializer=wallet__rpc__pb2.WalletBalanceRequest.FromString,
-            response_serializer=wallet__rpc__pb2.WalletBalanceResponse.SerializeToString,
-        ),
+            'NewAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.NewAddress,
+                    request_deserializer=wallet__rpc__pb2.NewAddressRequest.FromString,
+                    response_serializer=wallet__rpc__pb2.NewAddressResponse.SerializeToString,
+            ),
+            'List': grpc.unary_unary_rpc_method_handler(
+                    servicer.List,
+                    request_deserializer=wallet__rpc__pb2.ListRequest.FromString,
+                    response_serializer=wallet__rpc__pb2.ListResponse.SerializeToString,
+            ),
+            'Balance': grpc.unary_unary_rpc_method_handler(
+                    servicer.Balance,
+                    request_deserializer=wallet__rpc__pb2.BalanceRequest.FromString,
+                    response_serializer=wallet__rpc__pb2.BalanceResponse.SerializeToString,
+            ),
+            'SendFil': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendFil,
+                    request_deserializer=wallet__rpc__pb2.SendFilRequest.FromString,
+                    response_serializer=wallet__rpc__pb2.SendFilResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "wallet.rpc.RPCService", rpc_method_handlers
-    )
+            'wallet.rpc.RPCService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class RPCService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def NewAddress(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def NewAddress(request,
             target,
-            "/wallet.rpc.RPCService/NewAddress",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet.rpc.RPCService/NewAddress',
             wallet__rpc__pb2.NewAddressRequest.SerializeToString,
             wallet__rpc__pb2.NewAddressResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def List(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def List(request,
             target,
-            "/wallet.rpc.RPCService/List",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet.rpc.RPCService/List',
             wallet__rpc__pb2.ListRequest.SerializeToString,
             wallet__rpc__pb2.ListResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WalletBalance(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Balance(request,
             target,
-            "/wallet.rpc.RPCService/WalletBalance",
-            wallet__rpc__pb2.WalletBalanceRequest.SerializeToString,
-            wallet__rpc__pb2.WalletBalanceResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet.rpc.RPCService/Balance',
+            wallet__rpc__pb2.BalanceRequest.SerializeToString,
+            wallet__rpc__pb2.BalanceResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendFil(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet.rpc.RPCService/SendFil',
+            wallet__rpc__pb2.SendFilRequest.SerializeToString,
+            wallet__rpc__pb2.SendFilResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)

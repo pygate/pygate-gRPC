@@ -24,8 +24,8 @@ class WalletClient(object):
         return self.client.NewAddress(req)
 
     def balance(self, address):
-        req = wallet_rpc_pb2.WalletBalanceRequest(address=address)
-        return self.client.WalletBalance(req)
+        req = wallet_rpc_pb2.BalanceRequest(address=address)
+        return self.client.Balance(req)
 
     def _check_address_type(self, wallet_type):
         acceptable_types = ["bls", "secp256k1"]
