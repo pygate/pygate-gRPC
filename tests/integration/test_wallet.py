@@ -2,6 +2,7 @@ import logging
 
 from pygate_grpc.client import PowerGateClient
 from proto.wallet_rpc_pb2 import ListResponse, BalanceResponse
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -33,8 +34,10 @@ def test_grpc_wallet_balance(pygate_client: PowerGateClient):
     new_res = pygate_client.wallet.new()
     assert new_res is not None
 
+    # Wait a bit for the transaction to be done.
+    time.sleep(5)
     balance_res = pygate_client.wallet.balance(new_res.address)
     assert type(balance_res) is BalanceResponse
     # TODO: In here, according to `pow wallet balance <address>` this should be 4000000000000000,
     # but it is returning 0 in reality, not sure why.
-    # assert balance_res.balance == 4000000000000000
+    assert balance_res.balance == 4000000000000000
