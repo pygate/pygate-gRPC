@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import net_rpc_pb2 as net__rpc__pb2
+import proto.net_rpc_pb2 as net__rpc__pb2
 
 
 class RPCServiceStub(object):
