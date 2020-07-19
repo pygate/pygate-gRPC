@@ -27,6 +27,11 @@ class WalletClient(object):
         req = wallet_rpc_pb2.BalanceRequest(address=address)
         return self.client.Balance(req)
 
+    def send_fil(self, sender, receiver, amount):
+        kwargs = {"from": sender, "to": receiver, "amount": amount}
+        req = wallet_rpc_pb2.SendFilRequest(**kwargs)
+        return self.client.SendFil(req)
+
     def _check_address_type(self, wallet_type):
         acceptable_types = ["bls", "secp256k1"]
         if wallet_type not in acceptable_types:

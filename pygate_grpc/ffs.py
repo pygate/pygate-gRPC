@@ -14,7 +14,7 @@ CHUNK_SIZE = 1024 * 1024  # 1MB
 # meta data field, see here: https://stackoverflow.com/questions/45071567/how-to-send-custom-header-metadata-with
 # -python-grpc
 def _get_meta_data(token: str) -> Tuple[Tuple[str, str]]:
-    return (TOKEN_KEY, token),
+    return ((TOKEN_KEY, token),)
 
 
 def _generate_chunks(chunks: Iterable[bytes]) -> Iterable[ffs_rpc_pb2.AddToHotRequest]:
@@ -27,7 +27,9 @@ def chunks_to_bytes(chunks: Iterable[ffs_rpc_pb2.AddToHotResponse]) -> Iterable[
         yield c.chunk
 
 
-def bytes_to_chunks(bytes_iter: Iterable[bytes]) -> Iterable[ffs_rpc_pb2.AddToHotRequest]:
+def bytes_to_chunks(
+    bytes_iter: Iterable[bytes],
+) -> Iterable[ffs_rpc_pb2.AddToHotRequest]:
     for b in bytes_iter:
         yield ffs_rpc_pb2.AddToHotRequest(chunk=b)
 
@@ -68,7 +70,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         self._raise_no_token_provided_exception()
 
     def addrs_new(
-            self, name: str, type_: str = "", is_default: bool = False, token: str = None
+        self, name: str, type_: str = "", is_default: bool = False, token: str = None
     ):
         req = ffs_rpc_pb2.NewAddrRequest(
             name=name, address_type=type_, make_default=is_default
@@ -84,9 +86,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         if token is not None:
             return self.client.DefaultConfig(req, metadata=_get_meta_data(token))
         if self.token is not None:
-            return self.client.DefaultConfig(
-                req, metadata=_get_meta_data(self.token)
-            )
+            return self.client.DefaultConfig(req, metadata=_get_meta_data(self.token))
         self._raise_no_token_provided_exception()
 
     def create(self):
@@ -96,9 +96,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def default_config_for_cid(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.GetDefaultCidConfigRequest(cid=cid)
         if token is not None:
-            return self.client.GetDefaultCidConfig(
-                req, metadata=_get_meta_data(token)
-            )
+            return self.client.GetDefaultCidConfig(req, metadata=_get_meta_data(token))
         if self.token is not None:
             return self.client.GetDefaultCidConfig(
                 req, metadata=_get_meta_data(self.token)
@@ -109,9 +107,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def set_default_config(self, config: ffs_rpc_pb2.DefaultConfig, token: str = None):
         req = ffs_rpc_pb2.DefaultConfig(config=config)
         if token is not None:
-            return self.client.SetDefaultConfig(
-                req, metadata=_get_meta_data(token)
-            )
+            return self.client.SetDefaultConfig(req, metadata=_get_meta_data(token))
         if self.token is not None:
             return self.client.SetDefaultConfig(
                 req, metadata=_get_meta_data(self.token)
@@ -130,7 +126,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     # it is the caller's responsibility to create the iterator.
     # The provided getFileChunks comes in handy some times.
     def add_to_hot(
-            self, chunks_iter: Iterable[ffs_rpc_pb2.AddToHotResponse], token: str = None
+        self, chunks_iter: Iterable[ffs_rpc_pb2.AddToHotResponse], token: str = None
     ):
         return self.client.AddToHot(chunks_iter, metadata=_get_meta_data(token))
 
