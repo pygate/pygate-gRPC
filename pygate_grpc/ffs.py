@@ -53,7 +53,11 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def set_token(self, token: str):
         self.token = token
 
-    def list_api(self):
+    def create(self):
+        req = ffs_rpc_pb2.CreateRequest()
+        return self.client.Create(req)
+
+    def list_ffs(self):
         req = ffs_rpc_pb2.ListAPIRequest()
         return self.client.ListAPI(req)
 
@@ -88,10 +92,6 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         if self.token is not None:
             return self.client.DefaultConfig(req, metadata=_get_meta_data(self.token))
         self._raise_no_token_provided_exception()
-
-    def create(self):
-        req = ffs_rpc_pb2.CreateRequest()
-        return self.client.Create(req)
 
     def default_config_for_cid(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.GetDefaultCidConfigRequest(cid=cid)

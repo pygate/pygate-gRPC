@@ -1,5 +1,6 @@
 import logging
 import pytest
+import time
 
 from proto.ffs_rpc_pb2 import CreateResponse, AddToHotRequest, AddrInfo
 from pygate_grpc.client import PowerGateClient
@@ -21,7 +22,7 @@ def test_grpc_ffs_create(pygate_client: PowerGateClient):
 
 
 def test_grpc_ffs_list_api(pygate_client: PowerGateClient, ffs_instance):
-    res = pygate_client.ffs.list_api()
+    res = pygate_client.ffs.list_ffs()
 
     assert res is not None
     assert ffs_instance.id in res.instances
@@ -72,33 +73,27 @@ def test_create_new_wallet_address(
 
 
 def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
-    new_addr_name = "send_fil"
-    addr = pygate_client.ffs.addrs_new(name=new_addr_name, token=ffs_instance.token)
+    sender_addr_name = "fil_sender"
+    sender_addr = pygate_client.ffs.addrs_new(name=sender_addr_name, token=ffs_instance.token)
 
-    assert addr is not None
-    assert addr.addr is not None
+    receiver_addr_name = "fil_receiver"
+    receiver_addr = pygate_client.ffs.addrs_new(name=receiver_addr_name, token=ffs_instance.token)
+    
 
-    res = pygate_client.ffs.addrs_list(token=ffs_instance.token)
+    # Sleep a bit to wait for initialization
+    time.sleep(5)    
+    before_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
+    before_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
-    assert res is not None
+    pygate_client.ffs.send_fil(sender_addr.addr, receiver_addr.addr, 1, token=ffs_instance.token)
 
-    expected_addr = AddrInfo(name=new_addr_name, addr=addr.addr, type="bls")
-    assert expected_addr in res.addrs
+    # Wait a bit for transaction to complete
+    time.sleep(5)
+    after_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
+    after_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
-    # TODO: not sure why I can't send fil, need to fix.
-    # sender = res.addrs[0]
-    # receiver = res.addrs[1]
-
-    # before_sender_fil = pygate_client.wallet.balance(sender.addr)
-    # before_receiver_fil = pygate_client.wallet.balance(receiver.addr)
-
-    # pygate_client.ffs.send_fil(sender.addr, receiver.addr, 1, token=ffs_instance.token)
-
-    # after_sender_fil = pygate_client.wallet.balance(sender.addr)
-    # after_receiver_fil = pygate_client.wallet.balance(receiver.addr)
-
-    # assert before_sender_fil - 1 == after_sender_fil
-    # assert before_receiver_fil + 1 == after_receiver_fil
+    assert (before_sender_fil.balance - 1) == after_sender_fil.balance
+    assert (before_receiver_fil.balance + 1) == after_receiver_fil.balance
 
 
 def test_chunks():
