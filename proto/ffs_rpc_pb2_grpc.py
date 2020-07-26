@@ -15,130 +15,135 @@ class RPCServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Create = channel.unary_unary(
-            "/ffs.rpc.RPCService/Create",
-            request_serializer=ffs__rpc__pb2.CreateRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.CreateResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Create',
+                request_serializer=ffs__rpc__pb2.CreateRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.CreateResponse.FromString,
+                )
         self.ListAPI = channel.unary_unary(
-            "/ffs.rpc.RPCService/ListAPI",
-            request_serializer=ffs__rpc__pb2.ListAPIRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.ListAPIResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/ListAPI',
+                request_serializer=ffs__rpc__pb2.ListAPIRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ListAPIResponse.FromString,
+                )
         self.ID = channel.unary_unary(
-            "/ffs.rpc.RPCService/ID",
-            request_serializer=ffs__rpc__pb2.IDRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.IDResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/ID',
+                request_serializer=ffs__rpc__pb2.IDRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.IDResponse.FromString,
+                )
         self.Addrs = channel.unary_unary(
-            "/ffs.rpc.RPCService/Addrs",
-            request_serializer=ffs__rpc__pb2.AddrsRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.AddrsResponse.FromString,
-        )
-        self.DefaultConfig = channel.unary_unary(
-            "/ffs.rpc.RPCService/DefaultConfig",
-            request_serializer=ffs__rpc__pb2.DefaultConfigRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.DefaultConfigResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Addrs',
+                request_serializer=ffs__rpc__pb2.AddrsRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.AddrsResponse.FromString,
+                )
+        self.DefaultStorageConfig = channel.unary_unary(
+                '/ffs.rpc.RPCService/DefaultStorageConfig',
+                request_serializer=ffs__rpc__pb2.DefaultStorageConfigRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.DefaultStorageConfigResponse.FromString,
+                )
         self.NewAddr = channel.unary_unary(
-            "/ffs.rpc.RPCService/NewAddr",
-            request_serializer=ffs__rpc__pb2.NewAddrRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.NewAddrResponse.FromString,
-        )
-        self.GetDefaultCidConfig = channel.unary_unary(
-            "/ffs.rpc.RPCService/GetDefaultCidConfig",
-            request_serializer=ffs__rpc__pb2.GetDefaultCidConfigRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.GetDefaultCidConfigResponse.FromString,
-        )
-        self.GetCidConfig = channel.unary_unary(
-            "/ffs.rpc.RPCService/GetCidConfig",
-            request_serializer=ffs__rpc__pb2.GetCidConfigRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.GetCidConfigResponse.FromString,
-        )
-        self.SetDefaultConfig = channel.unary_unary(
-            "/ffs.rpc.RPCService/SetDefaultConfig",
-            request_serializer=ffs__rpc__pb2.SetDefaultConfigRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.SetDefaultConfigResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/NewAddr',
+                request_serializer=ffs__rpc__pb2.NewAddrRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.NewAddrResponse.FromString,
+                )
+        self.GetStorageConfig = channel.unary_unary(
+                '/ffs.rpc.RPCService/GetStorageConfig',
+                request_serializer=ffs__rpc__pb2.GetStorageConfigRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.GetStorageConfigResponse.FromString,
+                )
+        self.SetDefaultStorageConfig = channel.unary_unary(
+                '/ffs.rpc.RPCService/SetDefaultStorageConfig',
+                request_serializer=ffs__rpc__pb2.SetDefaultStorageConfigRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.SetDefaultStorageConfigResponse.FromString,
+                )
         self.Show = channel.unary_unary(
-            "/ffs.rpc.RPCService/Show",
-            request_serializer=ffs__rpc__pb2.ShowRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.ShowResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Show',
+                request_serializer=ffs__rpc__pb2.ShowRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ShowResponse.FromString,
+                )
         self.Info = channel.unary_unary(
-            "/ffs.rpc.RPCService/Info",
-            request_serializer=ffs__rpc__pb2.InfoRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.InfoResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Info',
+                request_serializer=ffs__rpc__pb2.InfoRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.InfoResponse.FromString,
+                )
         self.CancelJob = channel.unary_unary(
-            "/ffs.rpc.RPCService/CancelJob",
-            request_serializer=ffs__rpc__pb2.CancelJobRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.CancelJobResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/CancelJob',
+                request_serializer=ffs__rpc__pb2.CancelJobRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.CancelJobResponse.FromString,
+                )
         self.WatchJobs = channel.unary_stream(
-            "/ffs.rpc.RPCService/WatchJobs",
-            request_serializer=ffs__rpc__pb2.WatchJobsRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.WatchJobsResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/WatchJobs',
+                request_serializer=ffs__rpc__pb2.WatchJobsRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.WatchJobsResponse.FromString,
+                )
         self.WatchLogs = channel.unary_stream(
-            "/ffs.rpc.RPCService/WatchLogs",
-            request_serializer=ffs__rpc__pb2.WatchLogsRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.WatchLogsResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/WatchLogs',
+                request_serializer=ffs__rpc__pb2.WatchLogsRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.WatchLogsResponse.FromString,
+                )
         self.Replace = channel.unary_unary(
-            "/ffs.rpc.RPCService/Replace",
-            request_serializer=ffs__rpc__pb2.ReplaceRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.ReplaceResponse.FromString,
-        )
-        self.PushConfig = channel.unary_unary(
-            "/ffs.rpc.RPCService/PushConfig",
-            request_serializer=ffs__rpc__pb2.PushConfigRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.PushConfigResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Replace',
+                request_serializer=ffs__rpc__pb2.ReplaceRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ReplaceResponse.FromString,
+                )
+        self.PushStorageConfig = channel.unary_unary(
+                '/ffs.rpc.RPCService/PushStorageConfig',
+                request_serializer=ffs__rpc__pb2.PushStorageConfigRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.PushStorageConfigResponse.FromString,
+                )
         self.Remove = channel.unary_unary(
-            "/ffs.rpc.RPCService/Remove",
-            request_serializer=ffs__rpc__pb2.RemoveRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.RemoveResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Remove',
+                request_serializer=ffs__rpc__pb2.RemoveRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.RemoveResponse.FromString,
+                )
         self.Get = channel.unary_stream(
-            "/ffs.rpc.RPCService/Get",
-            request_serializer=ffs__rpc__pb2.GetRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.GetResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Get',
+                request_serializer=ffs__rpc__pb2.GetRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.GetResponse.FromString,
+                )
         self.SendFil = channel.unary_unary(
-            "/ffs.rpc.RPCService/SendFil",
-            request_serializer=ffs__rpc__pb2.SendFilRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.SendFilResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/SendFil',
+                request_serializer=ffs__rpc__pb2.SendFilRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.SendFilResponse.FromString,
+                )
         self.Close = channel.unary_unary(
-            "/ffs.rpc.RPCService/Close",
-            request_serializer=ffs__rpc__pb2.CloseRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.CloseResponse.FromString,
-        )
-        self.AddToHot = channel.stream_unary(
-            "/ffs.rpc.RPCService/AddToHot",
-            request_serializer=ffs__rpc__pb2.AddToHotRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.AddToHotResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/Close',
+                request_serializer=ffs__rpc__pb2.CloseRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.CloseResponse.FromString,
+                )
+        self.Stage = channel.stream_unary(
+                '/ffs.rpc.RPCService/Stage',
+                request_serializer=ffs__rpc__pb2.StageRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.StageResponse.FromString,
+                )
         self.ListPayChannels = channel.unary_unary(
-            "/ffs.rpc.RPCService/ListPayChannels",
-            request_serializer=ffs__rpc__pb2.ListPayChannelsRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.ListPayChannelsResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/ListPayChannels',
+                request_serializer=ffs__rpc__pb2.ListPayChannelsRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ListPayChannelsResponse.FromString,
+                )
         self.CreatePayChannel = channel.unary_unary(
-            "/ffs.rpc.RPCService/CreatePayChannel",
-            request_serializer=ffs__rpc__pb2.CreatePayChannelRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.CreatePayChannelResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/CreatePayChannel',
+                request_serializer=ffs__rpc__pb2.CreatePayChannelRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.CreatePayChannelResponse.FromString,
+                )
         self.RedeemPayChannel = channel.unary_unary(
-            "/ffs.rpc.RPCService/RedeemPayChannel",
-            request_serializer=ffs__rpc__pb2.RedeemPayChannelRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.RedeemPayChannelResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/RedeemPayChannel',
+                request_serializer=ffs__rpc__pb2.RedeemPayChannelRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.RedeemPayChannelResponse.FromString,
+                )
+        self.ListStorageDealRecords = channel.unary_unary(
+                '/ffs.rpc.RPCService/ListStorageDealRecords',
+                request_serializer=ffs__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ListStorageDealRecordsResponse.FromString,
+                )
+        self.ListRetrievalDealRecords = channel.unary_unary(
+                '/ffs.rpc.RPCService/ListRetrievalDealRecords',
+                request_serializer=ffs__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
+                )
         self.ShowAll = channel.unary_unary(
-            "/ffs.rpc.RPCService/ShowAll",
-            request_serializer=ffs__rpc__pb2.ShowAllRequest.SerializeToString,
-            response_deserializer=ffs__rpc__pb2.ShowAllResponse.FromString,
-        )
+                '/ffs.rpc.RPCService/ShowAll',
+                request_serializer=ffs__rpc__pb2.ShowAllRequest.SerializeToString,
+                response_deserializer=ffs__rpc__pb2.ShowAllResponse.FromString,
+                )
 
 
 class RPCServiceServicer(object):
@@ -148,965 +153,716 @@ class RPCServiceServicer(object):
         """Admin
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ListAPI(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ID(self, request, context):
         """Instance
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Addrs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-    def DefaultConfig(self, request, context):
+    def DefaultStorageConfig(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def NewAddr(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-    def GetDefaultCidConfig(self, request, context):
+    def GetStorageConfig(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-    def GetCidConfig(self, request, context):
+    def SetDefaultStorageConfig(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
-
-    def SetDefaultConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Show(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Info(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def CancelJob(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def WatchJobs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def WatchLogs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Replace(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-    def PushConfig(self, request, context):
+    def PushStorageConfig(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Remove(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Get(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def SendFil(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Close(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-    def AddToHot(self, request_iterator, context):
+    def Stage(self, request_iterator, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ListPayChannels(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def CreatePayChannel(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def RedeemPayChannel(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListStorageDealRecords(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRetrievalDealRecords(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ShowAll(self, request, context):
         """UI support
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_RPCServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "Create": grpc.unary_unary_rpc_method_handler(
-            servicer.Create,
-            request_deserializer=ffs__rpc__pb2.CreateRequest.FromString,
-            response_serializer=ffs__rpc__pb2.CreateResponse.SerializeToString,
-        ),
-        "ListAPI": grpc.unary_unary_rpc_method_handler(
-            servicer.ListAPI,
-            request_deserializer=ffs__rpc__pb2.ListAPIRequest.FromString,
-            response_serializer=ffs__rpc__pb2.ListAPIResponse.SerializeToString,
-        ),
-        "ID": grpc.unary_unary_rpc_method_handler(
-            servicer.ID,
-            request_deserializer=ffs__rpc__pb2.IDRequest.FromString,
-            response_serializer=ffs__rpc__pb2.IDResponse.SerializeToString,
-        ),
-        "Addrs": grpc.unary_unary_rpc_method_handler(
-            servicer.Addrs,
-            request_deserializer=ffs__rpc__pb2.AddrsRequest.FromString,
-            response_serializer=ffs__rpc__pb2.AddrsResponse.SerializeToString,
-        ),
-        "DefaultConfig": grpc.unary_unary_rpc_method_handler(
-            servicer.DefaultConfig,
-            request_deserializer=ffs__rpc__pb2.DefaultConfigRequest.FromString,
-            response_serializer=ffs__rpc__pb2.DefaultConfigResponse.SerializeToString,
-        ),
-        "NewAddr": grpc.unary_unary_rpc_method_handler(
-            servicer.NewAddr,
-            request_deserializer=ffs__rpc__pb2.NewAddrRequest.FromString,
-            response_serializer=ffs__rpc__pb2.NewAddrResponse.SerializeToString,
-        ),
-        "GetDefaultCidConfig": grpc.unary_unary_rpc_method_handler(
-            servicer.GetDefaultCidConfig,
-            request_deserializer=ffs__rpc__pb2.GetDefaultCidConfigRequest.FromString,
-            response_serializer=ffs__rpc__pb2.GetDefaultCidConfigResponse.SerializeToString,
-        ),
-        "GetCidConfig": grpc.unary_unary_rpc_method_handler(
-            servicer.GetCidConfig,
-            request_deserializer=ffs__rpc__pb2.GetCidConfigRequest.FromString,
-            response_serializer=ffs__rpc__pb2.GetCidConfigResponse.SerializeToString,
-        ),
-        "SetDefaultConfig": grpc.unary_unary_rpc_method_handler(
-            servicer.SetDefaultConfig,
-            request_deserializer=ffs__rpc__pb2.SetDefaultConfigRequest.FromString,
-            response_serializer=ffs__rpc__pb2.SetDefaultConfigResponse.SerializeToString,
-        ),
-        "Show": grpc.unary_unary_rpc_method_handler(
-            servicer.Show,
-            request_deserializer=ffs__rpc__pb2.ShowRequest.FromString,
-            response_serializer=ffs__rpc__pb2.ShowResponse.SerializeToString,
-        ),
-        "Info": grpc.unary_unary_rpc_method_handler(
-            servicer.Info,
-            request_deserializer=ffs__rpc__pb2.InfoRequest.FromString,
-            response_serializer=ffs__rpc__pb2.InfoResponse.SerializeToString,
-        ),
-        "CancelJob": grpc.unary_unary_rpc_method_handler(
-            servicer.CancelJob,
-            request_deserializer=ffs__rpc__pb2.CancelJobRequest.FromString,
-            response_serializer=ffs__rpc__pb2.CancelJobResponse.SerializeToString,
-        ),
-        "WatchJobs": grpc.unary_stream_rpc_method_handler(
-            servicer.WatchJobs,
-            request_deserializer=ffs__rpc__pb2.WatchJobsRequest.FromString,
-            response_serializer=ffs__rpc__pb2.WatchJobsResponse.SerializeToString,
-        ),
-        "WatchLogs": grpc.unary_stream_rpc_method_handler(
-            servicer.WatchLogs,
-            request_deserializer=ffs__rpc__pb2.WatchLogsRequest.FromString,
-            response_serializer=ffs__rpc__pb2.WatchLogsResponse.SerializeToString,
-        ),
-        "Replace": grpc.unary_unary_rpc_method_handler(
-            servicer.Replace,
-            request_deserializer=ffs__rpc__pb2.ReplaceRequest.FromString,
-            response_serializer=ffs__rpc__pb2.ReplaceResponse.SerializeToString,
-        ),
-        "PushConfig": grpc.unary_unary_rpc_method_handler(
-            servicer.PushConfig,
-            request_deserializer=ffs__rpc__pb2.PushConfigRequest.FromString,
-            response_serializer=ffs__rpc__pb2.PushConfigResponse.SerializeToString,
-        ),
-        "Remove": grpc.unary_unary_rpc_method_handler(
-            servicer.Remove,
-            request_deserializer=ffs__rpc__pb2.RemoveRequest.FromString,
-            response_serializer=ffs__rpc__pb2.RemoveResponse.SerializeToString,
-        ),
-        "Get": grpc.unary_stream_rpc_method_handler(
-            servicer.Get,
-            request_deserializer=ffs__rpc__pb2.GetRequest.FromString,
-            response_serializer=ffs__rpc__pb2.GetResponse.SerializeToString,
-        ),
-        "SendFil": grpc.unary_unary_rpc_method_handler(
-            servicer.SendFil,
-            request_deserializer=ffs__rpc__pb2.SendFilRequest.FromString,
-            response_serializer=ffs__rpc__pb2.SendFilResponse.SerializeToString,
-        ),
-        "Close": grpc.unary_unary_rpc_method_handler(
-            servicer.Close,
-            request_deserializer=ffs__rpc__pb2.CloseRequest.FromString,
-            response_serializer=ffs__rpc__pb2.CloseResponse.SerializeToString,
-        ),
-        "AddToHot": grpc.stream_unary_rpc_method_handler(
-            servicer.AddToHot,
-            request_deserializer=ffs__rpc__pb2.AddToHotRequest.FromString,
-            response_serializer=ffs__rpc__pb2.AddToHotResponse.SerializeToString,
-        ),
-        "ListPayChannels": grpc.unary_unary_rpc_method_handler(
-            servicer.ListPayChannels,
-            request_deserializer=ffs__rpc__pb2.ListPayChannelsRequest.FromString,
-            response_serializer=ffs__rpc__pb2.ListPayChannelsResponse.SerializeToString,
-        ),
-        "CreatePayChannel": grpc.unary_unary_rpc_method_handler(
-            servicer.CreatePayChannel,
-            request_deserializer=ffs__rpc__pb2.CreatePayChannelRequest.FromString,
-            response_serializer=ffs__rpc__pb2.CreatePayChannelResponse.SerializeToString,
-        ),
-        "RedeemPayChannel": grpc.unary_unary_rpc_method_handler(
-            servicer.RedeemPayChannel,
-            request_deserializer=ffs__rpc__pb2.RedeemPayChannelRequest.FromString,
-            response_serializer=ffs__rpc__pb2.RedeemPayChannelResponse.SerializeToString,
-        ),
-        "ShowAll": grpc.unary_unary_rpc_method_handler(
-            servicer.ShowAll,
-            request_deserializer=ffs__rpc__pb2.ShowAllRequest.FromString,
-            response_serializer=ffs__rpc__pb2.ShowAllResponse.SerializeToString,
-        ),
+            'Create': grpc.unary_unary_rpc_method_handler(
+                    servicer.Create,
+                    request_deserializer=ffs__rpc__pb2.CreateRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.CreateResponse.SerializeToString,
+            ),
+            'ListAPI': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAPI,
+                    request_deserializer=ffs__rpc__pb2.ListAPIRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ListAPIResponse.SerializeToString,
+            ),
+            'ID': grpc.unary_unary_rpc_method_handler(
+                    servicer.ID,
+                    request_deserializer=ffs__rpc__pb2.IDRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.IDResponse.SerializeToString,
+            ),
+            'Addrs': grpc.unary_unary_rpc_method_handler(
+                    servicer.Addrs,
+                    request_deserializer=ffs__rpc__pb2.AddrsRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.AddrsResponse.SerializeToString,
+            ),
+            'DefaultStorageConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.DefaultStorageConfig,
+                    request_deserializer=ffs__rpc__pb2.DefaultStorageConfigRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.DefaultStorageConfigResponse.SerializeToString,
+            ),
+            'NewAddr': grpc.unary_unary_rpc_method_handler(
+                    servicer.NewAddr,
+                    request_deserializer=ffs__rpc__pb2.NewAddrRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.NewAddrResponse.SerializeToString,
+            ),
+            'GetStorageConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetStorageConfig,
+                    request_deserializer=ffs__rpc__pb2.GetStorageConfigRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.GetStorageConfigResponse.SerializeToString,
+            ),
+            'SetDefaultStorageConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDefaultStorageConfig,
+                    request_deserializer=ffs__rpc__pb2.SetDefaultStorageConfigRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.SetDefaultStorageConfigResponse.SerializeToString,
+            ),
+            'Show': grpc.unary_unary_rpc_method_handler(
+                    servicer.Show,
+                    request_deserializer=ffs__rpc__pb2.ShowRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ShowResponse.SerializeToString,
+            ),
+            'Info': grpc.unary_unary_rpc_method_handler(
+                    servicer.Info,
+                    request_deserializer=ffs__rpc__pb2.InfoRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.InfoResponse.SerializeToString,
+            ),
+            'CancelJob': grpc.unary_unary_rpc_method_handler(
+                    servicer.CancelJob,
+                    request_deserializer=ffs__rpc__pb2.CancelJobRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.CancelJobResponse.SerializeToString,
+            ),
+            'WatchJobs': grpc.unary_stream_rpc_method_handler(
+                    servicer.WatchJobs,
+                    request_deserializer=ffs__rpc__pb2.WatchJobsRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.WatchJobsResponse.SerializeToString,
+            ),
+            'WatchLogs': grpc.unary_stream_rpc_method_handler(
+                    servicer.WatchLogs,
+                    request_deserializer=ffs__rpc__pb2.WatchLogsRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.WatchLogsResponse.SerializeToString,
+            ),
+            'Replace': grpc.unary_unary_rpc_method_handler(
+                    servicer.Replace,
+                    request_deserializer=ffs__rpc__pb2.ReplaceRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ReplaceResponse.SerializeToString,
+            ),
+            'PushStorageConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.PushStorageConfig,
+                    request_deserializer=ffs__rpc__pb2.PushStorageConfigRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.PushStorageConfigResponse.SerializeToString,
+            ),
+            'Remove': grpc.unary_unary_rpc_method_handler(
+                    servicer.Remove,
+                    request_deserializer=ffs__rpc__pb2.RemoveRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.RemoveResponse.SerializeToString,
+            ),
+            'Get': grpc.unary_stream_rpc_method_handler(
+                    servicer.Get,
+                    request_deserializer=ffs__rpc__pb2.GetRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.GetResponse.SerializeToString,
+            ),
+            'SendFil': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendFil,
+                    request_deserializer=ffs__rpc__pb2.SendFilRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.SendFilResponse.SerializeToString,
+            ),
+            'Close': grpc.unary_unary_rpc_method_handler(
+                    servicer.Close,
+                    request_deserializer=ffs__rpc__pb2.CloseRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.CloseResponse.SerializeToString,
+            ),
+            'Stage': grpc.stream_unary_rpc_method_handler(
+                    servicer.Stage,
+                    request_deserializer=ffs__rpc__pb2.StageRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.StageResponse.SerializeToString,
+            ),
+            'ListPayChannels': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPayChannels,
+                    request_deserializer=ffs__rpc__pb2.ListPayChannelsRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ListPayChannelsResponse.SerializeToString,
+            ),
+            'CreatePayChannel': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePayChannel,
+                    request_deserializer=ffs__rpc__pb2.CreatePayChannelRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.CreatePayChannelResponse.SerializeToString,
+            ),
+            'RedeemPayChannel': grpc.unary_unary_rpc_method_handler(
+                    servicer.RedeemPayChannel,
+                    request_deserializer=ffs__rpc__pb2.RedeemPayChannelRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.RedeemPayChannelResponse.SerializeToString,
+            ),
+            'ListStorageDealRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListStorageDealRecords,
+                    request_deserializer=ffs__rpc__pb2.ListStorageDealRecordsRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ListStorageDealRecordsResponse.SerializeToString,
+            ),
+            'ListRetrievalDealRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRetrievalDealRecords,
+                    request_deserializer=ffs__rpc__pb2.ListRetrievalDealRecordsRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ListRetrievalDealRecordsResponse.SerializeToString,
+            ),
+            'ShowAll': grpc.unary_unary_rpc_method_handler(
+                    servicer.ShowAll,
+                    request_deserializer=ffs__rpc__pb2.ShowAllRequest.FromString,
+                    response_serializer=ffs__rpc__pb2.ShowAllResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "ffs.rpc.RPCService", rpc_method_handlers
-    )
+            'ffs.rpc.RPCService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class RPCService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Create(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Create(request,
             target,
-            "/ffs.rpc.RPCService/Create",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Create',
             ffs__rpc__pb2.CreateRequest.SerializeToString,
             ffs__rpc__pb2.CreateResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListAPI(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ListAPI(request,
             target,
-            "/ffs.rpc.RPCService/ListAPI",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/ListAPI',
             ffs__rpc__pb2.ListAPIRequest.SerializeToString,
             ffs__rpc__pb2.ListAPIResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ID(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ID(request,
             target,
-            "/ffs.rpc.RPCService/ID",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/ID',
             ffs__rpc__pb2.IDRequest.SerializeToString,
             ffs__rpc__pb2.IDResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Addrs(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Addrs(request,
             target,
-            "/ffs.rpc.RPCService/Addrs",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Addrs',
             ffs__rpc__pb2.AddrsRequest.SerializeToString,
             ffs__rpc__pb2.AddrsResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DefaultConfig(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def DefaultStorageConfig(request,
             target,
-            "/ffs.rpc.RPCService/DefaultConfig",
-            ffs__rpc__pb2.DefaultConfigRequest.SerializeToString,
-            ffs__rpc__pb2.DefaultConfigResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/DefaultStorageConfig',
+            ffs__rpc__pb2.DefaultStorageConfigRequest.SerializeToString,
+            ffs__rpc__pb2.DefaultStorageConfigResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def NewAddr(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def NewAddr(request,
             target,
-            "/ffs.rpc.RPCService/NewAddr",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/NewAddr',
             ffs__rpc__pb2.NewAddrRequest.SerializeToString,
             ffs__rpc__pb2.NewAddrResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetDefaultCidConfig(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def GetStorageConfig(request,
             target,
-            "/ffs.rpc.RPCService/GetDefaultCidConfig",
-            ffs__rpc__pb2.GetDefaultCidConfigRequest.SerializeToString,
-            ffs__rpc__pb2.GetDefaultCidConfigResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/GetStorageConfig',
+            ffs__rpc__pb2.GetStorageConfigRequest.SerializeToString,
+            ffs__rpc__pb2.GetStorageConfigResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetCidConfig(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def SetDefaultStorageConfig(request,
             target,
-            "/ffs.rpc.RPCService/GetCidConfig",
-            ffs__rpc__pb2.GetCidConfigRequest.SerializeToString,
-            ffs__rpc__pb2.GetCidConfigResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/SetDefaultStorageConfig',
+            ffs__rpc__pb2.SetDefaultStorageConfigRequest.SerializeToString,
+            ffs__rpc__pb2.SetDefaultStorageConfigResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SetDefaultConfig(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Show(request,
             target,
-            "/ffs.rpc.RPCService/SetDefaultConfig",
-            ffs__rpc__pb2.SetDefaultConfigRequest.SerializeToString,
-            ffs__rpc__pb2.SetDefaultConfigResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
-
-    @staticmethod
-    def Show(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            "/ffs.rpc.RPCService/Show",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Show',
             ffs__rpc__pb2.ShowRequest.SerializeToString,
             ffs__rpc__pb2.ShowResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Info(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Info(request,
             target,
-            "/ffs.rpc.RPCService/Info",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Info',
             ffs__rpc__pb2.InfoRequest.SerializeToString,
             ffs__rpc__pb2.InfoResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CancelJob(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def CancelJob(request,
             target,
-            "/ffs.rpc.RPCService/CancelJob",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/CancelJob',
             ffs__rpc__pb2.CancelJobRequest.SerializeToString,
             ffs__rpc__pb2.CancelJobResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WatchJobs(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_stream(
-            request,
+    def WatchJobs(request,
             target,
-            "/ffs.rpc.RPCService/WatchJobs",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/ffs.rpc.RPCService/WatchJobs',
             ffs__rpc__pb2.WatchJobsRequest.SerializeToString,
             ffs__rpc__pb2.WatchJobsResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WatchLogs(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_stream(
-            request,
+    def WatchLogs(request,
             target,
-            "/ffs.rpc.RPCService/WatchLogs",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/ffs.rpc.RPCService/WatchLogs',
             ffs__rpc__pb2.WatchLogsRequest.SerializeToString,
             ffs__rpc__pb2.WatchLogsResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Replace(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Replace(request,
             target,
-            "/ffs.rpc.RPCService/Replace",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Replace',
             ffs__rpc__pb2.ReplaceRequest.SerializeToString,
             ffs__rpc__pb2.ReplaceResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def PushConfig(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def PushStorageConfig(request,
             target,
-            "/ffs.rpc.RPCService/PushConfig",
-            ffs__rpc__pb2.PushConfigRequest.SerializeToString,
-            ffs__rpc__pb2.PushConfigResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/PushStorageConfig',
+            ffs__rpc__pb2.PushStorageConfigRequest.SerializeToString,
+            ffs__rpc__pb2.PushStorageConfigResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Remove(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Remove(request,
             target,
-            "/ffs.rpc.RPCService/Remove",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Remove',
             ffs__rpc__pb2.RemoveRequest.SerializeToString,
             ffs__rpc__pb2.RemoveResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Get(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_stream(
-            request,
+    def Get(request,
             target,
-            "/ffs.rpc.RPCService/Get",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/ffs.rpc.RPCService/Get',
             ffs__rpc__pb2.GetRequest.SerializeToString,
             ffs__rpc__pb2.GetResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SendFil(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def SendFil(request,
             target,
-            "/ffs.rpc.RPCService/SendFil",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/SendFil',
             ffs__rpc__pb2.SendFilRequest.SerializeToString,
             ffs__rpc__pb2.SendFilResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Close(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def Close(request,
             target,
-            "/ffs.rpc.RPCService/Close",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/Close',
             ffs__rpc__pb2.CloseRequest.SerializeToString,
             ffs__rpc__pb2.CloseResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddToHot(
-        request_iterator,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.stream_unary(
-            request_iterator,
+    def Stage(request_iterator,
             target,
-            "/ffs.rpc.RPCService/AddToHot",
-            ffs__rpc__pb2.AddToHotRequest.SerializeToString,
-            ffs__rpc__pb2.AddToHotResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/ffs.rpc.RPCService/Stage',
+            ffs__rpc__pb2.StageRequest.SerializeToString,
+            ffs__rpc__pb2.StageResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListPayChannels(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ListPayChannels(request,
             target,
-            "/ffs.rpc.RPCService/ListPayChannels",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/ListPayChannels',
             ffs__rpc__pb2.ListPayChannelsRequest.SerializeToString,
             ffs__rpc__pb2.ListPayChannelsResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreatePayChannel(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def CreatePayChannel(request,
             target,
-            "/ffs.rpc.RPCService/CreatePayChannel",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/CreatePayChannel',
             ffs__rpc__pb2.CreatePayChannelRequest.SerializeToString,
             ffs__rpc__pb2.CreatePayChannelResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RedeemPayChannel(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def RedeemPayChannel(request,
             target,
-            "/ffs.rpc.RPCService/RedeemPayChannel",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/RedeemPayChannel',
             ffs__rpc__pb2.RedeemPayChannelRequest.SerializeToString,
             ffs__rpc__pb2.RedeemPayChannelResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ShowAll(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ListStorageDealRecords(request,
             target,
-            "/ffs.rpc.RPCService/ShowAll",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/ListStorageDealRecords',
+            ffs__rpc__pb2.ListStorageDealRecordsRequest.SerializeToString,
+            ffs__rpc__pb2.ListStorageDealRecordsResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRetrievalDealRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/ListRetrievalDealRecords',
+            ffs__rpc__pb2.ListRetrievalDealRecordsRequest.SerializeToString,
+            ffs__rpc__pb2.ListRetrievalDealRecordsResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ShowAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ffs.rpc.RPCService/ShowAll',
             ffs__rpc__pb2.ShowAllRequest.SerializeToString,
             ffs__rpc__pb2.ShowAllResponse.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -9,21 +9,21 @@ TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
 
 
-def _generate_chunks(chunks: Iterable[bytes]) -> Iterable[ffs_rpc_pb2.AddToHotRequest]:
+def _generate_chunks(chunks: Iterable[bytes]) -> Iterable[ffs_rpc_pb2.StageRequest]:
     for chunk in chunks:
-        yield ffs_rpc_pb2.AddToHotRequest(chunk=chunk)
+        yield ffs_rpc_pb2.StageRequest(chunk=chunk)
 
 
-def chunks_to_bytes(chunks: Iterable[ffs_rpc_pb2.AddToHotResponse]) -> Iterable[bytes]:
+def chunks_to_bytes(chunks: Iterable[ffs_rpc_pb2.StageRequest]) -> Iterable[bytes]:
     for c in chunks:
         yield c.chunk
 
 
 def bytes_to_chunks(
     bytes_iter: Iterable[bytes],
-) -> Iterable[ffs_rpc_pb2.AddToHotRequest]:
+) -> Iterable[ffs_rpc_pb2.StageRequest]:
     for b in bytes_iter:
-        yield ffs_rpc_pb2.AddToHotRequest(chunk=b)
+        yield ffs_rpc_pb2.StageRequest(chunk=b)
 
 
 def get_file_bytes(filename: str):
@@ -70,17 +70,17 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         return self.client.NewAddr(req, metadata=self._get_meta_data(token))
 
     def default_config(self, token: str = None):
-        req = ffs_rpc_pb2.DefaultConfig()
-        return self.client.DefaultConfig(req, metadata=self._get_meta_data(token))
+        req = ffs_rpc_pb2.DefaultStorageConfigRequest()
+        return self.client.DefaultStorageConfig(req, metadata=self._get_meta_data(token))
 
     def default_config_for_cid(self, cid: str, token: str = None):
-        req = ffs_rpc_pb2.GetDefaultCidConfigRequest(cid=cid)
-        return self.client.GetDefaultCidConfig(req, metadata=self._get_meta_data(token))
+        req = ffs_rpc_pb2.GetStorageConfigRequest(cid=cid)
+        return self.client.GetStorageConfig(req, metadata=self._get_meta_data(token))
 
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
-    def set_default_config(self, config: ffs_rpc_pb2.DefaultConfig, token: str = None):
-        req = ffs_rpc_pb2.DefaultConfig(config=config)
-        return self.client.SetDefaultConfig(req, metadata=self._get_meta_data(token))
+    def set_default_config(self, config: ffs_rpc_pb2.StorageConfig, token: str = None):
+        req = ffs_rpc_pb2.StorageConfig(config=config)
+        return self.client.SetDefaultStorageConfig(req, metadata=self._get_meta_data(token))
 
     def show(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
@@ -90,9 +90,9 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     # it is the caller's responsibility to create the iterator.
     # The provided getFileChunks comes in handy some times.
     def add_to_hot(
-        self, chunks_iter: Iterable[ffs_rpc_pb2.AddToHotResponse], token: str = None
+        self, chunks_iter: Iterable[ffs_rpc_pb2.StageResponse], token: str = None
     ):
-        return self.client.AddToHot(chunks_iter, metadata=self._get_meta_data(token))
+        return self.client.Stage(chunks_iter, metadata=self._get_meta_data(token))
 
     # This will return an iterator which callers can look through
     def get(self, cid: str, token: str = None) -> Iterable[bytes]:
@@ -115,31 +115,31 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         return self.client.Info(req, metadata=self._get_meta_data(token))
 
     def push(self, cid, token: str = None):
-        req = ffs_rpc_pb2.PushConfigRequest(cid=cid)
-        return self.client.PushConfig(req, metadata=self._get_meta_data(token))
+        req = ffs_rpc_pb2.PushStorageConfigRequest(cid=cid)
+        return self.client.PushStorageConfig(req, metadata=self._get_meta_data(token))
 
     def close(self, token: str = None):
         req = ffs_rpc_pb2.CloseRequest()
         return self.client.Close(req, metadata=self._get_meta_data(token))
 
-    def listPayChannel(self, token: str = None):
+    def list_pay_channel(self, token: str = None):
         req = ffs_rpc_pb2.ListPayChannelsRequest()
         return self.client.ListPayChannels(req, metadata=self._get_meta_data(token))
 
-    def createPayChannel(self, sender: str, receiver: str, amount: int, token: str = None):
+    def create_pay_channel(self, sender: str, receiver: str, amount: int, token: str = None):
         kwargs = {"from": sender, "to": receiver, "amount": amount}
         req = ffs_rpc_pb2.CreateRequest(kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
 
-    def redeemPayChannel(self, sender: str, receiver: str, amount: int, token: str = None):
+    def redeem_pay_channel(self, sender: str, receiver: str, amount: int, token: str = None):
         kwargs = {"from": sender, "to": receiver, "amount": amount}
         req = ffs_rpc_pb2.CreateRequest(kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
 
-    def listStorageDealRecords(self,token: str = None):
+    def list_storage_deal_records(self, token: str = None):
         pass
 
-    def listRetrievalDealRecords(self, token: str = None):
+    def list_retrieval_deal_records(self, token: str = None):
         pass
 
     # The metadata is set in here https://github.com/textileio/js-powergate-client/blob

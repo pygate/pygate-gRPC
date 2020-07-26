@@ -2,7 +2,7 @@ import logging
 import pytest
 import time
 
-from proto.ffs_rpc_pb2 import CreateResponse, AddToHotRequest, AddrInfo
+from proto.ffs_rpc_pb2 import CreateResponse, StageRequest, AddrInfo
 from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)
@@ -56,7 +56,7 @@ def test_grpc_ffs_list_wallet(pygate_client: PowerGateClient, ffs_instance):
 
 
 def test_create_new_wallet_address(
-    pygate_client: PowerGateClient, ffs_instance: CreateResponse
+        pygate_client: PowerGateClient, ffs_instance: CreateResponse
 ):
     new_addr_name = "test"
     addr = pygate_client.ffs.addrs_new(name=new_addr_name, token=ffs_instance.token)
@@ -78,10 +78,9 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
 
     receiver_addr_name = "fil_receiver"
     receiver_addr = pygate_client.ffs.addrs_new(name=receiver_addr_name, token=ffs_instance.token)
-    
 
     # Sleep a bit to wait for initialization
-    time.sleep(5)    
+    time.sleep(5)
     before_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     before_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
@@ -98,4 +97,4 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
 
 def test_chunks():
     for _ in range(1):
-        yield AddToHotRequest(chunk=bytes("test_content", "ASCII"))
+        yield StageRequest(chunk=bytes("test_content", "ASCII"))
