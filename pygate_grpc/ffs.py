@@ -9,14 +9,6 @@ TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
 
 
-# The metadata is set in here https://github.com/textileio/js-powergate-client/blob
-# /9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7 Note that you can't have capital letter in
-# meta data field, see here: https://stackoverflow.com/questions/45071567/how-to-send-custom-header-metadata-with
-# -python-grpc
-def _get_meta_data(token: str) -> Tuple[Tuple[str, str]]:
-    return ((TOKEN_KEY, token),)
-
-
 def _generate_chunks(chunks: Iterable[bytes]) -> Iterable[ffs_rpc_pb2.AddToHotRequest]:
     for chunk in chunks:
         yield ffs_rpc_pb2.AddToHotRequest(chunk=chunk)
@@ -63,15 +55,11 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
 
     def id(self, token: str):
         req = ffs_rpc_pb2.IDRequest()
-        return self.client.ID(req, metadata=_get_meta_data(token))
+        return self.client.ID(req, metadata=self._get_meta_data(token))
 
     def addrs_list(self, token: str = None):
         req = ffs_rpc_pb2.AddrsRequest()
-        if token is not None:
-            return self.client.Addrs(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.Addrs(req, metadata=_get_meta_data(self.token))
-        self._raise_no_token_provided_exception()
+        return self.client.Addrs(req, metadata=self._get_meta_data(token))
 
     def addrs_new(
         self, name: str, type_: str = "", is_default: bool = False, token: str = None
@@ -79,48 +67,24 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.NewAddrRequest(
             name=name, address_type=type_, make_default=is_default
         )
-        if token is not None:
-            return self.client.NewAddr(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.NewAddr(req, metadata=_get_meta_data(self.token))
-        self._raise_no_token_provided_exception()
+        return self.client.NewAddr(req, metadata=self._get_meta_data(token))
 
     def default_config(self, token: str = None):
         req = ffs_rpc_pb2.DefaultConfig()
-        if token is not None:
-            return self.client.DefaultConfig(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.DefaultConfig(req, metadata=_get_meta_data(self.token))
-        self._raise_no_token_provided_exception()
+        return self.client.DefaultConfig(req, metadata=self._get_meta_data(token))
 
     def default_config_for_cid(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.GetDefaultCidConfigRequest(cid=cid)
-        if token is not None:
-            return self.client.GetDefaultCidConfig(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.GetDefaultCidConfig(
-                req, metadata=_get_meta_data(self.token)
-            )
-        self._raise_no_token_provided_exception()
+        return self.client.GetDefaultCidConfig(req, metadata=self._get_meta_data(token))
 
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
     def set_default_config(self, config: ffs_rpc_pb2.DefaultConfig, token: str = None):
         req = ffs_rpc_pb2.DefaultConfig(config=config)
-        if token is not None:
-            return self.client.SetDefaultConfig(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.SetDefaultConfig(
-                req, metadata=_get_meta_data(self.token)
-            )
-        self._raise_no_token_provided_exception()
+        return self.client.SetDefaultConfig(req, metadata=self._get_meta_data(token))
 
     def show(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
-        if token is not None:
-            return self.client.Show(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.Show(req, metadata=_get_meta_data(self.token))
-        self._raise_no_token_provided_exception()
+        return self.client.Show(req, metadata=self._get_meta_data(token))
 
     # Note that the chunkIter should be an iterator that yield `ffs_rpc_pb2.AddToHotRequest`,
     # it is the caller's responsibility to create the iterator.
@@ -128,35 +92,66 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def add_to_hot(
         self, chunks_iter: Iterable[ffs_rpc_pb2.AddToHotResponse], token: str = None
     ):
-        return self.client.AddToHot(chunks_iter, metadata=_get_meta_data(token))
+        return self.client.AddToHot(chunks_iter, metadata=self._get_meta_data(token))
 
     # This will return an iterator which callers can look through
     def get(self, cid: str, token: str = None) -> Iterable[bytes]:
         req = ffs_rpc_pb2.GetRequest(cid=cid)
-        chunks = self.client.Get(req, metadata=_get_meta_data(token))
+        chunks = self.client.Get(req, metadata=self._get_meta_data(token))
         return chunks_to_bytes(chunks)
 
     def send_fil(self, sender: str, receiver: str, amount: int, token: str = None):
         # To avoid name collision since `from` is reserved in Python.
         kwargs = {"from": sender, "to": receiver, "amount": amount}
         req = ffs_rpc_pb2.SendFilRequest(**kwargs)
-        if token is not None:
-            return self.client.SendFil(req, metadata=_get_meta_data(token))
-        if self.token is not None:
-            return self.client.SendFil(req, metadata=_get_meta_data(self.token))
-        self._raise_no_token_provided_exception()
+        return self.client.SendFil(req, metadata=self._get_meta_data(token))
 
     def logs(self, cid, token: str = None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
-        return self.client.WatchLogs(req, metadata=_get_meta_data(token))
+        return self.client.WatchLogs(req, metadata=self._get_meta_data(token))
 
     def info(self, cid, token: str = None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
-        return self.client.Info(req, metadata=_get_meta_data(token))
+        return self.client.Info(req, metadata=self._get_meta_data(token))
 
     def push(self, cid, token: str = None):
         req = ffs_rpc_pb2.PushConfigRequest(cid=cid)
-        return self.client.PushConfig(req, metadata=_get_meta_data(token))
+        return self.client.PushConfig(req, metadata=self._get_meta_data(token))
+
+    def close(self, token: str = None):
+        req = ffs_rpc_pb2.CloseRequest()
+        return self.client.Close(req, metadata=self._get_meta_data(token))
+
+    def listPayChannel(self, token: str = None):
+        req = ffs_rpc_pb2.ListPayChannelsRequest()
+        return self.client.ListPayChannels(req, metadata=self._get_meta_data(token))
+
+    def createPayChannel(self, sender: str, receiver: str, amount: int, token: str = None):
+        kwargs = {"from": sender, "to": receiver, "amount": amount}
+        req = ffs_rpc_pb2.CreateRequest(kwargs)
+        return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
+
+    def redeemPayChannel(self, sender: str, receiver: str, amount: int, token: str = None):
+        kwargs = {"from": sender, "to": receiver, "amount": amount}
+        req = ffs_rpc_pb2.CreateRequest(kwargs)
+        return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
+
+    def listStorageDealRecords(self,token: str = None):
+        pass
+
+    def listRetrievalDealRecords(self, token: str = None):
+        pass
+
+    # The metadata is set in here https://github.com/textileio/js-powergate-client/blob
+    # /9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7 Note that you can't have capital letter in
+    # meta data field, see here: https://stackoverflow.com/questions/45071567/how-to-send-custom-header-metadata-with
+    # -python-grpc
+    def _get_meta_data(self, token: str) -> Tuple[Tuple[str, str]]:
+        if token is not None:
+            return ((TOKEN_KEY, token),)
+        if self.token is not None:
+            return ((TOKEN_KEY, self.token),)
+        self._raise_no_token_provided_exception()
 
     def _raise_no_token_provided_exception(self):
         raise Exception(
