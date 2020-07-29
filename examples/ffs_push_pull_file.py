@@ -35,8 +35,8 @@ if __name__ == "__main__":
     # Get the file back
     file_ = c.ffs.get(res.cid, ffs.token)
     print("Retrieving file " + res.cid + " from FFS:")
-    # print(next(file))
 
-    f = open("pygate-concept-v2-copy.png", "wb")
-    f.write(next(file_))
+    f = open("pygate-concept-v2-copy1.png", "wb")
+    for f_ in file_:
+        f.write(f_)
     f.close()
