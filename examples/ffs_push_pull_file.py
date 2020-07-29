@@ -1,4 +1,5 @@
 from pygate_grpc.client import PowerGateClient
+from pygate_grpc.ffs import get_file_bytes, bytes_to_chunks
 
 
 if __name__ == "__main__":
@@ -14,12 +15,12 @@ if __name__ == "__main__":
     print(ffs)
 
     # Create an iterator of the given file using the helper function
-    iter = c.ffs.get_file_bytes("README.md")
+    iter = get_file_bytes("README.md")
     print("Grabbing pygate-grpc 'README.md' file...")
     print("Adding file to IPFS (hot storage)...")
 
     # Convert the iterator into request and then add to hot set
-    res = c.ffs.add_to_hot(c.ffs.bytes_to_chunks(iter), ffs.token)
+    res = c.ffs.add_to_hot(bytes_to_chunks(iter), ffs.token)
     print(res)
     print("Pushing file to FFS...")
 
