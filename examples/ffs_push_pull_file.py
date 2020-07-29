@@ -15,7 +15,7 @@ if __name__ == "__main__":
     print(ffs)
 
     # Create an iterator of the given file using the helper function
-    iter = get_file_bytes("pygate-concept-v2.png")
+    iter = get_file_bytes("README.md")
     print("Grabbing pygate-grpc 'README.md' file...")
     print("Adding file to IPFS (hot storage)...")
 
@@ -32,11 +32,13 @@ if __name__ == "__main__":
     print("Checking FFS pins...")
     print(check)
 
-    # Get the file back
+    # Get the data back
+    print("Retrieving file " + res.cid + " from FFS.")
     file_ = c.ffs.get(res.cid, ffs.token)
-    print("Retrieving file " + res.cid + " from FFS:")
 
-    f = open("pygate-concept-v2-copy1.png", "wb")
+    # Write to a file on disk
+    print("Saving as 'README_copy.md'")
+    f = open("README_copy.MD", "wb")
     for f_ in file_:
         f.write(f_)
     f.close()
