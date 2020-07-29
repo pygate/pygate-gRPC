@@ -33,6 +33,10 @@ if __name__ == "__main__":
     print(check)
 
     # Get the file back
-    file = c.ffs.get(res.cid, ffs.token)
+    file_ = c.ffs.get(res.cid, ffs.token)
     print("Retrieving file " + res.cid + " from FFS:")
-    print(next(file))
+    # print(next(file))
+
+    f = open('output.md', 'wb')
+    f.write(next(file_))
+    f.close()
