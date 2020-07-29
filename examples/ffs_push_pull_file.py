@@ -32,6 +32,7 @@ if __name__ == "__main__":
     print("Checking FFS pins...")
     print(check)
 
+<<<<<<< HEAD
     # Get the data back
     print("Retrieving file " + res.cid + " from FFS.")
     file_ = c.ffs.get(res.cid, ffs.token)
@@ -41,4 +42,13 @@ if __name__ == "__main__":
     f = open("README_copy.MD", "wb")
     for f_ in file_:
         f.write(f_)
+=======
+    # Get the file back
+    file_ = c.ffs.get(res.cid, ffs.token)
+    print("Retrieving file " + res.cid + " from FFS:")
+    # print(next(file))
+
+    f = open('output.md', 'wb')
+    f.write(next(file_))
+>>>>>>> Download to a file.
     f.close()
