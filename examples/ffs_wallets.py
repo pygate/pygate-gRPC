@@ -1,6 +1,6 @@
 from pygate_grpc.client import PowerGateClient
-from google.protobuf.json_format import MessageToJson
-import json
+from google.protobuf.json_format import MessageToDict
+
 
 client = PowerGateClient("127.0.0.1:5002")
 
@@ -9,16 +9,12 @@ newFfs = client.ffs.create()
 print(newFfs)
 
 wallet = client.ffs.addrs_list(newFfs.token)
+obj = MessageToDict(wallet)
 
-print("Wallet address:")
-print(wallet)
-
-jsonObj = MessageToJson(wallet)
-#print(j)
-info = json.loads(jsonObj)
-print(info['addrs'][0]['addr'])
+print(obj['addrs'][0]['addr'])
 
 print("wallet type:")
 print(type(wallet))
+print(type(obj))
 
 
