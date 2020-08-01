@@ -4,6 +4,7 @@ from typing import Iterable, Tuple
 from proto import ffs_rpc_pb2
 from proto import ffs_rpc_pb2_grpc
 from pygate_grpc.errors import ErrorHandlerMeta
+from deprecated import deprecated
 
 TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
@@ -89,8 +90,15 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     # Note that the chunkIter should be an iterator that yield `ffs_rpc_pb2.AddToHotRequest`,
     # it is the caller's responsibility to create the iterator.
     # The provided getFileChunks comes in handy some times.
+    # TODO: deprecate this.
+    @deprecated(version='0.0.6', reason="This method is deprecated")
     def add_to_hot(
-        self, chunks_iter: Iterable[ffs_rpc_pb2.StageResponse], token: str = None
+        self, chunks_iter: Iterable[ffs_rpc_pb2.StageRequest], token: str = None
+    ):
+        return self.client.Stage(chunks_iter, metadata=self._get_meta_data(token))
+
+    def stage(
+        self, chunks_iter: Iterable[ffs_rpc_pb2.StageRequest], token: str = None
     ):
         return self.client.Stage(chunks_iter, metadata=self._get_meta_data(token))
 
