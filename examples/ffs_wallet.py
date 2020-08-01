@@ -14,8 +14,7 @@ newFfs = client.ffs.create()
 print(newFfs)
 
 addresses = client.ffs.addrs_list(newFfs.token)
-obj = MessageToDict(addresses)
-wallt = obj["addrs"][0]["addr"]
+wallt = addresses.addrs[0].addr
 print("FFS wallet: " + wallt)
 
 balance = client.wallet.balance(wallt)
