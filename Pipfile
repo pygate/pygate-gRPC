@@ -18,6 +18,7 @@ pytest-docker = "*"
 grpcio-tools = "*"
 secretstorage = {markers = "sys_platform == 'linux'"}
 keyring = "==19.1.0"
+deprecated = "*"
 
 [requires]
 python_version = "3.7"
@@ -27,6 +28,7 @@ build = "python setup.py sdist bdist_wheel"
 publish = "twine upload dist/*"
 format = "bash -c \"python -m black $(git ls-files '*.py')\""
 integration-test = "python -m pytest tests/integration/"
+test-ffs = "python -m pytest tests/integration/test_ffs.py "
 
 [packages]
 grpcio = "*"
