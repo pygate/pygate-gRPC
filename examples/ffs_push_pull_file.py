@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print("Adding file to IPFS (hot storage)...")
 
     # Convert the iterator into request and then add to hot set
-    res = c.ffs.add_to_hot(bytes_to_chunks(iter), ffs.token)
+    res = c.ffs.stage(bytes_to_chunks(iter), ffs.token)
     print(res)
     print("Pushing file to FFS...")
 
