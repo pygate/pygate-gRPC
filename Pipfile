@@ -18,7 +18,6 @@ pytest-docker = "*"
 grpcio-tools = "*"
 secretstorage = {markers = "sys_platform == 'linux'"}
 keyring = "==19.1.0"
-deprecated = "*"
 
 [requires]
 python_version = "3.7"
@@ -34,3 +33,4 @@ test-ffs = "python -m pytest tests/integration/test_ffs.py "
 grpcio = "*"
 protobuf = "*"
 six = "*"
+deprecated = "*"
