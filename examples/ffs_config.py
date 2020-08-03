@@ -1,5 +1,4 @@
 import json
-from google.protobuf.json_format import Parse
 from google.protobuf.message import Message
 from pygate_grpc.client import PowerGateClient
 
@@ -16,10 +15,8 @@ print(defaultConfig)
 print("Loading new default config...")
 with open("cidconfig.json", "r") as f:
     config = f.read()
-message new_msg {}
 
-new_config = Parse(config, new_msg)
-client.ffs.set_default_config(new_config, tk)
+client.ffs.set_default_config(config, tk)
 
 defaultConfig = client.ffs.default_config(tk)
 print("Updated default config:")
