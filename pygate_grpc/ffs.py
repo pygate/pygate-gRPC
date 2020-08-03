@@ -80,7 +80,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
 
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
     def set_default_config(self, config: ffs_rpc_pb2.StorageConfig, token: str = None):
-        req = ffs_rpc_pb2.StorageConfig(config=config)
+        req = ffs_rpc_pb2.SetDefaultStorageConfigRequest(config=config)
         return self.client.SetDefaultStorageConfig(req, metadata=self._get_meta_data(token))
 
     def show(self, cid: str, token: str = None):
