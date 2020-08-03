@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print("Adding file to IPFS (hot storage)...")
 
     # Convert the iterator into request and then add to hot set
-    res = c.ffs.add_to_hot(bytes_to_chunks(iter), ffs.token)
+    res = c.ffs.stage(bytes_to_chunks(iter), ffs.token)
     print(res)
     print("Pushing file to FFS...")
 
@@ -32,7 +32,13 @@ if __name__ == "__main__":
     print("Checking FFS pins...")
     print(check)
 
-    # Get the file back
-    file = c.ffs.get(res.cid, ffs.token)
-    print("Retrieving file " + res.cid + " from FFS:")
-    print(next(file))
+    # Get the data back
+    print("Retrieving file " + res.cid + " from FFS.")
+    file_ = c.ffs.get(res.cid, ffs.token)
+
+    # Write to a file on disk
+    print("Saving as 'README_copy.md'")
+    f = open("README_copy.MD", "wb")
+    for f_ in file_:
+        f.write(f_)
+    f.close()
