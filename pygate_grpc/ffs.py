@@ -3,6 +3,7 @@ import grpc
 from typing import Iterable, Tuple
 from proto import ffs_rpc_pb2
 from proto import ffs_rpc_pb2_grpc
+from google.protobuf.json_format import Parse
 from pygate_grpc.errors import ErrorHandlerMeta
 from deprecated import deprecated
 
@@ -79,7 +80,8 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         return self.client.GetStorageConfig(req, metadata=self._get_meta_data(token))
 
     # Currently you need to pass in the ffs_rpc_pb2.DefaultConfig. However, this is not a good design.
-    def set_default_config(self, config: ffs_rpc_pb2.StorageConfig, token: str = None):
+    def set_default_config(self, config: str, token: str = None):
+        config = Parse(config, ffs_rpc_pb2.StorageConfig())
         req = ffs_rpc_pb2.SetDefaultStorageConfigRequest(config=config)
         return self.client.SetDefaultStorageConfig(req, metadata=self._get_meta_data(token))
 

@@ -1,0 +1,26 @@
+{
+  "hot": {
+    "enabled": true,
+    "allowUnfreeze": true,
+    "ipfs": {
+      "addTimeout": 30
+    }
+  },
+  "cold": {
+    "enabled": true,
+    "filecoin": {
+      "repFactor": 1,
+      "dealMinDuration": 1000,
+      "excludedMiners": null,
+      "trustedMiners": ["t01000"],
+      "countryCodes": ["ca", "nl"],
+      "renew": {
+        "enabled": true,
+        "threshold": 3
+      },
+      "addr": "t3vwiyojfhcvrdijdgh3egk5vpajg5427uogfhzvtpbaf4a5sn2drahw5bfdk4pd4vg6baxxn3y4mtb7n6ll2q",
+      "maxPrice": 50
+    }
+  },
+  "repairable": true
+}
