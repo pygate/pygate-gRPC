@@ -1,6 +1,5 @@
 import time
 from pygate_grpc.client import PowerGateClient
-from google.protobuf.json_format import MessageToDict
 
 
 client = PowerGateClient("127.0.0.1:5002")
