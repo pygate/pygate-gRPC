@@ -6,7 +6,7 @@
 
 A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API
 
-Pygate is a [HackFS](https://hackfs.com/) project. See the project [website](http://pygate.tech) for a more detailed description of this gRPC client component as well as the full project architecture. See also the pygate-gRPC [wiki](https://github.com/pygate/pygate-gRPC/wiki) for additional resources.
+Pygate is a [HackFS](https://hackfs.com/) project. See the project [website](http://pygate.tech) for more details.
 
 ## Getting Started
 
