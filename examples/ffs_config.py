@@ -1,5 +1,6 @@
 import json
 from pygate_grpc.client import PowerGateClient
+from google.protobuf.json_format import MessageToDict
 
 client = PowerGateClient("127.0.0.1:5002")
 
@@ -18,5 +19,6 @@ with open("cidconfig.json", "r") as f:
 client.ffs.set_default_config(config, tk)
 
 defaultConfig = client.ffs.default_config(tk)
+
 print("Updated default config:")
-print(defaultConfig)
+print(json.dumps(MessageToDict(defaultConfig), indent=2))
