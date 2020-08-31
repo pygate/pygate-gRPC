@@ -104,7 +104,7 @@ git push origin main --tags
 
 ## Authors
 
-* **Antreas Pogiatzis** - *Initial scaffolding*
+* **Antreas Pogiatzis**
 * **Wang Ge**
 * **Peter Van Garderen**
 
