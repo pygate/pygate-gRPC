@@ -38,6 +38,7 @@ def is_docker_compose_installed():
     """Checks if docker composed is installed in the system"""
     logger.debug("Checking if docker-compose is installed...")
     proc = Popen(["docker-compose", "help"], stdout=DEVNULL, stderr=DEVNULL)
+    proc.communicate()[0]
     return proc.returncode == 0
 
 
@@ -45,6 +46,7 @@ def clone_powergate_repo():
     """Clones official Powergate repo """
     repo_url = "https://github.com/textileio/powergate"
     logger.debug(f"Cloning powergate repo from {repo_url}")
+    Repo.clone_from(repo_url, REPO_LOCAL_PATH, branch="master")
 
 
 @pytest.fixture(scope="session")
