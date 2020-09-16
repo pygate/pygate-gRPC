@@ -1,6 +1,7 @@
 import logging
 import os
 import shutil
+import subprocess
 from logging.config import fileConfig
 from subprocess import DEVNULL, Popen
 from time import sleep, time
@@ -37,9 +38,8 @@ def is_docker_running():
 def is_docker_compose_installed():
     """Checks if docker composed is installed in the system"""
     logger.debug("Checking if docker-compose is installed...")
-    proc = Popen(["docker-compose", "help"], stdout=DEVNULL, stderr=DEVNULL)
-    proc.communicate()[0]
-    return proc.returncode == 0
+    res = subprocess.run(["docker-compose", "help"])
+    return proc.returncode == res.returncode
 
 
 def clone_powergate_repo():
