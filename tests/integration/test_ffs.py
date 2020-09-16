@@ -89,7 +89,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     )
 
     # Sleep a bit to wait for initialization
-    time.sleep(10)
+    time.sleep(6)
     before_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     before_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
@@ -98,7 +98,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     )
 
     # Wait a bit for transaction to complete
-    time.sleep(10)
+    time.sleep(6)
     after_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     after_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
