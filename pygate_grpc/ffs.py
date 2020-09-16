@@ -1,7 +1,7 @@
 from time import time
 import grpc
 
-from typing import Iterable, Tuple
+from typing import Iterable, Tuple, NamedTuple, List
 from proto import ffs_rpc_pb2
 from proto import ffs_rpc_pb2_grpc
 from google.protobuf.json_format import Parse
@@ -34,6 +34,22 @@ def get_file_bytes(filename: str):
             if len(piece) == 0:
                 return
             yield piece
+
+class ListDealRecordOptions(NamedTuple):
+    from_addrs: List[str]
+    data_cids: List[str]
+    include_pending: bool
+    include_final: bool
+    ascending: bool
+
+
+def listDealRecordsOptionsToConfig(opts: ListDealRecordOptions) -> ffs_rpc_pb2.ListDealRecordsConfig:
+    return ffs_rpc_pb2.ListDealRecordsConfig(
+        from_addrs=opts.from_addrs, data_cids=opts.data_cids, 
+        include_pending=opts.include_pending, 
+        include_final=opts.include_final,
+        ascending=opts.ascending
+    )
 
 
 class FfsClient(object, metaclass=ErrorHandlerMeta):
@@ -166,11 +182,13 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.CreateRequest(kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
 
-    def list_storage_deal_records(self, token: str = None):
-        pass
+    def list_storage_deal_records(self, opts: ListDealRecordOptions, token: str = None):
+        req = ffs_rpc_pb2.ListStorageDealRecordsRequest(listDealRecordsOptionsToConfig(opts))
+        return self.client.ListStorageDealRecords(req, metadata=self._get_meta_data(token))
 
-    def list_retrieval_deal_records(self, token: str = None):
-        pass
+    def list_retrieval_deal_records(self, opts: ListDealRecordOptions, token: str = None):
+        req = ffs_rpc_pb2.ListRetrievalDealRecordsRequest(listDealRecordsOptionsToConfig(opts))
+        return self.client.ListRetrievalDealRecords(req, metadata=self._get_meta_data(token))
 
     # The metadata is set in here https://github.com/textileio/js-powergate-client/blob
     # /9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7 Note that you can't have capital letter in

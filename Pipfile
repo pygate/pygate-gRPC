@@ -17,6 +17,10 @@ pytest-docker = "*"
 grpcio-tools = "*"
 secretstorage = {markers = "sys_platform == 'linux'"}
 keyring = "==19.1.0"
+flake8 = "*"
+isort = "*"
+pylint = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.7"
