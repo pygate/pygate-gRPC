@@ -8,6 +8,7 @@ from time import sleep, time
 
 import docker
 import pytest
+from git import Repo
 
 from pygate_grpc.client import PowerGateClient
 from pygate_grpc.health import HealthClient
@@ -79,7 +80,10 @@ def pytest_configure(config):
 
 def pytest_unconfigure(config):
     """Runs before test process exits. Cleans up any artifacts from configure"""
-    pass
+    try:
+        shutil.rmtree(REPO_LOCAL_PATH)
+    except OSError as e:
+        logger.warning("Couldn't delete powergate repository. Maybe it wasn't cloned in the first place")
 
 
 @pytest.fixture(scope="session", autouse=True)
