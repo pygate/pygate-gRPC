@@ -38,8 +38,8 @@ def is_docker_running():
 def is_docker_compose_installed():
     """Checks if docker composed is installed in the system"""
     logger.debug("Checking if docker-compose is installed...")
-    res = subprocess.run(["docker-compose", "help"])
-    return proc.returncode == res.returncode
+    res = subprocess.run(["docker-compose", "--version"])
+    return res.returncode == 0
 
 
 def clone_powergate_repo():
