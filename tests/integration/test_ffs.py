@@ -56,13 +56,9 @@ def test_grpc_ffs_list_wallet(pygate_client: PowerGateClient, ffs_instance):
     assert res.addrs[0].type == "bls"
 
 
-<<<<<<< HEAD
 def test_create_new_wallet_address(
     pygate_client: PowerGateClient, ffs_instance: CreateResponse
 ):
-=======
-def test_create_new_wallet_address(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
->>>>>>> Added more code set up file.
     new_addr_name = "test"
     addr = pygate_client.ffs.addrs_new(name=new_addr_name, token=ffs_instance.token)
 
@@ -89,7 +85,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     )
 
     # Sleep a bit to wait for initialization
-    time.sleep(20)
+    time.sleep(10)
     before_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     before_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
@@ -98,7 +94,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     )
 
     # Wait a bit for transaction to complete
-    time.sleep(20)
+    time.sleep(10)
     after_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     after_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
