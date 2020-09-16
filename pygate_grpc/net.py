@@ -1,5 +1,7 @@
-import grpc
 import logging
+
+import grpc
+
 import proto.net_rpc_pb2 as net_rpc_pb2
 import proto.net_rpc_pb2_grpc as net_rpc_pb2_grpc
 

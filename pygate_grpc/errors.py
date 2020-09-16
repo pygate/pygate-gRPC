@@ -1,5 +1,5 @@
-import grpc
 import logging
+import grpc
 
 from functools import wraps
 

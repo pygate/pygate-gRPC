@@ -1,12 +1,9 @@
-from time import time
 import grpc
 
-from typing import Iterable, Tuple, NamedTuple, List
-from proto import ffs_rpc_pb2
-from proto import ffs_rpc_pb2_grpc
+from time import time
+from deprecated import deprecated
 from google.protobuf.json_format import Parse
 from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
-from deprecated import deprecated
 
 TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
@@ -35,6 +32,7 @@ def get_file_bytes(filename: str):
                 return
             yield piece
 
+
 class ListDealRecordOptions(NamedTuple):
     from_addrs: List[str]
     data_cids: List[str]
@@ -45,10 +43,11 @@ class ListDealRecordOptions(NamedTuple):
 
 def listDealRecordsOptionsToConfig(opts: ListDealRecordOptions) -> ffs_rpc_pb2.ListDealRecordsConfig:
     return ffs_rpc_pb2.ListDealRecordsConfig(
-        from_addrs=opts.from_addrs, data_cids=opts.data_cids, 
-        include_pending=opts.include_pending, 
+        from_addrs=opts.from_addrs,
+        data_cids=opts.data_cids,
+        include_pending=opts.include_pending,
         include_final=opts.include_final,
-        ascending=opts.ascending
+        ascending=opts.ascending,
     )
 
 
@@ -76,12 +75,8 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.AddrsRequest()
         return self.client.Addrs(req, metadata=self._get_meta_data(token))
 
-    def addrs_new(
-        self, name: str, type_: str = "", is_default: bool = False, token: str = None
-    ):
-        req = ffs_rpc_pb2.NewAddrRequest(
-            name=name, address_type=type_, make_default=is_default
-        )
+    def addrs_new(self, name: str, type_: str = "", is_default: bool = False, token: str = None):
+        req = ffs_rpc_pb2.NewAddrRequest(name=name, address_type=type_, make_default=is_default)
         return self.client.NewAddr(req, metadata=self._get_meta_data(token))
 
     def sign_message(self, addr: str, msg: bytes, token: str = None):

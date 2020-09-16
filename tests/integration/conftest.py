@@ -1,13 +1,13 @@
-import os
-import pytest
-import docker
 import logging
+import os
 import shutil
-
-from time import sleep, time
-from subprocess import Popen, DEVNULL
-from git import Repo
 from logging.config import fileConfig
+from subprocess import DEVNULL, Popen
+from time import sleep, time
+
+import docker
+import pytest
+
 from pygate_grpc.client import PowerGateClient
 from pygate_grpc.health import HealthClient
 
@@ -38,7 +38,6 @@ def is_docker_compose_installed():
     """Checks if docker composed is installed in the system"""
     logger.debug("Checking if docker-compose is installed...")
     proc = Popen(["docker-compose", "help"], stdout=DEVNULL, stderr=DEVNULL)
-    streamdata = proc.communicate()[0]
     return proc.returncode == 0
 
 
@@ -46,7 +45,6 @@ def clone_powergate_repo():
     """Clones official Powergate repo """
     repo_url = "https://github.com/textileio/powergate"
     logger.debug(f"Cloning powergate repo from {repo_url}")
-    repo = Repo.clone_from(repo_url, REPO_LOCAL_PATH, branch="master")
 
 
 @pytest.fixture(scope="session")
@@ -71,9 +69,7 @@ def pytest_configure(config):
         pytest.exit(3)
 
     if not is_docker_compose_installed():
-        logger.error(
-            "Coulnd't initiate integration tests. Is docker-compose installed?"
-        )
+        logger.error("Coulnd't initiate integration tests. Is docker-compose installed?")
         pytest.exit(3)
 
     clone_powergate_repo()
@@ -83,10 +79,8 @@ def pytest_unconfigure(config):
     """Runs before test process exits. Cleans up any artifacts from configure"""
     try:
         shutil.rmtree(REPO_LOCAL_PATH)
-    except OSError as e:
-        logger.warning(
-            "Couldn't delete powergate repository. Maybe it wasn't cloned in the first place"
-        )
+    except OSError:
+        logger.warning("Couldn't delete powergate repository. Maybe it wasn't cloned in the first place")
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -112,7 +106,7 @@ def localnet(docker_services):
             result = container.exec_run("pow health")
             if result.exit_code > 0:
                 continue
-        except docker.errors.ContainerError as e:
+        except docker.errors.ContainerError:
             continue
         break
 
