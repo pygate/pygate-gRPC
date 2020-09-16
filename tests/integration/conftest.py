@@ -81,7 +81,7 @@ def pytest_unconfigure(config):
     """Runs before test process exits. Cleans up any artifacts from configure"""
     try:
         shutil.rmtree(REPO_LOCAL_PATH)
-    except Exception:
+    except (OSError, FileNotFoundError):
         logger.warning("Couldn't delete powergate repository. Maybe it wasn't cloned in the first place")
 
 
