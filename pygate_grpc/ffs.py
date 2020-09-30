@@ -21,7 +21,9 @@ def chunks_to_bytes(chunks: Iterable[ffs_rpc_pb2.StageRequest]) -> Iterable[byte
         yield c.chunk
 
 
-def bytes_to_chunks(bytes_iter: Iterable[bytes],) -> Iterable[ffs_rpc_pb2.StageRequest]:
+def bytes_to_chunks(
+    bytes_iter: Iterable[bytes],
+) -> Iterable[ffs_rpc_pb2.StageRequest]:
     for b in bytes_iter:
         yield ffs_rpc_pb2.StageRequest(chunk=b)
 
@@ -39,7 +41,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def __init__(self, host_name: str, is_secure: bool):
         self.host_name = host_name
         channel = (
-            grpc.secure_channel(host_name)
+            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
             if is_secure
             else grpc.insecure_channel(host_name)
         )

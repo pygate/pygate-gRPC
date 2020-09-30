@@ -8,7 +8,7 @@ from pygate_grpc.errors import ErrorHandlerMeta
 class FaultsClient(object, metaclass=ErrorHandlerMeta):
     def __init__(self, host_name, is_secure):
         channel = (
-            grpc.secure_channel(host_name)
+            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
             if is_secure
             else grpc.insecure_channel(host_name)
         )
