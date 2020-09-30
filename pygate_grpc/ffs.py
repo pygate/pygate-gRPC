@@ -75,6 +75,16 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         )
         return self.client.NewAddr(req, metadata=self._get_meta_data(token))
 
+    def sign_message(self, addr: str, msg: bytes, token: str = None):
+        req = ffs_rpc_pb2.SignMessageRequest(addr=addr, msg=msg)
+        return self.client.SignMessage(req, metadata=self._get_meta_data(token))
+
+    def verify_message(
+        self, addr: str, msg: bytes, signature: bytes, token: str = None
+    ):
+        req = ffs_rpc_pb2.VerifyMessageRequest(addr=addr, msg=msg, signature=signature)
+        return self.client.VerifyMessage(req, metadata=self._get_meta_data(token))
+
     def default_config(self, token: str = None):
         req = ffs_rpc_pb2.DefaultStorageConfigRequest()
         return self.client.DefaultStorageConfig(
@@ -129,6 +139,10 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def info(self, cid, token: str = None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
         return self.client.Info(req, metadata=self._get_meta_data(token))
+
+    def get_storage_job(self, jid: str, token: str = None):
+        req = ffs_rpc_pb2.GetStorageJobRequest(jid=jid)
+        return self.client.GetStorageJob(req, metadata=self._get_meta_data(token))
 
     def push(self, cid, token: str = None):
         req = ffs_rpc_pb2.PushStorageConfigRequest(cid=cid)
