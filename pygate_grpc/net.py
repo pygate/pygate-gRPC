@@ -7,8 +7,12 @@ logger = logging.getLogger(__name__)
 
 
 class NetClient(object):
-    def __init__(self, host_name):
-        channel = grpc.insecure_channel(host_name)
+    def __init__(self, host_name, is_secure):
+        channel = (
+            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
+            if is_secure
+            else grpc.insecure_channel(host_name)
+        )
         self.client = net_rpc_pb2_grpc.RPCServiceStub(channel)
 
     def listen_adderess(self) -> net_rpc_pb2.ListenAddrResponse:
@@ -19,11 +23,13 @@ class NetClient(object):
         req = net_rpc_pb2.PeersRequest()
         return self.client.Peers(req)
 
-    def find_peer(self, peer_id:str) -> net_rpc_pb2.FindPeerResponse:
+    def find_peer(self, peer_id: str) -> net_rpc_pb2.FindPeerResponse:
         req = net_rpc_pb2.FindPeerRequest(peer_id=peer_id)
         return self.client.FindPeer(req)
 
-    def connect_peer(self, peer_addr_info:net_rpc_pb2.PeerAddrInfo) -> net_rpc_pb2.ConnectPeerResponse:
+    def connect_peer(
+        self, peer_addr_info: net_rpc_pb2.PeerAddrInfo
+    ) -> net_rpc_pb2.ConnectPeerResponse:
         req = net_rpc_pb2.ConnectPeerRequest(peer_info=peer_addr_info)
         return self.client.ConnectPeer(req)
 

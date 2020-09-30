@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import proto.miner_rpc_pb2 as miner__rpc__pb2
+import proto.buildinfo_rpc_pb2 as buildinfo__rpc__pb2
 
 
 class RPCServiceStub(object):
@@ -14,17 +14,17 @@ class RPCServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Get = channel.unary_unary(
-            "/index.miner.rpc.RPCService/Get",
-            request_serializer=miner__rpc__pb2.GetRequest.SerializeToString,
-            response_deserializer=miner__rpc__pb2.GetResponse.FromString,
+        self.BuildInfo = channel.unary_unary(
+            "/buildinfo.rpc.RPCService/BuildInfo",
+            request_serializer=buildinfo__rpc__pb2.BuildInfoRequest.SerializeToString,
+            response_deserializer=buildinfo__rpc__pb2.BuildInfoResponse.FromString,
         )
 
 
 class RPCServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Get(self, request, context):
+    def BuildInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -33,14 +33,14 @@ class RPCServiceServicer(object):
 
 def add_RPCServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "Get": grpc.unary_unary_rpc_method_handler(
-            servicer.Get,
-            request_deserializer=miner__rpc__pb2.GetRequest.FromString,
-            response_serializer=miner__rpc__pb2.GetResponse.SerializeToString,
+        "BuildInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.BuildInfo,
+            request_deserializer=buildinfo__rpc__pb2.BuildInfoRequest.FromString,
+            response_serializer=buildinfo__rpc__pb2.BuildInfoResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "index.miner.rpc.RPCService", rpc_method_handlers
+        "buildinfo.rpc.RPCService", rpc_method_handlers
     )
     server.add_generic_rpc_handlers((generic_handler,))
 
@@ -50,7 +50,7 @@ class RPCService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Get(
+    def BuildInfo(
         request,
         target,
         options=(),
@@ -64,9 +64,9 @@ class RPCService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            "/index.miner.rpc.RPCService/Get",
-            miner__rpc__pb2.GetRequest.SerializeToString,
-            miner__rpc__pb2.GetResponse.FromString,
+            "/buildinfo.rpc.RPCService/BuildInfo",
+            buildinfo__rpc__pb2.BuildInfoRequest.SerializeToString,
+            buildinfo__rpc__pb2.BuildInfoResponse.FromString,
             options,
             channel_credentials,
             call_credentials,

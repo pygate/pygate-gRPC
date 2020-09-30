@@ -7,95 +7,121 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='ffs_rpc.proto',
-  package='ffs.rpc',
-  syntax='proto3',
-  serialized_options=b'Z&github.com/textileio/powergate/ffs/rpc',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rffs_rpc.proto\x12\x07\x66\x66s.rpc\"4\n\x08\x41\x64\x64rInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\"!\n\nIpfsConfig\x12\x13\n\x0b\x61\x64\x64_timeout\x18\x01 \x01(\x03\"W\n\tHotConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x16\n\x0e\x61llow_unfreeze\x18\x02 \x01(\x08\x12!\n\x04ipfs\x18\x03 \x01(\x0b\x32\x13.ffs.rpc.IpfsConfig\".\n\x08\x46ilRenew\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x11\n\tthreshold\x18\x02 \x01(\x03\"\xc5\x01\n\tFilConfig\x12\x12\n\nrep_factor\x18\x01 \x01(\x03\x12\x19\n\x11\x64\x65\x61l_min_duration\x18\x02 \x01(\x03\x12\x17\n\x0f\x65xcluded_miners\x18\x03 \x03(\t\x12\x16\n\x0etrusted_miners\x18\x04 \x03(\t\x12\x15\n\rcountry_codes\x18\x05 \x03(\t\x12 \n\x05renew\x18\x06 \x01(\x0b\x32\x11.ffs.rpc.FilRenew\x12\x0c\n\x04\x61\x64\x64r\x18\x07 \x01(\t\x12\x11\n\tmax_price\x18\x08 \x01(\x04\"C\n\nColdConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12$\n\x08\x66ilecoin\x18\x02 \x01(\x0b\x32\x12.ffs.rpc.FilConfig\"g\n\rStorageConfig\x12\x1f\n\x03hot\x18\x01 \x01(\x0b\x32\x12.ffs.rpc.HotConfig\x12!\n\x04\x63old\x18\x02 \x01(\x0b\x32\x13.ffs.rpc.ColdConfig\x12\x12\n\nrepairable\x18\x03 \x01(\x08\"\x1e\n\x0bIpfsHotInfo\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x03\"L\n\x07HotInfo\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x0c\n\x04size\x18\x02 \x01(\x03\x12\"\n\x04ipfs\x18\x03 \x01(\x0b\x32\x14.ffs.rpc.IpfsHotInfo\"\x98\x01\n\nFilStorage\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\x0f\n\x07renewed\x18\x02 \x01(\x08\x12\x10\n\x08\x64uration\x18\x03 \x01(\x03\x12\x18\n\x10\x61\x63tivation_epoch\x18\x04 \x01(\x03\x12\x13\n\x0bstart_epoch\x18\x05 \x01(\x04\x12\r\n\x05miner\x18\x06 \x01(\t\x12\x13\n\x0b\x65poch_price\x18\x07 \x01(\x04\"Q\n\x07\x46ilInfo\x12\x10\n\x08\x64\x61ta_cid\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12&\n\tproposals\x18\x03 \x03(\x0b\x32\x13.ffs.rpc.FilStorage\"?\n\x08\x43oldInfo\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\"\n\x08\x66ilecoin\x18\x02 \x01(\x0b\x32\x10.ffs.rpc.FilInfo\"w\n\x07\x43idInfo\x12\x0e\n\x06job_id\x18\x01 \x01(\t\x12\x0b\n\x03\x63id\x18\x02 \x01(\t\x12\x0f\n\x07\x63reated\x18\x03 \x01(\x03\x12\x1d\n\x03hot\x18\x04 \x01(\x0b\x32\x10.ffs.rpc.HotInfo\x12\x1f\n\x04\x63old\x18\x05 \x01(\x0b\x32\x11.ffs.rpc.ColdInfo\"?\n\x0b\x42\x61lanceInfo\x12\x1f\n\x04\x61\x64\x64r\x18\x01 \x01(\x0b\x32\x11.ffs.rpc.AddrInfo\x12\x0f\n\x07\x62\x61lance\x18\x02 \x01(\x03\"\x88\x01\n\x0cInstanceInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x36\n\x16\x64\x65\x66\x61ult_storage_config\x18\x02 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\x12&\n\x08\x62\x61lances\x18\x03 \x03(\x0b\x32\x14.ffs.rpc.BalanceInfo\x12\x0c\n\x04pins\x18\x04 \x03(\t\"\x8e\x01\n\x03Job\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61pi_id\x18\x02 \x01(\t\x12\x0b\n\x03\x63id\x18\x03 \x01(\t\x12\"\n\x06status\x18\x04 \x01(\x0e\x32\x12.ffs.rpc.JobStatus\x12\x11\n\terr_cause\x18\x05 \x01(\t\x12\'\n\x0b\x64\x65\x61l_errors\x18\x06 \x03(\x0b\x32\x12.ffs.rpc.DealError\"A\n\tDealError\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\r\n\x05miner\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"?\n\x08LogEntry\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\x12\x0b\n\x03jid\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x0b\n\x03msg\x18\x04 \x01(\t\"R\n\tPaychInfo\x12\x10\n\x08\x63tl_addr\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12%\n\tdirection\x18\x03 \x01(\x0e\x32\x12.ffs.rpc.Direction\"\x81\x01\n\x15ListDealRecordsConfig\x12\x12\n\nfrom_addrs\x18\x01 \x03(\t\x12\x11\n\tdata_cids\x18\x02 \x03(\t\x12\x17\n\x0finclude_pending\x18\x03 \x01(\x08\x12\x15\n\rinclude_final\x18\x04 \x01(\x08\x12\x11\n\tascending\x18\x05 \x01(\x08\"\xf5\x01\n\x0fStorageDealInfo\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\x10\n\x08state_id\x18\x02 \x01(\x04\x12\x12\n\nstate_name\x18\x03 \x01(\t\x12\r\n\x05miner\x18\x04 \x01(\t\x12\x11\n\tpiece_cid\x18\x05 \x01(\t\x12\x0c\n\x04size\x18\x06 \x01(\x04\x12\x17\n\x0fprice_per_epoch\x18\x07 \x01(\x04\x12\x13\n\x0bstart_epoch\x18\x08 \x01(\x04\x12\x10\n\x08\x64uration\x18\t \x01(\x04\x12\x0f\n\x07\x64\x65\x61l_id\x18\n \x01(\x04\x12\x18\n\x10\x61\x63tivation_epoch\x18\x0b \x01(\x03\x12\x0b\n\x03msg\x18\x0c \x01(\t\"\x7f\n\x11StorageDealRecord\x12\x10\n\x08root_cid\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x0f\n\x07pending\x18\x04 \x01(\x08\x12+\n\tdeal_info\x18\x05 \x01(\x0b\x32\x18.ffs.rpc.StorageDealInfo\"\xa9\x01\n\x11RetrievalDealInfo\x12\x10\n\x08root_cid\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x11\n\tmin_price\x18\x03 \x01(\x04\x12\x18\n\x10payment_interval\x18\x04 \x01(\x04\x12!\n\x19payment_interval_increase\x18\x05 \x01(\x04\x12\r\n\x05miner\x18\x06 \x01(\t\x12\x15\n\rminer_peer_id\x18\x07 \x01(\t\"`\n\x13RetrievalDealRecord\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12-\n\tdeal_info\x18\x03 \x01(\x0b\x32\x1a.ffs.rpc.RetrievalDealInfo\"\x0f\n\rCreateRequest\"+\n\x0e\x43reateResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t\"\x10\n\x0eListAPIRequest\"$\n\x0fListAPIResponse\x12\x11\n\tinstances\x18\x01 \x03(\t\"\x0b\n\tIDRequest\"\x18\n\nIDResponse\x12\n\n\x02id\x18\x01 \x01(\t\"\x0e\n\x0c\x41\x64\x64rsRequest\"1\n\rAddrsResponse\x12 \n\x05\x61\x64\x64rs\x18\x01 \x03(\x0b\x32\x11.ffs.rpc.AddrInfo\"\x1d\n\x1b\x44\x65\x66\x61ultStorageConfigRequest\"V\n\x1c\x44\x65\x66\x61ultStorageConfigResponse\x12\x36\n\x16\x64\x65\x66\x61ult_storage_config\x18\x01 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\"J\n\x0eNewAddrRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x61\x64\x64ress_type\x18\x02 \x01(\t\x12\x14\n\x0cmake_default\x18\x03 \x01(\x08\"\x1f\n\x0fNewAddrResponse\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\"&\n\x17GetStorageConfigRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\"B\n\x18GetStorageConfigResponse\x12&\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\"H\n\x1eSetDefaultStorageConfigRequest\x12&\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\"!\n\x1fSetDefaultStorageConfigResponse\"\x1a\n\x0bShowRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\"2\n\x0cShowResponse\x12\"\n\x08\x63id_info\x18\x01 \x01(\x0b\x32\x10.ffs.rpc.CidInfo\"\r\n\x0bInfoRequest\"3\n\x0cInfoResponse\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.ffs.rpc.InstanceInfo\"\x1f\n\x10\x43\x61ncelJobRequest\x12\x0b\n\x03jid\x18\x01 \x01(\t\"\x13\n\x11\x43\x61ncelJobResponse\" \n\x10WatchJobsRequest\x12\x0c\n\x04jids\x18\x01 \x03(\t\".\n\x11WatchJobsResponse\x12\x19\n\x03job\x18\x01 \x01(\x0b\x32\x0c.ffs.rpc.Job\"=\n\x10WatchLogsRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\x12\x0b\n\x03jid\x18\x02 \x01(\t\x12\x0f\n\x07history\x18\x03 \x01(\x08\"9\n\x11WatchLogsResponse\x12$\n\tlog_entry\x18\x01 \x01(\x0b\x32\x11.ffs.rpc.LogEntry\",\n\x0eReplaceRequest\x12\x0c\n\x04\x63id1\x18\x01 \x01(\t\x12\x0c\n\x04\x63id2\x18\x02 \x01(\t\"!\n\x0fReplaceResponse\x12\x0e\n\x06job_id\x18\x01 \x01(\t\"\x99\x01\n\x18PushStorageConfigRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\x12\x12\n\nhas_config\x18\x03 \x01(\x08\x12\x17\n\x0foverride_config\x18\x04 \x01(\x08\x12\x1b\n\x13has_override_config\x18\x05 \x01(\x08\"+\n\x19PushStorageConfigResponse\x12\x0e\n\x06job_id\x18\x01 \x01(\t\"\x1c\n\rRemoveRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\"\x10\n\x0eRemoveResponse\"\x19\n\nGetRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\"\x1c\n\x0bGetResponse\x12\r\n\x05\x63hunk\x18\x01 \x01(\x0c\":\n\x0eSendFilRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x03\"\x11\n\x0fSendFilResponse\"\x0e\n\x0c\x43loseRequest\"\x0f\n\rCloseResponse\"\x1d\n\x0cStageRequest\x12\r\n\x05\x63hunk\x18\x01 \x01(\x0c\"\x1c\n\rStageResponse\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\"\x18\n\x16ListPayChannelsRequest\"C\n\x17ListPayChannelsResponse\x12(\n\x0cpay_channels\x18\x01 \x03(\x0b\x32\x12.ffs.rpc.PaychInfo\"C\n\x17\x43reatePayChannelRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x04\"`\n\x18\x43reatePayChannelResponse\x12\'\n\x0bpay_channel\x18\x01 \x01(\x0b\x32\x12.ffs.rpc.PaychInfo\x12\x1b\n\x13\x63hannel_message_cid\x18\x02 \x01(\t\"3\n\x17RedeemPayChannelRequest\x12\x18\n\x10pay_channel_addr\x18\x01 \x01(\t\"\x1a\n\x18RedeemPayChannelResponse\"O\n\x1dListStorageDealRecordsRequest\x12.\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1e.ffs.rpc.ListDealRecordsConfig\"M\n\x1eListStorageDealRecordsResponse\x12+\n\x07records\x18\x01 \x03(\x0b\x32\x1a.ffs.rpc.StorageDealRecord\"Q\n\x1fListRetrievalDealRecordsRequest\x12.\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1e.ffs.rpc.ListDealRecordsConfig\"Q\n ListRetrievalDealRecordsResponse\x12-\n\x07records\x18\x01 \x03(\x0b\x32\x1c.ffs.rpc.RetrievalDealRecord\"\x10\n\x0eShowAllRequest\"6\n\x0fShowAllResponse\x12#\n\tcid_infos\x18\x01 \x03(\x0b\x32\x10.ffs.rpc.CidInfo*\xa0\x01\n\tJobStatus\x12\x1a\n\x16JOB_STATUS_UNSPECIFIED\x10\x00\x12\x15\n\x11JOB_STATUS_QUEUED\x10\x01\x12\x18\n\x14JOB_STATUS_EXECUTING\x10\x02\x12\x15\n\x11JOB_STATUS_FAILED\x10\x03\x12\x17\n\x13JOB_STATUS_CANCELED\x10\x04\x12\x16\n\x12JOB_STATUS_SUCCESS\x10\x05*U\n\tDirection\x12\x19\n\x15\x44IRECTION_UNSPECIFIED\x10\x00\x12\x15\n\x11\x44IRECTION_INBOUND\x10\x01\x12\x16\n\x12\x44IRECTION_OUTBOUND\x10\x02\x32\x9f\x0f\n\nRPCService\x12;\n\x06\x43reate\x12\x16.ffs.rpc.CreateRequest\x1a\x17.ffs.rpc.CreateResponse\"\x00\x12>\n\x07ListAPI\x12\x17.ffs.rpc.ListAPIRequest\x1a\x18.ffs.rpc.ListAPIResponse\"\x00\x12/\n\x02ID\x12\x12.ffs.rpc.IDRequest\x1a\x13.ffs.rpc.IDResponse\"\x00\x12\x38\n\x05\x41\x64\x64rs\x12\x15.ffs.rpc.AddrsRequest\x1a\x16.ffs.rpc.AddrsResponse\"\x00\x12\x65\n\x14\x44\x65\x66\x61ultStorageConfig\x12$.ffs.rpc.DefaultStorageConfigRequest\x1a%.ffs.rpc.DefaultStorageConfigResponse\"\x00\x12>\n\x07NewAddr\x12\x17.ffs.rpc.NewAddrRequest\x1a\x18.ffs.rpc.NewAddrResponse\"\x00\x12Y\n\x10GetStorageConfig\x12 .ffs.rpc.GetStorageConfigRequest\x1a!.ffs.rpc.GetStorageConfigResponse\"\x00\x12n\n\x17SetDefaultStorageConfig\x12\'.ffs.rpc.SetDefaultStorageConfigRequest\x1a(.ffs.rpc.SetDefaultStorageConfigResponse\"\x00\x12\x35\n\x04Show\x12\x14.ffs.rpc.ShowRequest\x1a\x15.ffs.rpc.ShowResponse\"\x00\x12\x35\n\x04Info\x12\x14.ffs.rpc.InfoRequest\x1a\x15.ffs.rpc.InfoResponse\"\x00\x12\x44\n\tCancelJob\x12\x19.ffs.rpc.CancelJobRequest\x1a\x1a.ffs.rpc.CancelJobResponse\"\x00\x12\x46\n\tWatchJobs\x12\x19.ffs.rpc.WatchJobsRequest\x1a\x1a.ffs.rpc.WatchJobsResponse\"\x00\x30\x01\x12\x46\n\tWatchLogs\x12\x19.ffs.rpc.WatchLogsRequest\x1a\x1a.ffs.rpc.WatchLogsResponse\"\x00\x30\x01\x12>\n\x07Replace\x12\x17.ffs.rpc.ReplaceRequest\x1a\x18.ffs.rpc.ReplaceResponse\"\x00\x12\\\n\x11PushStorageConfig\x12!.ffs.rpc.PushStorageConfigRequest\x1a\".ffs.rpc.PushStorageConfigResponse\"\x00\x12;\n\x06Remove\x12\x16.ffs.rpc.RemoveRequest\x1a\x17.ffs.rpc.RemoveResponse\"\x00\x12\x34\n\x03Get\x12\x13.ffs.rpc.GetRequest\x1a\x14.ffs.rpc.GetResponse\"\x00\x30\x01\x12>\n\x07SendFil\x12\x17.ffs.rpc.SendFilRequest\x1a\x18.ffs.rpc.SendFilResponse\"\x00\x12\x38\n\x05\x43lose\x12\x15.ffs.rpc.CloseRequest\x1a\x16.ffs.rpc.CloseResponse\"\x00\x12:\n\x05Stage\x12\x15.ffs.rpc.StageRequest\x1a\x16.ffs.rpc.StageResponse\"\x00(\x01\x12V\n\x0fListPayChannels\x12\x1f.ffs.rpc.ListPayChannelsRequest\x1a .ffs.rpc.ListPayChannelsResponse\"\x00\x12Y\n\x10\x43reatePayChannel\x12 .ffs.rpc.CreatePayChannelRequest\x1a!.ffs.rpc.CreatePayChannelResponse\"\x00\x12Y\n\x10RedeemPayChannel\x12 .ffs.rpc.RedeemPayChannelRequest\x1a!.ffs.rpc.RedeemPayChannelResponse\"\x00\x12k\n\x16ListStorageDealRecords\x12&.ffs.rpc.ListStorageDealRecordsRequest\x1a\'.ffs.rpc.ListStorageDealRecordsResponse\"\x00\x12q\n\x18ListRetrievalDealRecords\x12(.ffs.rpc.ListRetrievalDealRecordsRequest\x1a).ffs.rpc.ListRetrievalDealRecordsResponse\"\x00\x12>\n\x07ShowAll\x12\x17.ffs.rpc.ShowAllRequest\x1a\x18.ffs.rpc.ShowAllResponse\"\x00\x42(Z&github.com/textileio/powergate/ffs/rpcb\x06proto3'
+    name="ffs_rpc.proto",
+    package="ffs.rpc",
+    syntax="proto3",
+    serialized_options=b"Z&github.com/textileio/powergate/ffs/rpc",
+    create_key=_descriptor._internal_create_key,
+    serialized_pb=b'\n\rffs_rpc.proto\x12\x07\x66\x66s.rpc"4\n\x08\x41\x64\x64rInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t"!\n\nIpfsConfig\x12\x13\n\x0b\x61\x64\x64_timeout\x18\x01 \x01(\x03"s\n\tHotConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x16\n\x0e\x61llow_unfreeze\x18\x02 \x01(\x08\x12\x1a\n\x12unfreeze_max_price\x18\x03 \x01(\x04\x12!\n\x04ipfs\x18\x04 \x01(\x0b\x32\x13.ffs.rpc.IpfsConfig".\n\x08\x46ilRenew\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x11\n\tthreshold\x18\x02 \x01(\x03"\xf8\x01\n\tFilConfig\x12\x12\n\nrep_factor\x18\x01 \x01(\x03\x12\x19\n\x11\x64\x65\x61l_min_duration\x18\x02 \x01(\x03\x12\x17\n\x0f\x65xcluded_miners\x18\x03 \x03(\t\x12\x16\n\x0etrusted_miners\x18\x04 \x03(\t\x12\x15\n\rcountry_codes\x18\x05 \x03(\t\x12 \n\x05renew\x18\x06 \x01(\x0b\x32\x11.ffs.rpc.FilRenew\x12\x0c\n\x04\x61\x64\x64r\x18\x07 \x01(\t\x12\x11\n\tmax_price\x18\x08 \x01(\x04\x12\x16\n\x0e\x66\x61st_retrieval\x18\t \x01(\x08\x12\x19\n\x11\x64\x65\x61l_start_offset\x18\n \x01(\x03"C\n\nColdConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12$\n\x08\x66ilecoin\x18\x02 \x01(\x0b\x32\x12.ffs.rpc.FilConfig"g\n\rStorageConfig\x12\x1f\n\x03hot\x18\x01 \x01(\x0b\x32\x12.ffs.rpc.HotConfig\x12!\n\x04\x63old\x18\x02 \x01(\x0b\x32\x13.ffs.rpc.ColdConfig\x12\x12\n\nrepairable\x18\x03 \x01(\x08"\x1e\n\x0bIpfsHotInfo\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x03"L\n\x07HotInfo\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x0c\n\x04size\x18\x02 \x01(\x03\x12"\n\x04ipfs\x18\x03 \x01(\x0b\x32\x14.ffs.rpc.IpfsHotInfo"\xab\x01\n\nFilStorage\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\x0f\n\x07renewed\x18\x02 \x01(\x08\x12\x10\n\x08\x64uration\x18\x03 \x01(\x03\x12\x18\n\x10\x61\x63tivation_epoch\x18\x04 \x01(\x03\x12\x13\n\x0bstart_epoch\x18\x05 \x01(\x04\x12\r\n\x05miner\x18\x06 \x01(\t\x12\x13\n\x0b\x65poch_price\x18\x07 \x01(\x04\x12\x11\n\tpiece_cid\x18\x08 \x01(\t"Q\n\x07\x46ilInfo\x12\x10\n\x08\x64\x61ta_cid\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12&\n\tproposals\x18\x03 \x03(\x0b\x32\x13.ffs.rpc.FilStorage"?\n\x08\x43oldInfo\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12"\n\x08\x66ilecoin\x18\x02 \x01(\x0b\x32\x10.ffs.rpc.FilInfo"w\n\x07\x43idInfo\x12\x0e\n\x06job_id\x18\x01 \x01(\t\x12\x0b\n\x03\x63id\x18\x02 \x01(\t\x12\x0f\n\x07\x63reated\x18\x03 \x01(\x03\x12\x1d\n\x03hot\x18\x04 \x01(\x0b\x32\x10.ffs.rpc.HotInfo\x12\x1f\n\x04\x63old\x18\x05 \x01(\x0b\x32\x11.ffs.rpc.ColdInfo"?\n\x0b\x42\x61lanceInfo\x12\x1f\n\x04\x61\x64\x64r\x18\x01 \x01(\x0b\x32\x11.ffs.rpc.AddrInfo\x12\x0f\n\x07\x62\x61lance\x18\x02 \x01(\x03"\x88\x01\n\x0cInstanceInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x36\n\x16\x64\x65\x66\x61ult_storage_config\x18\x02 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\x12&\n\x08\x62\x61lances\x18\x03 \x03(\x0b\x32\x14.ffs.rpc.BalanceInfo\x12\x0c\n\x04pins\x18\x04 \x03(\t"\x8e\x01\n\x03Job\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61pi_id\x18\x02 \x01(\t\x12\x0b\n\x03\x63id\x18\x03 \x01(\t\x12"\n\x06status\x18\x04 \x01(\x0e\x32\x12.ffs.rpc.JobStatus\x12\x11\n\terr_cause\x18\x05 \x01(\t\x12\'\n\x0b\x64\x65\x61l_errors\x18\x06 \x03(\x0b\x32\x12.ffs.rpc.DealError"A\n\tDealError\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\r\n\x05miner\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t"?\n\x08LogEntry\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\x12\x0b\n\x03jid\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x0b\n\x03msg\x18\x04 \x01(\t"R\n\tPaychInfo\x12\x10\n\x08\x63tl_addr\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12%\n\tdirection\x18\x03 \x01(\x0e\x32\x12.ffs.rpc.Direction"\x81\x01\n\x15ListDealRecordsConfig\x12\x12\n\nfrom_addrs\x18\x01 \x03(\t\x12\x11\n\tdata_cids\x18\x02 \x03(\t\x12\x17\n\x0finclude_pending\x18\x03 \x01(\x08\x12\x15\n\rinclude_final\x18\x04 \x01(\x08\x12\x11\n\tascending\x18\x05 \x01(\x08"\xf5\x01\n\x0fStorageDealInfo\x12\x14\n\x0cproposal_cid\x18\x01 \x01(\t\x12\x10\n\x08state_id\x18\x02 \x01(\x04\x12\x12\n\nstate_name\x18\x03 \x01(\t\x12\r\n\x05miner\x18\x04 \x01(\t\x12\x11\n\tpiece_cid\x18\x05 \x01(\t\x12\x0c\n\x04size\x18\x06 \x01(\x04\x12\x17\n\x0fprice_per_epoch\x18\x07 \x01(\x04\x12\x13\n\x0bstart_epoch\x18\x08 \x01(\x04\x12\x10\n\x08\x64uration\x18\t \x01(\x04\x12\x0f\n\x07\x64\x65\x61l_id\x18\n \x01(\x04\x12\x18\n\x10\x61\x63tivation_epoch\x18\x0b \x01(\x03\x12\x0b\n\x03msg\x18\x0c \x01(\t"\x7f\n\x11StorageDealRecord\x12\x10\n\x08root_cid\x18\x01 \x01(\t\x12\x0c\n\x04\x61\x64\x64r\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\x03\x12\x0f\n\x07pending\x18\x04 \x01(\x08\x12+\n\tdeal_info\x18\x05 \x01(\x0b\x32\x18.ffs.rpc.StorageDealInfo"\xa9\x01\n\x11RetrievalDealInfo\x12\x10\n\x08root_cid\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x11\n\tmin_price\x18\x03 \x01(\x04\x12\x18\n\x10payment_interval\x18\x04 \x01(\x04\x12!\n\x19payment_interval_increase\x18\x05 \x01(\x04\x12\r\n\x05miner\x18\x06 \x01(\t\x12\x15\n\rminer_peer_id\x18\x07 \x01(\t"`\n\x13RetrievalDealRecord\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12-\n\tdeal_info\x18\x03 \x01(\x0b\x32\x1a.ffs.rpc.RetrievalDealInfo"\x0f\n\rCreateRequest"+\n\x0e\x43reateResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t"\x10\n\x0eListAPIRequest"$\n\x0fListAPIResponse\x12\x11\n\tinstances\x18\x01 \x03(\t"\x0b\n\tIDRequest"\x18\n\nIDResponse\x12\n\n\x02id\x18\x01 \x01(\t"\x0e\n\x0c\x41\x64\x64rsRequest"1\n\rAddrsResponse\x12 \n\x05\x61\x64\x64rs\x18\x01 \x03(\x0b\x32\x11.ffs.rpc.AddrInfo"\x1d\n\x1b\x44\x65\x66\x61ultStorageConfigRequest"V\n\x1c\x44\x65\x66\x61ultStorageConfigResponse\x12\x36\n\x16\x64\x65\x66\x61ult_storage_config\x18\x01 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig"/\n\x12SignMessageRequest\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0b\n\x03msg\x18\x02 \x01(\x0c"(\n\x13SignMessageResponse\x12\x11\n\tsignature\x18\x01 \x01(\x0c"D\n\x14VerifyMessageRequest\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0b\n\x03msg\x18\x02 \x01(\x0c\x12\x11\n\tsignature\x18\x03 \x01(\x0c"#\n\x15VerifyMessageResponse\x12\n\n\x02ok\x18\x01 \x01(\x08"J\n\x0eNewAddrRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x61\x64\x64ress_type\x18\x02 \x01(\t\x12\x14\n\x0cmake_default\x18\x03 \x01(\x08"\x1f\n\x0fNewAddrResponse\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t"&\n\x17GetStorageConfigRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t"B\n\x18GetStorageConfigResponse\x12&\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig"H\n\x1eSetDefaultStorageConfigRequest\x12&\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig"!\n\x1fSetDefaultStorageConfigResponse"\x1a\n\x0bShowRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t"2\n\x0cShowResponse\x12"\n\x08\x63id_info\x18\x01 \x01(\x0b\x32\x10.ffs.rpc.CidInfo"\r\n\x0bInfoRequest"3\n\x0cInfoResponse\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.ffs.rpc.InstanceInfo"\x1f\n\x10\x43\x61ncelJobRequest\x12\x0b\n\x03jid\x18\x01 \x01(\t"\x13\n\x11\x43\x61ncelJobResponse"#\n\x14GetStorageJobRequest\x12\x0b\n\x03jid\x18\x01 \x01(\t"2\n\x15GetStorageJobResponse\x12\x19\n\x03job\x18\x01 \x01(\x0b\x32\x0c.ffs.rpc.Job" \n\x10WatchJobsRequest\x12\x0c\n\x04jids\x18\x01 \x03(\t".\n\x11WatchJobsResponse\x12\x19\n\x03job\x18\x01 \x01(\x0b\x32\x0c.ffs.rpc.Job"=\n\x10WatchLogsRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\x12\x0b\n\x03jid\x18\x02 \x01(\t\x12\x0f\n\x07history\x18\x03 \x01(\x08"9\n\x11WatchLogsResponse\x12$\n\tlog_entry\x18\x01 \x01(\x0b\x32\x11.ffs.rpc.LogEntry",\n\x0eReplaceRequest\x12\x0c\n\x04\x63id1\x18\x01 \x01(\t\x12\x0c\n\x04\x63id2\x18\x02 \x01(\t"!\n\x0fReplaceResponse\x12\x0e\n\x06job_id\x18\x01 \x01(\t"\x99\x01\n\x18PushStorageConfigRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.ffs.rpc.StorageConfig\x12\x12\n\nhas_config\x18\x03 \x01(\x08\x12\x17\n\x0foverride_config\x18\x04 \x01(\x08\x12\x1b\n\x13has_override_config\x18\x05 \x01(\x08"+\n\x19PushStorageConfigResponse\x12\x0e\n\x06job_id\x18\x01 \x01(\t"\x1c\n\rRemoveRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t"\x10\n\x0eRemoveResponse"\x19\n\nGetRequest\x12\x0b\n\x03\x63id\x18\x01 \x01(\t"\x1c\n\x0bGetResponse\x12\r\n\x05\x63hunk\x18\x01 \x01(\x0c":\n\x0eSendFilRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x03"\x11\n\x0fSendFilResponse"\x1d\n\x0cStageRequest\x12\r\n\x05\x63hunk\x18\x01 \x01(\x0c"\x1c\n\rStageResponse\x12\x0b\n\x03\x63id\x18\x01 \x01(\t"\x18\n\x16ListPayChannelsRequest"C\n\x17ListPayChannelsResponse\x12(\n\x0cpay_channels\x18\x01 \x03(\x0b\x32\x12.ffs.rpc.PaychInfo"C\n\x17\x43reatePayChannelRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x04"`\n\x18\x43reatePayChannelResponse\x12\'\n\x0bpay_channel\x18\x01 \x01(\x0b\x32\x12.ffs.rpc.PaychInfo\x12\x1b\n\x13\x63hannel_message_cid\x18\x02 \x01(\t"3\n\x17RedeemPayChannelRequest\x12\x18\n\x10pay_channel_addr\x18\x01 \x01(\t"\x1a\n\x18RedeemPayChannelResponse"O\n\x1dListStorageDealRecordsRequest\x12.\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1e.ffs.rpc.ListDealRecordsConfig"M\n\x1eListStorageDealRecordsResponse\x12+\n\x07records\x18\x01 \x03(\x0b\x32\x1a.ffs.rpc.StorageDealRecord"Q\n\x1fListRetrievalDealRecordsRequest\x12.\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1e.ffs.rpc.ListDealRecordsConfig"Q\n ListRetrievalDealRecordsResponse\x12-\n\x07records\x18\x01 \x03(\x0b\x32\x1c.ffs.rpc.RetrievalDealRecord"\x10\n\x0eShowAllRequest"6\n\x0fShowAllResponse\x12#\n\tcid_infos\x18\x01 \x03(\x0b\x32\x10.ffs.rpc.CidInfo*\xa0\x01\n\tJobStatus\x12\x1a\n\x16JOB_STATUS_UNSPECIFIED\x10\x00\x12\x15\n\x11JOB_STATUS_QUEUED\x10\x01\x12\x18\n\x14JOB_STATUS_EXECUTING\x10\x02\x12\x15\n\x11JOB_STATUS_FAILED\x10\x03\x12\x17\n\x13JOB_STATUS_CANCELED\x10\x04\x12\x16\n\x12JOB_STATUS_SUCCESS\x10\x05*U\n\tDirection\x12\x19\n\x15\x44IRECTION_UNSPECIFIED\x10\x00\x12\x15\n\x11\x44IRECTION_INBOUND\x10\x01\x12\x16\n\x12\x44IRECTION_OUTBOUND\x10\x02\x32\xd5\x10\n\nRPCService\x12;\n\x06\x43reate\x12\x16.ffs.rpc.CreateRequest\x1a\x17.ffs.rpc.CreateResponse"\x00\x12>\n\x07ListAPI\x12\x17.ffs.rpc.ListAPIRequest\x1a\x18.ffs.rpc.ListAPIResponse"\x00\x12/\n\x02ID\x12\x12.ffs.rpc.IDRequest\x1a\x13.ffs.rpc.IDResponse"\x00\x12\x38\n\x05\x41\x64\x64rs\x12\x15.ffs.rpc.AddrsRequest\x1a\x16.ffs.rpc.AddrsResponse"\x00\x12\x65\n\x14\x44\x65\x66\x61ultStorageConfig\x12$.ffs.rpc.DefaultStorageConfigRequest\x1a%.ffs.rpc.DefaultStorageConfigResponse"\x00\x12>\n\x07NewAddr\x12\x17.ffs.rpc.NewAddrRequest\x1a\x18.ffs.rpc.NewAddrResponse"\x00\x12J\n\x0bSignMessage\x12\x1b.ffs.rpc.SignMessageRequest\x1a\x1c.ffs.rpc.SignMessageResponse"\x00\x12P\n\rVerifyMessage\x12\x1d.ffs.rpc.VerifyMessageRequest\x1a\x1e.ffs.rpc.VerifyMessageResponse"\x00\x12Y\n\x10GetStorageConfig\x12 .ffs.rpc.GetStorageConfigRequest\x1a!.ffs.rpc.GetStorageConfigResponse"\x00\x12n\n\x17SetDefaultStorageConfig\x12\'.ffs.rpc.SetDefaultStorageConfigRequest\x1a(.ffs.rpc.SetDefaultStorageConfigResponse"\x00\x12\x35\n\x04Show\x12\x14.ffs.rpc.ShowRequest\x1a\x15.ffs.rpc.ShowResponse"\x00\x12\x35\n\x04Info\x12\x14.ffs.rpc.InfoRequest\x1a\x15.ffs.rpc.InfoResponse"\x00\x12\x44\n\tCancelJob\x12\x19.ffs.rpc.CancelJobRequest\x1a\x1a.ffs.rpc.CancelJobResponse"\x00\x12P\n\rGetStorageJob\x12\x1d.ffs.rpc.GetStorageJobRequest\x1a\x1e.ffs.rpc.GetStorageJobResponse"\x00\x12\x46\n\tWatchJobs\x12\x19.ffs.rpc.WatchJobsRequest\x1a\x1a.ffs.rpc.WatchJobsResponse"\x00\x30\x01\x12\x46\n\tWatchLogs\x12\x19.ffs.rpc.WatchLogsRequest\x1a\x1a.ffs.rpc.WatchLogsResponse"\x00\x30\x01\x12>\n\x07Replace\x12\x17.ffs.rpc.ReplaceRequest\x1a\x18.ffs.rpc.ReplaceResponse"\x00\x12\\\n\x11PushStorageConfig\x12!.ffs.rpc.PushStorageConfigRequest\x1a".ffs.rpc.PushStorageConfigResponse"\x00\x12;\n\x06Remove\x12\x16.ffs.rpc.RemoveRequest\x1a\x17.ffs.rpc.RemoveResponse"\x00\x12\x34\n\x03Get\x12\x13.ffs.rpc.GetRequest\x1a\x14.ffs.rpc.GetResponse"\x00\x30\x01\x12>\n\x07SendFil\x12\x17.ffs.rpc.SendFilRequest\x1a\x18.ffs.rpc.SendFilResponse"\x00\x12:\n\x05Stage\x12\x15.ffs.rpc.StageRequest\x1a\x16.ffs.rpc.StageResponse"\x00(\x01\x12V\n\x0fListPayChannels\x12\x1f.ffs.rpc.ListPayChannelsRequest\x1a .ffs.rpc.ListPayChannelsResponse"\x00\x12Y\n\x10\x43reatePayChannel\x12 .ffs.rpc.CreatePayChannelRequest\x1a!.ffs.rpc.CreatePayChannelResponse"\x00\x12Y\n\x10RedeemPayChannel\x12 .ffs.rpc.RedeemPayChannelRequest\x1a!.ffs.rpc.RedeemPayChannelResponse"\x00\x12k\n\x16ListStorageDealRecords\x12&.ffs.rpc.ListStorageDealRecordsRequest\x1a\'.ffs.rpc.ListStorageDealRecordsResponse"\x00\x12q\n\x18ListRetrievalDealRecords\x12(.ffs.rpc.ListRetrievalDealRecordsRequest\x1a).ffs.rpc.ListRetrievalDealRecordsResponse"\x00\x12>\n\x07ShowAll\x12\x17.ffs.rpc.ShowAllRequest\x1a\x18.ffs.rpc.ShowAllResponse"\x00\x42(Z&github.com/textileio/powergate/ffs/rpcb\x06proto3',
 )
 
 _JOBSTATUS = _descriptor.EnumDescriptor(
-  name='JobStatus',
-  full_name='ffs.rpc.JobStatus',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='JOB_STATUS_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='JOB_STATUS_QUEUED', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='JOB_STATUS_EXECUTING', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='JOB_STATUS_FAILED', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='JOB_STATUS_CANCELED', index=4, number=4,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='JOB_STATUS_SUCCESS', index=5, number=5,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=4883,
-  serialized_end=5043,
+    name="JobStatus",
+    full_name="ffs.rpc.JobStatus",
+    filename=None,
+    file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
+    values=[
+        _descriptor.EnumValueDescriptor(
+            name="JOB_STATUS_UNSPECIFIED",
+            index=0,
+            number=0,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="JOB_STATUS_QUEUED",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="JOB_STATUS_EXECUTING",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="JOB_STATUS_FAILED",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="JOB_STATUS_CANCELED",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="JOB_STATUS_SUCCESS",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    containing_type=None,
+    serialized_options=None,
+    serialized_start=5235,
+    serialized_end=5395,
 )
 _sym_db.RegisterEnumDescriptor(_JOBSTATUS)
 
 JobStatus = enum_type_wrapper.EnumTypeWrapper(_JOBSTATUS)
 _DIRECTION = _descriptor.EnumDescriptor(
-  name='Direction',
-  full_name='ffs.rpc.Direction',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='DIRECTION_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='DIRECTION_INBOUND', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='DIRECTION_OUTBOUND', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=5045,
-  serialized_end=5130,
+    name="Direction",
+    full_name="ffs.rpc.Direction",
+    filename=None,
+    file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
+    values=[
+        _descriptor.EnumValueDescriptor(
+            name="DIRECTION_UNSPECIFIED",
+            index=0,
+            number=0,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="DIRECTION_INBOUND",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.EnumValueDescriptor(
+            name="DIRECTION_OUTBOUND",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    containing_type=None,
+    serialized_options=None,
+    serialized_start=5397,
+    serialized_end=5482,
 )
 _sym_db.RegisterEnumDescriptor(_DIRECTION)
 
@@ -111,3871 +137,6154 @@ DIRECTION_INBOUND = 1
 DIRECTION_OUTBOUND = 2
 
 
-
 _ADDRINFO = _descriptor.Descriptor(
-  name='AddrInfo',
-  full_name='ffs.rpc.AddrInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='ffs.rpc.AddrInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.AddrInfo.addr', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='ffs.rpc.AddrInfo.type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=26,
-  serialized_end=78,
+    name="AddrInfo",
+    full_name="ffs.rpc.AddrInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="name",
+            full_name="ffs.rpc.AddrInfo.name",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.AddrInfo.addr",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="type",
+            full_name="ffs.rpc.AddrInfo.type",
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=26,
+    serialized_end=78,
 )
 
 
 _IPFSCONFIG = _descriptor.Descriptor(
-  name='IpfsConfig',
-  full_name='ffs.rpc.IpfsConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='add_timeout', full_name='ffs.rpc.IpfsConfig.add_timeout', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=80,
-  serialized_end=113,
+    name="IpfsConfig",
+    full_name="ffs.rpc.IpfsConfig",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="add_timeout",
+            full_name="ffs.rpc.IpfsConfig.add_timeout",
+            index=0,
+            number=1,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=80,
+    serialized_end=113,
 )
 
 
 _HOTCONFIG = _descriptor.Descriptor(
-  name='HotConfig',
-  full_name='ffs.rpc.HotConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='enabled', full_name='ffs.rpc.HotConfig.enabled', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='allow_unfreeze', full_name='ffs.rpc.HotConfig.allow_unfreeze', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='ipfs', full_name='ffs.rpc.HotConfig.ipfs', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=115,
-  serialized_end=202,
+    name="HotConfig",
+    full_name="ffs.rpc.HotConfig",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="enabled",
+            full_name="ffs.rpc.HotConfig.enabled",
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="allow_unfreeze",
+            full_name="ffs.rpc.HotConfig.allow_unfreeze",
+            index=1,
+            number=2,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="unfreeze_max_price",
+            full_name="ffs.rpc.HotConfig.unfreeze_max_price",
+            index=2,
+            number=3,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="ipfs",
+            full_name="ffs.rpc.HotConfig.ipfs",
+            index=3,
+            number=4,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=115,
+    serialized_end=230,
 )
 
 
 _FILRENEW = _descriptor.Descriptor(
-  name='FilRenew',
-  full_name='ffs.rpc.FilRenew',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='enabled', full_name='ffs.rpc.FilRenew.enabled', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='threshold', full_name='ffs.rpc.FilRenew.threshold', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=204,
-  serialized_end=250,
+    name="FilRenew",
+    full_name="ffs.rpc.FilRenew",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="enabled",
+            full_name="ffs.rpc.FilRenew.enabled",
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="threshold",
+            full_name="ffs.rpc.FilRenew.threshold",
+            index=1,
+            number=2,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=232,
+    serialized_end=278,
 )
 
 
 _FILCONFIG = _descriptor.Descriptor(
-  name='FilConfig',
-  full_name='ffs.rpc.FilConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='rep_factor', full_name='ffs.rpc.FilConfig.rep_factor', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deal_min_duration', full_name='ffs.rpc.FilConfig.deal_min_duration', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='excluded_miners', full_name='ffs.rpc.FilConfig.excluded_miners', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='trusted_miners', full_name='ffs.rpc.FilConfig.trusted_miners', index=3,
-      number=4, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='country_codes', full_name='ffs.rpc.FilConfig.country_codes', index=4,
-      number=5, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='renew', full_name='ffs.rpc.FilConfig.renew', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.FilConfig.addr', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='max_price', full_name='ffs.rpc.FilConfig.max_price', index=7,
-      number=8, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=253,
-  serialized_end=450,
+    name="FilConfig",
+    full_name="ffs.rpc.FilConfig",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="rep_factor",
+            full_name="ffs.rpc.FilConfig.rep_factor",
+            index=0,
+            number=1,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="deal_min_duration",
+            full_name="ffs.rpc.FilConfig.deal_min_duration",
+            index=1,
+            number=2,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="excluded_miners",
+            full_name="ffs.rpc.FilConfig.excluded_miners",
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="trusted_miners",
+            full_name="ffs.rpc.FilConfig.trusted_miners",
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="country_codes",
+            full_name="ffs.rpc.FilConfig.country_codes",
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="renew",
+            full_name="ffs.rpc.FilConfig.renew",
+            index=5,
+            number=6,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.FilConfig.addr",
+            index=6,
+            number=7,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="max_price",
+            full_name="ffs.rpc.FilConfig.max_price",
+            index=7,
+            number=8,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="fast_retrieval",
+            full_name="ffs.rpc.FilConfig.fast_retrieval",
+            index=8,
+            number=9,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="deal_start_offset",
+            full_name="ffs.rpc.FilConfig.deal_start_offset",
+            index=9,
+            number=10,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=281,
+    serialized_end=529,
 )
 
 
 _COLDCONFIG = _descriptor.Descriptor(
-  name='ColdConfig',
-  full_name='ffs.rpc.ColdConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='enabled', full_name='ffs.rpc.ColdConfig.enabled', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='filecoin', full_name='ffs.rpc.ColdConfig.filecoin', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=452,
-  serialized_end=519,
+    name="ColdConfig",
+    full_name="ffs.rpc.ColdConfig",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="enabled",
+            full_name="ffs.rpc.ColdConfig.enabled",
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="filecoin",
+            full_name="ffs.rpc.ColdConfig.filecoin",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=531,
+    serialized_end=598,
 )
 
 
 _STORAGECONFIG = _descriptor.Descriptor(
-  name='StorageConfig',
-  full_name='ffs.rpc.StorageConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hot', full_name='ffs.rpc.StorageConfig.hot', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cold', full_name='ffs.rpc.StorageConfig.cold', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='repairable', full_name='ffs.rpc.StorageConfig.repairable', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=521,
-  serialized_end=624,
+    name="StorageConfig",
+    full_name="ffs.rpc.StorageConfig",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="hot",
+            full_name="ffs.rpc.StorageConfig.hot",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="cold",
+            full_name="ffs.rpc.StorageConfig.cold",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="repairable",
+            full_name="ffs.rpc.StorageConfig.repairable",
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=600,
+    serialized_end=703,
 )
 
 
 _IPFSHOTINFO = _descriptor.Descriptor(
-  name='IpfsHotInfo',
-  full_name='ffs.rpc.IpfsHotInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='ffs.rpc.IpfsHotInfo.created', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=626,
-  serialized_end=656,
+    name="IpfsHotInfo",
+    full_name="ffs.rpc.IpfsHotInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="created",
+            full_name="ffs.rpc.IpfsHotInfo.created",
+            index=0,
+            number=1,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=705,
+    serialized_end=735,
 )
 
 
 _HOTINFO = _descriptor.Descriptor(
-  name='HotInfo',
-  full_name='ffs.rpc.HotInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='enabled', full_name='ffs.rpc.HotInfo.enabled', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='size', full_name='ffs.rpc.HotInfo.size', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='ipfs', full_name='ffs.rpc.HotInfo.ipfs', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=658,
-  serialized_end=734,
+    name="HotInfo",
+    full_name="ffs.rpc.HotInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="enabled",
+            full_name="ffs.rpc.HotInfo.enabled",
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="size",
+            full_name="ffs.rpc.HotInfo.size",
+            index=1,
+            number=2,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="ipfs",
+            full_name="ffs.rpc.HotInfo.ipfs",
+            index=2,
+            number=3,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=737,
+    serialized_end=813,
 )
 
 
 _FILSTORAGE = _descriptor.Descriptor(
-  name='FilStorage',
-  full_name='ffs.rpc.FilStorage',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='proposal_cid', full_name='ffs.rpc.FilStorage.proposal_cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='renewed', full_name='ffs.rpc.FilStorage.renewed', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='duration', full_name='ffs.rpc.FilStorage.duration', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='activation_epoch', full_name='ffs.rpc.FilStorage.activation_epoch', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='start_epoch', full_name='ffs.rpc.FilStorage.start_epoch', index=4,
-      number=5, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='miner', full_name='ffs.rpc.FilStorage.miner', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='epoch_price', full_name='ffs.rpc.FilStorage.epoch_price', index=6,
-      number=7, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=737,
-  serialized_end=889,
+    name="FilStorage",
+    full_name="ffs.rpc.FilStorage",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="proposal_cid",
+            full_name="ffs.rpc.FilStorage.proposal_cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="renewed",
+            full_name="ffs.rpc.FilStorage.renewed",
+            index=1,
+            number=2,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="duration",
+            full_name="ffs.rpc.FilStorage.duration",
+            index=2,
+            number=3,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="activation_epoch",
+            full_name="ffs.rpc.FilStorage.activation_epoch",
+            index=3,
+            number=4,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="start_epoch",
+            full_name="ffs.rpc.FilStorage.start_epoch",
+            index=4,
+            number=5,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="miner",
+            full_name="ffs.rpc.FilStorage.miner",
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="epoch_price",
+            full_name="ffs.rpc.FilStorage.epoch_price",
+            index=6,
+            number=7,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="piece_cid",
+            full_name="ffs.rpc.FilStorage.piece_cid",
+            index=7,
+            number=8,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=816,
+    serialized_end=987,
 )
 
 
 _FILINFO = _descriptor.Descriptor(
-  name='FilInfo',
-  full_name='ffs.rpc.FilInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data_cid', full_name='ffs.rpc.FilInfo.data_cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='size', full_name='ffs.rpc.FilInfo.size', index=1,
-      number=2, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='proposals', full_name='ffs.rpc.FilInfo.proposals', index=2,
-      number=3, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=891,
-  serialized_end=972,
+    name="FilInfo",
+    full_name="ffs.rpc.FilInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="data_cid",
+            full_name="ffs.rpc.FilInfo.data_cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="size",
+            full_name="ffs.rpc.FilInfo.size",
+            index=1,
+            number=2,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="proposals",
+            full_name="ffs.rpc.FilInfo.proposals",
+            index=2,
+            number=3,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=989,
+    serialized_end=1070,
 )
 
 
 _COLDINFO = _descriptor.Descriptor(
-  name='ColdInfo',
-  full_name='ffs.rpc.ColdInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='enabled', full_name='ffs.rpc.ColdInfo.enabled', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='filecoin', full_name='ffs.rpc.ColdInfo.filecoin', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=974,
-  serialized_end=1037,
+    name="ColdInfo",
+    full_name="ffs.rpc.ColdInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="enabled",
+            full_name="ffs.rpc.ColdInfo.enabled",
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="filecoin",
+            full_name="ffs.rpc.ColdInfo.filecoin",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1072,
+    serialized_end=1135,
 )
 
 
 _CIDINFO = _descriptor.Descriptor(
-  name='CidInfo',
-  full_name='ffs.rpc.CidInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='job_id', full_name='ffs.rpc.CidInfo.job_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.CidInfo.cid', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='created', full_name='ffs.rpc.CidInfo.created', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='hot', full_name='ffs.rpc.CidInfo.hot', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cold', full_name='ffs.rpc.CidInfo.cold', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1039,
-  serialized_end=1158,
+    name="CidInfo",
+    full_name="ffs.rpc.CidInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="job_id",
+            full_name="ffs.rpc.CidInfo.job_id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.CidInfo.cid",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="created",
+            full_name="ffs.rpc.CidInfo.created",
+            index=2,
+            number=3,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="hot",
+            full_name="ffs.rpc.CidInfo.hot",
+            index=3,
+            number=4,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="cold",
+            full_name="ffs.rpc.CidInfo.cold",
+            index=4,
+            number=5,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1137,
+    serialized_end=1256,
 )
 
 
 _BALANCEINFO = _descriptor.Descriptor(
-  name='BalanceInfo',
-  full_name='ffs.rpc.BalanceInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.BalanceInfo.addr', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='balance', full_name='ffs.rpc.BalanceInfo.balance', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1160,
-  serialized_end=1223,
+    name="BalanceInfo",
+    full_name="ffs.rpc.BalanceInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.BalanceInfo.addr",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="balance",
+            full_name="ffs.rpc.BalanceInfo.balance",
+            index=1,
+            number=2,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1258,
+    serialized_end=1321,
 )
 
 
 _INSTANCEINFO = _descriptor.Descriptor(
-  name='InstanceInfo',
-  full_name='ffs.rpc.InstanceInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='ffs.rpc.InstanceInfo.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='default_storage_config', full_name='ffs.rpc.InstanceInfo.default_storage_config', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='balances', full_name='ffs.rpc.InstanceInfo.balances', index=2,
-      number=3, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='pins', full_name='ffs.rpc.InstanceInfo.pins', index=3,
-      number=4, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1226,
-  serialized_end=1362,
+    name="InstanceInfo",
+    full_name="ffs.rpc.InstanceInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="id",
+            full_name="ffs.rpc.InstanceInfo.id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="default_storage_config",
+            full_name="ffs.rpc.InstanceInfo.default_storage_config",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="balances",
+            full_name="ffs.rpc.InstanceInfo.balances",
+            index=2,
+            number=3,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="pins",
+            full_name="ffs.rpc.InstanceInfo.pins",
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1324,
+    serialized_end=1460,
 )
 
 
 _JOB = _descriptor.Descriptor(
-  name='Job',
-  full_name='ffs.rpc.Job',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='ffs.rpc.Job.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='api_id', full_name='ffs.rpc.Job.api_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.Job.cid', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='status', full_name='ffs.rpc.Job.status', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='err_cause', full_name='ffs.rpc.Job.err_cause', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deal_errors', full_name='ffs.rpc.Job.deal_errors', index=5,
-      number=6, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1365,
-  serialized_end=1507,
+    name="Job",
+    full_name="ffs.rpc.Job",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="id",
+            full_name="ffs.rpc.Job.id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="api_id",
+            full_name="ffs.rpc.Job.api_id",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.Job.cid",
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="status",
+            full_name="ffs.rpc.Job.status",
+            index=3,
+            number=4,
+            type=14,
+            cpp_type=8,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="err_cause",
+            full_name="ffs.rpc.Job.err_cause",
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="deal_errors",
+            full_name="ffs.rpc.Job.deal_errors",
+            index=5,
+            number=6,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1463,
+    serialized_end=1605,
 )
 
 
 _DEALERROR = _descriptor.Descriptor(
-  name='DealError',
-  full_name='ffs.rpc.DealError',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='proposal_cid', full_name='ffs.rpc.DealError.proposal_cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='miner', full_name='ffs.rpc.DealError.miner', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='ffs.rpc.DealError.message', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1509,
-  serialized_end=1574,
+    name="DealError",
+    full_name="ffs.rpc.DealError",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="proposal_cid",
+            full_name="ffs.rpc.DealError.proposal_cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="miner",
+            full_name="ffs.rpc.DealError.miner",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="message",
+            full_name="ffs.rpc.DealError.message",
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1607,
+    serialized_end=1672,
 )
 
 
 _LOGENTRY = _descriptor.Descriptor(
-  name='LogEntry',
-  full_name='ffs.rpc.LogEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.LogEntry.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='jid', full_name='ffs.rpc.LogEntry.jid', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time', full_name='ffs.rpc.LogEntry.time', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='msg', full_name='ffs.rpc.LogEntry.msg', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1576,
-  serialized_end=1639,
+    name="LogEntry",
+    full_name="ffs.rpc.LogEntry",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.LogEntry.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="jid",
+            full_name="ffs.rpc.LogEntry.jid",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="time",
+            full_name="ffs.rpc.LogEntry.time",
+            index=2,
+            number=3,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="msg",
+            full_name="ffs.rpc.LogEntry.msg",
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1674,
+    serialized_end=1737,
 )
 
 
 _PAYCHINFO = _descriptor.Descriptor(
-  name='PaychInfo',
-  full_name='ffs.rpc.PaychInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ctl_addr', full_name='ffs.rpc.PaychInfo.ctl_addr', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.PaychInfo.addr', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='direction', full_name='ffs.rpc.PaychInfo.direction', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1641,
-  serialized_end=1723,
+    name="PaychInfo",
+    full_name="ffs.rpc.PaychInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="ctl_addr",
+            full_name="ffs.rpc.PaychInfo.ctl_addr",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.PaychInfo.addr",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="direction",
+            full_name="ffs.rpc.PaychInfo.direction",
+            index=2,
+            number=3,
+            type=14,
+            cpp_type=8,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1739,
+    serialized_end=1821,
 )
 
 
 _LISTDEALRECORDSCONFIG = _descriptor.Descriptor(
-  name='ListDealRecordsConfig',
-  full_name='ffs.rpc.ListDealRecordsConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='from_addrs', full_name='ffs.rpc.ListDealRecordsConfig.from_addrs', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='data_cids', full_name='ffs.rpc.ListDealRecordsConfig.data_cids', index=1,
-      number=2, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='include_pending', full_name='ffs.rpc.ListDealRecordsConfig.include_pending', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='include_final', full_name='ffs.rpc.ListDealRecordsConfig.include_final', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='ascending', full_name='ffs.rpc.ListDealRecordsConfig.ascending', index=4,
-      number=5, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1726,
-  serialized_end=1855,
+    name="ListDealRecordsConfig",
+    full_name="ffs.rpc.ListDealRecordsConfig",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="from_addrs",
+            full_name="ffs.rpc.ListDealRecordsConfig.from_addrs",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="data_cids",
+            full_name="ffs.rpc.ListDealRecordsConfig.data_cids",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="include_pending",
+            full_name="ffs.rpc.ListDealRecordsConfig.include_pending",
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="include_final",
+            full_name="ffs.rpc.ListDealRecordsConfig.include_final",
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="ascending",
+            full_name="ffs.rpc.ListDealRecordsConfig.ascending",
+            index=4,
+            number=5,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1824,
+    serialized_end=1953,
 )
 
 
 _STORAGEDEALINFO = _descriptor.Descriptor(
-  name='StorageDealInfo',
-  full_name='ffs.rpc.StorageDealInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='proposal_cid', full_name='ffs.rpc.StorageDealInfo.proposal_cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='state_id', full_name='ffs.rpc.StorageDealInfo.state_id', index=1,
-      number=2, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='state_name', full_name='ffs.rpc.StorageDealInfo.state_name', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='miner', full_name='ffs.rpc.StorageDealInfo.miner', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='piece_cid', full_name='ffs.rpc.StorageDealInfo.piece_cid', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='size', full_name='ffs.rpc.StorageDealInfo.size', index=5,
-      number=6, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='price_per_epoch', full_name='ffs.rpc.StorageDealInfo.price_per_epoch', index=6,
-      number=7, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='start_epoch', full_name='ffs.rpc.StorageDealInfo.start_epoch', index=7,
-      number=8, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='duration', full_name='ffs.rpc.StorageDealInfo.duration', index=8,
-      number=9, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deal_id', full_name='ffs.rpc.StorageDealInfo.deal_id', index=9,
-      number=10, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='activation_epoch', full_name='ffs.rpc.StorageDealInfo.activation_epoch', index=10,
-      number=11, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='msg', full_name='ffs.rpc.StorageDealInfo.msg', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1858,
-  serialized_end=2103,
+    name="StorageDealInfo",
+    full_name="ffs.rpc.StorageDealInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="proposal_cid",
+            full_name="ffs.rpc.StorageDealInfo.proposal_cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="state_id",
+            full_name="ffs.rpc.StorageDealInfo.state_id",
+            index=1,
+            number=2,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="state_name",
+            full_name="ffs.rpc.StorageDealInfo.state_name",
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="miner",
+            full_name="ffs.rpc.StorageDealInfo.miner",
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="piece_cid",
+            full_name="ffs.rpc.StorageDealInfo.piece_cid",
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="size",
+            full_name="ffs.rpc.StorageDealInfo.size",
+            index=5,
+            number=6,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="price_per_epoch",
+            full_name="ffs.rpc.StorageDealInfo.price_per_epoch",
+            index=6,
+            number=7,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="start_epoch",
+            full_name="ffs.rpc.StorageDealInfo.start_epoch",
+            index=7,
+            number=8,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="duration",
+            full_name="ffs.rpc.StorageDealInfo.duration",
+            index=8,
+            number=9,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="deal_id",
+            full_name="ffs.rpc.StorageDealInfo.deal_id",
+            index=9,
+            number=10,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="activation_epoch",
+            full_name="ffs.rpc.StorageDealInfo.activation_epoch",
+            index=10,
+            number=11,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="msg",
+            full_name="ffs.rpc.StorageDealInfo.msg",
+            index=11,
+            number=12,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1956,
+    serialized_end=2201,
 )
 
 
 _STORAGEDEALRECORD = _descriptor.Descriptor(
-  name='StorageDealRecord',
-  full_name='ffs.rpc.StorageDealRecord',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='root_cid', full_name='ffs.rpc.StorageDealRecord.root_cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.StorageDealRecord.addr', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time', full_name='ffs.rpc.StorageDealRecord.time', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='pending', full_name='ffs.rpc.StorageDealRecord.pending', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deal_info', full_name='ffs.rpc.StorageDealRecord.deal_info', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2105,
-  serialized_end=2232,
+    name="StorageDealRecord",
+    full_name="ffs.rpc.StorageDealRecord",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="root_cid",
+            full_name="ffs.rpc.StorageDealRecord.root_cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.StorageDealRecord.addr",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="time",
+            full_name="ffs.rpc.StorageDealRecord.time",
+            index=2,
+            number=3,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="pending",
+            full_name="ffs.rpc.StorageDealRecord.pending",
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="deal_info",
+            full_name="ffs.rpc.StorageDealRecord.deal_info",
+            index=4,
+            number=5,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2203,
+    serialized_end=2330,
 )
 
 
 _RETRIEVALDEALINFO = _descriptor.Descriptor(
-  name='RetrievalDealInfo',
-  full_name='ffs.rpc.RetrievalDealInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='root_cid', full_name='ffs.rpc.RetrievalDealInfo.root_cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='size', full_name='ffs.rpc.RetrievalDealInfo.size', index=1,
-      number=2, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='min_price', full_name='ffs.rpc.RetrievalDealInfo.min_price', index=2,
-      number=3, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='payment_interval', full_name='ffs.rpc.RetrievalDealInfo.payment_interval', index=3,
-      number=4, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='payment_interval_increase', full_name='ffs.rpc.RetrievalDealInfo.payment_interval_increase', index=4,
-      number=5, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='miner', full_name='ffs.rpc.RetrievalDealInfo.miner', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='miner_peer_id', full_name='ffs.rpc.RetrievalDealInfo.miner_peer_id', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2235,
-  serialized_end=2404,
+    name="RetrievalDealInfo",
+    full_name="ffs.rpc.RetrievalDealInfo",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="root_cid",
+            full_name="ffs.rpc.RetrievalDealInfo.root_cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="size",
+            full_name="ffs.rpc.RetrievalDealInfo.size",
+            index=1,
+            number=2,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="min_price",
+            full_name="ffs.rpc.RetrievalDealInfo.min_price",
+            index=2,
+            number=3,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="payment_interval",
+            full_name="ffs.rpc.RetrievalDealInfo.payment_interval",
+            index=3,
+            number=4,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="payment_interval_increase",
+            full_name="ffs.rpc.RetrievalDealInfo.payment_interval_increase",
+            index=4,
+            number=5,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="miner",
+            full_name="ffs.rpc.RetrievalDealInfo.miner",
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="miner_peer_id",
+            full_name="ffs.rpc.RetrievalDealInfo.miner_peer_id",
+            index=6,
+            number=7,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2333,
+    serialized_end=2502,
 )
 
 
 _RETRIEVALDEALRECORD = _descriptor.Descriptor(
-  name='RetrievalDealRecord',
-  full_name='ffs.rpc.RetrievalDealRecord',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.RetrievalDealRecord.addr', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time', full_name='ffs.rpc.RetrievalDealRecord.time', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deal_info', full_name='ffs.rpc.RetrievalDealRecord.deal_info', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2406,
-  serialized_end=2502,
+    name="RetrievalDealRecord",
+    full_name="ffs.rpc.RetrievalDealRecord",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.RetrievalDealRecord.addr",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="time",
+            full_name="ffs.rpc.RetrievalDealRecord.time",
+            index=1,
+            number=2,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="deal_info",
+            full_name="ffs.rpc.RetrievalDealRecord.deal_info",
+            index=2,
+            number=3,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2504,
+    serialized_end=2600,
 )
 
 
 _CREATEREQUEST = _descriptor.Descriptor(
-  name='CreateRequest',
-  full_name='ffs.rpc.CreateRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2504,
-  serialized_end=2519,
+    name="CreateRequest",
+    full_name="ffs.rpc.CreateRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2602,
+    serialized_end=2617,
 )
 
 
 _CREATERESPONSE = _descriptor.Descriptor(
-  name='CreateResponse',
-  full_name='ffs.rpc.CreateResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='ffs.rpc.CreateResponse.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='token', full_name='ffs.rpc.CreateResponse.token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2521,
-  serialized_end=2564,
+    name="CreateResponse",
+    full_name="ffs.rpc.CreateResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="id",
+            full_name="ffs.rpc.CreateResponse.id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="token",
+            full_name="ffs.rpc.CreateResponse.token",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2619,
+    serialized_end=2662,
 )
 
 
 _LISTAPIREQUEST = _descriptor.Descriptor(
-  name='ListAPIRequest',
-  full_name='ffs.rpc.ListAPIRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2566,
-  serialized_end=2582,
+    name="ListAPIRequest",
+    full_name="ffs.rpc.ListAPIRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2664,
+    serialized_end=2680,
 )
 
 
 _LISTAPIRESPONSE = _descriptor.Descriptor(
-  name='ListAPIResponse',
-  full_name='ffs.rpc.ListAPIResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='instances', full_name='ffs.rpc.ListAPIResponse.instances', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2584,
-  serialized_end=2620,
+    name="ListAPIResponse",
+    full_name="ffs.rpc.ListAPIResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="instances",
+            full_name="ffs.rpc.ListAPIResponse.instances",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2682,
+    serialized_end=2718,
 )
 
 
 _IDREQUEST = _descriptor.Descriptor(
-  name='IDRequest',
-  full_name='ffs.rpc.IDRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2622,
-  serialized_end=2633,
+    name="IDRequest",
+    full_name="ffs.rpc.IDRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2720,
+    serialized_end=2731,
 )
 
 
 _IDRESPONSE = _descriptor.Descriptor(
-  name='IDResponse',
-  full_name='ffs.rpc.IDResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='ffs.rpc.IDResponse.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2635,
-  serialized_end=2659,
+    name="IDResponse",
+    full_name="ffs.rpc.IDResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="id",
+            full_name="ffs.rpc.IDResponse.id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2733,
+    serialized_end=2757,
 )
 
 
 _ADDRSREQUEST = _descriptor.Descriptor(
-  name='AddrsRequest',
-  full_name='ffs.rpc.AddrsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2661,
-  serialized_end=2675,
+    name="AddrsRequest",
+    full_name="ffs.rpc.AddrsRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2759,
+    serialized_end=2773,
 )
 
 
 _ADDRSRESPONSE = _descriptor.Descriptor(
-  name='AddrsResponse',
-  full_name='ffs.rpc.AddrsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='addrs', full_name='ffs.rpc.AddrsResponse.addrs', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2677,
-  serialized_end=2726,
+    name="AddrsResponse",
+    full_name="ffs.rpc.AddrsResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="addrs",
+            full_name="ffs.rpc.AddrsResponse.addrs",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2775,
+    serialized_end=2824,
 )
 
 
 _DEFAULTSTORAGECONFIGREQUEST = _descriptor.Descriptor(
-  name='DefaultStorageConfigRequest',
-  full_name='ffs.rpc.DefaultStorageConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2728,
-  serialized_end=2757,
+    name="DefaultStorageConfigRequest",
+    full_name="ffs.rpc.DefaultStorageConfigRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2826,
+    serialized_end=2855,
 )
 
 
 _DEFAULTSTORAGECONFIGRESPONSE = _descriptor.Descriptor(
-  name='DefaultStorageConfigResponse',
-  full_name='ffs.rpc.DefaultStorageConfigResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='default_storage_config', full_name='ffs.rpc.DefaultStorageConfigResponse.default_storage_config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2759,
-  serialized_end=2845,
+    name="DefaultStorageConfigResponse",
+    full_name="ffs.rpc.DefaultStorageConfigResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="default_storage_config",
+            full_name="ffs.rpc.DefaultStorageConfigResponse.default_storage_config",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2857,
+    serialized_end=2943,
+)
+
+
+_SIGNMESSAGEREQUEST = _descriptor.Descriptor(
+    name="SignMessageRequest",
+    full_name="ffs.rpc.SignMessageRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.SignMessageRequest.addr",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="msg",
+            full_name="ffs.rpc.SignMessageRequest.msg",
+            index=1,
+            number=2,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2945,
+    serialized_end=2992,
+)
+
+
+_SIGNMESSAGERESPONSE = _descriptor.Descriptor(
+    name="SignMessageResponse",
+    full_name="ffs.rpc.SignMessageResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="signature",
+            full_name="ffs.rpc.SignMessageResponse.signature",
+            index=0,
+            number=1,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2994,
+    serialized_end=3034,
+)
+
+
+_VERIFYMESSAGEREQUEST = _descriptor.Descriptor(
+    name="VerifyMessageRequest",
+    full_name="ffs.rpc.VerifyMessageRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.VerifyMessageRequest.addr",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="msg",
+            full_name="ffs.rpc.VerifyMessageRequest.msg",
+            index=1,
+            number=2,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="signature",
+            full_name="ffs.rpc.VerifyMessageRequest.signature",
+            index=2,
+            number=3,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3036,
+    serialized_end=3104,
+)
+
+
+_VERIFYMESSAGERESPONSE = _descriptor.Descriptor(
+    name="VerifyMessageResponse",
+    full_name="ffs.rpc.VerifyMessageResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="ok",
+            full_name="ffs.rpc.VerifyMessageResponse.ok",
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3106,
+    serialized_end=3141,
 )
 
 
 _NEWADDRREQUEST = _descriptor.Descriptor(
-  name='NewAddrRequest',
-  full_name='ffs.rpc.NewAddrRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='ffs.rpc.NewAddrRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='address_type', full_name='ffs.rpc.NewAddrRequest.address_type', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='make_default', full_name='ffs.rpc.NewAddrRequest.make_default', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2847,
-  serialized_end=2921,
+    name="NewAddrRequest",
+    full_name="ffs.rpc.NewAddrRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="name",
+            full_name="ffs.rpc.NewAddrRequest.name",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="address_type",
+            full_name="ffs.rpc.NewAddrRequest.address_type",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="make_default",
+            full_name="ffs.rpc.NewAddrRequest.make_default",
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3143,
+    serialized_end=3217,
 )
 
 
 _NEWADDRRESPONSE = _descriptor.Descriptor(
-  name='NewAddrResponse',
-  full_name='ffs.rpc.NewAddrResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='addr', full_name='ffs.rpc.NewAddrResponse.addr', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2923,
-  serialized_end=2954,
+    name="NewAddrResponse",
+    full_name="ffs.rpc.NewAddrResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="addr",
+            full_name="ffs.rpc.NewAddrResponse.addr",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3219,
+    serialized_end=3250,
 )
 
 
 _GETSTORAGECONFIGREQUEST = _descriptor.Descriptor(
-  name='GetStorageConfigRequest',
-  full_name='ffs.rpc.GetStorageConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.GetStorageConfigRequest.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2956,
-  serialized_end=2994,
+    name="GetStorageConfigRequest",
+    full_name="ffs.rpc.GetStorageConfigRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.GetStorageConfigRequest.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3252,
+    serialized_end=3290,
 )
 
 
 _GETSTORAGECONFIGRESPONSE = _descriptor.Descriptor(
-  name='GetStorageConfigResponse',
-  full_name='ffs.rpc.GetStorageConfigResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='config', full_name='ffs.rpc.GetStorageConfigResponse.config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2996,
-  serialized_end=3062,
+    name="GetStorageConfigResponse",
+    full_name="ffs.rpc.GetStorageConfigResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="config",
+            full_name="ffs.rpc.GetStorageConfigResponse.config",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3292,
+    serialized_end=3358,
 )
 
 
 _SETDEFAULTSTORAGECONFIGREQUEST = _descriptor.Descriptor(
-  name='SetDefaultStorageConfigRequest',
-  full_name='ffs.rpc.SetDefaultStorageConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='config', full_name='ffs.rpc.SetDefaultStorageConfigRequest.config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3064,
-  serialized_end=3136,
+    name="SetDefaultStorageConfigRequest",
+    full_name="ffs.rpc.SetDefaultStorageConfigRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="config",
+            full_name="ffs.rpc.SetDefaultStorageConfigRequest.config",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3360,
+    serialized_end=3432,
 )
 
 
 _SETDEFAULTSTORAGECONFIGRESPONSE = _descriptor.Descriptor(
-  name='SetDefaultStorageConfigResponse',
-  full_name='ffs.rpc.SetDefaultStorageConfigResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3138,
-  serialized_end=3171,
+    name="SetDefaultStorageConfigResponse",
+    full_name="ffs.rpc.SetDefaultStorageConfigResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3434,
+    serialized_end=3467,
 )
 
 
 _SHOWREQUEST = _descriptor.Descriptor(
-  name='ShowRequest',
-  full_name='ffs.rpc.ShowRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.ShowRequest.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3173,
-  serialized_end=3199,
+    name="ShowRequest",
+    full_name="ffs.rpc.ShowRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.ShowRequest.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3469,
+    serialized_end=3495,
 )
 
 
 _SHOWRESPONSE = _descriptor.Descriptor(
-  name='ShowResponse',
-  full_name='ffs.rpc.ShowResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid_info', full_name='ffs.rpc.ShowResponse.cid_info', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3201,
-  serialized_end=3251,
+    name="ShowResponse",
+    full_name="ffs.rpc.ShowResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid_info",
+            full_name="ffs.rpc.ShowResponse.cid_info",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3497,
+    serialized_end=3547,
 )
 
 
 _INFOREQUEST = _descriptor.Descriptor(
-  name='InfoRequest',
-  full_name='ffs.rpc.InfoRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3253,
-  serialized_end=3266,
+    name="InfoRequest",
+    full_name="ffs.rpc.InfoRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3549,
+    serialized_end=3562,
 )
 
 
 _INFORESPONSE = _descriptor.Descriptor(
-  name='InfoResponse',
-  full_name='ffs.rpc.InfoResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='info', full_name='ffs.rpc.InfoResponse.info', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3268,
-  serialized_end=3319,
+    name="InfoResponse",
+    full_name="ffs.rpc.InfoResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="info",
+            full_name="ffs.rpc.InfoResponse.info",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3564,
+    serialized_end=3615,
 )
 
 
 _CANCELJOBREQUEST = _descriptor.Descriptor(
-  name='CancelJobRequest',
-  full_name='ffs.rpc.CancelJobRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='jid', full_name='ffs.rpc.CancelJobRequest.jid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3321,
-  serialized_end=3352,
+    name="CancelJobRequest",
+    full_name="ffs.rpc.CancelJobRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="jid",
+            full_name="ffs.rpc.CancelJobRequest.jid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3617,
+    serialized_end=3648,
 )
 
 
 _CANCELJOBRESPONSE = _descriptor.Descriptor(
-  name='CancelJobResponse',
-  full_name='ffs.rpc.CancelJobResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3354,
-  serialized_end=3373,
+    name="CancelJobResponse",
+    full_name="ffs.rpc.CancelJobResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3650,
+    serialized_end=3669,
+)
+
+
+_GETSTORAGEJOBREQUEST = _descriptor.Descriptor(
+    name="GetStorageJobRequest",
+    full_name="ffs.rpc.GetStorageJobRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="jid",
+            full_name="ffs.rpc.GetStorageJobRequest.jid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3671,
+    serialized_end=3706,
+)
+
+
+_GETSTORAGEJOBRESPONSE = _descriptor.Descriptor(
+    name="GetStorageJobResponse",
+    full_name="ffs.rpc.GetStorageJobResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="job",
+            full_name="ffs.rpc.GetStorageJobResponse.job",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3708,
+    serialized_end=3758,
 )
 
 
 _WATCHJOBSREQUEST = _descriptor.Descriptor(
-  name='WatchJobsRequest',
-  full_name='ffs.rpc.WatchJobsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='jids', full_name='ffs.rpc.WatchJobsRequest.jids', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3375,
-  serialized_end=3407,
+    name="WatchJobsRequest",
+    full_name="ffs.rpc.WatchJobsRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="jids",
+            full_name="ffs.rpc.WatchJobsRequest.jids",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3760,
+    serialized_end=3792,
 )
 
 
 _WATCHJOBSRESPONSE = _descriptor.Descriptor(
-  name='WatchJobsResponse',
-  full_name='ffs.rpc.WatchJobsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='job', full_name='ffs.rpc.WatchJobsResponse.job', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3409,
-  serialized_end=3455,
+    name="WatchJobsResponse",
+    full_name="ffs.rpc.WatchJobsResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="job",
+            full_name="ffs.rpc.WatchJobsResponse.job",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3794,
+    serialized_end=3840,
 )
 
 
 _WATCHLOGSREQUEST = _descriptor.Descriptor(
-  name='WatchLogsRequest',
-  full_name='ffs.rpc.WatchLogsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.WatchLogsRequest.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='jid', full_name='ffs.rpc.WatchLogsRequest.jid', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='history', full_name='ffs.rpc.WatchLogsRequest.history', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3457,
-  serialized_end=3518,
+    name="WatchLogsRequest",
+    full_name="ffs.rpc.WatchLogsRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.WatchLogsRequest.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="jid",
+            full_name="ffs.rpc.WatchLogsRequest.jid",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="history",
+            full_name="ffs.rpc.WatchLogsRequest.history",
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3842,
+    serialized_end=3903,
 )
 
 
 _WATCHLOGSRESPONSE = _descriptor.Descriptor(
-  name='WatchLogsResponse',
-  full_name='ffs.rpc.WatchLogsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='log_entry', full_name='ffs.rpc.WatchLogsResponse.log_entry', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3520,
-  serialized_end=3577,
+    name="WatchLogsResponse",
+    full_name="ffs.rpc.WatchLogsResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="log_entry",
+            full_name="ffs.rpc.WatchLogsResponse.log_entry",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3905,
+    serialized_end=3962,
 )
 
 
 _REPLACEREQUEST = _descriptor.Descriptor(
-  name='ReplaceRequest',
-  full_name='ffs.rpc.ReplaceRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid1', full_name='ffs.rpc.ReplaceRequest.cid1', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cid2', full_name='ffs.rpc.ReplaceRequest.cid2', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3579,
-  serialized_end=3623,
+    name="ReplaceRequest",
+    full_name="ffs.rpc.ReplaceRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid1",
+            full_name="ffs.rpc.ReplaceRequest.cid1",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="cid2",
+            full_name="ffs.rpc.ReplaceRequest.cid2",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=3964,
+    serialized_end=4008,
 )
 
 
 _REPLACERESPONSE = _descriptor.Descriptor(
-  name='ReplaceResponse',
-  full_name='ffs.rpc.ReplaceResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='job_id', full_name='ffs.rpc.ReplaceResponse.job_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3625,
-  serialized_end=3658,
+    name="ReplaceResponse",
+    full_name="ffs.rpc.ReplaceResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="job_id",
+            full_name="ffs.rpc.ReplaceResponse.job_id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4010,
+    serialized_end=4043,
 )
 
 
 _PUSHSTORAGECONFIGREQUEST = _descriptor.Descriptor(
-  name='PushStorageConfigRequest',
-  full_name='ffs.rpc.PushStorageConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.PushStorageConfigRequest.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='config', full_name='ffs.rpc.PushStorageConfigRequest.config', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='has_config', full_name='ffs.rpc.PushStorageConfigRequest.has_config', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='override_config', full_name='ffs.rpc.PushStorageConfigRequest.override_config', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='has_override_config', full_name='ffs.rpc.PushStorageConfigRequest.has_override_config', index=4,
-      number=5, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3661,
-  serialized_end=3814,
+    name="PushStorageConfigRequest",
+    full_name="ffs.rpc.PushStorageConfigRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.PushStorageConfigRequest.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="config",
+            full_name="ffs.rpc.PushStorageConfigRequest.config",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="has_config",
+            full_name="ffs.rpc.PushStorageConfigRequest.has_config",
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="override_config",
+            full_name="ffs.rpc.PushStorageConfigRequest.override_config",
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="has_override_config",
+            full_name="ffs.rpc.PushStorageConfigRequest.has_override_config",
+            index=4,
+            number=5,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4046,
+    serialized_end=4199,
 )
 
 
 _PUSHSTORAGECONFIGRESPONSE = _descriptor.Descriptor(
-  name='PushStorageConfigResponse',
-  full_name='ffs.rpc.PushStorageConfigResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='job_id', full_name='ffs.rpc.PushStorageConfigResponse.job_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3816,
-  serialized_end=3859,
+    name="PushStorageConfigResponse",
+    full_name="ffs.rpc.PushStorageConfigResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="job_id",
+            full_name="ffs.rpc.PushStorageConfigResponse.job_id",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4201,
+    serialized_end=4244,
 )
 
 
 _REMOVEREQUEST = _descriptor.Descriptor(
-  name='RemoveRequest',
-  full_name='ffs.rpc.RemoveRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.RemoveRequest.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3861,
-  serialized_end=3889,
+    name="RemoveRequest",
+    full_name="ffs.rpc.RemoveRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.RemoveRequest.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4246,
+    serialized_end=4274,
 )
 
 
 _REMOVERESPONSE = _descriptor.Descriptor(
-  name='RemoveResponse',
-  full_name='ffs.rpc.RemoveResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3891,
-  serialized_end=3907,
+    name="RemoveResponse",
+    full_name="ffs.rpc.RemoveResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4276,
+    serialized_end=4292,
 )
 
 
 _GETREQUEST = _descriptor.Descriptor(
-  name='GetRequest',
-  full_name='ffs.rpc.GetRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.GetRequest.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3909,
-  serialized_end=3934,
+    name="GetRequest",
+    full_name="ffs.rpc.GetRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.GetRequest.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4294,
+    serialized_end=4319,
 )
 
 
 _GETRESPONSE = _descriptor.Descriptor(
-  name='GetResponse',
-  full_name='ffs.rpc.GetResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='chunk', full_name='ffs.rpc.GetResponse.chunk', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3936,
-  serialized_end=3964,
+    name="GetResponse",
+    full_name="ffs.rpc.GetResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="chunk",
+            full_name="ffs.rpc.GetResponse.chunk",
+            index=0,
+            number=1,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4321,
+    serialized_end=4349,
 )
 
 
 _SENDFILREQUEST = _descriptor.Descriptor(
-  name='SendFilRequest',
-  full_name='ffs.rpc.SendFilRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='from', full_name='ffs.rpc.SendFilRequest.from', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='to', full_name='ffs.rpc.SendFilRequest.to', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='amount', full_name='ffs.rpc.SendFilRequest.amount', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3966,
-  serialized_end=4024,
+    name="SendFilRequest",
+    full_name="ffs.rpc.SendFilRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="from",
+            full_name="ffs.rpc.SendFilRequest.from",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="to",
+            full_name="ffs.rpc.SendFilRequest.to",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="amount",
+            full_name="ffs.rpc.SendFilRequest.amount",
+            index=2,
+            number=3,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4351,
+    serialized_end=4409,
 )
 
 
 _SENDFILRESPONSE = _descriptor.Descriptor(
-  name='SendFilResponse',
-  full_name='ffs.rpc.SendFilResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4026,
-  serialized_end=4043,
-)
-
-
-_CLOSEREQUEST = _descriptor.Descriptor(
-  name='CloseRequest',
-  full_name='ffs.rpc.CloseRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4045,
-  serialized_end=4059,
-)
-
-
-_CLOSERESPONSE = _descriptor.Descriptor(
-  name='CloseResponse',
-  full_name='ffs.rpc.CloseResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4061,
-  serialized_end=4076,
+    name="SendFilResponse",
+    full_name="ffs.rpc.SendFilResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4411,
+    serialized_end=4428,
 )
 
 
 _STAGEREQUEST = _descriptor.Descriptor(
-  name='StageRequest',
-  full_name='ffs.rpc.StageRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='chunk', full_name='ffs.rpc.StageRequest.chunk', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4078,
-  serialized_end=4107,
+    name="StageRequest",
+    full_name="ffs.rpc.StageRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="chunk",
+            full_name="ffs.rpc.StageRequest.chunk",
+            index=0,
+            number=1,
+            type=12,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"",
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4430,
+    serialized_end=4459,
 )
 
 
 _STAGERESPONSE = _descriptor.Descriptor(
-  name='StageResponse',
-  full_name='ffs.rpc.StageResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid', full_name='ffs.rpc.StageResponse.cid', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4109,
-  serialized_end=4137,
+    name="StageResponse",
+    full_name="ffs.rpc.StageResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid",
+            full_name="ffs.rpc.StageResponse.cid",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4461,
+    serialized_end=4489,
 )
 
 
 _LISTPAYCHANNELSREQUEST = _descriptor.Descriptor(
-  name='ListPayChannelsRequest',
-  full_name='ffs.rpc.ListPayChannelsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4139,
-  serialized_end=4163,
+    name="ListPayChannelsRequest",
+    full_name="ffs.rpc.ListPayChannelsRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4491,
+    serialized_end=4515,
 )
 
 
 _LISTPAYCHANNELSRESPONSE = _descriptor.Descriptor(
-  name='ListPayChannelsResponse',
-  full_name='ffs.rpc.ListPayChannelsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pay_channels', full_name='ffs.rpc.ListPayChannelsResponse.pay_channels', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4165,
-  serialized_end=4232,
+    name="ListPayChannelsResponse",
+    full_name="ffs.rpc.ListPayChannelsResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="pay_channels",
+            full_name="ffs.rpc.ListPayChannelsResponse.pay_channels",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4517,
+    serialized_end=4584,
 )
 
 
 _CREATEPAYCHANNELREQUEST = _descriptor.Descriptor(
-  name='CreatePayChannelRequest',
-  full_name='ffs.rpc.CreatePayChannelRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='from', full_name='ffs.rpc.CreatePayChannelRequest.from', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='to', full_name='ffs.rpc.CreatePayChannelRequest.to', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='amount', full_name='ffs.rpc.CreatePayChannelRequest.amount', index=2,
-      number=3, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4234,
-  serialized_end=4301,
+    name="CreatePayChannelRequest",
+    full_name="ffs.rpc.CreatePayChannelRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="from",
+            full_name="ffs.rpc.CreatePayChannelRequest.from",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="to",
+            full_name="ffs.rpc.CreatePayChannelRequest.to",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="amount",
+            full_name="ffs.rpc.CreatePayChannelRequest.amount",
+            index=2,
+            number=3,
+            type=4,
+            cpp_type=4,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4586,
+    serialized_end=4653,
 )
 
 
 _CREATEPAYCHANNELRESPONSE = _descriptor.Descriptor(
-  name='CreatePayChannelResponse',
-  full_name='ffs.rpc.CreatePayChannelResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pay_channel', full_name='ffs.rpc.CreatePayChannelResponse.pay_channel', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='channel_message_cid', full_name='ffs.rpc.CreatePayChannelResponse.channel_message_cid', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4303,
-  serialized_end=4399,
+    name="CreatePayChannelResponse",
+    full_name="ffs.rpc.CreatePayChannelResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="pay_channel",
+            full_name="ffs.rpc.CreatePayChannelResponse.pay_channel",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="channel_message_cid",
+            full_name="ffs.rpc.CreatePayChannelResponse.channel_message_cid",
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4655,
+    serialized_end=4751,
 )
 
 
 _REDEEMPAYCHANNELREQUEST = _descriptor.Descriptor(
-  name='RedeemPayChannelRequest',
-  full_name='ffs.rpc.RedeemPayChannelRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pay_channel_addr', full_name='ffs.rpc.RedeemPayChannelRequest.pay_channel_addr', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4401,
-  serialized_end=4452,
+    name="RedeemPayChannelRequest",
+    full_name="ffs.rpc.RedeemPayChannelRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="pay_channel_addr",
+            full_name="ffs.rpc.RedeemPayChannelRequest.pay_channel_addr",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4753,
+    serialized_end=4804,
 )
 
 
 _REDEEMPAYCHANNELRESPONSE = _descriptor.Descriptor(
-  name='RedeemPayChannelResponse',
-  full_name='ffs.rpc.RedeemPayChannelResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4454,
-  serialized_end=4480,
+    name="RedeemPayChannelResponse",
+    full_name="ffs.rpc.RedeemPayChannelResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4806,
+    serialized_end=4832,
 )
 
 
 _LISTSTORAGEDEALRECORDSREQUEST = _descriptor.Descriptor(
-  name='ListStorageDealRecordsRequest',
-  full_name='ffs.rpc.ListStorageDealRecordsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='config', full_name='ffs.rpc.ListStorageDealRecordsRequest.config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4482,
-  serialized_end=4561,
+    name="ListStorageDealRecordsRequest",
+    full_name="ffs.rpc.ListStorageDealRecordsRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="config",
+            full_name="ffs.rpc.ListStorageDealRecordsRequest.config",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4834,
+    serialized_end=4913,
 )
 
 
 _LISTSTORAGEDEALRECORDSRESPONSE = _descriptor.Descriptor(
-  name='ListStorageDealRecordsResponse',
-  full_name='ffs.rpc.ListStorageDealRecordsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='records', full_name='ffs.rpc.ListStorageDealRecordsResponse.records', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4563,
-  serialized_end=4640,
+    name="ListStorageDealRecordsResponse",
+    full_name="ffs.rpc.ListStorageDealRecordsResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="records",
+            full_name="ffs.rpc.ListStorageDealRecordsResponse.records",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4915,
+    serialized_end=4992,
 )
 
 
 _LISTRETRIEVALDEALRECORDSREQUEST = _descriptor.Descriptor(
-  name='ListRetrievalDealRecordsRequest',
-  full_name='ffs.rpc.ListRetrievalDealRecordsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='config', full_name='ffs.rpc.ListRetrievalDealRecordsRequest.config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4642,
-  serialized_end=4723,
+    name="ListRetrievalDealRecordsRequest",
+    full_name="ffs.rpc.ListRetrievalDealRecordsRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="config",
+            full_name="ffs.rpc.ListRetrievalDealRecordsRequest.config",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=4994,
+    serialized_end=5075,
 )
 
 
 _LISTRETRIEVALDEALRECORDSRESPONSE = _descriptor.Descriptor(
-  name='ListRetrievalDealRecordsResponse',
-  full_name='ffs.rpc.ListRetrievalDealRecordsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='records', full_name='ffs.rpc.ListRetrievalDealRecordsResponse.records', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4725,
-  serialized_end=4806,
+    name="ListRetrievalDealRecordsResponse",
+    full_name="ffs.rpc.ListRetrievalDealRecordsResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="records",
+            full_name="ffs.rpc.ListRetrievalDealRecordsResponse.records",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=5077,
+    serialized_end=5158,
 )
 
 
 _SHOWALLREQUEST = _descriptor.Descriptor(
-  name='ShowAllRequest',
-  full_name='ffs.rpc.ShowAllRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4808,
-  serialized_end=4824,
+    name="ShowAllRequest",
+    full_name="ffs.rpc.ShowAllRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=5160,
+    serialized_end=5176,
 )
 
 
 _SHOWALLRESPONSE = _descriptor.Descriptor(
-  name='ShowAllResponse',
-  full_name='ffs.rpc.ShowAllResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='cid_infos', full_name='ffs.rpc.ShowAllResponse.cid_infos', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4826,
-  serialized_end=4880,
+    name="ShowAllResponse",
+    full_name="ffs.rpc.ShowAllResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="cid_infos",
+            full_name="ffs.rpc.ShowAllResponse.cid_infos",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=5178,
+    serialized_end=5232,
 )
 
-_HOTCONFIG.fields_by_name['ipfs'].message_type = _IPFSCONFIG
-_FILCONFIG.fields_by_name['renew'].message_type = _FILRENEW
-_COLDCONFIG.fields_by_name['filecoin'].message_type = _FILCONFIG
-_STORAGECONFIG.fields_by_name['hot'].message_type = _HOTCONFIG
-_STORAGECONFIG.fields_by_name['cold'].message_type = _COLDCONFIG
-_HOTINFO.fields_by_name['ipfs'].message_type = _IPFSHOTINFO
-_FILINFO.fields_by_name['proposals'].message_type = _FILSTORAGE
-_COLDINFO.fields_by_name['filecoin'].message_type = _FILINFO
-_CIDINFO.fields_by_name['hot'].message_type = _HOTINFO
-_CIDINFO.fields_by_name['cold'].message_type = _COLDINFO
-_BALANCEINFO.fields_by_name['addr'].message_type = _ADDRINFO
-_INSTANCEINFO.fields_by_name['default_storage_config'].message_type = _STORAGECONFIG
-_INSTANCEINFO.fields_by_name['balances'].message_type = _BALANCEINFO
-_JOB.fields_by_name['status'].enum_type = _JOBSTATUS
-_JOB.fields_by_name['deal_errors'].message_type = _DEALERROR
-_PAYCHINFO.fields_by_name['direction'].enum_type = _DIRECTION
-_STORAGEDEALRECORD.fields_by_name['deal_info'].message_type = _STORAGEDEALINFO
-_RETRIEVALDEALRECORD.fields_by_name['deal_info'].message_type = _RETRIEVALDEALINFO
-_ADDRSRESPONSE.fields_by_name['addrs'].message_type = _ADDRINFO
-_DEFAULTSTORAGECONFIGRESPONSE.fields_by_name['default_storage_config'].message_type = _STORAGECONFIG
-_GETSTORAGECONFIGRESPONSE.fields_by_name['config'].message_type = _STORAGECONFIG
-_SETDEFAULTSTORAGECONFIGREQUEST.fields_by_name['config'].message_type = _STORAGECONFIG
-_SHOWRESPONSE.fields_by_name['cid_info'].message_type = _CIDINFO
-_INFORESPONSE.fields_by_name['info'].message_type = _INSTANCEINFO
-_WATCHJOBSRESPONSE.fields_by_name['job'].message_type = _JOB
-_WATCHLOGSRESPONSE.fields_by_name['log_entry'].message_type = _LOGENTRY
-_PUSHSTORAGECONFIGREQUEST.fields_by_name['config'].message_type = _STORAGECONFIG
-_LISTPAYCHANNELSRESPONSE.fields_by_name['pay_channels'].message_type = _PAYCHINFO
-_CREATEPAYCHANNELRESPONSE.fields_by_name['pay_channel'].message_type = _PAYCHINFO
-_LISTSTORAGEDEALRECORDSREQUEST.fields_by_name['config'].message_type = _LISTDEALRECORDSCONFIG
-_LISTSTORAGEDEALRECORDSRESPONSE.fields_by_name['records'].message_type = _STORAGEDEALRECORD
-_LISTRETRIEVALDEALRECORDSREQUEST.fields_by_name['config'].message_type = _LISTDEALRECORDSCONFIG
-_LISTRETRIEVALDEALRECORDSRESPONSE.fields_by_name['records'].message_type = _RETRIEVALDEALRECORD
-_SHOWALLRESPONSE.fields_by_name['cid_infos'].message_type = _CIDINFO
-DESCRIPTOR.message_types_by_name['AddrInfo'] = _ADDRINFO
-DESCRIPTOR.message_types_by_name['IpfsConfig'] = _IPFSCONFIG
-DESCRIPTOR.message_types_by_name['HotConfig'] = _HOTCONFIG
-DESCRIPTOR.message_types_by_name['FilRenew'] = _FILRENEW
-DESCRIPTOR.message_types_by_name['FilConfig'] = _FILCONFIG
-DESCRIPTOR.message_types_by_name['ColdConfig'] = _COLDCONFIG
-DESCRIPTOR.message_types_by_name['StorageConfig'] = _STORAGECONFIG
-DESCRIPTOR.message_types_by_name['IpfsHotInfo'] = _IPFSHOTINFO
-DESCRIPTOR.message_types_by_name['HotInfo'] = _HOTINFO
-DESCRIPTOR.message_types_by_name['FilStorage'] = _FILSTORAGE
-DESCRIPTOR.message_types_by_name['FilInfo'] = _FILINFO
-DESCRIPTOR.message_types_by_name['ColdInfo'] = _COLDINFO
-DESCRIPTOR.message_types_by_name['CidInfo'] = _CIDINFO
-DESCRIPTOR.message_types_by_name['BalanceInfo'] = _BALANCEINFO
-DESCRIPTOR.message_types_by_name['InstanceInfo'] = _INSTANCEINFO
-DESCRIPTOR.message_types_by_name['Job'] = _JOB
-DESCRIPTOR.message_types_by_name['DealError'] = _DEALERROR
-DESCRIPTOR.message_types_by_name['LogEntry'] = _LOGENTRY
-DESCRIPTOR.message_types_by_name['PaychInfo'] = _PAYCHINFO
-DESCRIPTOR.message_types_by_name['ListDealRecordsConfig'] = _LISTDEALRECORDSCONFIG
-DESCRIPTOR.message_types_by_name['StorageDealInfo'] = _STORAGEDEALINFO
-DESCRIPTOR.message_types_by_name['StorageDealRecord'] = _STORAGEDEALRECORD
-DESCRIPTOR.message_types_by_name['RetrievalDealInfo'] = _RETRIEVALDEALINFO
-DESCRIPTOR.message_types_by_name['RetrievalDealRecord'] = _RETRIEVALDEALRECORD
-DESCRIPTOR.message_types_by_name['CreateRequest'] = _CREATEREQUEST
-DESCRIPTOR.message_types_by_name['CreateResponse'] = _CREATERESPONSE
-DESCRIPTOR.message_types_by_name['ListAPIRequest'] = _LISTAPIREQUEST
-DESCRIPTOR.message_types_by_name['ListAPIResponse'] = _LISTAPIRESPONSE
-DESCRIPTOR.message_types_by_name['IDRequest'] = _IDREQUEST
-DESCRIPTOR.message_types_by_name['IDResponse'] = _IDRESPONSE
-DESCRIPTOR.message_types_by_name['AddrsRequest'] = _ADDRSREQUEST
-DESCRIPTOR.message_types_by_name['AddrsResponse'] = _ADDRSRESPONSE
-DESCRIPTOR.message_types_by_name['DefaultStorageConfigRequest'] = _DEFAULTSTORAGECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['DefaultStorageConfigResponse'] = _DEFAULTSTORAGECONFIGRESPONSE
-DESCRIPTOR.message_types_by_name['NewAddrRequest'] = _NEWADDRREQUEST
-DESCRIPTOR.message_types_by_name['NewAddrResponse'] = _NEWADDRRESPONSE
-DESCRIPTOR.message_types_by_name['GetStorageConfigRequest'] = _GETSTORAGECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['GetStorageConfigResponse'] = _GETSTORAGECONFIGRESPONSE
-DESCRIPTOR.message_types_by_name['SetDefaultStorageConfigRequest'] = _SETDEFAULTSTORAGECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['SetDefaultStorageConfigResponse'] = _SETDEFAULTSTORAGECONFIGRESPONSE
-DESCRIPTOR.message_types_by_name['ShowRequest'] = _SHOWREQUEST
-DESCRIPTOR.message_types_by_name['ShowResponse'] = _SHOWRESPONSE
-DESCRIPTOR.message_types_by_name['InfoRequest'] = _INFOREQUEST
-DESCRIPTOR.message_types_by_name['InfoResponse'] = _INFORESPONSE
-DESCRIPTOR.message_types_by_name['CancelJobRequest'] = _CANCELJOBREQUEST
-DESCRIPTOR.message_types_by_name['CancelJobResponse'] = _CANCELJOBRESPONSE
-DESCRIPTOR.message_types_by_name['WatchJobsRequest'] = _WATCHJOBSREQUEST
-DESCRIPTOR.message_types_by_name['WatchJobsResponse'] = _WATCHJOBSRESPONSE
-DESCRIPTOR.message_types_by_name['WatchLogsRequest'] = _WATCHLOGSREQUEST
-DESCRIPTOR.message_types_by_name['WatchLogsResponse'] = _WATCHLOGSRESPONSE
-DESCRIPTOR.message_types_by_name['ReplaceRequest'] = _REPLACEREQUEST
-DESCRIPTOR.message_types_by_name['ReplaceResponse'] = _REPLACERESPONSE
-DESCRIPTOR.message_types_by_name['PushStorageConfigRequest'] = _PUSHSTORAGECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['PushStorageConfigResponse'] = _PUSHSTORAGECONFIGRESPONSE
-DESCRIPTOR.message_types_by_name['RemoveRequest'] = _REMOVEREQUEST
-DESCRIPTOR.message_types_by_name['RemoveResponse'] = _REMOVERESPONSE
-DESCRIPTOR.message_types_by_name['GetRequest'] = _GETREQUEST
-DESCRIPTOR.message_types_by_name['GetResponse'] = _GETRESPONSE
-DESCRIPTOR.message_types_by_name['SendFilRequest'] = _SENDFILREQUEST
-DESCRIPTOR.message_types_by_name['SendFilResponse'] = _SENDFILRESPONSE
-DESCRIPTOR.message_types_by_name['CloseRequest'] = _CLOSEREQUEST
-DESCRIPTOR.message_types_by_name['CloseResponse'] = _CLOSERESPONSE
-DESCRIPTOR.message_types_by_name['StageRequest'] = _STAGEREQUEST
-DESCRIPTOR.message_types_by_name['StageResponse'] = _STAGERESPONSE
-DESCRIPTOR.message_types_by_name['ListPayChannelsRequest'] = _LISTPAYCHANNELSREQUEST
-DESCRIPTOR.message_types_by_name['ListPayChannelsResponse'] = _LISTPAYCHANNELSRESPONSE
-DESCRIPTOR.message_types_by_name['CreatePayChannelRequest'] = _CREATEPAYCHANNELREQUEST
-DESCRIPTOR.message_types_by_name['CreatePayChannelResponse'] = _CREATEPAYCHANNELRESPONSE
-DESCRIPTOR.message_types_by_name['RedeemPayChannelRequest'] = _REDEEMPAYCHANNELREQUEST
-DESCRIPTOR.message_types_by_name['RedeemPayChannelResponse'] = _REDEEMPAYCHANNELRESPONSE
-DESCRIPTOR.message_types_by_name['ListStorageDealRecordsRequest'] = _LISTSTORAGEDEALRECORDSREQUEST
-DESCRIPTOR.message_types_by_name['ListStorageDealRecordsResponse'] = _LISTSTORAGEDEALRECORDSRESPONSE
-DESCRIPTOR.message_types_by_name['ListRetrievalDealRecordsRequest'] = _LISTRETRIEVALDEALRECORDSREQUEST
-DESCRIPTOR.message_types_by_name['ListRetrievalDealRecordsResponse'] = _LISTRETRIEVALDEALRECORDSRESPONSE
-DESCRIPTOR.message_types_by_name['ShowAllRequest'] = _SHOWALLREQUEST
-DESCRIPTOR.message_types_by_name['ShowAllResponse'] = _SHOWALLRESPONSE
-DESCRIPTOR.enum_types_by_name['JobStatus'] = _JOBSTATUS
-DESCRIPTOR.enum_types_by_name['Direction'] = _DIRECTION
+_HOTCONFIG.fields_by_name["ipfs"].message_type = _IPFSCONFIG
+_FILCONFIG.fields_by_name["renew"].message_type = _FILRENEW
+_COLDCONFIG.fields_by_name["filecoin"].message_type = _FILCONFIG
+_STORAGECONFIG.fields_by_name["hot"].message_type = _HOTCONFIG
+_STORAGECONFIG.fields_by_name["cold"].message_type = _COLDCONFIG
+_HOTINFO.fields_by_name["ipfs"].message_type = _IPFSHOTINFO
+_FILINFO.fields_by_name["proposals"].message_type = _FILSTORAGE
+_COLDINFO.fields_by_name["filecoin"].message_type = _FILINFO
+_CIDINFO.fields_by_name["hot"].message_type = _HOTINFO
+_CIDINFO.fields_by_name["cold"].message_type = _COLDINFO
+_BALANCEINFO.fields_by_name["addr"].message_type = _ADDRINFO
+_INSTANCEINFO.fields_by_name["default_storage_config"].message_type = _STORAGECONFIG
+_INSTANCEINFO.fields_by_name["balances"].message_type = _BALANCEINFO
+_JOB.fields_by_name["status"].enum_type = _JOBSTATUS
+_JOB.fields_by_name["deal_errors"].message_type = _DEALERROR
+_PAYCHINFO.fields_by_name["direction"].enum_type = _DIRECTION
+_STORAGEDEALRECORD.fields_by_name["deal_info"].message_type = _STORAGEDEALINFO
+_RETRIEVALDEALRECORD.fields_by_name["deal_info"].message_type = _RETRIEVALDEALINFO
+_ADDRSRESPONSE.fields_by_name["addrs"].message_type = _ADDRINFO
+_DEFAULTSTORAGECONFIGRESPONSE.fields_by_name[
+    "default_storage_config"
+].message_type = _STORAGECONFIG
+_GETSTORAGECONFIGRESPONSE.fields_by_name["config"].message_type = _STORAGECONFIG
+_SETDEFAULTSTORAGECONFIGREQUEST.fields_by_name["config"].message_type = _STORAGECONFIG
+_SHOWRESPONSE.fields_by_name["cid_info"].message_type = _CIDINFO
+_INFORESPONSE.fields_by_name["info"].message_type = _INSTANCEINFO
+_GETSTORAGEJOBRESPONSE.fields_by_name["job"].message_type = _JOB
+_WATCHJOBSRESPONSE.fields_by_name["job"].message_type = _JOB
+_WATCHLOGSRESPONSE.fields_by_name["log_entry"].message_type = _LOGENTRY
+_PUSHSTORAGECONFIGREQUEST.fields_by_name["config"].message_type = _STORAGECONFIG
+_LISTPAYCHANNELSRESPONSE.fields_by_name["pay_channels"].message_type = _PAYCHINFO
+_CREATEPAYCHANNELRESPONSE.fields_by_name["pay_channel"].message_type = _PAYCHINFO
+_LISTSTORAGEDEALRECORDSREQUEST.fields_by_name[
+    "config"
+].message_type = _LISTDEALRECORDSCONFIG
+_LISTSTORAGEDEALRECORDSRESPONSE.fields_by_name[
+    "records"
+].message_type = _STORAGEDEALRECORD
+_LISTRETRIEVALDEALRECORDSREQUEST.fields_by_name[
+    "config"
+].message_type = _LISTDEALRECORDSCONFIG
+_LISTRETRIEVALDEALRECORDSRESPONSE.fields_by_name[
+    "records"
+].message_type = _RETRIEVALDEALRECORD
+_SHOWALLRESPONSE.fields_by_name["cid_infos"].message_type = _CIDINFO
+DESCRIPTOR.message_types_by_name["AddrInfo"] = _ADDRINFO
+DESCRIPTOR.message_types_by_name["IpfsConfig"] = _IPFSCONFIG
+DESCRIPTOR.message_types_by_name["HotConfig"] = _HOTCONFIG
+DESCRIPTOR.message_types_by_name["FilRenew"] = _FILRENEW
+DESCRIPTOR.message_types_by_name["FilConfig"] = _FILCONFIG
+DESCRIPTOR.message_types_by_name["ColdConfig"] = _COLDCONFIG
+DESCRIPTOR.message_types_by_name["StorageConfig"] = _STORAGECONFIG
+DESCRIPTOR.message_types_by_name["IpfsHotInfo"] = _IPFSHOTINFO
+DESCRIPTOR.message_types_by_name["HotInfo"] = _HOTINFO
+DESCRIPTOR.message_types_by_name["FilStorage"] = _FILSTORAGE
+DESCRIPTOR.message_types_by_name["FilInfo"] = _FILINFO
+DESCRIPTOR.message_types_by_name["ColdInfo"] = _COLDINFO
+DESCRIPTOR.message_types_by_name["CidInfo"] = _CIDINFO
+DESCRIPTOR.message_types_by_name["BalanceInfo"] = _BALANCEINFO
+DESCRIPTOR.message_types_by_name["InstanceInfo"] = _INSTANCEINFO
+DESCRIPTOR.message_types_by_name["Job"] = _JOB
+DESCRIPTOR.message_types_by_name["DealError"] = _DEALERROR
+DESCRIPTOR.message_types_by_name["LogEntry"] = _LOGENTRY
+DESCRIPTOR.message_types_by_name["PaychInfo"] = _PAYCHINFO
+DESCRIPTOR.message_types_by_name["ListDealRecordsConfig"] = _LISTDEALRECORDSCONFIG
+DESCRIPTOR.message_types_by_name["StorageDealInfo"] = _STORAGEDEALINFO
+DESCRIPTOR.message_types_by_name["StorageDealRecord"] = _STORAGEDEALRECORD
+DESCRIPTOR.message_types_by_name["RetrievalDealInfo"] = _RETRIEVALDEALINFO
+DESCRIPTOR.message_types_by_name["RetrievalDealRecord"] = _RETRIEVALDEALRECORD
+DESCRIPTOR.message_types_by_name["CreateRequest"] = _CREATEREQUEST
+DESCRIPTOR.message_types_by_name["CreateResponse"] = _CREATERESPONSE
+DESCRIPTOR.message_types_by_name["ListAPIRequest"] = _LISTAPIREQUEST
+DESCRIPTOR.message_types_by_name["ListAPIResponse"] = _LISTAPIRESPONSE
+DESCRIPTOR.message_types_by_name["IDRequest"] = _IDREQUEST
+DESCRIPTOR.message_types_by_name["IDResponse"] = _IDRESPONSE
+DESCRIPTOR.message_types_by_name["AddrsRequest"] = _ADDRSREQUEST
+DESCRIPTOR.message_types_by_name["AddrsResponse"] = _ADDRSRESPONSE
+DESCRIPTOR.message_types_by_name[
+    "DefaultStorageConfigRequest"
+] = _DEFAULTSTORAGECONFIGREQUEST
+DESCRIPTOR.message_types_by_name[
+    "DefaultStorageConfigResponse"
+] = _DEFAULTSTORAGECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name["SignMessageRequest"] = _SIGNMESSAGEREQUEST
+DESCRIPTOR.message_types_by_name["SignMessageResponse"] = _SIGNMESSAGERESPONSE
+DESCRIPTOR.message_types_by_name["VerifyMessageRequest"] = _VERIFYMESSAGEREQUEST
+DESCRIPTOR.message_types_by_name["VerifyMessageResponse"] = _VERIFYMESSAGERESPONSE
+DESCRIPTOR.message_types_by_name["NewAddrRequest"] = _NEWADDRREQUEST
+DESCRIPTOR.message_types_by_name["NewAddrResponse"] = _NEWADDRRESPONSE
+DESCRIPTOR.message_types_by_name["GetStorageConfigRequest"] = _GETSTORAGECONFIGREQUEST
+DESCRIPTOR.message_types_by_name["GetStorageConfigResponse"] = _GETSTORAGECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name[
+    "SetDefaultStorageConfigRequest"
+] = _SETDEFAULTSTORAGECONFIGREQUEST
+DESCRIPTOR.message_types_by_name[
+    "SetDefaultStorageConfigResponse"
+] = _SETDEFAULTSTORAGECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name["ShowRequest"] = _SHOWREQUEST
+DESCRIPTOR.message_types_by_name["ShowResponse"] = _SHOWRESPONSE
+DESCRIPTOR.message_types_by_name["InfoRequest"] = _INFOREQUEST
+DESCRIPTOR.message_types_by_name["InfoResponse"] = _INFORESPONSE
+DESCRIPTOR.message_types_by_name["CancelJobRequest"] = _CANCELJOBREQUEST
+DESCRIPTOR.message_types_by_name["CancelJobResponse"] = _CANCELJOBRESPONSE
+DESCRIPTOR.message_types_by_name["GetStorageJobRequest"] = _GETSTORAGEJOBREQUEST
+DESCRIPTOR.message_types_by_name["GetStorageJobResponse"] = _GETSTORAGEJOBRESPONSE
+DESCRIPTOR.message_types_by_name["WatchJobsRequest"] = _WATCHJOBSREQUEST
+DESCRIPTOR.message_types_by_name["WatchJobsResponse"] = _WATCHJOBSRESPONSE
+DESCRIPTOR.message_types_by_name["WatchLogsRequest"] = _WATCHLOGSREQUEST
+DESCRIPTOR.message_types_by_name["WatchLogsResponse"] = _WATCHLOGSRESPONSE
+DESCRIPTOR.message_types_by_name["ReplaceRequest"] = _REPLACEREQUEST
+DESCRIPTOR.message_types_by_name["ReplaceResponse"] = _REPLACERESPONSE
+DESCRIPTOR.message_types_by_name["PushStorageConfigRequest"] = _PUSHSTORAGECONFIGREQUEST
+DESCRIPTOR.message_types_by_name[
+    "PushStorageConfigResponse"
+] = _PUSHSTORAGECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name["RemoveRequest"] = _REMOVEREQUEST
+DESCRIPTOR.message_types_by_name["RemoveResponse"] = _REMOVERESPONSE
+DESCRIPTOR.message_types_by_name["GetRequest"] = _GETREQUEST
+DESCRIPTOR.message_types_by_name["GetResponse"] = _GETRESPONSE
+DESCRIPTOR.message_types_by_name["SendFilRequest"] = _SENDFILREQUEST
+DESCRIPTOR.message_types_by_name["SendFilResponse"] = _SENDFILRESPONSE
+DESCRIPTOR.message_types_by_name["StageRequest"] = _STAGEREQUEST
+DESCRIPTOR.message_types_by_name["StageResponse"] = _STAGERESPONSE
+DESCRIPTOR.message_types_by_name["ListPayChannelsRequest"] = _LISTPAYCHANNELSREQUEST
+DESCRIPTOR.message_types_by_name["ListPayChannelsResponse"] = _LISTPAYCHANNELSRESPONSE
+DESCRIPTOR.message_types_by_name["CreatePayChannelRequest"] = _CREATEPAYCHANNELREQUEST
+DESCRIPTOR.message_types_by_name["CreatePayChannelResponse"] = _CREATEPAYCHANNELRESPONSE
+DESCRIPTOR.message_types_by_name["RedeemPayChannelRequest"] = _REDEEMPAYCHANNELREQUEST
+DESCRIPTOR.message_types_by_name["RedeemPayChannelResponse"] = _REDEEMPAYCHANNELRESPONSE
+DESCRIPTOR.message_types_by_name[
+    "ListStorageDealRecordsRequest"
+] = _LISTSTORAGEDEALRECORDSREQUEST
+DESCRIPTOR.message_types_by_name[
+    "ListStorageDealRecordsResponse"
+] = _LISTSTORAGEDEALRECORDSRESPONSE
+DESCRIPTOR.message_types_by_name[
+    "ListRetrievalDealRecordsRequest"
+] = _LISTRETRIEVALDEALRECORDSREQUEST
+DESCRIPTOR.message_types_by_name[
+    "ListRetrievalDealRecordsResponse"
+] = _LISTRETRIEVALDEALRECORDSRESPONSE
+DESCRIPTOR.message_types_by_name["ShowAllRequest"] = _SHOWALLREQUEST
+DESCRIPTOR.message_types_by_name["ShowAllResponse"] = _SHOWALLRESPONSE
+DESCRIPTOR.enum_types_by_name["JobStatus"] = _JOBSTATUS
+DESCRIPTOR.enum_types_by_name["Direction"] = _DIRECTION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-AddrInfo = _reflection.GeneratedProtocolMessageType('AddrInfo', (_message.Message,), {
-  'DESCRIPTOR' : _ADDRINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.AddrInfo)
-  })
+AddrInfo = _reflection.GeneratedProtocolMessageType(
+    "AddrInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _ADDRINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.AddrInfo)
+    },
+)
 _sym_db.RegisterMessage(AddrInfo)
 
-IpfsConfig = _reflection.GeneratedProtocolMessageType('IpfsConfig', (_message.Message,), {
-  'DESCRIPTOR' : _IPFSCONFIG,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.IpfsConfig)
-  })
+IpfsConfig = _reflection.GeneratedProtocolMessageType(
+    "IpfsConfig",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _IPFSCONFIG,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.IpfsConfig)
+    },
+)
 _sym_db.RegisterMessage(IpfsConfig)
 
-HotConfig = _reflection.GeneratedProtocolMessageType('HotConfig', (_message.Message,), {
-  'DESCRIPTOR' : _HOTCONFIG,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.HotConfig)
-  })
+HotConfig = _reflection.GeneratedProtocolMessageType(
+    "HotConfig",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _HOTCONFIG,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.HotConfig)
+    },
+)
 _sym_db.RegisterMessage(HotConfig)
 
-FilRenew = _reflection.GeneratedProtocolMessageType('FilRenew', (_message.Message,), {
-  'DESCRIPTOR' : _FILRENEW,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.FilRenew)
-  })
+FilRenew = _reflection.GeneratedProtocolMessageType(
+    "FilRenew",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _FILRENEW,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.FilRenew)
+    },
+)
 _sym_db.RegisterMessage(FilRenew)
 
-FilConfig = _reflection.GeneratedProtocolMessageType('FilConfig', (_message.Message,), {
-  'DESCRIPTOR' : _FILCONFIG,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.FilConfig)
-  })
+FilConfig = _reflection.GeneratedProtocolMessageType(
+    "FilConfig",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _FILCONFIG,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.FilConfig)
+    },
+)
 _sym_db.RegisterMessage(FilConfig)
 
-ColdConfig = _reflection.GeneratedProtocolMessageType('ColdConfig', (_message.Message,), {
-  'DESCRIPTOR' : _COLDCONFIG,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ColdConfig)
-  })
+ColdConfig = _reflection.GeneratedProtocolMessageType(
+    "ColdConfig",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _COLDCONFIG,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ColdConfig)
+    },
+)
 _sym_db.RegisterMessage(ColdConfig)
 
-StorageConfig = _reflection.GeneratedProtocolMessageType('StorageConfig', (_message.Message,), {
-  'DESCRIPTOR' : _STORAGECONFIG,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.StorageConfig)
-  })
+StorageConfig = _reflection.GeneratedProtocolMessageType(
+    "StorageConfig",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _STORAGECONFIG,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.StorageConfig)
+    },
+)
 _sym_db.RegisterMessage(StorageConfig)
 
-IpfsHotInfo = _reflection.GeneratedProtocolMessageType('IpfsHotInfo', (_message.Message,), {
-  'DESCRIPTOR' : _IPFSHOTINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.IpfsHotInfo)
-  })
+IpfsHotInfo = _reflection.GeneratedProtocolMessageType(
+    "IpfsHotInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _IPFSHOTINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.IpfsHotInfo)
+    },
+)
 _sym_db.RegisterMessage(IpfsHotInfo)
 
-HotInfo = _reflection.GeneratedProtocolMessageType('HotInfo', (_message.Message,), {
-  'DESCRIPTOR' : _HOTINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.HotInfo)
-  })
+HotInfo = _reflection.GeneratedProtocolMessageType(
+    "HotInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _HOTINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.HotInfo)
+    },
+)
 _sym_db.RegisterMessage(HotInfo)
 
-FilStorage = _reflection.GeneratedProtocolMessageType('FilStorage', (_message.Message,), {
-  'DESCRIPTOR' : _FILSTORAGE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.FilStorage)
-  })
+FilStorage = _reflection.GeneratedProtocolMessageType(
+    "FilStorage",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _FILSTORAGE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.FilStorage)
+    },
+)
 _sym_db.RegisterMessage(FilStorage)
 
-FilInfo = _reflection.GeneratedProtocolMessageType('FilInfo', (_message.Message,), {
-  'DESCRIPTOR' : _FILINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.FilInfo)
-  })
+FilInfo = _reflection.GeneratedProtocolMessageType(
+    "FilInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _FILINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.FilInfo)
+    },
+)
 _sym_db.RegisterMessage(FilInfo)
 
-ColdInfo = _reflection.GeneratedProtocolMessageType('ColdInfo', (_message.Message,), {
-  'DESCRIPTOR' : _COLDINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ColdInfo)
-  })
+ColdInfo = _reflection.GeneratedProtocolMessageType(
+    "ColdInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _COLDINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ColdInfo)
+    },
+)
 _sym_db.RegisterMessage(ColdInfo)
 
-CidInfo = _reflection.GeneratedProtocolMessageType('CidInfo', (_message.Message,), {
-  'DESCRIPTOR' : _CIDINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CidInfo)
-  })
+CidInfo = _reflection.GeneratedProtocolMessageType(
+    "CidInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CIDINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CidInfo)
+    },
+)
 _sym_db.RegisterMessage(CidInfo)
 
-BalanceInfo = _reflection.GeneratedProtocolMessageType('BalanceInfo', (_message.Message,), {
-  'DESCRIPTOR' : _BALANCEINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.BalanceInfo)
-  })
+BalanceInfo = _reflection.GeneratedProtocolMessageType(
+    "BalanceInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _BALANCEINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.BalanceInfo)
+    },
+)
 _sym_db.RegisterMessage(BalanceInfo)
 
-InstanceInfo = _reflection.GeneratedProtocolMessageType('InstanceInfo', (_message.Message,), {
-  'DESCRIPTOR' : _INSTANCEINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.InstanceInfo)
-  })
+InstanceInfo = _reflection.GeneratedProtocolMessageType(
+    "InstanceInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _INSTANCEINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.InstanceInfo)
+    },
+)
 _sym_db.RegisterMessage(InstanceInfo)
 
-Job = _reflection.GeneratedProtocolMessageType('Job', (_message.Message,), {
-  'DESCRIPTOR' : _JOB,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.Job)
-  })
+Job = _reflection.GeneratedProtocolMessageType(
+    "Job",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _JOB,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.Job)
+    },
+)
 _sym_db.RegisterMessage(Job)
 
-DealError = _reflection.GeneratedProtocolMessageType('DealError', (_message.Message,), {
-  'DESCRIPTOR' : _DEALERROR,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.DealError)
-  })
+DealError = _reflection.GeneratedProtocolMessageType(
+    "DealError",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _DEALERROR,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.DealError)
+    },
+)
 _sym_db.RegisterMessage(DealError)
 
-LogEntry = _reflection.GeneratedProtocolMessageType('LogEntry', (_message.Message,), {
-  'DESCRIPTOR' : _LOGENTRY,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.LogEntry)
-  })
+LogEntry = _reflection.GeneratedProtocolMessageType(
+    "LogEntry",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LOGENTRY,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.LogEntry)
+    },
+)
 _sym_db.RegisterMessage(LogEntry)
 
-PaychInfo = _reflection.GeneratedProtocolMessageType('PaychInfo', (_message.Message,), {
-  'DESCRIPTOR' : _PAYCHINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.PaychInfo)
-  })
+PaychInfo = _reflection.GeneratedProtocolMessageType(
+    "PaychInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _PAYCHINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.PaychInfo)
+    },
+)
 _sym_db.RegisterMessage(PaychInfo)
 
-ListDealRecordsConfig = _reflection.GeneratedProtocolMessageType('ListDealRecordsConfig', (_message.Message,), {
-  'DESCRIPTOR' : _LISTDEALRECORDSCONFIG,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListDealRecordsConfig)
-  })
+ListDealRecordsConfig = _reflection.GeneratedProtocolMessageType(
+    "ListDealRecordsConfig",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTDEALRECORDSCONFIG,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListDealRecordsConfig)
+    },
+)
 _sym_db.RegisterMessage(ListDealRecordsConfig)
 
-StorageDealInfo = _reflection.GeneratedProtocolMessageType('StorageDealInfo', (_message.Message,), {
-  'DESCRIPTOR' : _STORAGEDEALINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.StorageDealInfo)
-  })
+StorageDealInfo = _reflection.GeneratedProtocolMessageType(
+    "StorageDealInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _STORAGEDEALINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.StorageDealInfo)
+    },
+)
 _sym_db.RegisterMessage(StorageDealInfo)
 
-StorageDealRecord = _reflection.GeneratedProtocolMessageType('StorageDealRecord', (_message.Message,), {
-  'DESCRIPTOR' : _STORAGEDEALRECORD,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.StorageDealRecord)
-  })
+StorageDealRecord = _reflection.GeneratedProtocolMessageType(
+    "StorageDealRecord",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _STORAGEDEALRECORD,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.StorageDealRecord)
+    },
+)
 _sym_db.RegisterMessage(StorageDealRecord)
 
-RetrievalDealInfo = _reflection.GeneratedProtocolMessageType('RetrievalDealInfo', (_message.Message,), {
-  'DESCRIPTOR' : _RETRIEVALDEALINFO,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.RetrievalDealInfo)
-  })
+RetrievalDealInfo = _reflection.GeneratedProtocolMessageType(
+    "RetrievalDealInfo",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _RETRIEVALDEALINFO,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.RetrievalDealInfo)
+    },
+)
 _sym_db.RegisterMessage(RetrievalDealInfo)
 
-RetrievalDealRecord = _reflection.GeneratedProtocolMessageType('RetrievalDealRecord', (_message.Message,), {
-  'DESCRIPTOR' : _RETRIEVALDEALRECORD,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.RetrievalDealRecord)
-  })
+RetrievalDealRecord = _reflection.GeneratedProtocolMessageType(
+    "RetrievalDealRecord",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _RETRIEVALDEALRECORD,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.RetrievalDealRecord)
+    },
+)
 _sym_db.RegisterMessage(RetrievalDealRecord)
 
-CreateRequest = _reflection.GeneratedProtocolMessageType('CreateRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CreateRequest)
-  })
+CreateRequest = _reflection.GeneratedProtocolMessageType(
+    "CreateRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CREATEREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CreateRequest)
+    },
+)
 _sym_db.RegisterMessage(CreateRequest)
 
-CreateResponse = _reflection.GeneratedProtocolMessageType('CreateResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CREATERESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CreateResponse)
-  })
+CreateResponse = _reflection.GeneratedProtocolMessageType(
+    "CreateResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CREATERESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CreateResponse)
+    },
+)
 _sym_db.RegisterMessage(CreateResponse)
 
-ListAPIRequest = _reflection.GeneratedProtocolMessageType('ListAPIRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTAPIREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListAPIRequest)
-  })
+ListAPIRequest = _reflection.GeneratedProtocolMessageType(
+    "ListAPIRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTAPIREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListAPIRequest)
+    },
+)
 _sym_db.RegisterMessage(ListAPIRequest)
 
-ListAPIResponse = _reflection.GeneratedProtocolMessageType('ListAPIResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTAPIRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListAPIResponse)
-  })
+ListAPIResponse = _reflection.GeneratedProtocolMessageType(
+    "ListAPIResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTAPIRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListAPIResponse)
+    },
+)
 _sym_db.RegisterMessage(ListAPIResponse)
 
-IDRequest = _reflection.GeneratedProtocolMessageType('IDRequest', (_message.Message,), {
-  'DESCRIPTOR' : _IDREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.IDRequest)
-  })
+IDRequest = _reflection.GeneratedProtocolMessageType(
+    "IDRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _IDREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.IDRequest)
+    },
+)
 _sym_db.RegisterMessage(IDRequest)
 
-IDResponse = _reflection.GeneratedProtocolMessageType('IDResponse', (_message.Message,), {
-  'DESCRIPTOR' : _IDRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.IDResponse)
-  })
+IDResponse = _reflection.GeneratedProtocolMessageType(
+    "IDResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _IDRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.IDResponse)
+    },
+)
 _sym_db.RegisterMessage(IDResponse)
 
-AddrsRequest = _reflection.GeneratedProtocolMessageType('AddrsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _ADDRSREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.AddrsRequest)
-  })
+AddrsRequest = _reflection.GeneratedProtocolMessageType(
+    "AddrsRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _ADDRSREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.AddrsRequest)
+    },
+)
 _sym_db.RegisterMessage(AddrsRequest)
 
-AddrsResponse = _reflection.GeneratedProtocolMessageType('AddrsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _ADDRSRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.AddrsResponse)
-  })
+AddrsResponse = _reflection.GeneratedProtocolMessageType(
+    "AddrsResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _ADDRSRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.AddrsResponse)
+    },
+)
 _sym_db.RegisterMessage(AddrsResponse)
 
-DefaultStorageConfigRequest = _reflection.GeneratedProtocolMessageType('DefaultStorageConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _DEFAULTSTORAGECONFIGREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.DefaultStorageConfigRequest)
-  })
+DefaultStorageConfigRequest = _reflection.GeneratedProtocolMessageType(
+    "DefaultStorageConfigRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _DEFAULTSTORAGECONFIGREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.DefaultStorageConfigRequest)
+    },
+)
 _sym_db.RegisterMessage(DefaultStorageConfigRequest)
 
-DefaultStorageConfigResponse = _reflection.GeneratedProtocolMessageType('DefaultStorageConfigResponse', (_message.Message,), {
-  'DESCRIPTOR' : _DEFAULTSTORAGECONFIGRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.DefaultStorageConfigResponse)
-  })
+DefaultStorageConfigResponse = _reflection.GeneratedProtocolMessageType(
+    "DefaultStorageConfigResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _DEFAULTSTORAGECONFIGRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.DefaultStorageConfigResponse)
+    },
+)
 _sym_db.RegisterMessage(DefaultStorageConfigResponse)
 
-NewAddrRequest = _reflection.GeneratedProtocolMessageType('NewAddrRequest', (_message.Message,), {
-  'DESCRIPTOR' : _NEWADDRREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.NewAddrRequest)
-  })
+SignMessageRequest = _reflection.GeneratedProtocolMessageType(
+    "SignMessageRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SIGNMESSAGEREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.SignMessageRequest)
+    },
+)
+_sym_db.RegisterMessage(SignMessageRequest)
+
+SignMessageResponse = _reflection.GeneratedProtocolMessageType(
+    "SignMessageResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SIGNMESSAGERESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.SignMessageResponse)
+    },
+)
+_sym_db.RegisterMessage(SignMessageResponse)
+
+VerifyMessageRequest = _reflection.GeneratedProtocolMessageType(
+    "VerifyMessageRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _VERIFYMESSAGEREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.VerifyMessageRequest)
+    },
+)
+_sym_db.RegisterMessage(VerifyMessageRequest)
+
+VerifyMessageResponse = _reflection.GeneratedProtocolMessageType(
+    "VerifyMessageResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _VERIFYMESSAGERESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.VerifyMessageResponse)
+    },
+)
+_sym_db.RegisterMessage(VerifyMessageResponse)
+
+NewAddrRequest = _reflection.GeneratedProtocolMessageType(
+    "NewAddrRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _NEWADDRREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.NewAddrRequest)
+    },
+)
 _sym_db.RegisterMessage(NewAddrRequest)
 
-NewAddrResponse = _reflection.GeneratedProtocolMessageType('NewAddrResponse', (_message.Message,), {
-  'DESCRIPTOR' : _NEWADDRRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.NewAddrResponse)
-  })
+NewAddrResponse = _reflection.GeneratedProtocolMessageType(
+    "NewAddrResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _NEWADDRRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.NewAddrResponse)
+    },
+)
 _sym_db.RegisterMessage(NewAddrResponse)
 
-GetStorageConfigRequest = _reflection.GeneratedProtocolMessageType('GetStorageConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETSTORAGECONFIGREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.GetStorageConfigRequest)
-  })
+GetStorageConfigRequest = _reflection.GeneratedProtocolMessageType(
+    "GetStorageConfigRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _GETSTORAGECONFIGREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.GetStorageConfigRequest)
+    },
+)
 _sym_db.RegisterMessage(GetStorageConfigRequest)
 
-GetStorageConfigResponse = _reflection.GeneratedProtocolMessageType('GetStorageConfigResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETSTORAGECONFIGRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.GetStorageConfigResponse)
-  })
+GetStorageConfigResponse = _reflection.GeneratedProtocolMessageType(
+    "GetStorageConfigResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _GETSTORAGECONFIGRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.GetStorageConfigResponse)
+    },
+)
 _sym_db.RegisterMessage(GetStorageConfigResponse)
 
-SetDefaultStorageConfigRequest = _reflection.GeneratedProtocolMessageType('SetDefaultStorageConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SETDEFAULTSTORAGECONFIGREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.SetDefaultStorageConfigRequest)
-  })
+SetDefaultStorageConfigRequest = _reflection.GeneratedProtocolMessageType(
+    "SetDefaultStorageConfigRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SETDEFAULTSTORAGECONFIGREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.SetDefaultStorageConfigRequest)
+    },
+)
 _sym_db.RegisterMessage(SetDefaultStorageConfigRequest)
 
-SetDefaultStorageConfigResponse = _reflection.GeneratedProtocolMessageType('SetDefaultStorageConfigResponse', (_message.Message,), {
-  'DESCRIPTOR' : _SETDEFAULTSTORAGECONFIGRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.SetDefaultStorageConfigResponse)
-  })
+SetDefaultStorageConfigResponse = _reflection.GeneratedProtocolMessageType(
+    "SetDefaultStorageConfigResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SETDEFAULTSTORAGECONFIGRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.SetDefaultStorageConfigResponse)
+    },
+)
 _sym_db.RegisterMessage(SetDefaultStorageConfigResponse)
 
-ShowRequest = _reflection.GeneratedProtocolMessageType('ShowRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SHOWREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ShowRequest)
-  })
+ShowRequest = _reflection.GeneratedProtocolMessageType(
+    "ShowRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SHOWREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ShowRequest)
+    },
+)
 _sym_db.RegisterMessage(ShowRequest)
 
-ShowResponse = _reflection.GeneratedProtocolMessageType('ShowResponse', (_message.Message,), {
-  'DESCRIPTOR' : _SHOWRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ShowResponse)
-  })
+ShowResponse = _reflection.GeneratedProtocolMessageType(
+    "ShowResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SHOWRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ShowResponse)
+    },
+)
 _sym_db.RegisterMessage(ShowResponse)
 
-InfoRequest = _reflection.GeneratedProtocolMessageType('InfoRequest', (_message.Message,), {
-  'DESCRIPTOR' : _INFOREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.InfoRequest)
-  })
+InfoRequest = _reflection.GeneratedProtocolMessageType(
+    "InfoRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _INFOREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.InfoRequest)
+    },
+)
 _sym_db.RegisterMessage(InfoRequest)
 
-InfoResponse = _reflection.GeneratedProtocolMessageType('InfoResponse', (_message.Message,), {
-  'DESCRIPTOR' : _INFORESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.InfoResponse)
-  })
+InfoResponse = _reflection.GeneratedProtocolMessageType(
+    "InfoResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _INFORESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.InfoResponse)
+    },
+)
 _sym_db.RegisterMessage(InfoResponse)
 
-CancelJobRequest = _reflection.GeneratedProtocolMessageType('CancelJobRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CANCELJOBREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CancelJobRequest)
-  })
+CancelJobRequest = _reflection.GeneratedProtocolMessageType(
+    "CancelJobRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CANCELJOBREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CancelJobRequest)
+    },
+)
 _sym_db.RegisterMessage(CancelJobRequest)
 
-CancelJobResponse = _reflection.GeneratedProtocolMessageType('CancelJobResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CANCELJOBRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CancelJobResponse)
-  })
+CancelJobResponse = _reflection.GeneratedProtocolMessageType(
+    "CancelJobResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CANCELJOBRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CancelJobResponse)
+    },
+)
 _sym_db.RegisterMessage(CancelJobResponse)
 
-WatchJobsRequest = _reflection.GeneratedProtocolMessageType('WatchJobsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _WATCHJOBSREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.WatchJobsRequest)
-  })
+GetStorageJobRequest = _reflection.GeneratedProtocolMessageType(
+    "GetStorageJobRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _GETSTORAGEJOBREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.GetStorageJobRequest)
+    },
+)
+_sym_db.RegisterMessage(GetStorageJobRequest)
+
+GetStorageJobResponse = _reflection.GeneratedProtocolMessageType(
+    "GetStorageJobResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _GETSTORAGEJOBRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.GetStorageJobResponse)
+    },
+)
+_sym_db.RegisterMessage(GetStorageJobResponse)
+
+WatchJobsRequest = _reflection.GeneratedProtocolMessageType(
+    "WatchJobsRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _WATCHJOBSREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.WatchJobsRequest)
+    },
+)
 _sym_db.RegisterMessage(WatchJobsRequest)
 
-WatchJobsResponse = _reflection.GeneratedProtocolMessageType('WatchJobsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _WATCHJOBSRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.WatchJobsResponse)
-  })
+WatchJobsResponse = _reflection.GeneratedProtocolMessageType(
+    "WatchJobsResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _WATCHJOBSRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.WatchJobsResponse)
+    },
+)
 _sym_db.RegisterMessage(WatchJobsResponse)
 
-WatchLogsRequest = _reflection.GeneratedProtocolMessageType('WatchLogsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _WATCHLOGSREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.WatchLogsRequest)
-  })
+WatchLogsRequest = _reflection.GeneratedProtocolMessageType(
+    "WatchLogsRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _WATCHLOGSREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.WatchLogsRequest)
+    },
+)
 _sym_db.RegisterMessage(WatchLogsRequest)
 
-WatchLogsResponse = _reflection.GeneratedProtocolMessageType('WatchLogsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _WATCHLOGSRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.WatchLogsResponse)
-  })
+WatchLogsResponse = _reflection.GeneratedProtocolMessageType(
+    "WatchLogsResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _WATCHLOGSRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.WatchLogsResponse)
+    },
+)
 _sym_db.RegisterMessage(WatchLogsResponse)
 
-ReplaceRequest = _reflection.GeneratedProtocolMessageType('ReplaceRequest', (_message.Message,), {
-  'DESCRIPTOR' : _REPLACEREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ReplaceRequest)
-  })
+ReplaceRequest = _reflection.GeneratedProtocolMessageType(
+    "ReplaceRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _REPLACEREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ReplaceRequest)
+    },
+)
 _sym_db.RegisterMessage(ReplaceRequest)
 
-ReplaceResponse = _reflection.GeneratedProtocolMessageType('ReplaceResponse', (_message.Message,), {
-  'DESCRIPTOR' : _REPLACERESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ReplaceResponse)
-  })
+ReplaceResponse = _reflection.GeneratedProtocolMessageType(
+    "ReplaceResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _REPLACERESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ReplaceResponse)
+    },
+)
 _sym_db.RegisterMessage(ReplaceResponse)
 
-PushStorageConfigRequest = _reflection.GeneratedProtocolMessageType('PushStorageConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _PUSHSTORAGECONFIGREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.PushStorageConfigRequest)
-  })
+PushStorageConfigRequest = _reflection.GeneratedProtocolMessageType(
+    "PushStorageConfigRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _PUSHSTORAGECONFIGREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.PushStorageConfigRequest)
+    },
+)
 _sym_db.RegisterMessage(PushStorageConfigRequest)
 
-PushStorageConfigResponse = _reflection.GeneratedProtocolMessageType('PushStorageConfigResponse', (_message.Message,), {
-  'DESCRIPTOR' : _PUSHSTORAGECONFIGRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.PushStorageConfigResponse)
-  })
+PushStorageConfigResponse = _reflection.GeneratedProtocolMessageType(
+    "PushStorageConfigResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _PUSHSTORAGECONFIGRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.PushStorageConfigResponse)
+    },
+)
 _sym_db.RegisterMessage(PushStorageConfigResponse)
 
-RemoveRequest = _reflection.GeneratedProtocolMessageType('RemoveRequest', (_message.Message,), {
-  'DESCRIPTOR' : _REMOVEREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.RemoveRequest)
-  })
+RemoveRequest = _reflection.GeneratedProtocolMessageType(
+    "RemoveRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _REMOVEREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.RemoveRequest)
+    },
+)
 _sym_db.RegisterMessage(RemoveRequest)
 
-RemoveResponse = _reflection.GeneratedProtocolMessageType('RemoveResponse', (_message.Message,), {
-  'DESCRIPTOR' : _REMOVERESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.RemoveResponse)
-  })
+RemoveResponse = _reflection.GeneratedProtocolMessageType(
+    "RemoveResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _REMOVERESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.RemoveResponse)
+    },
+)
 _sym_db.RegisterMessage(RemoveResponse)
 
-GetRequest = _reflection.GeneratedProtocolMessageType('GetRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.GetRequest)
-  })
+GetRequest = _reflection.GeneratedProtocolMessageType(
+    "GetRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _GETREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.GetRequest)
+    },
+)
 _sym_db.RegisterMessage(GetRequest)
 
-GetResponse = _reflection.GeneratedProtocolMessageType('GetResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.GetResponse)
-  })
+GetResponse = _reflection.GeneratedProtocolMessageType(
+    "GetResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _GETRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.GetResponse)
+    },
+)
 _sym_db.RegisterMessage(GetResponse)
 
-SendFilRequest = _reflection.GeneratedProtocolMessageType('SendFilRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SENDFILREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.SendFilRequest)
-  })
+SendFilRequest = _reflection.GeneratedProtocolMessageType(
+    "SendFilRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SENDFILREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.SendFilRequest)
+    },
+)
 _sym_db.RegisterMessage(SendFilRequest)
 
-SendFilResponse = _reflection.GeneratedProtocolMessageType('SendFilResponse', (_message.Message,), {
-  'DESCRIPTOR' : _SENDFILRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.SendFilResponse)
-  })
+SendFilResponse = _reflection.GeneratedProtocolMessageType(
+    "SendFilResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SENDFILRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.SendFilResponse)
+    },
+)
 _sym_db.RegisterMessage(SendFilResponse)
 
-CloseRequest = _reflection.GeneratedProtocolMessageType('CloseRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CLOSEREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CloseRequest)
-  })
-_sym_db.RegisterMessage(CloseRequest)
-
-CloseResponse = _reflection.GeneratedProtocolMessageType('CloseResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CLOSERESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CloseResponse)
-  })
-_sym_db.RegisterMessage(CloseResponse)
-
-StageRequest = _reflection.GeneratedProtocolMessageType('StageRequest', (_message.Message,), {
-  'DESCRIPTOR' : _STAGEREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.StageRequest)
-  })
+StageRequest = _reflection.GeneratedProtocolMessageType(
+    "StageRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _STAGEREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.StageRequest)
+    },
+)
 _sym_db.RegisterMessage(StageRequest)
 
-StageResponse = _reflection.GeneratedProtocolMessageType('StageResponse', (_message.Message,), {
-  'DESCRIPTOR' : _STAGERESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.StageResponse)
-  })
+StageResponse = _reflection.GeneratedProtocolMessageType(
+    "StageResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _STAGERESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.StageResponse)
+    },
+)
 _sym_db.RegisterMessage(StageResponse)
 
-ListPayChannelsRequest = _reflection.GeneratedProtocolMessageType('ListPayChannelsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTPAYCHANNELSREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListPayChannelsRequest)
-  })
+ListPayChannelsRequest = _reflection.GeneratedProtocolMessageType(
+    "ListPayChannelsRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTPAYCHANNELSREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListPayChannelsRequest)
+    },
+)
 _sym_db.RegisterMessage(ListPayChannelsRequest)
 
-ListPayChannelsResponse = _reflection.GeneratedProtocolMessageType('ListPayChannelsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTPAYCHANNELSRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListPayChannelsResponse)
-  })
+ListPayChannelsResponse = _reflection.GeneratedProtocolMessageType(
+    "ListPayChannelsResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTPAYCHANNELSRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListPayChannelsResponse)
+    },
+)
 _sym_db.RegisterMessage(ListPayChannelsResponse)
 
-CreatePayChannelRequest = _reflection.GeneratedProtocolMessageType('CreatePayChannelRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEPAYCHANNELREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CreatePayChannelRequest)
-  })
+CreatePayChannelRequest = _reflection.GeneratedProtocolMessageType(
+    "CreatePayChannelRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CREATEPAYCHANNELREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CreatePayChannelRequest)
+    },
+)
 _sym_db.RegisterMessage(CreatePayChannelRequest)
 
-CreatePayChannelResponse = _reflection.GeneratedProtocolMessageType('CreatePayChannelResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEPAYCHANNELRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.CreatePayChannelResponse)
-  })
+CreatePayChannelResponse = _reflection.GeneratedProtocolMessageType(
+    "CreatePayChannelResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CREATEPAYCHANNELRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.CreatePayChannelResponse)
+    },
+)
 _sym_db.RegisterMessage(CreatePayChannelResponse)
 
-RedeemPayChannelRequest = _reflection.GeneratedProtocolMessageType('RedeemPayChannelRequest', (_message.Message,), {
-  'DESCRIPTOR' : _REDEEMPAYCHANNELREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.RedeemPayChannelRequest)
-  })
+RedeemPayChannelRequest = _reflection.GeneratedProtocolMessageType(
+    "RedeemPayChannelRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _REDEEMPAYCHANNELREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.RedeemPayChannelRequest)
+    },
+)
 _sym_db.RegisterMessage(RedeemPayChannelRequest)
 
-RedeemPayChannelResponse = _reflection.GeneratedProtocolMessageType('RedeemPayChannelResponse', (_message.Message,), {
-  'DESCRIPTOR' : _REDEEMPAYCHANNELRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.RedeemPayChannelResponse)
-  })
+RedeemPayChannelResponse = _reflection.GeneratedProtocolMessageType(
+    "RedeemPayChannelResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _REDEEMPAYCHANNELRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.RedeemPayChannelResponse)
+    },
+)
 _sym_db.RegisterMessage(RedeemPayChannelResponse)
 
-ListStorageDealRecordsRequest = _reflection.GeneratedProtocolMessageType('ListStorageDealRecordsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTSTORAGEDEALRECORDSREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListStorageDealRecordsRequest)
-  })
+ListStorageDealRecordsRequest = _reflection.GeneratedProtocolMessageType(
+    "ListStorageDealRecordsRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTSTORAGEDEALRECORDSREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListStorageDealRecordsRequest)
+    },
+)
 _sym_db.RegisterMessage(ListStorageDealRecordsRequest)
 
-ListStorageDealRecordsResponse = _reflection.GeneratedProtocolMessageType('ListStorageDealRecordsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTSTORAGEDEALRECORDSRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListStorageDealRecordsResponse)
-  })
+ListStorageDealRecordsResponse = _reflection.GeneratedProtocolMessageType(
+    "ListStorageDealRecordsResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTSTORAGEDEALRECORDSRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListStorageDealRecordsResponse)
+    },
+)
 _sym_db.RegisterMessage(ListStorageDealRecordsResponse)
 
-ListRetrievalDealRecordsRequest = _reflection.GeneratedProtocolMessageType('ListRetrievalDealRecordsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTRETRIEVALDEALRECORDSREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListRetrievalDealRecordsRequest)
-  })
+ListRetrievalDealRecordsRequest = _reflection.GeneratedProtocolMessageType(
+    "ListRetrievalDealRecordsRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTRETRIEVALDEALRECORDSREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListRetrievalDealRecordsRequest)
+    },
+)
 _sym_db.RegisterMessage(ListRetrievalDealRecordsRequest)
 
-ListRetrievalDealRecordsResponse = _reflection.GeneratedProtocolMessageType('ListRetrievalDealRecordsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTRETRIEVALDEALRECORDSRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ListRetrievalDealRecordsResponse)
-  })
+ListRetrievalDealRecordsResponse = _reflection.GeneratedProtocolMessageType(
+    "ListRetrievalDealRecordsResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _LISTRETRIEVALDEALRECORDSRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ListRetrievalDealRecordsResponse)
+    },
+)
 _sym_db.RegisterMessage(ListRetrievalDealRecordsResponse)
 
-ShowAllRequest = _reflection.GeneratedProtocolMessageType('ShowAllRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SHOWALLREQUEST,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ShowAllRequest)
-  })
+ShowAllRequest = _reflection.GeneratedProtocolMessageType(
+    "ShowAllRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SHOWALLREQUEST,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ShowAllRequest)
+    },
+)
 _sym_db.RegisterMessage(ShowAllRequest)
 
-ShowAllResponse = _reflection.GeneratedProtocolMessageType('ShowAllResponse', (_message.Message,), {
-  'DESCRIPTOR' : _SHOWALLRESPONSE,
-  '__module__' : 'ffs_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:ffs.rpc.ShowAllResponse)
-  })
+ShowAllResponse = _reflection.GeneratedProtocolMessageType(
+    "ShowAllResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _SHOWALLRESPONSE,
+        "__module__": "ffs_rpc_pb2"
+        # @@protoc_insertion_point(class_scope:ffs.rpc.ShowAllResponse)
+    },
+)
 _sym_db.RegisterMessage(ShowAllResponse)
 
 
 DESCRIPTOR._options = None
 
 _RPCSERVICE = _descriptor.ServiceDescriptor(
-  name='RPCService',
-  full_name='ffs.rpc.RPCService',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=5133,
-  serialized_end=7084,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Create',
-    full_name='ffs.rpc.RPCService.Create',
+    name="RPCService",
+    full_name="ffs.rpc.RPCService",
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_CREATEREQUEST,
-    output_type=_CREATERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ListAPI',
-    full_name='ffs.rpc.RPCService.ListAPI',
-    index=1,
-    containing_service=None,
-    input_type=_LISTAPIREQUEST,
-    output_type=_LISTAPIRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ID',
-    full_name='ffs.rpc.RPCService.ID',
-    index=2,
-    containing_service=None,
-    input_type=_IDREQUEST,
-    output_type=_IDRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Addrs',
-    full_name='ffs.rpc.RPCService.Addrs',
-    index=3,
-    containing_service=None,
-    input_type=_ADDRSREQUEST,
-    output_type=_ADDRSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DefaultStorageConfig',
-    full_name='ffs.rpc.RPCService.DefaultStorageConfig',
-    index=4,
-    containing_service=None,
-    input_type=_DEFAULTSTORAGECONFIGREQUEST,
-    output_type=_DEFAULTSTORAGECONFIGRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='NewAddr',
-    full_name='ffs.rpc.RPCService.NewAddr',
-    index=5,
-    containing_service=None,
-    input_type=_NEWADDRREQUEST,
-    output_type=_NEWADDRRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetStorageConfig',
-    full_name='ffs.rpc.RPCService.GetStorageConfig',
-    index=6,
-    containing_service=None,
-    input_type=_GETSTORAGECONFIGREQUEST,
-    output_type=_GETSTORAGECONFIGRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SetDefaultStorageConfig',
-    full_name='ffs.rpc.RPCService.SetDefaultStorageConfig',
-    index=7,
-    containing_service=None,
-    input_type=_SETDEFAULTSTORAGECONFIGREQUEST,
-    output_type=_SETDEFAULTSTORAGECONFIGRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Show',
-    full_name='ffs.rpc.RPCService.Show',
-    index=8,
-    containing_service=None,
-    input_type=_SHOWREQUEST,
-    output_type=_SHOWRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Info',
-    full_name='ffs.rpc.RPCService.Info',
-    index=9,
-    containing_service=None,
-    input_type=_INFOREQUEST,
-    output_type=_INFORESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CancelJob',
-    full_name='ffs.rpc.RPCService.CancelJob',
-    index=10,
-    containing_service=None,
-    input_type=_CANCELJOBREQUEST,
-    output_type=_CANCELJOBRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='WatchJobs',
-    full_name='ffs.rpc.RPCService.WatchJobs',
-    index=11,
-    containing_service=None,
-    input_type=_WATCHJOBSREQUEST,
-    output_type=_WATCHJOBSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='WatchLogs',
-    full_name='ffs.rpc.RPCService.WatchLogs',
-    index=12,
-    containing_service=None,
-    input_type=_WATCHLOGSREQUEST,
-    output_type=_WATCHLOGSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Replace',
-    full_name='ffs.rpc.RPCService.Replace',
-    index=13,
-    containing_service=None,
-    input_type=_REPLACEREQUEST,
-    output_type=_REPLACERESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='PushStorageConfig',
-    full_name='ffs.rpc.RPCService.PushStorageConfig',
-    index=14,
-    containing_service=None,
-    input_type=_PUSHSTORAGECONFIGREQUEST,
-    output_type=_PUSHSTORAGECONFIGRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Remove',
-    full_name='ffs.rpc.RPCService.Remove',
-    index=15,
-    containing_service=None,
-    input_type=_REMOVEREQUEST,
-    output_type=_REMOVERESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Get',
-    full_name='ffs.rpc.RPCService.Get',
-    index=16,
-    containing_service=None,
-    input_type=_GETREQUEST,
-    output_type=_GETRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SendFil',
-    full_name='ffs.rpc.RPCService.SendFil',
-    index=17,
-    containing_service=None,
-    input_type=_SENDFILREQUEST,
-    output_type=_SENDFILRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Close',
-    full_name='ffs.rpc.RPCService.Close',
-    index=18,
-    containing_service=None,
-    input_type=_CLOSEREQUEST,
-    output_type=_CLOSERESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Stage',
-    full_name='ffs.rpc.RPCService.Stage',
-    index=19,
-    containing_service=None,
-    input_type=_STAGEREQUEST,
-    output_type=_STAGERESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ListPayChannels',
-    full_name='ffs.rpc.RPCService.ListPayChannels',
-    index=20,
-    containing_service=None,
-    input_type=_LISTPAYCHANNELSREQUEST,
-    output_type=_LISTPAYCHANNELSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreatePayChannel',
-    full_name='ffs.rpc.RPCService.CreatePayChannel',
-    index=21,
-    containing_service=None,
-    input_type=_CREATEPAYCHANNELREQUEST,
-    output_type=_CREATEPAYCHANNELRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='RedeemPayChannel',
-    full_name='ffs.rpc.RPCService.RedeemPayChannel',
-    index=22,
-    containing_service=None,
-    input_type=_REDEEMPAYCHANNELREQUEST,
-    output_type=_REDEEMPAYCHANNELRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ListStorageDealRecords',
-    full_name='ffs.rpc.RPCService.ListStorageDealRecords',
-    index=23,
-    containing_service=None,
-    input_type=_LISTSTORAGEDEALRECORDSREQUEST,
-    output_type=_LISTSTORAGEDEALRECORDSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ListRetrievalDealRecords',
-    full_name='ffs.rpc.RPCService.ListRetrievalDealRecords',
-    index=24,
-    containing_service=None,
-    input_type=_LISTRETRIEVALDEALRECORDSREQUEST,
-    output_type=_LISTRETRIEVALDEALRECORDSRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ShowAll',
-    full_name='ffs.rpc.RPCService.ShowAll',
-    index=25,
-    containing_service=None,
-    input_type=_SHOWALLREQUEST,
-    output_type=_SHOWALLRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=5485,
+    serialized_end=7618,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name="Create",
+            full_name="ffs.rpc.RPCService.Create",
+            index=0,
+            containing_service=None,
+            input_type=_CREATEREQUEST,
+            output_type=_CREATERESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="ListAPI",
+            full_name="ffs.rpc.RPCService.ListAPI",
+            index=1,
+            containing_service=None,
+            input_type=_LISTAPIREQUEST,
+            output_type=_LISTAPIRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="ID",
+            full_name="ffs.rpc.RPCService.ID",
+            index=2,
+            containing_service=None,
+            input_type=_IDREQUEST,
+            output_type=_IDRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Addrs",
+            full_name="ffs.rpc.RPCService.Addrs",
+            index=3,
+            containing_service=None,
+            input_type=_ADDRSREQUEST,
+            output_type=_ADDRSRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="DefaultStorageConfig",
+            full_name="ffs.rpc.RPCService.DefaultStorageConfig",
+            index=4,
+            containing_service=None,
+            input_type=_DEFAULTSTORAGECONFIGREQUEST,
+            output_type=_DEFAULTSTORAGECONFIGRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="NewAddr",
+            full_name="ffs.rpc.RPCService.NewAddr",
+            index=5,
+            containing_service=None,
+            input_type=_NEWADDRREQUEST,
+            output_type=_NEWADDRRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="SignMessage",
+            full_name="ffs.rpc.RPCService.SignMessage",
+            index=6,
+            containing_service=None,
+            input_type=_SIGNMESSAGEREQUEST,
+            output_type=_SIGNMESSAGERESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="VerifyMessage",
+            full_name="ffs.rpc.RPCService.VerifyMessage",
+            index=7,
+            containing_service=None,
+            input_type=_VERIFYMESSAGEREQUEST,
+            output_type=_VERIFYMESSAGERESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="GetStorageConfig",
+            full_name="ffs.rpc.RPCService.GetStorageConfig",
+            index=8,
+            containing_service=None,
+            input_type=_GETSTORAGECONFIGREQUEST,
+            output_type=_GETSTORAGECONFIGRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="SetDefaultStorageConfig",
+            full_name="ffs.rpc.RPCService.SetDefaultStorageConfig",
+            index=9,
+            containing_service=None,
+            input_type=_SETDEFAULTSTORAGECONFIGREQUEST,
+            output_type=_SETDEFAULTSTORAGECONFIGRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Show",
+            full_name="ffs.rpc.RPCService.Show",
+            index=10,
+            containing_service=None,
+            input_type=_SHOWREQUEST,
+            output_type=_SHOWRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Info",
+            full_name="ffs.rpc.RPCService.Info",
+            index=11,
+            containing_service=None,
+            input_type=_INFOREQUEST,
+            output_type=_INFORESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="CancelJob",
+            full_name="ffs.rpc.RPCService.CancelJob",
+            index=12,
+            containing_service=None,
+            input_type=_CANCELJOBREQUEST,
+            output_type=_CANCELJOBRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="GetStorageJob",
+            full_name="ffs.rpc.RPCService.GetStorageJob",
+            index=13,
+            containing_service=None,
+            input_type=_GETSTORAGEJOBREQUEST,
+            output_type=_GETSTORAGEJOBRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="WatchJobs",
+            full_name="ffs.rpc.RPCService.WatchJobs",
+            index=14,
+            containing_service=None,
+            input_type=_WATCHJOBSREQUEST,
+            output_type=_WATCHJOBSRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="WatchLogs",
+            full_name="ffs.rpc.RPCService.WatchLogs",
+            index=15,
+            containing_service=None,
+            input_type=_WATCHLOGSREQUEST,
+            output_type=_WATCHLOGSRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Replace",
+            full_name="ffs.rpc.RPCService.Replace",
+            index=16,
+            containing_service=None,
+            input_type=_REPLACEREQUEST,
+            output_type=_REPLACERESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="PushStorageConfig",
+            full_name="ffs.rpc.RPCService.PushStorageConfig",
+            index=17,
+            containing_service=None,
+            input_type=_PUSHSTORAGECONFIGREQUEST,
+            output_type=_PUSHSTORAGECONFIGRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Remove",
+            full_name="ffs.rpc.RPCService.Remove",
+            index=18,
+            containing_service=None,
+            input_type=_REMOVEREQUEST,
+            output_type=_REMOVERESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Get",
+            full_name="ffs.rpc.RPCService.Get",
+            index=19,
+            containing_service=None,
+            input_type=_GETREQUEST,
+            output_type=_GETRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="SendFil",
+            full_name="ffs.rpc.RPCService.SendFil",
+            index=20,
+            containing_service=None,
+            input_type=_SENDFILREQUEST,
+            output_type=_SENDFILRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="Stage",
+            full_name="ffs.rpc.RPCService.Stage",
+            index=21,
+            containing_service=None,
+            input_type=_STAGEREQUEST,
+            output_type=_STAGERESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="ListPayChannels",
+            full_name="ffs.rpc.RPCService.ListPayChannels",
+            index=22,
+            containing_service=None,
+            input_type=_LISTPAYCHANNELSREQUEST,
+            output_type=_LISTPAYCHANNELSRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="CreatePayChannel",
+            full_name="ffs.rpc.RPCService.CreatePayChannel",
+            index=23,
+            containing_service=None,
+            input_type=_CREATEPAYCHANNELREQUEST,
+            output_type=_CREATEPAYCHANNELRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="RedeemPayChannel",
+            full_name="ffs.rpc.RPCService.RedeemPayChannel",
+            index=24,
+            containing_service=None,
+            input_type=_REDEEMPAYCHANNELREQUEST,
+            output_type=_REDEEMPAYCHANNELRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="ListStorageDealRecords",
+            full_name="ffs.rpc.RPCService.ListStorageDealRecords",
+            index=25,
+            containing_service=None,
+            input_type=_LISTSTORAGEDEALRECORDSREQUEST,
+            output_type=_LISTSTORAGEDEALRECORDSRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="ListRetrievalDealRecords",
+            full_name="ffs.rpc.RPCService.ListRetrievalDealRecords",
+            index=26,
+            containing_service=None,
+            input_type=_LISTRETRIEVALDEALRECORDSREQUEST,
+            output_type=_LISTRETRIEVALDEALRECORDSRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="ShowAll",
+            full_name="ffs.rpc.RPCService.ShowAll",
+            index=27,
+            containing_service=None,
+            input_type=_SHOWALLREQUEST,
+            output_type=_SHOWALLRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+)
 _sym_db.RegisterServiceDescriptor(_RPCSERVICE)
 
-DESCRIPTOR.services_by_name['RPCService'] = _RPCSERVICE
+DESCRIPTOR.services_by_name["RPCService"] = _RPCSERVICE
 
 # @@protoc_insertion_point(module_scope)

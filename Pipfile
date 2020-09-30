@@ -27,7 +27,7 @@ build = "python setup.py sdist bdist_wheel"
 publish = "twine upload dist/*"
 format = "bash -c \"python -m black $(git ls-files '*.py')\""
 integration-test = "python -m pytest tests/integration/"
-test-ffs = "python -m pytest tests/integration/test_ffs.py "
+test-ffs = "python -m pytest tests/integration/test_ffs.py"
 
 [packages]
 grpcio = "*"

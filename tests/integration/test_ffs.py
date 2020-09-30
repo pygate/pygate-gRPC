@@ -56,7 +56,7 @@ def test_grpc_ffs_list_wallet(pygate_client: PowerGateClient, ffs_instance):
 
 
 def test_create_new_wallet_address(
-        pygate_client: PowerGateClient, ffs_instance: CreateResponse
+    pygate_client: PowerGateClient, ffs_instance: CreateResponse
 ):
     new_addr_name = "test"
     addr = pygate_client.ffs.addrs_new(name=new_addr_name, token=ffs_instance.token)
@@ -74,25 +74,31 @@ def test_create_new_wallet_address(
 
 def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     sender_addr_name = "fil_sender"
-    sender_addr = pygate_client.ffs.addrs_new(name=sender_addr_name, token=ffs_instance.token)
+    sender_addr = pygate_client.ffs.addrs_new(
+        name=sender_addr_name, token=ffs_instance.token
+    )
 
     receiver_addr_name = "fil_receiver"
-    receiver_addr = pygate_client.ffs.addrs_new(name=receiver_addr_name, token=ffs_instance.token)
+    receiver_addr = pygate_client.ffs.addrs_new(
+        name=receiver_addr_name, token=ffs_instance.token
+    )
 
     # Sleep a bit to wait for initialization
     time.sleep(5)
     before_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     before_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
-    pygate_client.ffs.send_fil(sender_addr.addr, receiver_addr.addr, 1, token=ffs_instance.token)
+    pygate_client.ffs.send_fil(
+        sender_addr.addr, receiver_addr.addr, 1, token=ffs_instance.token
+    )
 
     # Wait a bit for transaction to complete
     time.sleep(5)
     after_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     after_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
-    assert (before_sender_fil.balance - 1) == after_sender_fil.balance
-    assert (before_receiver_fil.balance + 1) == after_receiver_fil.balance
+    assert before_sender_fil.balance > after_sender_fil.balance
+    assert before_receiver_fil.balance < after_receiver_fil.balance
 
 
 def test_chunks():

@@ -7,8 +7,12 @@ logger = logging.getLogger(__name__)
 
 
 class WalletClient(object):
-    def __init__(self, host_name):
-        channel = grpc.insecure_channel(host_name)
+    def __init__(self, host_name, is_secure):
+        channel = (
+            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
+            if is_secure
+            else grpc.insecure_channel(host_name)
+        )
         self.client = wallet_rpc_pb2_grpc.RPCServiceStub(channel)
 
     # Type should be either `bls` or `secp256k1`.

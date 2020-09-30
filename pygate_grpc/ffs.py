@@ -38,9 +38,13 @@ def get_file_bytes(filename: str):
 
 
 class FfsClient(object, metaclass=ErrorHandlerMeta):
-    def __init__(self, host_name: str):
+    def __init__(self, host_name: str, is_secure: bool):
         self.host_name = host_name
-        channel = grpc.insecure_channel(host_name)
+        channel = (
+            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
+            if is_secure
+            else grpc.insecure_channel(host_name)
+        )
         self.client = ffs_rpc_pb2_grpc.RPCServiceStub(channel)
         self.token = None
 
@@ -71,9 +75,21 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         )
         return self.client.NewAddr(req, metadata=self._get_meta_data(token))
 
+    def sign_message(self, addr: str, msg: bytes, token: str = None):
+        req = ffs_rpc_pb2.SignMessageRequest(addr=addr, msg=msg)
+        return self.client.SignMessage(req, metadata=self._get_meta_data(token))
+
+    def verify_message(
+        self, addr: str, msg: bytes, signature: bytes, token: str = None
+    ):
+        req = ffs_rpc_pb2.VerifyMessageRequest(addr=addr, msg=msg, signature=signature)
+        return self.client.VerifyMessage(req, metadata=self._get_meta_data(token))
+
     def default_config(self, token: str = None):
         req = ffs_rpc_pb2.DefaultStorageConfigRequest()
-        return self.client.DefaultStorageConfig(req, metadata=self._get_meta_data(token))
+        return self.client.DefaultStorageConfig(
+            req, metadata=self._get_meta_data(token)
+        )
 
     def default_config_for_cid(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.GetStorageConfigRequest(cid=cid)
@@ -83,7 +99,9 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     def set_default_config(self, config: str, token: str = None):
         config = Parse(config, ffs_rpc_pb2.StorageConfig())
         req = ffs_rpc_pb2.SetDefaultStorageConfigRequest(config=config)
-        return self.client.SetDefaultStorageConfig(req, metadata=self._get_meta_data(token))
+        return self.client.SetDefaultStorageConfig(
+            req, metadata=self._get_meta_data(token)
+        )
 
     def show(self, cid: str, token: str = None):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
@@ -93,15 +111,13 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     # it is the caller's responsibility to create the iterator.
     # The provided getFileChunks comes in handy some times.
     # TODO: deprecate this.
-    @deprecated(version='0.0.6', reason="This method is deprecated")
+    @deprecated(version="0.0.6", reason="This method is deprecated")
     def add_to_hot(
         self, chunks_iter: Iterable[ffs_rpc_pb2.StageRequest], token: str = None
     ):
         return self.client.Stage(chunks_iter, metadata=self._get_meta_data(token))
 
-    def stage(
-        self, chunks_iter: Iterable[ffs_rpc_pb2.StageRequest], token: str = None
-    ):
+    def stage(self, chunks_iter: Iterable[ffs_rpc_pb2.StageRequest], token: str = None):
         return self.client.Stage(chunks_iter, metadata=self._get_meta_data(token))
 
     # This will return an iterator which callers can look through
@@ -124,6 +140,10 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
         return self.client.Info(req, metadata=self._get_meta_data(token))
 
+    def get_storage_job(self, jid: str, token: str = None):
+        req = ffs_rpc_pb2.GetStorageJobRequest(jid=jid)
+        return self.client.GetStorageJob(req, metadata=self._get_meta_data(token))
+
     def push(self, cid, token: str = None):
         req = ffs_rpc_pb2.PushStorageConfigRequest(cid=cid)
         return self.client.PushStorageConfig(req, metadata=self._get_meta_data(token))
@@ -136,12 +156,16 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.ListPayChannelsRequest()
         return self.client.ListPayChannels(req, metadata=self._get_meta_data(token))
 
-    def create_pay_channel(self, sender: str, receiver: str, amount: int, token: str = None):
+    def create_pay_channel(
+        self, sender: str, receiver: str, amount: int, token: str = None
+    ):
         kwargs = {"from": sender, "to": receiver, "amount": amount}
         req = ffs_rpc_pb2.CreateRequest(kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
 
-    def redeem_pay_channel(self, sender: str, receiver: str, amount: int, token: str = None):
+    def redeem_pay_channel(
+        self, sender: str, receiver: str, amount: int, token: str = None
+    ):
         kwargs = {"from": sender, "to": receiver, "amount": amount}
         req = ffs_rpc_pb2.CreateRequest(kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))

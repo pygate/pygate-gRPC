@@ -121,9 +121,9 @@ def localnet(docker_services):
 
 @pytest.fixture(scope="session")
 def pygate_client():
-    return PowerGateClient("127.0.0.1:5002")
+    return PowerGateClient("127.0.0.1:5002", False)
 
 
 @pytest.fixture(scope="session")
 def pygate_health_client():
-    return HealthClient("127.0.0.1:5002")
+    return HealthClient("127.0.0.1:5002", False)

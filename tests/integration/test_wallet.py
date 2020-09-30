@@ -65,5 +65,5 @@ def test_send_file(pygate_client: PowerGateClient):
     after_sender_fil = pygate_client.wallet.balance(sender_addr)
     after_receiver_fil = pygate_client.wallet.balance(receiver_addr)
 
-    assert (before_sender_fil.balance - 1) == after_sender_fil.balance
-    assert (before_receiver_fil.balance + 1) == after_receiver_fil.balance
+    assert before_sender_fil.balance > after_sender_fil.balance
+    assert before_receiver_fil.balance < after_receiver_fil.balance

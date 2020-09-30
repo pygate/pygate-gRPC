@@ -363,7 +363,9 @@ _INDEX = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_INDEX_STORAGEENTRY,],
+    nested_types=[
+        _INDEX_STORAGEENTRY,
+    ],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
