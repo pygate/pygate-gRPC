@@ -9,8 +9,12 @@ logger = logging.getLogger(__name__)
 
 
 class HealthClient(object, metaclass=ErrorHandlerMeta):
-    def __init__(self, host_name):
-        channel = grpc.insecure_channel(host_name)
+    def __init__(self, host_name, is_secure):
+        channel = (
+            grpc.secure_channel(host_name)
+            if is_secure
+            else grpc.insecure_channel(host_name)
+        )
         self.client = health_rpc_pb2_grpc.RPCServiceStub(channel)
 
     def check(self):

@@ -7,7 +7,7 @@ if __name__ == "__main__":
     hostName = "127.0.0.1:5002"
 
     # Create client
-    c = PowerGateClient(hostName)
+    c = PowerGateClient(hostName, False)
 
     # Create FFS
     ffs = c.ffs.create()

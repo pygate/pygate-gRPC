@@ -189,7 +189,9 @@ _ONCHAININDEX = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_ONCHAININDEX_MINERSENTRY,],
+    nested_types=[
+        _ONCHAININDEX_MINERSENTRY,
+    ],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -425,7 +427,9 @@ _METAINDEX = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_METAINDEX_INFOENTRY,],
+    nested_types=[
+        _METAINDEX_INFOENTRY,
+    ],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,

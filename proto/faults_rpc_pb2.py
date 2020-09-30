@@ -129,7 +129,9 @@ _INDEX = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_INDEX_MINERSENTRY,],
+    nested_types=[
+        _INDEX_MINERSENTRY,
+    ],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,

@@ -6,8 +6,12 @@ from pygate_grpc.errors import ErrorHandlerMeta
 
 
 class FaultsClient(object, metaclass=ErrorHandlerMeta):
-    def __init__(self, host_name):
-        channel = grpc.insecure_channel(host_name)
+    def __init__(self, host_name, is_secure):
+        channel = (
+            grpc.secure_channel(host_name)
+            if is_secure
+            else grpc.insecure_channel(host_name)
+        )
         self.client = faults_rpc_pb2_grpc.RPCServiceStub(channel)
 
     def get(self):
