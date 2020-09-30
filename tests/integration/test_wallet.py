@@ -39,7 +39,7 @@ def test_grpc_wallet_balance(pygate_client: PowerGateClient):
 
     balance_res = pygate_client.wallet.balance(new_res.address)
     assert type(balance_res) is BalanceResponse
-    assert balance_res.balance == 4000000000000000
+    assert balance_res.balance == 250000000000000000
 
 
 def test_send_file(pygate_client: PowerGateClient):

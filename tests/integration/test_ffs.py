@@ -29,14 +29,14 @@ def test_grpc_ffs_list_api(pygate_client: PowerGateClient, ffs_instance):
 
 
 def test_grpc_ffs_add_to_hot(pygate_client: PowerGateClient, ffs_instance):
-    res = pygate_client.ffs.add_to_hot(test_chunks(), ffs_instance.token)
+    res = pygate_client.ffs.add_to_hot(chunks(), ffs_instance.token)
 
     assert res is not None
     assert res.cid is not None
 
 
 def test_grpc_ffs_add_then_get_content(pygate_client: PowerGateClient, ffs_instance):
-    res = pygate_client.ffs.add_to_hot(test_chunks(), ffs_instance.token)
+    res = pygate_client.ffs.add_to_hot(chunks(), ffs_instance.token)
 
     assert res is not None
 
@@ -101,6 +101,6 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     assert before_receiver_fil.balance < after_receiver_fil.balance
 
 
-def test_chunks():
+def chunks():
     for _ in range(1):
         yield StageRequest(chunk=bytes("test_content", "ASCII"))
