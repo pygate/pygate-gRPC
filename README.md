@@ -39,6 +39,8 @@ Examples of more elaborated usage can be found in the [examples](./examples/)  f
 
 ## Development
 
+Please read contribution [guidelines]("./CONTRIBUTING.md) before starting development.
+
 To setup your development environment make sure you have the following software:
 
 - [Python](https://www.python.org/downloads/release/python-370/)
