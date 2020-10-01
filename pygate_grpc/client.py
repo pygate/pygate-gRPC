@@ -3,7 +3,7 @@ from pygate_grpc import health, faults, buildinfo, ffs, wallet, net
 
 
 class PowerGateClient(object):
-    def __init__(self, host_name, is_secure):
+    def __init__(self, host_name, is_secure=False):
         self.health = health.HealthClient(host_name, is_secure)
         self.faults = faults.FaultsClient(host_name, is_secure)
         self.buildinfo = buildinfo.BuildinfoClient(host_name, is_secure)
