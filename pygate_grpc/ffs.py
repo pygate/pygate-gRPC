@@ -1,10 +1,11 @@
+from time import time
 import grpc
 
 from typing import Iterable, Tuple
 from proto import ffs_rpc_pb2
 from proto import ffs_rpc_pb2_grpc
 from google.protobuf.json_format import Parse
-from pygate_grpc.errors import ErrorHandlerMeta
+from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
 from deprecated import deprecated
 
 TOKEN_KEY = "x-ffs-token"
@@ -21,9 +22,7 @@ def chunks_to_bytes(chunks: Iterable[ffs_rpc_pb2.StageRequest]) -> Iterable[byte
         yield c.chunk
 
 
-def bytes_to_chunks(
-    bytes_iter: Iterable[bytes],
-) -> Iterable[ffs_rpc_pb2.StageRequest]:
+def bytes_to_chunks(bytes_iter: Iterable[bytes],) -> Iterable[ffs_rpc_pb2.StageRequest]:
     for b in bytes_iter:
         yield ffs_rpc_pb2.StageRequest(chunk=b)
 
@@ -38,13 +37,7 @@ def get_file_bytes(filename: str):
 
 
 class FfsClient(object, metaclass=ErrorHandlerMeta):
-    def __init__(self, host_name: str, is_secure: bool):
-        self.host_name = host_name
-        channel = (
-            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
-            if is_secure
-            else grpc.insecure_channel(host_name)
-        )
+    def __init__(self, channel):
         self.client = ffs_rpc_pb2_grpc.RPCServiceStub(channel)
         self.token = None
 
@@ -132,9 +125,12 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.SendFilRequest(**kwargs)
         return self.client.SendFil(req, metadata=self._get_meta_data(token))
 
-    def logs(self, cid, token: str = None):
-        req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)
-        return self.client.WatchLogs(req, metadata=self._get_meta_data(token))
+    @future_error_handler
+    def logs(self, cid, token: str = None, history: bool = False, timeout: int = None):
+        req = ffs_rpc_pb2.WatchLogsRequest(cid=cid, history=history)
+        return self.client.WatchLogs(
+            req, metadata=self._get_meta_data(token), timeout=timeout
+        )
 
     def info(self, cid, token: str = None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)

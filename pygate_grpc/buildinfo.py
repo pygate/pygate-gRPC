@@ -7,12 +7,7 @@ from pygate_grpc.errors import ErrorHandlerMeta
 
 class BuildinfoClient(object, metaclass=ErrorHandlerMeta):
     ## THIS USED AN OUTDATED PROTO SPECIFICATION IT NEEDS RE DEVELOPMENT
-    def __init__(self, host_name, is_secure):
-        channel = (
-            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
-            if is_secure
-            else grpc.insecure_channel(host_name)
-        )
+    def __init__(self, channel):
         self.client = buildinfo_rpc_pb2_grpc.RPCServiceStub(channel)
 
     def final_records(self):
