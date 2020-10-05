@@ -12,6 +12,7 @@ def error_handler(func):
     """A decorator to handle errors"""
 
     wraps(func)
+
     def wrapper(*args, **kwargs):
         try:
             return func(*args, **kwargs)
@@ -22,7 +23,9 @@ def error_handler(func):
         except grpc._channel._MultiThreadedRendezvous as e:
             err_to_raise = e
             if err_to_raise.code() == grpc.StatusCode.DEADLINE_EXCEEDED:
-                err_to_raise = GRPCTimeoutException(e, e._state, e._call, e._response_deserializer, e._deadline)
+                err_to_raise = GRPCTimeoutException(
+                    e, e._state, e._call, e._response_deserializer, e._deadline
+                )
         raise err_to_raise
 
     return wrapper
@@ -31,6 +34,7 @@ def error_handler(func):
 def future_error_handler(func):
 
     wraps(func)
+
     def wrapper(*args, **kwargs):
         future = func(*args, **kwargs)
         if hasattr(future, "result") and callable(future.result):
@@ -40,6 +44,7 @@ def future_error_handler(func):
         if hasattr(future, "_next") and callable(future._next):
             future._next = error_handler(future._next)
         return future
+
     return wrapper
 
 

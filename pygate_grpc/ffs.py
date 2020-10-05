@@ -22,9 +22,7 @@ def chunks_to_bytes(chunks: Iterable[ffs_rpc_pb2.StageRequest]) -> Iterable[byte
         yield c.chunk
 
 
-def bytes_to_chunks(
-    bytes_iter: Iterable[bytes],
-) -> Iterable[ffs_rpc_pb2.StageRequest]:
+def bytes_to_chunks(bytes_iter: Iterable[bytes],) -> Iterable[ffs_rpc_pb2.StageRequest]:
     for b in bytes_iter:
         yield ffs_rpc_pb2.StageRequest(chunk=b)
 
@@ -130,7 +128,9 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
     @future_error_handler
     def logs(self, cid, token: str = None, history: bool = False, timeout: int = None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid, history=history)
-        return self.client.WatchLogs(req, metadata=self._get_meta_data(token), timeout=timeout)
+        return self.client.WatchLogs(
+            req, metadata=self._get_meta_data(token), timeout=timeout
+        )
 
     def info(self, cid, token: str = None):
         req = ffs_rpc_pb2.WatchLogsRequest(cid=cid)

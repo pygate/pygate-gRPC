@@ -101,6 +101,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     assert before_sender_fil.balance > after_sender_fil.balance
     assert before_receiver_fil.balance < after_receiver_fil.balance
 
+
 def test_ffs_logs(pygate_client: PowerGateClient, ffs_instance):
     ffs = pygate_client.ffs.create()
 
@@ -108,14 +109,15 @@ def test_ffs_logs(pygate_client: PowerGateClient, ffs_instance):
     push_res = pygate_client.ffs.push(stage_res.cid, ffs.token)
     logs_res = pygate_client.ffs.logs(stage_res.cid, ffs.token, history=True, timeout=5)
 
-    logs=[]
+    logs = []
     try:
         for f in logs_res:
             logs.append(f)
     except GRPCTimeoutException:
         pass
-    
+
     assert len(logs) > 0
+
 
 def chunks():
     for _ in range(1):

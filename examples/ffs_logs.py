@@ -20,7 +20,7 @@ stage_res = client.ffs.stage(stage_requests_iter, ffs.token)
 push_res = client.ffs.push(stage_res.cid, ffs.token)
 logs_res = client.ffs.logs(stage_res.cid, ffs.token, history=True, timeout=5)
 
-logs=[]
+logs = []
 # iterating through the logs is a blocking operation, by using a timeout and
 # the following exception handling we can make sure that the operation exits
 # after the specified timeout.

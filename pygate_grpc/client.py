@@ -10,9 +10,8 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
             grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
             if is_secure
             else grpc.insecure_channel(host_name)
-        
         )
-    
+
         self.health = health.HealthClient(self.channel)
         self.faults = faults.FaultsClient(self.channel)
         self.buildinfo = buildinfo.BuildinfoClient(self.channel)
