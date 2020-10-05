@@ -3,7 +3,11 @@ import logging
 
 from functools import wraps
 
-from pygate_grpc.exceptions import GRPCNotAvailableException, GRPCTimeoutException
+from pygate_grpc.exceptions import (
+    GRPCNotAvailableException,
+    GRPCTimeoutException,
+    PyGateGenericException,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +24,8 @@ def error_handler(func):
             err_to_raise = e
             if err_to_raise.code() == grpc.StatusCode.UNAVAILABLE:
                 err_to_raise = GRPCNotAvailableException(e)
+            # elif err_to_raise.code() == grpc.StatusCode.UNKNOWN:
+            #     err_to_raise = PyGateGenericException(e)
         except grpc._channel._MultiThreadedRendezvous as e:
             err_to_raise = e
             if err_to_raise.code() == grpc.StatusCode.DEADLINE_EXCEEDED:

@@ -10,7 +10,7 @@
     "enabled": true,
     "filecoin": {
       "repFactor": 1,
-      "dealMinDuration": 1000,
+      "dealMinDuration": 518400,
       "excludedMiners": ["t01101"],
       "trustedMiners": ["t01000", "t02000"],
       "countryCodes": ["ca", "nl"],
