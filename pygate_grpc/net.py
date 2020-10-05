@@ -7,12 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 class NetClient(object):
-    def __init__(self, host_name, is_secure):
-        channel = (
-            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
-            if is_secure
-            else grpc.insecure_channel(host_name)
-        )
+    def __init__(self, channel):
         self.client = net_rpc_pb2_grpc.RPCServiceStub(channel)
 
     def listen_adderess(self) -> net_rpc_pb2.ListenAddrResponse:

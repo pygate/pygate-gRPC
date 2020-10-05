@@ -1,12 +1,21 @@
-from proto import ffs_rpc_pb2
+import grpc
+
 from pygate_grpc import health, faults, buildinfo, ffs, wallet, net
+from pygate_grpc.errors import ErrorHandlerMeta
 
 
-class PowerGateClient(object):
+class PowerGateClient(object, metaclass=ErrorHandlerMeta):
     def __init__(self, host_name, is_secure=False):
-        self.health = health.HealthClient(host_name, is_secure)
-        self.faults = faults.FaultsClient(host_name, is_secure)
-        self.buildinfo = buildinfo.BuildinfoClient(host_name, is_secure)
-        self.ffs = ffs.FfsClient(host_name, is_secure)
-        self.wallet = wallet.WalletClient(host_name, is_secure)
-        self.net = net.NetClient(host_name, is_secure)
+        self.channel = (
+            grpc.secure_channel(host_name, grpc.ssl_channel_credentials())
+            if is_secure
+            else grpc.insecure_channel(host_name)
+        
+        )
+    
+        self.health = health.HealthClient(self.channel)
+        self.faults = faults.FaultsClient(self.channel)
+        self.buildinfo = buildinfo.BuildinfoClient(self.channel)
+        self.ffs = ffs.FfsClient(self.channel)
+        self.wallet = wallet.WalletClient(self.channel)
+        self.net = net.NetClient(self.channel)

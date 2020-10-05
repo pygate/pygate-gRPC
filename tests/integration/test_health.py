@@ -2,14 +2,14 @@ import logging
 import grpc
 import pytest
 
-from pygate_grpc.health import HealthClient
+from pygate_grpc.client import PowerGateClient 
 from proto.health_rpc_pb2 import CheckResponse, STATUS_OK
 
 logger = logging.getLogger(__name__)
 
 
-def test_grpc_health(pygate_health_client: HealthClient):
-    res = pygate_health_client.check()
+def test_grpc_health(pygate_client: PowerGateClient):
+    res = pygate_client.health.check()
 
     assert type(res) == CheckResponse
     assert res.status == STATUS_OK
