@@ -1,7 +1,5 @@
 import logging
 
-import grpc
-
 import proto.wallet_rpc_pb2 as wallet_rpc_pb2
 import proto.wallet_rpc_pb2_grpc as wallet_rpc_pb2_grpc
 

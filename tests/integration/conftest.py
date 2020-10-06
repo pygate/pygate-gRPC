@@ -2,16 +2,14 @@ import logging
 import os
 import shutil
 import subprocess
+from logging.config import fileConfig
+from time import sleep, time
+
 import docker
 import pytest
-
-from logging.config import fileConfig
-from subprocess import DEVNULL, Popen
-from time import sleep, time
 from git import Repo
 
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.health import HealthClient
 
 fileConfig("logging.ini")
 
@@ -29,7 +27,7 @@ def is_docker_running():
     is_running = True
     try:
         client.info()
-    except Exception as e:
+    except Exception:
         is_running = False
     finally:
         client.close()
@@ -84,7 +82,7 @@ def pytest_unconfigure(config):
     """Runs before test process exits. Cleans up any artifacts from configure"""
     try:
         shutil.rmtree(REPO_LOCAL_PATH)
-    except OSError as e:
+    except OSError:
         logger.warning(
             "Couldn't delete powergate repository. Maybe it wasn't cloned in the first place"
         )

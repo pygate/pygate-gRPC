@@ -1,6 +1,6 @@
 import grpc
 
-from pygate_grpc import health, faults, buildinfo, ffs, wallet, net
+from pygate_grpc import buildinfo, faults, ffs, health, net, wallet
 from pygate_grpc.errors import ErrorHandlerMeta
 
 

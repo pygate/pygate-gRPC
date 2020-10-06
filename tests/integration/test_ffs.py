@@ -1,10 +1,11 @@
 import logging
-from pygate_grpc.exceptions import GRPCTimeoutException
-import pytest
 import time
+
+import pytest
 
 from proto.ffs_rpc_pb2 import AddrInfo, CreateResponse, StageRequest
 from pygate_grpc.client import PowerGateClient
+from pygate_grpc.exceptions import GRPCTimeoutException
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +86,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     )
 
     # Sleep a bit to wait for initialization
-    time.sleep(10)
+    time.sleep(5)
     before_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     before_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
@@ -94,7 +95,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     )
 
     # Wait a bit for transaction to complete
-    time.sleep(10)
+    time.sleep(5)
     after_sender_fil = pygate_client.wallet.balance(sender_addr.addr)
     after_receiver_fil = pygate_client.wallet.balance(receiver_addr.addr)
 
@@ -106,7 +107,7 @@ def test_ffs_logs(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
-    push_res = pygate_client.ffs.push(stage_res.cid, ffs.token)
+    pygate_client.ffs.push(stage_res.cid, ffs.token)
     logs_res = pygate_client.ffs.logs(stage_res.cid, ffs.token, history=True, timeout=5)
 
     logs = []
@@ -123,7 +124,7 @@ def test_storage_deals(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
-    push_res = pygate_client.ffs.push(stage_res.cid, ffs.token)
+    pygate_client.ffs.push(stage_res.cid, ffs.token)
 
     time.sleep(3)
 

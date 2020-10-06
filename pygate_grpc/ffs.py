@@ -1,14 +1,10 @@
-import grpc
+from typing import Iterable, List, Tuple
 
-from time import time
-from typing import Iterable, Tuple, NamedTuple, List
-from proto import ffs_rpc_pb2
-from proto import ffs_rpc_pb2_grpc
-from google.protobuf.json_format import Parse
 from deprecated import deprecated
+from google.protobuf.json_format import Parse
 
+from proto import ffs_rpc_pb2, ffs_rpc_pb2_grpc
 from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
-
 
 TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB

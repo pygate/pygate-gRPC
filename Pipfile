@@ -28,7 +28,8 @@ python_version = "3.7"
 [scripts]
 build = "python setup.py sdist bdist_wheel"
 publish = "twine upload dist/*"
-format = "bash -c \"python -m black $(git ls-files '*.py')\""
+format = "bash -c \"python -m isort setup.py pygate_grpc tests && python -m black $(git ls-files '*.py')\""
+lint = "bash -c \"python -m flake8\""
 integration-test = "python -m pytest tests/integration/"
 test-ffs = "python -m pytest tests/integration/test_ffs.py"
 

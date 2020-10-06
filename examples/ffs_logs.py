@@ -1,5 +1,3 @@
-import time
-
 from io import BytesIO
 
 from pygate_grpc.client import PowerGateClient

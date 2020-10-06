@@ -3,7 +3,7 @@ import time
 from io import BytesIO
 
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.ffs import get_file_bytes, bytes_to_chunks
+from pygate_grpc.ffs import bytes_to_chunks
 
 if __name__ == "__main__":
 

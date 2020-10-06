@@ -1,5 +1,4 @@
-from proto import faults_rpc_pb2
-from proto import faults_rpc_pb2_grpc
+from proto import faults_rpc_pb2, faults_rpc_pb2_grpc
 from pygate_grpc.errors import ErrorHandlerMeta
 
 
