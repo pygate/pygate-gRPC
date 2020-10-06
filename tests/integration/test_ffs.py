@@ -1,10 +1,11 @@
 import logging
-from pygate_grpc.exceptions import GRPCTimeoutException
-import pytest
 import time
 
-from proto.ffs_rpc_pb2 import CreateResponse, StageRequest, AddrInfo
+import pytest
+
+from proto.ffs_rpc_pb2 import AddrInfo, CreateResponse, StageRequest
 from pygate_grpc.client import PowerGateClient
+from pygate_grpc.exceptions import GRPCTimeoutException
 
 logger = logging.getLogger(__name__)
 
@@ -102,11 +103,11 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     assert before_receiver_fil.balance < after_receiver_fil.balance
 
 
-def test_ffs_logs(pygate_client: PowerGateClient, ffs_instance):
+def test_ffs_logs(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
-    push_res = pygate_client.ffs.push(stage_res.cid, ffs.token)
+    pygate_client.ffs.push(stage_res.cid, ffs.token)
     logs_res = pygate_client.ffs.logs(stage_res.cid, ffs.token, history=True, timeout=5)
 
     logs = []
@@ -117,6 +118,36 @@ def test_ffs_logs(pygate_client: PowerGateClient, ffs_instance):
         pass
 
     assert len(logs) > 0
+
+
+def test_storage_deals(pygate_client: PowerGateClient):
+    ffs = pygate_client.ffs.create()
+
+    stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
+    pygate_client.ffs.push(stage_res.cid, ffs.token)
+
+    time.sleep(3)
+
+    storage_deals = pygate_client.ffs.list_storage_deal_records(
+        include_pending=True, include_final=True, token=ffs.token
+    )
+
+    assert len(storage_deals.records) > 0
+
+
+def test_retrieval_deals(pygate_client: PowerGateClient):
+    ffs = pygate_client.ffs.create()
+
+    stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
+    pygate_client.ffs.push(stage_res.cid, ffs.token)
+
+    time.sleep(3)
+
+    retrieval_deals = pygate_client.ffs.list_retrieval_deal_records(
+        include_pending=True, include_final=True, token=ffs.token
+    )
+
+    assert len(retrieval_deals.records) == 0
 
 
 def chunks():

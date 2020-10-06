@@ -1,9 +1,7 @@
 import logging
-import grpc
-import pytest
 
-from pygate_grpc.client import PowerGateClient
 from proto.faults_rpc_pb2 import GetResponse, Index
+from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)
 

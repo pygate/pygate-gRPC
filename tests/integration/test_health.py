@@ -1,9 +1,7 @@
 import logging
-import grpc
-import pytest
 
+from proto.health_rpc_pb2 import STATUS_OK, CheckResponse
 from pygate_grpc.client import PowerGateClient
-from proto.health_rpc_pb2 import CheckResponse, STATUS_OK
 
 logger = logging.getLogger(__name__)
 

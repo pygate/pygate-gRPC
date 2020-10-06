@@ -1,4 +1,4 @@
-from grpc._channel import _MultiThreadedRendezvous, _InactiveRpcError
+from grpc._channel import _MultiThreadedRendezvous
 
 
 class GRPCNotAvailableException(Exception):

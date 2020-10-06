@@ -1,7 +1,7 @@
-from setuptools import setup, find_packages
-
 # read the contents of your README file
 from os import path
+
+from setuptools import setup
 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
@@ -10,7 +10,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 setup(
     install_requires=[
         "deprecated==1.2.10",
-        "grpcio==1.30.0",
+        "grpcio==1.32.0",
         "protobuf==3.12.4",
         "six==1.15.0",
         "wrapt==1.12.1",
@@ -27,7 +27,8 @@ setup(
     long_description_content_type="text/markdown",
     zip_safe=False,
     classifiers=[
-        "Development Status :: 3 - Alpha",  # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
+        # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",  # Define that your audience are developers
         "Intended Audience :: Information Technology",
         "Topic :: Software Development :: Build Tools",

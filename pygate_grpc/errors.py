@@ -1,13 +1,9 @@
-import grpc
 import logging
-
 from functools import wraps
 
-from pygate_grpc.exceptions import (
-    GRPCNotAvailableException,
-    GRPCTimeoutException,
-    PyGateGenericException,
-)
+import grpc
+
+from pygate_grpc.exceptions import GRPCNotAvailableException, GRPCTimeoutException
 
 logger = logging.getLogger(__name__)
 

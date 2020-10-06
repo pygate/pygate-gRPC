@@ -1,15 +1,15 @@
-import os
-import pytest
-import docker
 import logging
+import os
 import shutil
-
-from time import sleep, time
-from subprocess import Popen, DEVNULL
-from git import Repo
+import subprocess
 from logging.config import fileConfig
+from time import sleep, time
+
+import docker
+import pytest
+from git import Repo
+
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.health import HealthClient
 
 fileConfig("logging.ini")
 
@@ -27,7 +27,7 @@ def is_docker_running():
     is_running = True
     try:
         client.info()
-    except Exception as e:
+    except Exception:
         is_running = False
     finally:
         client.close()
@@ -37,16 +37,15 @@ def is_docker_running():
 def is_docker_compose_installed():
     """Checks if docker composed is installed in the system"""
     logger.debug("Checking if docker-compose is installed...")
-    proc = Popen(["docker-compose", "help"], stdout=DEVNULL, stderr=DEVNULL)
-    streamdata = proc.communicate()[0]
-    return proc.returncode == 0
+    res = subprocess.run(["docker-compose", "--version"])
+    return res.returncode == 0
 
 
 def clone_powergate_repo():
     """Clones official Powergate repo """
     repo_url = "https://github.com/textileio/powergate"
     logger.debug(f"Cloning powergate repo from {repo_url}")
-    repo = Repo.clone_from(repo_url, REPO_LOCAL_PATH, branch="master")
+    Repo.clone_from(repo_url, REPO_LOCAL_PATH, branch="master")
 
 
 @pytest.fixture(scope="session")
@@ -83,7 +82,7 @@ def pytest_unconfigure(config):
     """Runs before test process exits. Cleans up any artifacts from configure"""
     try:
         shutil.rmtree(REPO_LOCAL_PATH)
-    except OSError as e:
+    except OSError:
         logger.warning(
             "Couldn't delete powergate repository. Maybe it wasn't cloned in the first place"
         )
@@ -94,7 +93,7 @@ def localnet(docker_services):
     """Starts a cli container to interact with localnet"""
     client = docker.from_env()
     container = client.containers.run(
-        "pygate/powergate-cli:v0.0.1-beta.13",
+        "pygate/powergate-cli:v0.7.0",
         network_mode="host",
         auto_remove=True,
         detach=True,
@@ -112,7 +111,7 @@ def localnet(docker_services):
             result = container.exec_run("pow health")
             if result.exit_code > 0:
                 continue
-        except docker.errors.ContainerError as e:
+        except docker.errors.ContainerError:
             continue
         break
 

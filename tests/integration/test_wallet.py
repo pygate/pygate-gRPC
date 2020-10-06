@@ -1,8 +1,8 @@
 import logging
-
-from pygate_grpc.client import PowerGateClient
-from proto.wallet_rpc_pb2 import ListResponse, BalanceResponse
 import time
+
+from proto.wallet_rpc_pb2 import BalanceResponse, ListResponse
+from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)
 

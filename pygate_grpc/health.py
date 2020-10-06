@@ -1,8 +1,6 @@
-import grpc
 import logging
 
-from proto import health_rpc_pb2
-from proto import health_rpc_pb2_grpc
+from proto import health_rpc_pb2, health_rpc_pb2_grpc
 from pygate_grpc.errors import ErrorHandlerMeta
 
 logger = logging.getLogger(__name__)

@@ -1,15 +1,7 @@
 import logging
 
+from proto.net_rpc_pb2 import FindPeerResponse, ListenAddrResponse, PeersResponse
 from pygate_grpc.client import PowerGateClient
-from proto.net_rpc_pb2 import (
-    ListenAddrResponse,
-    PeersResponse,
-    FindPeerResponse,
-    ConnectPeerResponse,
-    DisconnectPeerResponse,
-    ConnectPeerResponse,
-)
-import time
 
 logger = logging.getLogger(__name__)
 

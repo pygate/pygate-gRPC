@@ -1,12 +1,10 @@
-from time import time
-import grpc
+from typing import Iterable, List, Tuple
 
-from typing import Iterable, Tuple
-from proto import ffs_rpc_pb2
-from proto import ffs_rpc_pb2_grpc
-from google.protobuf.json_format import Parse
-from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
 from deprecated import deprecated
+from google.protobuf.json_format import Parse
+
+from proto import ffs_rpc_pb2, ffs_rpc_pb2_grpc
+from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
 
 TOKEN_KEY = "x-ffs-token"
 CHUNK_SIZE = 1024 * 1024  # 1MB
@@ -140,7 +138,9 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.GetStorageJobRequest(jid=jid)
         return self.client.GetStorageJob(req, metadata=self._get_meta_data(token))
 
-    def push(self, cid, token: str = None):
+    def push(
+        self, cid, token: str = None,
+    ):
         req = ffs_rpc_pb2.PushStorageConfigRequest(cid=cid)
         return self.client.PushStorageConfig(req, metadata=self._get_meta_data(token))
 
@@ -166,11 +166,47 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.CreateRequest(kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
 
-    def list_storage_deal_records(self, token: str = None):
-        pass
+    def list_storage_deal_records(
+        self,
+        include_final=True,
+        include_pending=False,
+        from_addrs: List[str] = None,
+        data_cids: List[str] = None,
+        ascending: bool = False,
+        token: str = None,
+    ):
+        deal_config = ffs_rpc_pb2.ListDealRecordsConfig(
+            from_addrs=from_addrs,
+            data_cids=data_cids,
+            include_pending=include_pending,
+            include_final=include_final,
+            ascending=ascending,
+        )
+        req = ffs_rpc_pb2.ListStorageDealRecordsRequest(config=deal_config)
+        return self.client.ListStorageDealRecords(
+            req, metadata=self._get_meta_data(token)
+        )
 
-    def list_retrieval_deal_records(self, token: str = None):
-        pass
+    def list_retrieval_deal_records(
+        self,
+        include_final=True,
+        include_pending=False,
+        from_addrs: List[str] = None,
+        data_cids: List[str] = None,
+        ascending: bool = False,
+        token: str = None,
+    ):
+        deal_config = ffs_rpc_pb2.ListDealRecordsConfig(
+            from_addrs=from_addrs,
+            data_cids=data_cids,
+            include_pending=include_pending,
+            include_final=include_final,
+            ascending=ascending,
+        )
+        req = ffs_rpc_pb2.ListRetrievalDealRecordsRequest(config=deal_config)
+        return self.client.ListRetrievalDealRecords(
+            req, metadata=self._get_meta_data(token)
+        )
 
     # The metadata is set in here https://github.com/textileio/js-powergate-client/blob
     # /9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7 Note that you can't have capital letter in
