@@ -134,6 +134,20 @@ def test_storage_deals(pygate_client: PowerGateClient):
 
     assert len(storage_deals.records) > 0
 
+def test_retrieval_deals(pygate_client: PowerGateClient):
+    ffs = pygate_client.ffs.create()
+
+    stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
+    pygate_client.ffs.push(stage_res.cid, ffs.token)
+
+    time.sleep(3)
+
+    retrieval_deals = pygate_client.ffs.list_retrieval_deal_records(
+        include_pending=True, include_final=True, token=ffs.token
+    )
+
+    assert len(retrieval_deals.records) == 0
+
 
 def chunks():
     for _ in range(1):
