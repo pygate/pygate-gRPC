@@ -2,12 +2,12 @@ import logging
 import os
 import shutil
 import subprocess
+import docker
+import pytest
+
 from logging.config import fileConfig
 from subprocess import DEVNULL, Popen
 from time import sleep, time
-
-import docker
-import pytest
 from git import Repo
 
 from pygate_grpc.client import PowerGateClient
@@ -72,7 +72,9 @@ def pytest_configure(config):
         pytest.exit(3)
 
     if not is_docker_compose_installed():
-        logger.error("Coulnd't initiate integration tests. Is docker-compose installed?")
+        logger.error(
+            "Coulnd't initiate integration tests. Is docker-compose installed?"
+        )
         pytest.exit(3)
 
     clone_powergate_repo()
@@ -83,7 +85,9 @@ def pytest_unconfigure(config):
     try:
         shutil.rmtree(REPO_LOCAL_PATH)
     except OSError as e:
-        logger.warning("Couldn't delete powergate repository. Maybe it wasn't cloned in the first place")
+        logger.warning(
+            "Couldn't delete powergate repository. Maybe it wasn't cloned in the first place"
+        )
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -91,7 +95,7 @@ def localnet(docker_services):
     """Starts a cli container to interact with localnet"""
     client = docker.from_env()
     container = client.containers.run(
-        "pygate/powergate-cli:v0.0.1-beta.13",
+        "pygate/powergate-cli:v0.7.0",
         network_mode="host",
         auto_remove=True,
         detach=True,

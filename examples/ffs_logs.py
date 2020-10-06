@@ -5,7 +5,6 @@ from io import BytesIO
 from pygate_grpc.client import PowerGateClient
 from pygate_grpc.ffs import bytes_to_chunks
 from pygate_grpc.exceptions import GRPCTimeoutException
-from pygate_grpc.errors import error_handler
 
 client = PowerGateClient("127.0.0.1:5002", False)
 

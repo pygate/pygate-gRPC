@@ -102,7 +102,7 @@ def test_send_fil(pygate_client: PowerGateClient, ffs_instance: CreateResponse):
     assert before_receiver_fil.balance < after_receiver_fil.balance
 
 
-def test_ffs_logs(pygate_client: PowerGateClient, ffs_instance):
+def test_ffs_logs(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
@@ -117,6 +117,21 @@ def test_ffs_logs(pygate_client: PowerGateClient, ffs_instance):
         pass
 
     assert len(logs) > 0
+
+
+def test_storage_deals(pygate_client: PowerGateClient):
+    ffs = pygate_client.ffs.create()
+
+    stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
+    push_res = pygate_client.ffs.push(stage_res.cid, ffs.token)
+
+    time.sleep(3)
+
+    storage_deals = pygate_client.ffs.list_storage_deal_records(
+        include_pending=True, include_final=True, token=ffs.token
+    )
+
+    assert len(storage_deals.records) > 0
 
 
 def chunks():
