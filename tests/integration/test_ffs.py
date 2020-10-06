@@ -134,6 +134,7 @@ def test_storage_deals(pygate_client: PowerGateClient):
 
     assert len(storage_deals.records) > 0
 
+
 def test_retrieval_deals(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
