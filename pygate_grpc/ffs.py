@@ -98,6 +98,10 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         req = ffs_rpc_pb2.ShowRequest(cid=cid)
         return self.client.Show(req, metadata=self._get_meta_data(token))
 
+    def show_all(self, token: str = None):
+        req = ffs_rpc_pb2.ShowAllRequest()
+        return self.client.ShowAll(req, metadata=self._get_meta_data(token))
+
     # Note that the chunkIter should be an iterator that yield `ffs_rpc_pb2.AddToHotRequest`,
     # it is the caller's responsibility to create the iterator.
     # The provided getFileChunks comes in handy some times.
@@ -139,9 +143,22 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         return self.client.GetStorageJob(req, metadata=self._get_meta_data(token))
 
     def push(
-        self, cid, token: str = None,
+        self,
+        cid,
+        token: str = None,
+        override: bool = False,
+        config: str = None,
     ):
-        req = ffs_rpc_pb2.PushStorageConfigRequest(cid=cid)
+        if config:
+            config = Parse(config, ffs_rpc_pb2.StorageConfig())
+
+        req = ffs_rpc_pb2.PushStorageConfigRequest(
+            cid=cid,
+            override_config=override,
+            has_override_config=override,
+            config=config,
+            has_config=config is not None,
+        )
         return self.client.PushStorageConfig(req, metadata=self._get_meta_data(token))
 
     def close(self, token: str = None):
@@ -156,7 +173,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         self, sender: str, receiver: str, amount: int, token: str = None
     ):
         kwargs = {"from": sender, "to": receiver, "amount": amount}
-        req = ffs_rpc_pb2.CreateRequest(kwargs)
+        req = ffs_rpc_pb2.CreatePayChannelRequest(**kwargs)
         return self.client.CreatePayChannel(req, metadata=self._get_meta_data(token))
 
     def redeem_pay_channel(

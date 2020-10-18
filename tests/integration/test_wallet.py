@@ -41,29 +41,3 @@ def test_grpc_wallet_balance(pygate_client: PowerGateClient):
     assert type(balance_res) is BalanceResponse
     assert balance_res.balance == 250000000000000000
 
-
-def test_send_file(pygate_client: PowerGateClient):
-    addr = pygate_client.wallet.new()
-
-    assert addr is not None
-    assert addr.address is not None
-
-    res = pygate_client.wallet.list()
-
-    assert res is not None
-
-    sender_addr = res.addresses[0]
-    receiver_addr = res.addresses[1]
-
-    before_sender_fil = pygate_client.wallet.balance(sender_addr)
-    before_receiver_fil = pygate_client.wallet.balance(receiver_addr)
-
-    pygate_client.wallet.send_fil(sender_addr, receiver_addr, 1)
-
-    # Wait a bit for transaction to complete
-    time.sleep(5)
-    after_sender_fil = pygate_client.wallet.balance(sender_addr)
-    after_receiver_fil = pygate_client.wallet.balance(receiver_addr)
-
-    assert before_sender_fil.balance > after_sender_fil.balance
-    assert before_receiver_fil.balance < after_receiver_fil.balance
