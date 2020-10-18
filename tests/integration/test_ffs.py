@@ -42,7 +42,7 @@ def test_grpc_ffs_add_then_get_content(pygate_client: PowerGateClient, ffs_insta
 
     assert res is not None
 
-    pygate_client.ffs.push(res.cid, ffs_instance.token)
+    pygate_client.ffs.push(res.cid, token=ffs_instance.token)
     f = pygate_client.ffs.get(res.cid, ffs_instance.token)
 
     assert next(f) == b"test_content"
@@ -107,7 +107,7 @@ def test_ffs_logs(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
-    pygate_client.ffs.push(stage_res.cid, ffs.token)
+    pygate_client.ffs.push(stage_res.cid, token=ffs.token)
     logs_res = pygate_client.ffs.logs(stage_res.cid, ffs.token, history=True, timeout=5)
 
     logs = []
@@ -124,30 +124,35 @@ def test_storage_deals(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
-    pygate_client.ffs.push(stage_res.cid, ffs.token)
+    pygate_client.ffs.push(stage_res.cid, token=ffs.token)
 
     time.sleep(3)
 
-    storage_deals = pygate_client.ffs.list_storage_deal_records(
+    pygate_client.ffs.list_storage_deal_records(
         include_pending=True, include_final=True, token=ffs.token
     )
-
-    assert len(storage_deals.records) > 0
 
 
 def test_retrieval_deals(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
 
     stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
-    pygate_client.ffs.push(stage_res.cid, ffs.token)
+    pygate_client.ffs.push(stage_res.cid, token=ffs.token)
 
     time.sleep(3)
 
-    retrieval_deals = pygate_client.ffs.list_retrieval_deal_records(
+    pygate_client.ffs.list_retrieval_deal_records(
         include_pending=True, include_final=True, token=ffs.token
     )
 
-    assert len(retrieval_deals.records) == 0
+
+def test_push_override(pygate_client: PowerGateClient):
+    ffs = pygate_client.ffs.create()
+
+    stage_res = pygate_client.ffs.stage(chunks(), ffs.token)
+    pygate_client.ffs.push(stage_res.cid, token=ffs.token)
+
+    pygate_client.ffs.push(stage_res.cid, token=ffs.token, override=True)
 
 
 def chunks():

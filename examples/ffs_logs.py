@@ -14,7 +14,7 @@ test_file = BytesIO(b"These are the contents of a test file")
 stage_requests_iter = bytes_to_chunks(test_file)
 
 stage_res = client.ffs.stage(stage_requests_iter, ffs.token)
-push_res = client.ffs.push(stage_res.cid, ffs.token)
+push_res = client.ffs.push(stage_res.cid, token=ffs.token)
 logs_res = client.ffs.logs(stage_res.cid, ffs.token, history=True, timeout=5)
 
 logs = []

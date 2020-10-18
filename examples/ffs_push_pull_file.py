@@ -25,7 +25,18 @@ if __name__ == "__main__":
     print("Pushing file to FFS...")
 
     # Push the given file
-    c.ffs.push(res.cid, ffs.token)
+    c.ffs.push(res.cid, override=False, token=ffs.token)
+    # Override push with another config
+    addresses = c.ffs.addrs_list(ffs.token)
+    wallet = addresses.addrs[0].addr
+    new_config = (
+        '{"hot":{"enabled":true,"allowUnfreeze":true,"ipfs":{"addTimeout":30}},'
+        '"cold":{"enabled":true,"filecoin":{"repFactor":1,"dealMinDuration":518400,'
+        '"excludedMiners":["t01101"],"trustedMiners":["t01000","t02000"],'
+        '"countryCodes":["ca","nl"],"renew":{"enabled":true,"threshold":3},'
+        '"addr":"' + wallet + '","maxPrice":50}},"repairable":true}'
+    )
+    c.ffs.push(res.cid, override=True, config=new_config, token=ffs.token)
 
     # Check that CID is pinned to FFS
     check = c.ffs.info(res.cid, ffs.token)
@@ -38,7 +49,6 @@ if __name__ == "__main__":
 
     # Write to a file on disk
     print("Saving as 'README_copy.md'")
-    f = open("README_copy.MD", "wb")
-    for f_ in file_:
-        f.write(f_)
-    f.close()
+    with open("README_copy.MD", "wb") as f:
+        for f_ in file_:
+            f.write(f_)
