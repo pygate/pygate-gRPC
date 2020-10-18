@@ -128,7 +128,7 @@ def test_storage_deals(pygate_client: PowerGateClient):
 
     time.sleep(3)
 
-    storage_deals = pygate_client.ffs.list_storage_deal_records(
+    pygate_client.ffs.list_storage_deal_records(
         include_pending=True, include_final=True, token=ffs.token
     )
 
@@ -141,9 +141,10 @@ def test_retrieval_deals(pygate_client: PowerGateClient):
 
     time.sleep(3)
 
-    retrieval_deals = pygate_client.ffs.list_retrieval_deal_records(
+    pygate_client.ffs.list_retrieval_deal_records(
         include_pending=True, include_final=True, token=ffs.token
     )
+
 
 def test_push_override(pygate_client: PowerGateClient):
     ffs = pygate_client.ffs.create()
@@ -152,7 +153,6 @@ def test_push_override(pygate_client: PowerGateClient):
     pygate_client.ffs.push(stage_res.cid, token=ffs.token)
 
     pygate_client.ffs.push(stage_res.cid, token=ffs.token, override=True)
-
 
 
 def chunks():

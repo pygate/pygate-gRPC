@@ -34,7 +34,7 @@ if __name__ == "__main__":
         '"cold":{"enabled":true,"filecoin":{"repFactor":1,"dealMinDuration":518400,'
         '"excludedMiners":["t01101"],"trustedMiners":["t01000","t02000"],'
         '"countryCodes":["ca","nl"],"renew":{"enabled":true,"threshold":3},'
-        '"addr":"' + wallet+'","maxPrice":50}},"repairable":true}'
+        '"addr":"' + wallet + '","maxPrice":50}},"repairable":true}'
     )
     c.ffs.push(res.cid, override=True, config=new_config, token=ffs.token)
 

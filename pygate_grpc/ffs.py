@@ -143,11 +143,7 @@ class FfsClient(object, metaclass=ErrorHandlerMeta):
         return self.client.GetStorageJob(req, metadata=self._get_meta_data(token))
 
     def push(
-        self,
-        cid,
-        token: str = None,
-        override: bool = False,
-        config: str = None,
+        self, cid, token: str = None, override: bool = False, config: str = None,
     ):
         if config:
             config = Parse(config, ffs_rpc_pb2.StorageConfig())
