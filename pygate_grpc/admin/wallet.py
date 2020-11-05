@@ -14,7 +14,7 @@ class WalletClient(object, metaclass=ErrorHandlerMeta):
         admin_token: str = None,
     ):
         self._check_address_type(address_type)
-        req = powergate_admin_pb2.NewAddressRequest(type=address_type)
+        req = powergate_admin_pb2.NewAddressRequest(address_type=address_type)
         return self.client.NewAddress(req, metadata=self.get_metadata(admin_token))
 
     def addresses(self, admin_token: str = None):

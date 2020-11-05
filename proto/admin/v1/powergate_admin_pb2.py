@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z-github.com/textileio/powergate/proto/admin/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$proto/admin/v1/powergate_admin.proto\x12\x0eproto.admin.v1\x1a\"proto/powergate/v1/powergate.proto\"!\n\x11NewAddressRequest\x12\x0c\n\x04type\x18\x01 \x01(\t\"%\n\x12NewAddressResponse\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"\x12\n\x10\x41\x64\x64ressesRequest\"&\n\x11\x41\x64\x64ressesResponse\x12\x11\n\taddresses\x18\x01 \x03(\t\":\n\x0eSendFilRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\"\x11\n\x0fSendFilResponse\"&\n\tAuthEntry\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t\"\x1d\n\x1b\x43reateStorageProfileRequest\"M\n\x1c\x43reateStorageProfileResponse\x12-\n\nauth_entry\x18\x01 \x01(\x0b\x32\x19.proto.admin.v1.AuthEntry\"\x18\n\x16StorageProfilesRequest\"J\n\x17StorageProfilesResponse\x12/\n\x0c\x61uth_entries\x18\x01 \x03(\x0b\x32\x19.proto.admin.v1.AuthEntry\"<\n\x18QueuedStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"J\n\x19QueuedStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"?\n\x1b\x45xecutingStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"M\n\x1c\x45xecutingStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"A\n\x1dLatestFinalStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"O\n\x1eLatestFinalStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"F\n\"LatestSuccessfulStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"T\n#LatestSuccessfulStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"=\n\x19StorageJobsSummaryRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"\xbb\x02\n\x1aStorageJobsSummaryResponse\x12\x31\n\njob_counts\x18\x01 \x01(\x0b\x32\x1d.proto.powergate.v1.JobCounts\x12\x34\n\x13queued_storage_jobs\x18\x02 \x03(\x0b\x32\x17.proto.powergate.v1.Job\x12\x37\n\x16\x65xecuting_storage_jobs\x18\x03 \x03(\x0b\x32\x17.proto.powergate.v1.Job\x12:\n\x19latest_final_storage_jobs\x18\x04 \x03(\x0b\x32\x17.proto.powergate.v1.Job\x12?\n\x1elatest_successful_storage_jobs\x18\x05 \x03(\x0b\x32\x17.proto.powergate.v1.Job2\xc1\x08\n\x15PowergateAdminService\x12U\n\nNewAddress\x12!.proto.admin.v1.NewAddressRequest\x1a\".proto.admin.v1.NewAddressResponse\"\x00\x12R\n\tAddresses\x12 .proto.admin.v1.AddressesRequest\x1a!.proto.admin.v1.AddressesResponse\"\x00\x12L\n\x07SendFil\x12\x1e.proto.admin.v1.SendFilRequest\x1a\x1f.proto.admin.v1.SendFilResponse\"\x00\x12s\n\x14\x43reateStorageProfile\x12+.proto.admin.v1.CreateStorageProfileRequest\x1a,.proto.admin.v1.CreateStorageProfileResponse\"\x00\x12\x64\n\x0fStorageProfiles\x12&.proto.admin.v1.StorageProfilesRequest\x1a\'.proto.admin.v1.StorageProfilesResponse\"\x00\x12j\n\x11QueuedStorageJobs\x12(.proto.admin.v1.QueuedStorageJobsRequest\x1a).proto.admin.v1.QueuedStorageJobsResponse\"\x00\x12s\n\x14\x45xecutingStorageJobs\x12+.proto.admin.v1.ExecutingStorageJobsRequest\x1a,.proto.admin.v1.ExecutingStorageJobsResponse\"\x00\x12y\n\x16LatestFinalStorageJobs\x12-.proto.admin.v1.LatestFinalStorageJobsRequest\x1a..proto.admin.v1.LatestFinalStorageJobsResponse\"\x00\x12\x88\x01\n\x1bLatestSuccessfulStorageJobs\x12\x32.proto.admin.v1.LatestSuccessfulStorageJobsRequest\x1a\x33.proto.admin.v1.LatestSuccessfulStorageJobsResponse\"\x00\x12m\n\x12StorageJobsSummary\x12).proto.admin.v1.StorageJobsSummaryRequest\x1a*.proto.admin.v1.StorageJobsSummaryResponse\"\x00\x42/Z-github.com/textileio/powergate/proto/admin/v1b\x06proto3'
+  serialized_pb=b'\n$proto/admin/v1/powergate_admin.proto\x12\x0eproto.admin.v1\x1a\"proto/powergate/v1/powergate.proto\")\n\x11NewAddressRequest\x12\x14\n\x0c\x61\x64\x64ress_type\x18\x01 \x01(\t\"%\n\x12NewAddressResponse\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"\x12\n\x10\x41\x64\x64ressesRequest\"&\n\x11\x41\x64\x64ressesResponse\x12\x11\n\taddresses\x18\x01 \x03(\t\":\n\x0eSendFilRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\"\x11\n\x0fSendFilResponse\"&\n\tAuthEntry\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t\"\x1d\n\x1b\x43reateStorageProfileRequest\"M\n\x1c\x43reateStorageProfileResponse\x12-\n\nauth_entry\x18\x01 \x01(\x0b\x32\x19.proto.admin.v1.AuthEntry\"\x18\n\x16StorageProfilesRequest\"J\n\x17StorageProfilesResponse\x12/\n\x0c\x61uth_entries\x18\x01 \x03(\x0b\x32\x19.proto.admin.v1.AuthEntry\"<\n\x18QueuedStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"J\n\x19QueuedStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"?\n\x1b\x45xecutingStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"M\n\x1c\x45xecutingStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"A\n\x1dLatestFinalStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"O\n\x1eLatestFinalStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"F\n\"LatestSuccessfulStorageJobsRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"T\n#LatestSuccessfulStorageJobsResponse\x12-\n\x0cstorage_jobs\x18\x01 \x03(\x0b\x32\x17.proto.powergate.v1.Job\"=\n\x19StorageJobsSummaryRequest\x12\x12\n\nprofile_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ids\x18\x02 \x03(\t\"\xbb\x02\n\x1aStorageJobsSummaryResponse\x12\x31\n\njob_counts\x18\x01 \x01(\x0b\x32\x1d.proto.powergate.v1.JobCounts\x12\x34\n\x13queued_storage_jobs\x18\x02 \x03(\x0b\x32\x17.proto.powergate.v1.Job\x12\x37\n\x16\x65xecuting_storage_jobs\x18\x03 \x03(\x0b\x32\x17.proto.powergate.v1.Job\x12:\n\x19latest_final_storage_jobs\x18\x04 \x03(\x0b\x32\x17.proto.powergate.v1.Job\x12?\n\x1elatest_successful_storage_jobs\x18\x05 \x03(\x0b\x32\x17.proto.powergate.v1.Job2\xc1\x08\n\x15PowergateAdminService\x12U\n\nNewAddress\x12!.proto.admin.v1.NewAddressRequest\x1a\".proto.admin.v1.NewAddressResponse\"\x00\x12R\n\tAddresses\x12 .proto.admin.v1.AddressesRequest\x1a!.proto.admin.v1.AddressesResponse\"\x00\x12L\n\x07SendFil\x12\x1e.proto.admin.v1.SendFilRequest\x1a\x1f.proto.admin.v1.SendFilResponse\"\x00\x12s\n\x14\x43reateStorageProfile\x12+.proto.admin.v1.CreateStorageProfileRequest\x1a,.proto.admin.v1.CreateStorageProfileResponse\"\x00\x12\x64\n\x0fStorageProfiles\x12&.proto.admin.v1.StorageProfilesRequest\x1a\'.proto.admin.v1.StorageProfilesResponse\"\x00\x12j\n\x11QueuedStorageJobs\x12(.proto.admin.v1.QueuedStorageJobsRequest\x1a).proto.admin.v1.QueuedStorageJobsResponse\"\x00\x12s\n\x14\x45xecutingStorageJobs\x12+.proto.admin.v1.ExecutingStorageJobsRequest\x1a,.proto.admin.v1.ExecutingStorageJobsResponse\"\x00\x12y\n\x16LatestFinalStorageJobs\x12-.proto.admin.v1.LatestFinalStorageJobsRequest\x1a..proto.admin.v1.LatestFinalStorageJobsResponse\"\x00\x12\x88\x01\n\x1bLatestSuccessfulStorageJobs\x12\x32.proto.admin.v1.LatestSuccessfulStorageJobsRequest\x1a\x33.proto.admin.v1.LatestSuccessfulStorageJobsResponse\"\x00\x12m\n\x12StorageJobsSummary\x12).proto.admin.v1.StorageJobsSummaryRequest\x1a*.proto.admin.v1.StorageJobsSummaryResponse\"\x00\x42/Z-github.com/textileio/powergate/proto/admin/v1b\x06proto3'
   ,
   dependencies=[proto_dot_powergate_dot_v1_dot_powergate__pb2.DESCRIPTOR,])
 
@@ -36,7 +36,7 @@ _NEWADDRESSREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='proto.admin.v1.NewAddressRequest.type', index=0,
+      name='address_type', full_name='proto.admin.v1.NewAddressRequest.address_type', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -55,7 +55,7 @@ _NEWADDRESSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=92,
-  serialized_end=125,
+  serialized_end=133,
 )
 
 
@@ -86,8 +86,8 @@ _NEWADDRESSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=127,
-  serialized_end=164,
+  serialized_start=135,
+  serialized_end=172,
 )
 
 
@@ -111,8 +111,8 @@ _ADDRESSESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=166,
-  serialized_end=184,
+  serialized_start=174,
+  serialized_end=192,
 )
 
 
@@ -143,8 +143,8 @@ _ADDRESSESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=224,
+  serialized_start=194,
+  serialized_end=232,
 )
 
 
@@ -189,8 +189,8 @@ _SENDFILREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=226,
-  serialized_end=284,
+  serialized_start=234,
+  serialized_end=292,
 )
 
 
@@ -214,8 +214,8 @@ _SENDFILRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=286,
-  serialized_end=303,
+  serialized_start=294,
+  serialized_end=311,
 )
 
 
@@ -253,8 +253,8 @@ _AUTHENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=305,
-  serialized_end=343,
+  serialized_start=313,
+  serialized_end=351,
 )
 
 
@@ -278,8 +278,8 @@ _CREATESTORAGEPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=345,
-  serialized_end=374,
+  serialized_start=353,
+  serialized_end=382,
 )
 
 
@@ -310,8 +310,8 @@ _CREATESTORAGEPROFILERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=376,
-  serialized_end=453,
+  serialized_start=384,
+  serialized_end=461,
 )
 
 
@@ -335,8 +335,8 @@ _STORAGEPROFILESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=455,
-  serialized_end=479,
+  serialized_start=463,
+  serialized_end=487,
 )
 
 
@@ -367,8 +367,8 @@ _STORAGEPROFILESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=481,
-  serialized_end=555,
+  serialized_start=489,
+  serialized_end=563,
 )
 
 
@@ -406,8 +406,8 @@ _QUEUEDSTORAGEJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=557,
-  serialized_end=617,
+  serialized_start=565,
+  serialized_end=625,
 )
 
 
@@ -438,8 +438,8 @@ _QUEUEDSTORAGEJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=619,
-  serialized_end=693,
+  serialized_start=627,
+  serialized_end=701,
 )
 
 
@@ -477,8 +477,8 @@ _EXECUTINGSTORAGEJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=695,
-  serialized_end=758,
+  serialized_start=703,
+  serialized_end=766,
 )
 
 
@@ -509,8 +509,8 @@ _EXECUTINGSTORAGEJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=760,
-  serialized_end=837,
+  serialized_start=768,
+  serialized_end=845,
 )
 
 
@@ -548,8 +548,8 @@ _LATESTFINALSTORAGEJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=839,
-  serialized_end=904,
+  serialized_start=847,
+  serialized_end=912,
 )
 
 
@@ -580,8 +580,8 @@ _LATESTFINALSTORAGEJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=906,
-  serialized_end=985,
+  serialized_start=914,
+  serialized_end=993,
 )
 
 
@@ -619,8 +619,8 @@ _LATESTSUCCESSFULSTORAGEJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=987,
-  serialized_end=1057,
+  serialized_start=995,
+  serialized_end=1065,
 )
 
 
@@ -651,8 +651,8 @@ _LATESTSUCCESSFULSTORAGEJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1059,
-  serialized_end=1143,
+  serialized_start=1067,
+  serialized_end=1151,
 )
 
 
@@ -690,8 +690,8 @@ _STORAGEJOBSSUMMARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1145,
-  serialized_end=1206,
+  serialized_start=1153,
+  serialized_end=1214,
 )
 
 
@@ -750,8 +750,8 @@ _STORAGEJOBSSUMMARYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1209,
-  serialized_end=1524,
+  serialized_start=1217,
+  serialized_end=1532,
 )
 
 _CREATESTORAGEPROFILERESPONSE.fields_by_name['auth_entry'].message_type = _AUTHENTRY
@@ -945,8 +945,8 @@ _POWERGATEADMINSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1527,
-  serialized_end=2616,
+  serialized_start=1535,
+  serialized_end=2624,
   methods=[
   _descriptor.MethodDescriptor(
     name='NewAddress',
