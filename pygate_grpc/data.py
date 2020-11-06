@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Iterable
 from proto.powergate.v1 import powergate_pb2, powergate_pb2_grpc
 from pygate_grpc.errors import ErrorHandlerMeta
 
