@@ -1,5 +1,5 @@
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.ffs import get_file_bytes, bytes_to_chunks
+from pygate_grpc.data import get_file_bytes, bytes_to_chunks
 
 
 if __name__ == "__main__":
@@ -9,26 +9,27 @@ if __name__ == "__main__":
     # Create client
     c = PowerGateClient(hostName, False)
 
-    # Create FFS
-    ffs = c.ffs.create()
-    print("FFS created:")
-    print(ffs)
+    # Create storage profile
+    profile = c.admin.profiles.create_storage_profile()
+    print("Profile created:")
+    print(profile)
 
     # Create an iterator of the given file using the helper function
     iter = get_file_bytes("README.md")
     print("Grabbing pygate-grpc 'README.md' file...")
     print("Adding file to IPFS (hot storage)...")
 
-    # Convert the iterator into request and then add to hot set
-    res = c.ffs.stage(bytes_to_chunks(iter), ffs.token)
+    # Convert the iterator into request and then stage
+    res = c.data.stage(bytes_to_chunks(iter), profile.auth_entry.token)
     print(res)
-    print("Pushing file to FFS...")
+    print("Applying storage config...")
 
-    # Push the given file
-    c.ffs.push(res.cid, override=False, token=ffs.token)
+    # Apply the default storage config to the given file
+    c.storage_config.apply(res.cid, override=False, token=profile.auth_entry.token)
+
     # Override push with another config
-    addresses = c.ffs.addrs_list(ffs.token)
-    wallet = addresses.addrs[0].addr
+    addresses = c.wallet.addresses(profile.auth_entry.token)
+    wallet = addresses.addresses[0].address
     new_config = (
         '{"hot":{"enabled":true,"allowUnfreeze":true,"ipfs":{"addTimeout":30}},'
         '"cold":{"enabled":true,"filecoin":{"repFactor":1,"dealMinDuration":518400,'
@@ -36,16 +37,18 @@ if __name__ == "__main__":
         '"countryCodes":["ca","nl"],"renew":{"enabled":true,"threshold":3},'
         '"addr":"' + wallet + '","maxPrice":50}},"repairable":true}'
     )
-    c.ffs.push(res.cid, override=True, config=new_config, token=ffs.token)
+    c.storage_config.apply(
+        res.cid, override=True, config=new_config, token=profile.auth_entry.token
+    )
 
-    # Check that CID is pinned to FFS
-    check = c.ffs.info(res.cid, ffs.token)
-    print("Checking FFS pins...")
+    # Check that CID is stored
+    check = c.data.cid_info([res.cid], profile.auth_entry.token)
+    print("Checking CID storage...")
     print(check)
 
     # Get the data back
-    print("Retrieving file " + res.cid + " from FFS.")
-    file_ = c.ffs.get(res.cid, ffs.token)
+    print("Retrieving file " + res.cid)
+    file_ = c.data.get(res.cid, profile.auth_entry.token)
 
     # Write to a file on disk
     print("Saving as 'README_copy.md'")

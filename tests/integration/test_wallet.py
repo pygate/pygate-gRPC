@@ -1,37 +1,38 @@
 import logging
 import time
 
-from proto.wallet_rpc_pb2 import BalanceResponse, ListResponse
+from proto.admin.v1.powergate_admin_pb2 import AddressesResponse
+from proto.powergate.v1.powergate_pb2 import BalanceResponse
 from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)
 
 
 def test_grpc_wallet_list(pygate_client: PowerGateClient):
-    res = pygate_client.wallet.list()
+    res = pygate_client.admin.wallet.addresses()
 
     assert res is not None
-    assert type(res) == ListResponse
+    assert type(res) == AddressesResponse
     # During creating it should have 1 address.
     assert len(res.addresses) >= 1
 
 
 def test_grpc_wallet_new(pygate_client: PowerGateClient):
-    res = pygate_client.wallet.list()
+    res = pygate_client.admin.wallet.addresses()
     assert res is not None
-    assert type(res) == ListResponse
+    assert type(res) == AddressesResponse
     num_of_address = len(res.addresses)
 
-    new_res = pygate_client.wallet.new()
+    new_res = pygate_client.admin.wallet.new_address()
     assert new_res is not None
 
-    list_res = pygate_client.wallet.list()
+    list_res = pygate_client.admin.wallet.addresses()
     assert len(list_res.addresses) == num_of_address + 1
     assert new_res.address in list_res.addresses
 
 
 def test_grpc_wallet_balance(pygate_client: PowerGateClient):
-    new_res = pygate_client.wallet.new()
+    new_res = pygate_client.admin.wallet.new_address()
     assert new_res is not None
 
     # Wait a bit for the transaction to finish.
