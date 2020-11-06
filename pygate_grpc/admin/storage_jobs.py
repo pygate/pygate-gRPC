@@ -1,3 +1,4 @@
+from typing import List
 from proto.admin.v1 import powergate_admin_pb2, powergate_admin_pb2_grpc
 from pygate_grpc.errors import ErrorHandlerMeta
 

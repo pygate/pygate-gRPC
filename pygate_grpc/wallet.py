@@ -17,7 +17,7 @@ class WalletClient(object, metaclass=ErrorHandlerMeta):
         self,
         name: str,
         address_type: str = "bls",
-        make_default: bool = false,
+        make_default: bool = False,
         token: str = None,
     ):
         self._check_address_type(address_type)

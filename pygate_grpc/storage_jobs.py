@@ -1,6 +1,6 @@
 from typing import List
 from proto.powergate.v1 import powergate_pb2, powergate_pb2_grpc
-from pygate_grpc.errors import ErrorHandlerMeta
+from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
 
 
 class StorageJobsClient(object, metaclass=ErrorHandlerMeta):
