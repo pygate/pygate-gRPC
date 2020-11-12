@@ -9,13 +9,13 @@ print("All addresses:")
 print(all_addresses)
 
 
-print("Creating a new storage profile:")
-profile = client.admin.profiles.create_storage_profile()
-print(profile)
+print("Creating a new user:")
+res = client.admin.users.create()
+print(res)
 
-addresses = client.wallet.addresses(profile.auth_entry.token)
+addresses = client.wallet.addresses(res.user.token)
 address = addresses.addresses[0].address
-print("Profile wallet address: " + address)
+print("User wallet address: " + address)
 
 print("Waiting for wallet to get funding...")
 time.sleep(2)

@@ -14,7 +14,6 @@ pytest = "*"
 docker = "*"
 gitpython = "*"
 pytest-docker = "*"
-grpcio-tools = "*"
 secretstorage = {markers = "sys_platform == 'linux'"}
 keyring = "==19.1.0"
 flake8 = "*"
@@ -34,7 +33,4 @@ integration-test = "python -m pytest tests/integration/"
 test-api = "python -m pytest tests/integration/test_api.py"
 
 [packages]
-grpcio = "*"
-protobuf = "*"
-six = "*"
-deprecated = "*"
+grpc-powergate-client = "==1.1.2"

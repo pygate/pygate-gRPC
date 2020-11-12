@@ -9,10 +9,10 @@ if __name__ == "__main__":
     # Create client
     c = PowerGateClient(hostName, False)
 
-    # Create storage profile
-    profile = c.admin.profiles.create_storage_profile()
-    print("Profile created:")
-    print(profile)
+    # Create user
+    user_res = c.admin.users.create()
+    print("User created:")
+    print(user_res)
 
     # Create an iterator of the given file using the helper function
     iter = get_file_bytes("README.md")
@@ -20,15 +20,15 @@ if __name__ == "__main__":
     print("Adding file to IPFS (hot storage)...")
 
     # Convert the iterator into request and then stage
-    res = c.data.stage(bytes_to_chunks(iter), profile.auth_entry.token)
+    res = c.data.stage(bytes_to_chunks(iter), user_res.user.token)
     print(res)
     print("Applying storage config...")
 
     # Apply the default storage config to the given file
-    c.storage_config.apply(res.cid, override=False, token=profile.auth_entry.token)
+    c.storage_config.apply(res.cid, override=False, token=user_res.user.token)
 
     # Override push with another config
-    addresses = c.wallet.addresses(profile.auth_entry.token)
+    addresses = c.wallet.addresses(user_res.user.token)
     wallet = addresses.addresses[0].address
     new_config = (
         '{"hot":{"enabled":true,"allowUnfreeze":true,"ipfs":{"addTimeout":30}},'
@@ -38,17 +38,17 @@ if __name__ == "__main__":
         '"addr":"' + wallet + '","maxPrice":50}},"repairable":true}'
     )
     c.storage_config.apply(
-        res.cid, override=True, config=new_config, token=profile.auth_entry.token
+        res.cid, override=True, config=new_config, token=user_res.user.token
     )
 
     # Check that CID is stored
-    check = c.data.cid_info([res.cid], profile.auth_entry.token)
+    check = c.data.cid_info([res.cid], user_res.user.token)
     print("Checking CID storage...")
     print(check)
 
     # Get the data back
     print("Retrieving file " + res.cid)
-    file_ = c.data.get(res.cid, profile.auth_entry.token)
+    file_ = c.data.get(res.cid, user_res.user.token)
 
     # Write to a file on disk
     print("Saving as 'README_copy.md'")

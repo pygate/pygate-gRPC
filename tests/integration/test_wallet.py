@@ -1,8 +1,8 @@
 import logging
 import time
 
-from proto.admin.v1.powergate_admin_pb2 import AddressesResponse
-from proto.powergate.v1.powergate_pb2 import BalanceResponse
+from powergate.admin.v1.admin_pb2 import AddressesResponse
+from powergate.user.v1.user_pb2 import BalanceResponse
 from pygate_grpc.client import PowerGateClient
 
 logger = logging.getLogger(__name__)

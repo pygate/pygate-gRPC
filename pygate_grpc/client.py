@@ -1,6 +1,6 @@
 import grpc
 from typing import Tuple
-from proto.powergate.v1 import powergate_pb2, powergate_pb2_grpc
+from powergate.user.v1 import user_pb2, user_pb2_grpc
 from pygate_grpc import data, deals, storage_config, storage_jobs, wallet
 from pygate_grpc.admin import admin
 from pygate_grpc.errors import ErrorHandlerMeta
@@ -16,7 +16,7 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
             if is_secure
             else grpc.insecure_channel(host_name)
         )
-        self.client = powergate_pb2_grpc.PowergateServiceStub(channel)
+        self.client = user_pb2_grpc.UserServiceStub(channel)
 
         self.token = None
         self.admin_token = None
@@ -37,14 +37,12 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
         self.admin_token = token
 
     def build_info(self):
-        req = powergate_pb2.BuildInfoRequest()
+        req = user_pb2.BuildInfoRequest()
         return self.client.BuildInfo(req)
 
-    def storage_profile_id(self, token: str = None):
-        req = powergate_pb2.StorageProfileIdentifierRequest()
-        return self.client.StorageProfileIdentifier(
-            req, metadata=self.get_metadata(token)
-        )
+    def user_id(self, token: str = None):
+        req = user_pb2.UserIdentifierRequest()
+        return self.client.UserIdentifier(req, metadata=self.get_metadata(token))
 
     # The metadata is set in here https://github.com/textileio/js-powergate-client/blob
     # /9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7 Note that you can't have capital letter in

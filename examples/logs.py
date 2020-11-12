@@ -6,17 +6,17 @@ from pygate_grpc.exceptions import GRPCTimeoutException
 
 client = PowerGateClient("127.0.0.1:5002", False)
 
-print("Creating a new storage profile:")
-profile = client.admin.profiles.create_storage_profile()
-print(profile)
+print("Creating a new user:")
+res = client.admin.users.create()
+print(res)
 
 test_file = BytesIO(b"These are the contents of a test file")
 stage_requests_iter = bytes_to_chunks(test_file)
 
-stage_res = client.data.stage(stage_requests_iter, profile.auth_entry.token)
-apply_res = client.storage_config.apply(stage_res.cid, token=profile.auth_entry.token)
+stage_res = client.data.stage(stage_requests_iter, res.user.token)
+apply_res = client.storage_config.apply(stage_res.cid, token=res.user.token)
 logs_res = client.data.watch_logs(
-    stage_res.cid, profile.auth_entry.token, history=True, timeout=5
+    stage_res.cid, res.user.token, history=True, timeout=5
 )
 
 logs = []

@@ -9,11 +9,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     install_requires=[
-        "deprecated==1.2.10",
-        "grpcio==1.32.0",
-        "protobuf==3.13.0",
-        "six==1.15.0",
-        "wrapt==1.12.1",
+        "grpc-powergate-client==1.1.2",
     ],
     name="pygate_grpc",
     version="0.0.14",
