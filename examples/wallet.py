@@ -10,15 +10,15 @@ print(all_addresses)
 
 
 print("Creating a new user:")
-res = client.admin.users.create()
-print(res)
+user = client.admin.users.create()
+print(user)
 
-addresses = client.wallet.addresses(res.user.token)
-address = addresses.addresses[0].address
+addresses = client.wallet.addresses(user.token)
+address = addresses[0].address
 print("User wallet address: " + address)
 
 print("Waiting for wallet to get funding...")
 time.sleep(2)
 
 balance = client.wallet.balance(address)
-print("Wallet balance: ", str(balance.balance))
+print("Wallet balance: ", str(balance))
