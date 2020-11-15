@@ -2,7 +2,6 @@ from typing import List
 
 from powergate.admin.v1 import admin_pb2, admin_pb2_grpc
 
-from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta
 
 

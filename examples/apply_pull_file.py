@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.data import get_file_bytes, bytes_to_chunks
 
 
 if __name__ == "__main__":

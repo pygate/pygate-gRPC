@@ -1,9 +1,6 @@
 import time
 
-from io import BytesIO
-
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.data import bytes_to_chunks
 
 if __name__ == "__main__":
 
@@ -18,7 +15,9 @@ if __name__ == "__main__":
     print(user)
 
     print("Applying storage config...")
-    stage_res = client.data.stage_bytes(b"These are the contents of a test file", token=user.token)
+    stage_res = client.data.stage_bytes(
+        b"These are the contents of a test file", token=user.token
+    )
     apply_res = client.config.apply(stage_res.cid, token=user.token)
 
     # Check that cid is in the process of being stored by Powegate

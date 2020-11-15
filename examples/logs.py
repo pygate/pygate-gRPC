@@ -1,7 +1,4 @@
-from io import BytesIO
-
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.data import bytes_to_chunks
 from pygate_grpc.exceptions import GRPCTimeoutException
 
 client = PowerGateClient("127.0.0.1:5002", False)
@@ -11,11 +8,11 @@ user = client.admin.users.create()
 print(user)
 
 
-stage_res = client.data.stage_bytes(b"These are the contents of a test file", user.token)
-apply_res = client.config.apply(stage_res.cid, token=user.token)
-logs_res = client.data.watch_logs(
-    stage_res.cid, user.token, history=True, timeout=5
+stage_res = client.data.stage_bytes(
+    b"These are the contents of a test file", user.token
 )
+apply_res = client.config.apply(stage_res.cid, token=user.token)
+logs_res = client.data.watch_logs(stage_res.cid, user.token, history=True, timeout=5)
 
 logs = []
 # iterating through the logs is a blocking operation, by using a timeout and

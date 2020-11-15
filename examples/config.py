@@ -1,9 +1,7 @@
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.data import get_file_bytes, byte_chunks_iter
 
 import os
 import json
-import time
 from pathlib import Path
 
 

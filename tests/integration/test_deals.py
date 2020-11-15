@@ -1,10 +1,9 @@
 import logging
-import time
 
 import pytest
 
 from pygate_grpc.client import PowerGateClient
-from pygate_grpc.types import StagedFile, User
+from pygate_grpc.types import User
 
 logger = logging.getLogger(__name__)
 
