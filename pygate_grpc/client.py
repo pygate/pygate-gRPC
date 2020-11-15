@@ -7,8 +7,10 @@ from pygate_grpc.admin import AdminClient
 from pygate_grpc.config import ConfigClient
 from pygate_grpc.data import DataClient
 from pygate_grpc.deals import DealsClient
+from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta
 from pygate_grpc.storage_jobs import StorageJobsClient
+from pygate_grpc.types import BuildInfo
 from pygate_grpc.wallet import WalletClient
 
 TOKEN_KEY = "x-ffs-token"
@@ -40,13 +42,14 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
     def set_admin_token(self, token: str):
         self.admin_token = token
 
-    def build_info(self):
+    @unmarshal_with(BuildInfo)
+    def build_info(self) -> BuildInfo:
         req = user_pb2.BuildInfoRequest()
         return self.client.BuildInfo(req)
 
-    def user_id(self, token: str = None):
+    def user_id(self, token: str = None) -> str:
         req = user_pb2.UserIdentifierRequest()
-        return self.client.UserIdentifier(req, metadata=self.get_metadata(token))
+        return self.client.UserIdentifier(req, metadata=self.get_metadata(token)).id
 
     # The metadata is set in here https://github.com/textileio/js-powergate-client/blob
     # /9d1ad04a7e1f2a6e18cc5627751f9cbddaf6fe05/src/util/grpc-helpers.ts#L7 Note that you can't have capital letter in

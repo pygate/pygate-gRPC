@@ -9,3 +9,7 @@ CidInfo = namedtuple(
     ["cid", "latestPushedStorageConfig", "executingStorageJob", "queuedStorageJobs"],
     defaults=(None,) * 4,
 )
+BuildInfo = namedtuple(
+    "BuildInfo",
+    ["gitCommit", "gitBranch", "gitState", "gitSummary", "buildDate", "version"],
+)

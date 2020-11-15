@@ -29,7 +29,7 @@ from pygate_grpc.client import PowerGateClient
 
 client = PowerGateClient("127.0.0.1:5002", False)
 
-healthcheck = client.health.check()
+build_info = client.build_info()
 ```
 
 Simple as that!
