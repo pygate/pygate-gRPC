@@ -1,5 +1,8 @@
 from typing import List
+
 from powergate.user.v1 import user_pb2, user_pb2_grpc
+
+from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta
 
 
@@ -8,6 +11,7 @@ class DealsClient(object, metaclass=ErrorHandlerMeta):
         self.client = user_pb2_grpc.UserServiceStub(channel)
         self.get_metadata = get_metadata
 
+    @unmarshal_with(many=True)
     def storage_deal_records(
         self,
         include_final=True,
@@ -25,8 +29,11 @@ class DealsClient(object, metaclass=ErrorHandlerMeta):
             ascending=ascending,
         )
         req = user_pb2.StorageDealRecordsRequest(config=deal_config)
-        return self.client.StorageDealRecords(req, metadata=self.get_metadata(token))
+        return self.client.StorageDealRecords(
+            req, metadata=self.get_metadata(token)
+        ).records
 
+    @unmarshal_with(many=True)
     def retrieval_deal_records(
         self,
         include_final=True,
@@ -44,4 +51,6 @@ class DealsClient(object, metaclass=ErrorHandlerMeta):
             ascending=ascending,
         )
         req = user_pb2.RetrievalDealRecordsRequest(config=deal_config)
-        return self.client.RetrievalDealRecords(req, metadata=self.get_metadata(token))
+        return self.client.RetrievalDealRecords(
+            req, metadata=self.get_metadata(token)
+        ).records

@@ -9,7 +9,13 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     install_requires=[
+        "deprecated==1.2.10",
         "grpc-powergate-client==1.1.2",
+        "grpcio==1.33.2",
+        "mypy-extensions==0.4.3",
+        "protobuf==3.14.0",
+        "six==1.15.0",
+        "wrapt==1.12.1",
     ],
     name="pygate_grpc",
     version="0.0.14",
@@ -18,7 +24,7 @@ setup(
     author="Pygate Team",
     author_email="info@pygate.com",
     license="MIT",
-    packages=["pygate_grpc", "proto"],
+    packages=["pygate_grpc"],
     long_description=long_description,
     long_description_content_type="text/markdown",
     zip_safe=False,

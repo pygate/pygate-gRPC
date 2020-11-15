@@ -1,9 +1,15 @@
-import grpc
 from typing import Tuple
+
+import grpc
 from powergate.user.v1 import user_pb2, user_pb2_grpc
-from pygate_grpc import data, deals, storage_config, storage_jobs, wallet
-from pygate_grpc.admin import admin
+
+from pygate_grpc.admin import AdminClient
+from pygate_grpc.config import ConfigClient
+from pygate_grpc.data import DataClient
+from pygate_grpc.deals import DealsClient
 from pygate_grpc.errors import ErrorHandlerMeta
+from pygate_grpc.storage_jobs import StorageJobsClient
+from pygate_grpc.wallet import WalletClient
 
 TOKEN_KEY = "x-ffs-token"
 ADMIN_TOKEN_KEY = "X-pow-admin-token"
@@ -21,14 +27,12 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
         self.token = None
         self.admin_token = None
 
-        self.admin = admin.AdminClient(channel, self.get_metadata)
-        self.data = data.DataClient(channel, self.get_metadata)
-        self.deals = deals.DealsClient(channel, self.get_metadata)
-        self.storage_config = storage_config.StorageConfigClient(
-            channel, self.get_metadata
-        )
-        self.storage_jobs = storage_jobs.StorageJobsClient(channel, self.get_metadata)
-        self.wallet = wallet.WalletClient(channel, self.get_metadata)
+        self.admin = AdminClient(channel, self.get_metadata)
+        self.data = DataClient(channel, self.get_metadata)
+        self.deals = DealsClient(channel, self.get_metadata)
+        self.config = ConfigClient(channel, self.get_metadata)
+        self.storage_jobs = StorageJobsClient(channel, self.get_metadata)
+        self.wallet = WalletClient(channel, self.get_metadata)
 
     def set_token(self, token: str):
         self.token = token

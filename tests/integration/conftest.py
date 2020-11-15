@@ -16,6 +16,7 @@ fileConfig("logging.ini")
 logger = logging.getLogger(__name__)
 
 REPO_LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "repo")
+POWERGATE_VERSION_TEST_TARGET = "v1.2.1"
 
 pytest_plugins = []
 
@@ -41,11 +42,11 @@ def is_docker_compose_installed():
     return res.returncode == 0
 
 
-def clone_powergate_repo():
+def clone_powergate_repo(version="master"):
     """Clones official Powergate repo """
     repo_url = "https://github.com/textileio/powergate"
     logger.debug(f"Cloning powergate repo from {repo_url}")
-    Repo.clone_from(repo_url, REPO_LOCAL_PATH, branch="master")
+    Repo.clone_from(repo_url, REPO_LOCAL_PATH, branch=version)
 
 
 @pytest.fixture(scope="session")
@@ -75,7 +76,7 @@ def pytest_configure(config):
         )
         pytest.exit(3)
 
-    clone_powergate_repo()
+    clone_powergate_repo(POWERGATE_VERSION_TEST_TARGET)
 
 
 def pytest_unconfigure(config):
@@ -93,7 +94,7 @@ def localnet(docker_services):
     """Starts a cli container to interact with localnet"""
     client = docker.from_env()
     container = client.containers.run(
-        "pygate/powergate-cli:v0.7.0",
+        "pygate/powergate-cli:v1.2.1",
         network_mode="host",
         auto_remove=True,
         detach=True,
@@ -108,7 +109,7 @@ def localnet(docker_services):
         sleep(5)
 
         try:
-            result = container.exec_run("pow health")
+            result = container.exec_run("pow --version")
             if result.exit_code > 0:
                 continue
         except docker.errors.ContainerError:

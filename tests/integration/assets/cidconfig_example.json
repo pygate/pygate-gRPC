@@ -1,0 +1,25 @@
+{
+    "hot": {
+        "enabled": true,
+        "ipfs": {
+            "addTimeout": "30"
+        }
+    },
+    "cold": {
+        "enabled": true,
+        "filecoin": {
+            "replicationFactor": "1",
+            "dealMinDuration": "518400",
+            "excludedMiners": ["t01101"],
+            "countryCodes": ["ca", "nl"],
+            "renew": {
+                "enabled": true,
+                "threshold": "3"
+            },
+            "address": "f3ugglyobkqbsi7m7vgcnvpk7mswinrv5s6wm2abrmeq6m5zw2i2xwknjxg566konp4esxfnxjaefaa3uy3waa",
+            "maxPrice": "50"
+        }
+    },
+    "repairable": true
+
+}

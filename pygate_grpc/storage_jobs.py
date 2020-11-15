@@ -1,5 +1,7 @@
 from typing import List
+
 from powergate.user.v1 import user_pb2, user_pb2_grpc
+
 from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
 
 

@@ -20,6 +20,7 @@ flake8 = "*"
 isort = "*"
 pylint = "*"
 mypy = "*"
+pygate-grpc = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"
@@ -30,7 +31,8 @@ publish = "twine upload dist/*"
 format = "bash -c \"python -m isort setup.py pygate_grpc tests && python -m black $(git ls-files '*.py')\""
 lint = "bash -c \"python -m flake8\""
 integration-test = "python -m pytest tests/integration/"
-test-api = "python -m pytest tests/integration/test_api.py"
 
 [packages]
 grpc-powergate-client = "==1.1.2"
+mypy-extensions = "*"
+deprecated = "*"

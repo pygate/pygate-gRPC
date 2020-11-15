@@ -1,6 +1,10 @@
 from typing import List
+
 from powergate.user.v1 import user_pb2, user_pb2_grpc
+
+from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta
+from pygate_grpc.types import Address
 
 
 class WalletClient(object, metaclass=ErrorHandlerMeta):
@@ -8,9 +12,9 @@ class WalletClient(object, metaclass=ErrorHandlerMeta):
         self.client = user_pb2_grpc.UserServiceStub(channel)
         self.get_metadata = get_metadata
 
-    def balance(self, address, token: str = None):
+    def balance(self, address, token: str = None) -> int:
         req = user_pb2.BalanceRequest(address=address)
-        return self.client.Balance(req, metadata=self.get_metadata(token))
+        return int(self.client.Balance(req, metadata=self.get_metadata(token)).balance)
 
     # Type should be either `bls` or `secp256k1`.
     def new_address(
@@ -24,12 +28,13 @@ class WalletClient(object, metaclass=ErrorHandlerMeta):
         req = user_pb2.NewAddressRequest(
             name=name, address_type=address_type, make_default=make_default
         )
-        return self.client.NewAddress(req, metadata=self.get_metadata(token))
+        return self.client.NewAddress(req, metadata=self.get_metadata(token)).address
 
-    def addresses(self, token: str = None):
+    @unmarshal_with(Address, many=True)
+    def addresses(self, token: str = None) -> List[Address]:
         return self.client.Addresses(
             user_pb2.AddressesRequest(), metadata=self.get_metadata(token)
-        )
+        ).addresses
 
     def send_fil(self, sender: str, receiver: str, amount: str, token: str = None):
         # To avoid name collision since `from` is reserved in Python.

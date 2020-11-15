@@ -1,4 +1,8 @@
+from typing import List
+
 from powergate.admin.v1 import admin_pb2, admin_pb2_grpc
+
+from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta
 
 
@@ -8,23 +12,25 @@ class WalletClient(object, metaclass=ErrorHandlerMeta):
         self.get_metadata = get_metadata
 
     # Type should be either `bls` or `secp256k1`.
-    def new_address(
-        self, address_type: str = "bls", admin_token: str = None,
-    ):
+    def new(self, address_type: str = "bls", admin_token: str = None,) -> str:
         self._check_address_type(address_type)
         req = admin_pb2.NewAddressRequest(address_type=address_type)
-        return self.client.NewAddress(req, metadata=self.get_metadata(admin_token))
+        return self.client.NewAddress(
+            req, metadata=self.get_metadata(admin_token)
+        ).address
 
-    def addresses(self, admin_token: str = None):
-        return self.client.Addresses(
-            admin_pb2.AddressesRequest(), metadata=self.get_metadata(admin_token),
+    def addresses(self, admin_token: str = None) -> List[str]:
+        return list(
+            self.client.Addresses(
+                admin_pb2.AddressesRequest(), metadata=self.get_metadata(admin_token),
+            ).addresses
         )
 
-    def send_fil(
-        self, sender: str, receiver: str, amount: str, admin_token: str = None
-    ):
+    def send(self, sender: str, receiver: str, amount: int, admin_token: str = None):
+        if type(amount) == float:
+            raise TypeError("amount should be an integer")
         # To avoid name collision since `from` is reserved in Python.
-        kwargs = {"from": sender, "to": receiver, "amount": amount}
+        kwargs = {"from": sender, "to": receiver, "amount": str(amount)}
         req = admin_pb2.SendFilRequest(**kwargs)
         return self.client.SendFil(req, metadata=self.get_metadata(admin_token))
 

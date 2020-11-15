@@ -3,6 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/pygate/pygate-grpc/badge)](https://www.codefactor.io/repository/github/pygate/pygate-grpc)
 [![PyPI version](https://badge.fury.io/py/pygate-grpc.svg)](https://badge.fury.io/py/pygate-grpc)
 ![Tests](https://github.com/pygate/pygate-gRPC/workflows/Tests/badge.svg)
+[![Downloads](https://pepy.tech/badge/pygate-grpc)](https://pepy.tech/project/pygate-grpc)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API

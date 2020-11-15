@@ -3,7 +3,6 @@ from pygate_grpc.data import get_file_bytes, byte_chunks_iter
 
 import os
 import json
-import time
 from pathlib import Path
 
 
@@ -35,4 +34,8 @@ test_bytes = b"These are some test bytes"
 staged_file = client.data.stage_bytes(test_bytes, user.token)
 print("StagedFile: ", staged_file)
 
-stage = client.config.apply(staged_file.cid, token=user.token, config=config)
+job = client.config.apply(staged_file.cid, token=user.token, config=config)
+print(job)
+
+file_bytes = client.data.get(staged_file.cid, token=user.token)
+print(file_bytes)

@@ -1,5 +1,5 @@
+from pygate_grpc.admin import storage_jobs, users, wallet
 from pygate_grpc.errors import ErrorHandlerMeta
-from pygate_grpc.admin import users, storage_jobs, wallet
 
 
 class AdminClient(object, metaclass=ErrorHandlerMeta):
