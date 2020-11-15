@@ -1,42 +1,58 @@
 import logging
 import time
 
-from proto.wallet_rpc_pb2 import BalanceResponse, ListResponse
+import pytest
+
 from pygate_grpc.client import PowerGateClient
+from pygate_grpc.types import Address, User
 
 logger = logging.getLogger(__name__)
 
 
-def test_grpc_wallet_list(pygate_client: PowerGateClient):
-    res = pygate_client.wallet.list()
-
-    assert res is not None
-    assert type(res) == ListResponse
-    # During creating it should have 1 address.
-    assert len(res.addresses) >= 1
+@pytest.fixture(scope="module")
+def user(pygate_client: PowerGateClient):
+    return pygate_client.admin.users.create()
 
 
-def test_grpc_wallet_new(pygate_client: PowerGateClient):
-    res = pygate_client.wallet.list()
-    assert res is not None
-    assert type(res) == ListResponse
-    num_of_address = len(res.addresses)
+def test_wallet_list(pygate_client: PowerGateClient, user: User):
+    addresses = pygate_client.wallet.addresses(user.token)
 
-    new_res = pygate_client.wallet.new()
-    assert new_res is not None
-
-    list_res = pygate_client.wallet.list()
-    assert len(list_res.addresses) == num_of_address + 1
-    assert new_res.address in list_res.addresses
+    assert addresses is not None
+    assert len(addresses) >= 1
+    assert type(addresses[0]) == Address
 
 
-def test_grpc_wallet_balance(pygate_client: PowerGateClient):
-    new_res = pygate_client.wallet.new()
-    assert new_res is not None
+def test_wallet_new(pygate_client: PowerGateClient, user: User):
+    addr_name = "Test Address"
+    addr_type = "secp256k1"
+    address = pygate_client.wallet.new_address(
+        name=addr_name, address_type=addr_type, token=user.token
+    )
 
-    # Wait a bit for the transaction to finish.
-    time.sleep(5)
+    assert address is not None
+    assert type(address) == str
 
-    balance_res = pygate_client.wallet.balance(new_res.address)
-    assert type(balance_res) is BalanceResponse
-    assert balance_res.balance == 250000000000000000
+    address_details = next(
+        addr
+        for addr in pygate_client.wallet.addresses(token=user.token)
+        if addr.address == address
+    )
+    assert address_details.name == addr_name
+    assert address_details.type == addr_type
+
+
+def test_wallet_balance(pygate_client: PowerGateClient, user: User):
+    user_addr = pygate_client.wallet.addresses(user.token)[0].address
+
+    timeout = 5
+    start = int(time.time())
+    balance = pygate_client.wallet.balance(user_addr)
+    while balance != 250000000000000000:
+        time.sleep(1)
+        balance = pygate_client.wallet.balance(user_addr)
+        now = int(time.time())
+        if now - start > timeout:
+            raise Exception("Waiting for wallet to initialize timed out")
+
+    assert type(balance) is int
+    assert balance == 250000000000000000

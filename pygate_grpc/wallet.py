@@ -1,35 +1,56 @@
-import logging
+from typing import List
 
-import proto.wallet_rpc_pb2 as wallet_rpc_pb2
-import proto.wallet_rpc_pb2_grpc as wallet_rpc_pb2_grpc
+from powergate.user.v1 import user_pb2, user_pb2_grpc
 
-logger = logging.getLogger(__name__)
+from pygate_grpc.decorators import unmarshal_with
+from pygate_grpc.errors import ErrorHandlerMeta
+from pygate_grpc.types import Address
 
 
-class WalletClient(object):
-    def __init__(self, channel):
-        self.client = wallet_rpc_pb2_grpc.RPCServiceStub(channel)
+class WalletClient(object, metaclass=ErrorHandlerMeta):
+    def __init__(self, channel, get_metadata):
+        self.client = user_pb2_grpc.UserServiceStub(channel)
+        self.get_metadata = get_metadata
+
+    def balance(self, address, token: str = None) -> int:
+        req = user_pb2.BalanceRequest(address=address)
+        return int(self.client.Balance(req, metadata=self.get_metadata(token)).balance)
 
     # Type should be either `bls` or `secp256k1`.
-    def list(self, type_="bls"):
-        self._check_address_type(type_)
-        req = wallet_rpc_pb2.ListRequest(type=type_)
-        return self.client.List(req)
+    def new_address(
+        self,
+        name: str,
+        address_type: str = "bls",
+        make_default: bool = False,
+        token: str = None,
+    ):
+        self._check_address_type(address_type)
+        req = user_pb2.NewAddressRequest(
+            name=name, address_type=address_type, make_default=make_default
+        )
+        return self.client.NewAddress(req, metadata=self.get_metadata(token)).address
 
-    # Type should be either `bls` or `secp256k1`.
-    def new(self, type_="bls"):
-        self._check_address_type(type_)
-        req = wallet_rpc_pb2.NewAddressRequest(type=type_)
-        return self.client.NewAddress(req)
+    @unmarshal_with(Address, many=True)
+    def addresses(self, token: str = None) -> List[Address]:
+        return self.client.Addresses(
+            user_pb2.AddressesRequest(), metadata=self.get_metadata(token)
+        ).addresses
 
-    def balance(self, address):
-        req = wallet_rpc_pb2.BalanceRequest(address=address)
-        return self.client.Balance(req)
-
-    def send_fil(self, sender, receiver, amount):
+    def send_fil(self, sender: str, receiver: str, amount: str, token: str = None):
+        # To avoid name collision since `from` is reserved in Python.
         kwargs = {"from": sender, "to": receiver, "amount": amount}
-        req = wallet_rpc_pb2.SendFilRequest(**kwargs)
-        return self.client.SendFil(req)
+        req = user_pb2.SendFilRequest(**kwargs)
+        return self.client.SendFil(req, metadata=self.get_metadata(token))
+
+    def sign_message(self, addr: str, msg: bytes, token: str = None):
+        req = user_pb2.SignMessageRequest(addr=addr, msg=msg)
+        return self.client.SignMessage(req, metadata=self.get_metadata(token))
+
+    def verify_message(
+        self, addr: str, msg: bytes, signature: bytes, token: str = None
+    ):
+        req = user_pb2.VerifyMessageRequest(addr=addr, msg=msg, signature=signature)
+        return self.client.VerifyMessage(req, metadata=self.get_metadata(token))
 
     def _check_address_type(self, wallet_type):
         acceptable_types = ["bls", "secp256k1"]

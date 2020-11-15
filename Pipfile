@@ -14,13 +14,13 @@ pytest = "*"
 docker = "*"
 gitpython = "*"
 pytest-docker = "*"
-grpcio-tools = "*"
 secretstorage = {markers = "sys_platform == 'linux'"}
 keyring = "==19.1.0"
 flake8 = "*"
 isort = "*"
 pylint = "*"
 mypy = "*"
+pygate-grpc = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"
@@ -31,10 +31,8 @@ publish = "twine upload dist/*"
 format = "bash -c \"python -m isort setup.py pygate_grpc tests && python -m black $(git ls-files '*.py')\""
 lint = "bash -c \"python -m flake8\""
 integration-test = "python -m pytest tests/integration/"
-test-ffs = "python -m pytest tests/integration/test_ffs.py"
 
 [packages]
-grpcio = "*"
-protobuf = "*"
-six = "*"
+grpc-powergate-client = "==1.1.2"
+mypy-extensions = "*"
 deprecated = "*"
