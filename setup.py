@@ -18,7 +18,7 @@ setup(
         "wrapt==1.12.1",
     ],
     name="pygate_grpc",
-    version="1.0.0",
+    version="1.0.1",
     description="A Python interface to Textile's Powergate Filecoin API",
     url="https://github.com/pygate/pygate-gRPC",
     author="Pygate Team",
