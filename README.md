@@ -44,9 +44,15 @@ Please read contribution [guidelines](CONTRIBUTING.md) before starting developme
 
 To setup your development environment make sure you have the following software:
 
+- [Git](https://git-scm.com/)
 - [Python](https://www.python.org/downloads/release/python-370/)
 - [pip](https://pip.pypa.io/en/stable/installing/)
 - [pipenv](https://pypi.org/project/pipenv/) ( or run `pip install pipenv`)
+
+## Clone the repository
+```
+git clone https://github.com/pygate/pygate-gRPC.git
+```
 
 ## Install dependencies
 
