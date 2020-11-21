@@ -27,14 +27,14 @@ Here is a basic usage example of the pygate_grpc:
 ```python
 from pygate_grpc.client import PowerGateClient
 
-client = PowerGateClient("127.0.0.1:5002", False)
+client = PowerGateClient("127.0.0.1:5002", is_secure=False)
 
 build_info = client.build_info()
 ```
 
 Simple as that!
 
-Note: this examples assumes you have a Powergate server running with an API available at `127.0.0.1:5002`. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/).
+Note: this examples assumes you have a Powergate server running with an API available at `127.0.0.1:5002`. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/). The `is_secure=False` flag indicates that SSL is not enabled on this server.
 
 Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
