@@ -56,12 +56,13 @@ git clone https://github.com/pygate/pygate-gRPC.git
 
 ## Install dependencies
 
-Runtime and development dependencies can be installed in a new virtual environment automatically by running:
+The runtime and development dependencies can be installed in a new virtual environment automatically by running the following command in the project root directory:
 
-NOTE: The `--dev` flag can be ommited if you only need runtime dependencies
 ```
 pipenv install --dev
 ```
+
+NOTE: The `--dev` flag can be ommited if you only need runtime dependencies
 
 ### **Using the virtual environment**
 
