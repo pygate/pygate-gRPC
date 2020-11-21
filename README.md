@@ -38,7 +38,7 @@ Note: this examples assumes you have a Powergate server running with an API avai
 
 Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
-## Development
+# Development
 
 Please read contribution [guidelines](CONTRIBUTING.md) before starting development.
 
