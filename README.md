@@ -10,7 +10,7 @@ A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.
 
 ## Getting Started
 
-You can get started using `pygate_grpc` by installing it through the test PyPi repository.
+You can get started using `pygate_grpc` by installing it through the PyPi repository.
 
 ```
 pip install pygate_grpc
