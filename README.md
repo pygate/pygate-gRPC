@@ -6,9 +6,11 @@
 [![Downloads](https://pepy.tech/badge/pygate-grpc)](https://pepy.tech/project/pygate-grpc)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+## Background
+
 A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API. See the project [website](http://pygate.tech) for more details.
 
-## Getting Started
+## Install
 
 You can get started using `pygate_grpc` by installing it through the PyPi repository.
 
@@ -36,7 +38,7 @@ Note: this examples assumes you have a Powergate server running with an API avai
 
 Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
-# Development
+# Contributing
 
 Please read contribution [guidelines](CONTRIBUTING.md) before starting development.
 
@@ -104,15 +106,8 @@ Finally, to push the new version to git and trigger a new release action it is n
 git push origin main --tags
 ```
 
-## Authors
-
-* **Antreas Pogiatzis**
-* **Wang Ge**
-* **Peter Van Garderen**
-
-
-See also the list of [contributors](https://github.com/pygate/pygate-gRPC/graphs/contributors) who participated in this project.
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+[MIT © Antreas Pogiatzis, Wang Ge, Peter Van Garderen, Aaron Sutula](LICENSE)
+
+
