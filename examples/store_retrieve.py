@@ -16,7 +16,7 @@ if __name__ == "__main__":
     print(user)
 
     # Stage file
-    print("Staging testfile.txt to IPFS storage")
+    print("Staging 'testfile.txt' to IPFS storage...")
     path = Path(os.path.abspath(__file__))
     staged_file = c.data.stage_file(path.parent / "testfile.txt", user.token)
     print("IPFS CID: " + staged_file.cid)
