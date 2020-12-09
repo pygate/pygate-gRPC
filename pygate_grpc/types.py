@@ -6,8 +6,16 @@ Address = namedtuple("Address", ["name", "address", "type", "balance"])
 Job = namedtuple("Job", ["jobId"])
 CidInfo = namedtuple(
     "CidInfo",
-    ["cid", "latestPushedStorageConfig", "executingStorageJob", "queuedStorageJobs"],
-    defaults=(None,) * 4,
+    [
+        "cid",
+        "latestPushedStorageConfig",
+        "executingStorageJob",
+        "queuedStorageJobs",
+        "currentStorageInfo",
+        "latestFinalStorageJob",
+        "latestSuccessfulStorageJob",
+    ],
+    defaults=(None,) * 7,
 )
 BuildInfo = namedtuple(
     "BuildInfo",
