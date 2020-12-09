@@ -16,15 +16,21 @@ if __name__ == "__main__":
     print(user)
 
     # Stage file
-    print("Staging testfile.txt to IPFS storage")
+    print("Staging 'testfile.txt' to IPFS storage...")
     path = Path(os.path.abspath(__file__))
     staged_file = c.data.stage_file(path.parent / "testfile.txt", user.token)
-    print("Applying storage config...")
+    print("IPFS CID: " + staged_file.cid)
 
     # Apply the default storage config to the given file
-    c.config.apply(staged_file.cid, override=False, token=user.token)
+    print("Applying Filecoin storage config to CID...")
+    job = c.config.apply(staged_file.cid, override=False, token=user.token)
+
+    # Report back the Job ID for the successful Filecoin storage job
+    print("File successfully added to Filecoin storage.")
+    print("Job ID: " + job.jobId)
 
     # Override push with another config
+    print("Applying new config settings to file...")
     addresses = c.wallet.addresses(user.token)
     wallet = addresses[0].address
     new_config = {
@@ -53,10 +59,10 @@ if __name__ == "__main__":
     print(check)
 
     # Get the data back
-    print("Retrieving file " + staged_file.cid)
+    print("Retrieving file " + staged_file.cid + "...")
     file_bytes = c.data.get(staged_file.cid, user.token)
 
     # Write to a file on disk
-    print("Saving as 'testfile_copy.txt'")
     with open(path.parent / "testfile_copy.txt", "wb") as f:
         f.write(file_bytes)
+    print("Saved as 'testfile_copy.txt'")

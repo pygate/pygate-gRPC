@@ -1,4 +1,4 @@
-# pygate gRPC client
+# Pygate gRPC client
 
 [![CodeFactor](https://www.codefactor.io/repository/github/pygate/pygate-grpc/badge)](https://www.codefactor.io/repository/github/pygate/pygate-grpc)
 [![PyPI version](https://badge.fury.io/py/pygate-grpc.svg)](https://badge.fury.io/py/pygate-grpc)
@@ -6,13 +6,13 @@
 [![Downloads](https://pepy.tech/badge/pygate-grpc)](https://pepy.tech/project/pygate-grpc)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API
+## Background
 
-Pygate is a [HackFS](https://hackfs.com/) project. See the project [website](http://pygate.tech) for more details.
+A Python interface to [Textile](https://textile.io/)'s [Powergate](https://docs.textile.io/powergate/) [Filecoin](https://filecoin.io/) API. See the project [website](http://pygate.tech) for more details.
 
-## Getting Started
+## Install
 
-You can get started using `pygate_grpc` by installing it through the test PyPi repository.
+You can get started using `pygate_grpc` by installing it through the PyPi repository.
 
 ```
 pip install pygate_grpc
@@ -27,35 +27,42 @@ Here is a basic usage example of the pygate_grpc:
 ```python
 from pygate_grpc.client import PowerGateClient
 
-client = PowerGateClient("127.0.0.1:5002", False)
+client = PowerGateClient("127.0.0.1:5002", is_secure=False)
 
 build_info = client.build_info()
 ```
 
 Simple as that!
 
-Note: this examples assumes you have a Powergate server running with an API available at `127.0.0.1:5002`. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/).
+Note: this examples assumes you have a Powergate server running with an API available at `127.0.0.1:5002`. See Textile's Powergate [Localnet](https://docs.textile.io/powergate/localnet/). The `is_secure=False` flag indicates that SSL is not enabled on this server.
 
 Examples of more elaborated usage can be found in the [examples](./examples/)  folder.
 
-## Development
+# Contributing
 
 Please read contribution [guidelines](CONTRIBUTING.md) before starting development.
 
 To setup your development environment make sure you have the following software:
 
+- [Git](https://git-scm.com/)
 - [Python](https://www.python.org/downloads/release/python-370/)
 - [pip](https://pip.pypa.io/en/stable/installing/)
 - [pipenv](https://pypi.org/project/pipenv/) ( or run `pip install pipenv`)
 
+## Clone the repository
+```
+git clone https://github.com/pygate/pygate-gRPC.git
+```
+
 ## Install dependencies
 
-Runtime and development dependencies can be installed in a new virtual environment automatically by running:
+The runtime and development dependencies can be installed in a new virtual environment automatically by running the following command in the project root directory:
 
-NOTE: The `--dev` flag can be ommited if you only need runtime dependencies
 ```
 pipenv install --dev
 ```
+
+NOTE: The `--dev` flag can be ommited if you only need runtime dependencies
 
 ### **Using the virtual environment**
 
@@ -106,15 +113,8 @@ Finally, to push the new version to git and trigger a new release action it is n
 git push origin main --tags
 ```
 
-## Authors
-
-* **Antreas Pogiatzis**
-* **Wang Ge**
-* **Peter Van Garderen**
-
-
-See also the list of [contributors](https://github.com/pygate/pygate-gRPC/graphs/contributors) who participated in this project.
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+[MIT © Antreas Pogiatzis, Wang Ge, Peter Van Garderen, Aaron Sutula](LICENSE)
+
+
