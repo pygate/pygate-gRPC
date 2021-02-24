@@ -127,6 +127,9 @@ def localnet(docker_services):
         
         break
 
+    # Give it some time to initialize...
+    sleep(10)
+
     yield {"cli": container}
 
     logger.debug("Tearing down localnet...")
