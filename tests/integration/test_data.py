@@ -1,6 +1,7 @@
 import logging
 
 import pytest
+import subprocess
 
 from pygate_grpc.client import PowerGateClient
 from pygate_grpc.exceptions import GRPCTimeoutException
@@ -11,6 +12,8 @@ logger = logging.getLogger(__name__)
 
 @pytest.fixture(scope="module")
 def user(pygate_client: PowerGateClient):
+    res = subprocess.run(["docker", "ps"])
+    print(res)
     return pygate_client.admin.users.create()
 
 
