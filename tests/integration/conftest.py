@@ -94,7 +94,7 @@ def localnet(docker_services):
     """Starts a cli container to interact with localnet"""
     client = docker.from_env()
     container = client.containers.run(
-        "pygate/powergate-cli:v1.2.1",
+        "pygate/powergate-cli:v2.1.0",
         network_mode="host",
         auto_remove=True,
         detach=True,
