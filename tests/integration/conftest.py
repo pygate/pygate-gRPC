@@ -2,12 +2,12 @@ import logging
 import os
 import shutil
 import subprocess
-import requests
 from logging.config import fileConfig
 from time import sleep, time
 
 import docker
 import pytest
+import requests
 from git import Repo
 
 from pygate_grpc.client import PowerGateClient
@@ -43,6 +43,7 @@ def is_docker_compose_installed():
     logger.debug("Checking if docker-compose is installed...")
     res = subprocess.run(["docker-compose", "--version"])
     return res.returncode == 0
+
 
 def is_ipfs_running():
     """Checks if ipfs api is operational"""
@@ -124,7 +125,7 @@ def localnet(docker_services):
                 continue
         except docker.errors.ContainerError:
             continue
-        
+
         break
 
     # Give it some time to initialize...
