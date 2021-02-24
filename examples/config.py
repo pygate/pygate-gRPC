@@ -33,4 +33,12 @@ test_bytes = b"These are some test bytes"
 staged_file = client.data.stage_bytes(test_bytes, user.token)
 print("StagedFile: ", staged_file)
 
-stage = client.config.apply(staged_file.cid, token=user.token, config=config)
+print("Disabling from hot and cold storage...")
+config["cold"]["enabled"] = False
+config["hot"]["enabled"] = False
+stage = client.config.apply(
+    staged_file.cid, token=user.token, config=config, no_exec=False, import_deal_ids=[]
+)
+
+print("Removing...")
+client.config.remove(staged_file.cid, token=user.token)

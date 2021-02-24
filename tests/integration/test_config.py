@@ -46,7 +46,12 @@ def test_apply_config(pygate_client: PowerGateClient, user: User):
     staged_file = pygate_client.data.stage_bytes(file_bytes, token=user.token)
 
     job = pygate_client.config.apply(
-        staged_file.cid, token=user.token, config=config, override=True
+        staged_file.cid,
+        token=user.token,
+        config=config,
+        override=True,
+        no_exec=False,
+        import_deal_ids=[],
     )
 
     assert type(job) == Job

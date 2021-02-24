@@ -33,6 +33,6 @@ lint = "bash -c \"python -m flake8\""
 integration-test = "python -m pytest tests/integration/"
 
 [packages]
-grpc-powergate-client = "==1.1.2"
+grpc-powergate-client = "==2.1.0"
 mypy-extensions = "*"
 deprecated = "*"

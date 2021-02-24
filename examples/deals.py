@@ -21,12 +21,12 @@ if __name__ == "__main__":
     apply_res = client.config.apply(stage_res.cid, token=user.token)
 
     # Check that cid is in the process of being stored by Powegate
-    check = client.data.cid_info([stage_res.cid], user.token)
+    check = client.data.cid_info(stage_res.cid, user.token)
     print("Checking cid storage...")
     print(check)
 
     # Wait some time so that we can get some deals
-    time.sleep(60)
+    time.sleep(10)
 
     # Check information about the storage deal
     storage_deals = client.deals.storage_deal_records(

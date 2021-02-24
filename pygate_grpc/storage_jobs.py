@@ -18,9 +18,21 @@ class StorageJobsClient(object, metaclass=ErrorHandlerMeta):
         req = user_pb2.StorageConfigForJobRequest(job_id=job_id)
         return self.client.StorageConfigForJob(req, metadata=self.get_metadata(token))
 
-    def queued(self, cids: List[str], token: str = None):
-        req = user_pb2.QueuedStorageJobsRequest(cids=cids)
-        return self.client.QueuedStorageJobs(req, metadata=self.get_metadata(token))
+    def list(
+        self,
+        cid_filter: str,
+        limit: int = None,
+        ascending: bool = False,
+        next_page_token=None,
+        token: str = None,
+    ):
+        req = user_pb2.ListStorageJobsRequest(
+            cid_filter=cid_filter,
+            limit=limit,
+            ascending=ascending,
+            next_page_token=next_page_token,
+        )
+        return self.client.ListStorageJobs(req, metadata=self.get_metadata(token))
 
     def executing(self, cids: List[str], token: str = None):
         req = user_pb2.ExecutingStorageJobsRequest(cids=cids)

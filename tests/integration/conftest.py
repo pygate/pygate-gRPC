@@ -16,7 +16,7 @@ fileConfig("logging.ini")
 logger = logging.getLogger(__name__)
 
 REPO_LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "repo")
-POWERGATE_VERSION_TEST_TARGET = "v1.2.1"
+POWERGATE_VERSION_TEST_TARGET = "v2.1.0"
 
 pytest_plugins = []
 

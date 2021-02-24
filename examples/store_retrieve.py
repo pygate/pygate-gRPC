@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+
 from pygate_grpc.client import PowerGateClient
 
 
@@ -54,7 +55,7 @@ if __name__ == "__main__":
     c.config.apply(staged_file.cid, override=True, config=new_config, token=user.token)
 
     # Check that CID is stored
-    check = c.data.cid_info([staged_file.cid], user.token)
+    check = c.data.cid_info(staged_file.cid, user.token)
     print("Checking CID storage...")
     print(check)
 
@@ -66,3 +67,6 @@ if __name__ == "__main__":
     with open(path.parent / "testfile_copy.txt", "wb") as f:
         f.write(file_bytes)
     print("Saved as 'testfile_copy.txt'")
+
+    cid_summary = c.data.cid_summary(cids=[staged_file.cid], token=user.token)
+    print("CID summary: ", cid_summary)

@@ -33,7 +33,13 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
 
     @unmarshal_with(Job)
     def apply(
-        self, cid, token: str = None, override: bool = False, config: str = None,
+        self,
+        cid,
+        token: str = None,
+        override: bool = False,
+        config: str = None,
+        import_deal_ids=[],
+        no_exec=False,
     ) -> Job:
         if type(config) == dict:
             config = json.dumps(config)
@@ -47,6 +53,8 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
             has_override_config=override,
             config=config,
             has_config=config is not None,
+            import_deal_ids=import_deal_ids,
+            no_exec=no_exec,
         )
         return self.client.ApplyStorageConfig(req, metadata=self.get_metadata(token))
 

@@ -4,7 +4,7 @@ import pytest
 
 from pygate_grpc.client import PowerGateClient
 from pygate_grpc.exceptions import GRPCTimeoutException
-from pygate_grpc.types import CidInfo, StagedFile, User
+from pygate_grpc.types import CidInfo, CidSummary, StagedFile, User
 
 logger = logging.getLogger(__name__)
 
@@ -36,12 +36,18 @@ def test_get_data(pygate_client: PowerGateClient, user: User):
 
 
 def test_cid_info(pygate_client: PowerGateClient, user: User, staged_file: StagedFile):
+    cid_info = pygate_client.data.cid_info(staged_file.cid, token=user.token)
+    assert type(cid_info) == CidInfo
 
-    list_of_cids = [staged_file.cid]
-    cid_info = pygate_client.data.cid_info(list_of_cids, token=user.token)
 
-    assert len(cid_info) == len(list_of_cids)
-    assert type(cid_info[0]) == CidInfo
+def test_cid_summary(
+    pygate_client: PowerGateClient, user: User, staged_file: StagedFile
+):
+    cid_summary_list = pygate_client.data.cid_summary(
+        cids=[staged_file.cid], token=user.token
+    )
+    assert len(cid_summary_list) > 0
+    assert type(cid_summary_list[0]) == CidSummary
 
 
 def test_logs(pygate_client: PowerGateClient, user: User, staged_file: StagedFile):
