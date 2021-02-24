@@ -19,7 +19,7 @@ def user(pygate_client: PowerGateClient):
 def test_get_default_config(pygate_client: PowerGateClient, user: User):
     default_config = pygate_client.config.default(user.token)
 
-    assert type(default_config) is dict
+    assert isinstance(default_config, dict)
 
 
 def test_replace_default_config(pygate_client: PowerGateClient, user: User):
@@ -31,7 +31,7 @@ def test_replace_default_config(pygate_client: PowerGateClient, user: User):
 
     default_config = pygate_client.config.default(user.token)
 
-    assert type(default_config) == dict
+    assert isinstance(default_config, dict)
     assert default_config == new_config
 
 
@@ -54,7 +54,7 @@ def test_apply_config(pygate_client: PowerGateClient, user: User):
         import_deal_ids=[],
     )
 
-    assert type(job) == Job
+    assert isinstance(job, Job)
 
 
 def test_remove(pygate_client: PowerGateClient, user: User):

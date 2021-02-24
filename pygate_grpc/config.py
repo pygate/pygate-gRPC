@@ -22,7 +22,7 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
 
     # Currently you need to pass in the user_pb2.DefaultConfig. However, this is not a good design.
     def set_default(self, config: str, token: str = None):
-        if type(config) == dict:
+        if isinstance(config, dict):
             config = json.dumps(config)
 
         config = Parse(config, user_pb2.StorageConfig())
@@ -41,7 +41,7 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
         import_deal_ids=[],
         no_exec=False,
     ) -> Job:
-        if type(config) == dict:
+        if isinstance(config, dict):
             config = json.dumps(config)
 
         if config:

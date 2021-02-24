@@ -37,7 +37,7 @@ def test_get_data(pygate_client: PowerGateClient, user: User):
 
 def test_cid_info(pygate_client: PowerGateClient, user: User, staged_file: StagedFile):
     cid_info = pygate_client.data.cid_info(staged_file.cid, token=user.token)
-    assert type(cid_info) == CidInfo
+    assert isinstance(cid_info, CidInfo)
 
 
 def test_cid_summary(
@@ -47,7 +47,7 @@ def test_cid_summary(
         cids=[staged_file.cid], token=user.token
     )
     assert len(cid_summary_list) > 0
-    assert type(cid_summary_list[0]) == CidSummary
+    assert isinstance(cid_summary_list[0], CidSummary)
 
 
 def test_logs(pygate_client: PowerGateClient, user: User, staged_file: StagedFile):
