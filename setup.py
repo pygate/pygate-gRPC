@@ -1,7 +1,7 @@
 # read the contents of your README file
 from os import path
 
-from setuptools import setup,find_packages
+from setuptools import find_packages, setup
 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
@@ -9,11 +9,11 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     install_requires=[
-        "deprecated==1.2.10",
-        "grpc-powergate-client==1.1.2",
-        "grpcio==1.33.2",
+        "deprecated==1.2.11",
+        "grpc-powergate-client==2.1.0",
+        "grpcio==1.35.0",
         "mypy-extensions==0.4.3",
-        "protobuf==3.14.0",
+        "protobuf==3.15.1",
         "six==1.15.0",
         "wrapt==1.12.1",
     ],

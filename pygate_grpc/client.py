@@ -9,6 +9,7 @@ from pygate_grpc.data import DataClient
 from pygate_grpc.deals import DealsClient
 from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta
+from pygate_grpc.storage_info import StorageInfoClient
 from pygate_grpc.storage_jobs import StorageJobsClient
 from pygate_grpc.types import BuildInfo
 from pygate_grpc.wallet import WalletClient
@@ -34,6 +35,7 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
         self.deals = DealsClient(channel, self.get_metadata)
         self.config = ConfigClient(channel, self.get_metadata)
         self.storage_jobs = StorageJobsClient(channel, self.get_metadata)
+        self.storage_info = StorageInfoClient(channel, self.get_metadata)
         self.wallet = WalletClient(channel, self.get_metadata)
 
     def set_token(self, token: str):
@@ -61,8 +63,8 @@ class PowerGateClient(object, metaclass=ErrorHandlerMeta):
         token_data: Tuple[Tuple[str, str]] = ()
         admin_token_data: Tuple[Tuple[str, str]] = ()
 
-        final_token = token if token else self.token
-        final_admin_token = admin_token if admin_token else self.admin_token
+        final_token = token or self.token
+        final_admin_token = admin_token or self.admin_token
 
         if final_token is not None:
             token_data = ((TOKEN_KEY, final_token),)

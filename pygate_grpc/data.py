@@ -6,7 +6,7 @@ from powergate.user.v1 import user_pb2, user_pb2_grpc
 
 from pygate_grpc.decorators import unmarshal_with
 from pygate_grpc.errors import ErrorHandlerMeta, future_error_handler
-from pygate_grpc.types import CidInfo, StagedFile
+from pygate_grpc.types import CidInfo, CidSummary, StagedFile
 
 CHUNK_SIZE = 1024 * 1024  # 1MB
 
@@ -101,7 +101,14 @@ class DataClient(object, metaclass=ErrorHandlerMeta):
             req, metadata=self.get_metadata(token), timeout=timeout
         )
 
-    @unmarshal_with(CidInfo, many=True)
-    def cid_info(self, cids: List[str], token: str = None) -> List[CidInfo]:
-        req = user_pb2.CidInfoRequest(cids=cids)
-        return self.client.CidInfo(req, metadata=self.get_metadata(token)).cid_infos
+    @unmarshal_with(CidInfo)
+    def cid_info(self, cid: str, token: str = None) -> CidInfo:
+        req = user_pb2.CidInfoRequest(cid=cid)
+        return self.client.CidInfo(req, metadata=self.get_metadata(token)).cid_info
+
+    @unmarshal_with(CidSummary, many=True)
+    def cid_summary(self, cids: List[str], token: str = None) -> CidSummary:
+        req = user_pb2.CidSummaryRequest(cids=cids)
+        return self.client.CidSummary(
+            req, metadata=self.get_metadata(token)
+        ).cid_summary

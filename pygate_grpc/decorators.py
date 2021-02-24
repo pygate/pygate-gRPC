@@ -15,18 +15,16 @@ def unmarshal_with(cls=None, many=False):
         def wrapper(*args, **kwargs):
             if cls is None:
                 if many:
-
                     return [
                         MessageToDict(obj) for obj in original_func(*args, **kwargs)
                     ]
                 return MessageToDict(original_func(*args, **kwargs))
-            else:
-                if many:
-                    return [
-                        cls(**MessageToDict(obj))
-                        for obj in original_func(*args, **kwargs)
-                    ]
-                return cls(**MessageToDict(original_func(*args, **kwargs)))
+            # cls is not None
+            if many:
+                return [
+                    cls(**MessageToDict(obj)) for obj in original_func(*args, **kwargs)
+                ]
+            return cls(**MessageToDict(original_func(*args, **kwargs)))
 
         return wrapper
 

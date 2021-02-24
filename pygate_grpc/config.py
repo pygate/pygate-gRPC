@@ -22,7 +22,7 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
 
     # Currently you need to pass in the user_pb2.DefaultConfig. However, this is not a good design.
     def set_default(self, config: str, token: str = None):
-        if type(config) == dict:
+        if isinstance(config, dict):
             config = json.dumps(config)
 
         config = Parse(config, user_pb2.StorageConfig())
@@ -33,9 +33,15 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
 
     @unmarshal_with(Job)
     def apply(
-        self, cid, token: str = None, override: bool = False, config: str = None,
+        self,
+        cid,
+        token: str = None,
+        override: bool = False,
+        config: str = None,
+        import_deal_ids=[],
+        no_exec=False,
     ) -> Job:
-        if type(config) == dict:
+        if isinstance(config, dict):
             config = json.dumps(config)
 
         if config:
@@ -47,6 +53,8 @@ class ConfigClient(object, metaclass=ErrorHandlerMeta):
             has_override_config=override,
             config=config,
             has_config=config is not None,
+            import_deal_ids=import_deal_ids,
+            no_exec=no_exec,
         )
         return self.client.ApplyStorageConfig(req, metadata=self.get_metadata(token))
 

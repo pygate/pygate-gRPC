@@ -7,6 +7,7 @@ from time import sleep, time
 
 import docker
 import pytest
+import requests
 from git import Repo
 
 from pygate_grpc.client import PowerGateClient
@@ -16,7 +17,9 @@ fileConfig("logging.ini")
 logger = logging.getLogger(__name__)
 
 REPO_LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "repo")
-POWERGATE_VERSION_TEST_TARGET = "v1.2.1"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+POWERGATE_VERSION_TEST_TARGET = "v2.1.0"
 
 pytest_plugins = []
 
@@ -42,6 +45,13 @@ def is_docker_compose_installed():
     return res.returncode == 0
 
 
+def is_ipfs_running():
+    """Checks if ipfs api is operational"""
+    logger.debug("Checking if IPFS API is operational...")
+    res = requests.post("http://localhost:5001/api/v0/swarm/peers")
+    return res.status_code == 200
+
+
 def clone_powergate_repo(version="master"):
     """Clones official Powergate repo """
     repo_url = "https://github.com/textileio/powergate"
@@ -55,6 +65,7 @@ def docker_compose_file(pytestconfig):
         os.path.join(REPO_LOCAL_PATH, "docker", "docker-compose-localnet.yaml"),
         os.path.join(REPO_LOCAL_PATH, "docker", "ipfs-image.yaml"),
         os.path.join(REPO_LOCAL_PATH, "docker", "powergate-build-context.yaml"),
+        os.path.join(BASE_DIR, "docker", "resource_limits.yaml"),
     ]
 
 
@@ -94,7 +105,7 @@ def localnet(docker_services):
     """Starts a cli container to interact with localnet"""
     client = docker.from_env()
     container = client.containers.run(
-        "pygate/powergate-cli:v1.2.1",
+        "pygate/powergate-cli:v2.1.0",
         network_mode="host",
         auto_remove=True,
         detach=True,
@@ -114,7 +125,11 @@ def localnet(docker_services):
                 continue
         except docker.errors.ContainerError:
             continue
+
         break
+
+    # Give it some time to initialize...
+    sleep(10)
 
     yield {"cli": container}
 
