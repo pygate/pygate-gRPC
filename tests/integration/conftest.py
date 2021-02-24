@@ -2,6 +2,7 @@ import logging
 import os
 import shutil
 import subprocess
+import requests
 from logging.config import fileConfig
 from time import sleep, time
 
@@ -40,6 +41,12 @@ def is_docker_compose_installed():
     logger.debug("Checking if docker-compose is installed...")
     res = subprocess.run(["docker-compose", "--version"])
     return res.returncode == 0
+
+def is_ipfs_running():
+    """Checks if ipfs api is operational"""
+    logger.debug("Checking if IPFS API is operational...")
+    res = requests.post("http://localhost:5001/api/v0/swarm/peers")
+    return res.status_code == 200
 
 
 def clone_powergate_repo(version="master"):
@@ -114,7 +121,9 @@ def localnet(docker_services):
                 continue
         except docker.errors.ContainerError:
             continue
-        break
+        
+        if is_ipfs_running():
+            break
 
     yield {"cli": container}
 
