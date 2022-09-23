@@ -13,7 +13,7 @@ setup(
         "grpc-powergate-client==2.1.0",
         "grpcio==1.35.0",
         "mypy-extensions==0.4.3",
-        "protobuf==3.15.1",
+        "protobuf==3.18.3",
         "six==1.15.0",
         "wrapt==1.12.1",
     ],
